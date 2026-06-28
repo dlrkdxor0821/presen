@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ABA — Arte Book Assistance · 리비(Libi)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,400..600&family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#1C2B4A;
+  --navy-deep:#141F38;
+  --navy-soft:#33445F;
+  --gold:#E0A43C;
+  --gold-light:#FFD98A;
+  --gold-dark:#B07F2A;
+  --cream:#F6F2E8;
+  --cream-deep:#EDE6D6;
+  --teal:#1E8C80;
+  --teal-light:#7FE3D7;
+  --muted:#6B7686;
+  --ink:#26303F;
+  --white:#FFFFFF;
+  --serif:"Fraunces","Gowun Batang",serif;
+  --sans:"IBM Plex Sans KR",system-ui,sans-serif;
+  --shadow:0 18px 50px -22px rgba(20,31,56,.45);
+  --shadow-sm:0 8px 26px -16px rgba(20,31,56,.4);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{
+  font-family:var(--sans);
+  background:var(--navy-deep);
+  color:var(--ink);
+  overflow:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ---------- Stage / Slides ---------- */
+#stage{
+  position:fixed;inset:0;
+  display:flex;align-items:center;justify-content:center;
+}
+.slide{
+  position:absolute;inset:0;
+  width:100%;height:100%;
+  display:none;
+  padding:clamp(34px,5.2vw,92px) clamp(40px,6vw,108px);
+  flex-direction:column;
+  opacity:0;
+  transition:opacity .55s ease;
+  overflow:hidden;
+}
+.slide.active{display:flex;opacity:1;z-index:2}
+.slide.cream{background:
+  radial-gradient(120% 90% at 88% -10%, rgba(224,164,60,.10), transparent 55%),
+  radial-gradient(90% 80% at -5% 110%, rgba(30,140,128,.08), transparent 50%),
+  var(--cream);
+  color:var(--ink);
+}
+.slide.dark{
+  background:
+    radial-gradient(110% 120% at 82% 18%, rgba(224,164,60,.16), transparent 52%),
+    radial-gradient(80% 100% at 10% 92%, rgba(30,140,128,.14), transparent 50%),
+    linear-gradient(160deg,var(--navy) 0%, var(--navy-deep) 100%);
+  color:var(--cream);
+}
+/* paper grain */
+.slide::after{
+  content:"";position:absolute;inset:0;pointer-events:none;opacity:.5;mix-blend-mode:multiply;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.035'/%3E%3C/svg%3E");
+}
+.slide.dark::after{mix-blend-mode:screen;opacity:.35}
+
+/* ---------- Entrance stagger ---------- */
+[data-anim]{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.slide.active [data-anim]{opacity:1;transform:none}
+.slide.active [data-anim]{transition-delay:calc(var(--i,0)*90ms + 120ms)}
+
+/* ---------- Shared bits ---------- */
+.eyebrow{
+  display:inline-flex;align-items:center;gap:11px;
+  font-size:clamp(11px,1vw,13px);font-weight:600;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold-dark);
+}
+.dark .eyebrow{color:var(--gold-light)}
+.eyebrow .num{
+  font-family:var(--serif);font-style:italic;font-weight:500;letter-spacing:0;
+  font-size:1.45em;color:var(--gold);
+}
+.eyebrow::before{content:"";width:30px;height:2px;background:var(--gold)}
+
+.s-title{
+  font-family:var(--serif);font-weight:500;line-height:1.08;letter-spacing:-.01em;
+  font-size:clamp(30px,3.7vw,52px);color:var(--navy);
+}
+.dark .s-title{color:var(--cream)}
+.s-title .gold{color:var(--gold-dark)}
+.dark .s-title .gold{color:var(--gold)}
+
+.spine{display:inline-block;width:5px;border-radius:3px;background:linear-gradient(var(--gold),var(--gold-dark));align-self:stretch}
+
+.head{display:flex;flex-direction:column;gap:14px;margin-bottom:clamp(22px,3vw,40px)}
+
+/* ---------- chips ---------- */
+.tag{
+  display:inline-flex;align-items:center;
+  font-family:var(--serif);font-style:italic;font-weight:600;
+  font-size:12px;letter-spacing:.02em;
+  color:var(--gold-dark);background:rgba(224,164,60,.13);
+  border:1px solid rgba(224,164,60,.4);
+  padding:2px 9px;border-radius:6px;
+}
+
+/* ============ SLIDE 1 · COVER ============ */
+.cover{flex-direction:row;align-items:center;gap:40px}
+.cover-l{flex:1.15;display:flex;flex-direction:column;gap:clamp(16px,2vw,26px)}
+.cover-r{flex:.85;display:flex;align-items:center;justify-content:center}
+.cover-team{font-size:13px;font-weight:600;letter-spacing:.34em;text-transform:uppercase;color:var(--gold-light)}
+.cover-team b{color:var(--gold);font-weight:700}
+.cover-title{display:flex;align-items:flex-end;gap:22px}
+.cover-aba{
+  font-family:var(--serif);font-weight:600;line-height:.82;
+  font-size:clamp(96px,15vw,210px);
+  background:linear-gradient(150deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+  letter-spacing:-.03em;
+}
+.cover-sub{
+  display:flex;flex-direction:column;gap:4px;padding-bottom:14px;
+  font-family:var(--serif);font-style:italic;color:var(--cream);
+}
+.cover-sub span:first-child{font-size:clamp(18px,2vw,26px);font-weight:500}
+.cover-sub span:last-child{font-size:13px;font-style:normal;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);color:#9aa6b8}
+.robo-chip{
+  display:inline-flex;align-items:center;gap:12px;align-self:flex-start;
+  background:rgba(255,255,255,.05);border:1px solid rgba(224,164,60,.32);
+  backdrop-filter:blur(6px);
+  padding:11px 18px;border-radius:999px;font-size:14px;color:var(--cream);
+}
+.robo-chip .dot{width:9px;height:9px;border-radius:50%;background:var(--teal-light);box-shadow:0 0 0 4px rgba(127,227,215,.18);animation:pulse 2.4s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.4}}
+.robo-chip b{color:var(--gold-light);font-weight:600}
+.slogan{
+  font-family:var(--serif);font-weight:500;
+  font-size:clamp(18px,2vw,26px);line-height:1.4;color:var(--cream);
+  border-left:3px solid var(--gold);padding-left:20px;max-width:30ch;letter-spacing:-.005em;
+}
+.slogan b{color:var(--gold-light);font-weight:600}
+.quote{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(13px,1.25vw,16px);line-height:1.4;color:#9aa6b8;padding-left:23px;
+}
+.cover-meta{display:flex;gap:clamp(28px,4vw,56px);margin-top:8px}
+.cover-meta div{display:flex;flex-direction:column;gap:5px}
+.cover-meta dt{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;color:#8090a6}
+.cover-meta dd{font-size:14.5px;color:var(--cream);font-weight:500}
+
+/* ============ SLIDE 2 · TOPIC ============ */
+.topic-body{flex:1;display:grid;grid-template-columns:0.92fr 1.08fr;gap:clamp(28px,3.8vw,58px);align-items:center}
+.def{display:flex;flex-direction:column;gap:22px}
+.topic-img{position:relative;border-radius:18px;overflow:hidden;box-shadow:var(--shadow);border:1px solid rgba(224,164,60,.45)}
+.topic-img::after{content:"";position:absolute;inset:0;border-radius:18px;box-shadow:inset 0 0 0 1px rgba(255,255,255,.25);pointer-events:none}
+.topic-img img{display:block;width:100%;height:auto;aspect-ratio:1024/559;object-fit:cover}
+.topic-img figcaption{
+  position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:9px;
+  padding:24px 18px 13px;font-size:12.5px;font-weight:500;letter-spacing:.02em;color:#fff;
+  background:linear-gradient(to top,rgba(20,31,56,.82),transparent);
+}
+.topic-img figcaption .dotc{width:8px;height:8px;border-radius:50%;background:var(--gold-light);box-shadow:0 0 0 4px rgba(224,164,60,.25)}
+.def-lead{font-size:clamp(15px,1.45vw,18.5px);line-height:1.72;color:var(--ink)}
+.def-lead b{color:var(--gold-dark);font-weight:600}
+.formula{
+  display:flex;align-items:center;gap:14px;flex-wrap:wrap;
+  background:var(--white);border:1px solid var(--cream-deep);border-left:5px solid var(--gold);
+  padding:18px 22px;border-radius:14px;box-shadow:var(--shadow-sm);
+}
+.formula .lib{font-family:var(--serif);font-weight:600;font-size:23px;color:var(--navy)}
+.formula .op{font-family:var(--serif);font-size:22px;color:var(--gold-dark)}
+.formula .part{font-size:14.5px;font-weight:500;color:var(--navy-soft)}
+.formula .part small{display:block;font-size:11px;color:var(--muted);font-weight:400;letter-spacing:.04em}
+.modes{display:flex;gap:14px}
+.mode{flex:1;background:var(--white);border:1px solid var(--cream-deep);border-radius:13px;padding:15px 17px;display:flex;flex-direction:column;gap:5px}
+.mode .mt{font-size:13px;font-weight:600;display:flex;align-items:center;gap:7px}
+.mode.day .mt{color:var(--gold-dark)}.mode.night .mt{color:var(--navy-soft)}
+.mode p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+
+.pillars{display:flex;flex-direction:column;gap:15px}
+.pillar{
+  position:relative;display:flex;gap:18px;align-items:flex-start;
+  background:var(--white);border:1px solid var(--cream-deep);border-radius:16px;
+  padding:19px 22px;box-shadow:var(--shadow-sm);overflow:hidden;
+}
+.pillar::before{content:"";position:absolute;left:0;top:0;bottom:0;width:4px;background:var(--accent)}
+.pillar .pn{font-family:var(--serif);font-style:italic;font-size:30px;font-weight:600;color:var(--accent);line-height:1;min-width:42px}
+.pillar .pc h4{font-size:15.5px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.pillar .pc h4 em{font-style:normal;color:var(--muted);font-weight:400;font-size:12px;letter-spacing:.04em}
+.pillar .pc p{font-size:12.8px;line-height:1.55;color:var(--muted)}
+.pillar:nth-child(1){--accent:var(--gold-dark)}
+.pillar:nth-child(2){--accent:var(--teal)}
+.pillar:nth-child(3){--accent:var(--navy-soft)}
+
+/* ============ SLIDE 3 & 4 · SCENARIO ============ */
+.steps{flex:1;display:grid;grid-template-columns:repeat(6,1fr);gap:0;align-items:stretch;margin-top:6px}
+.step{position:relative;display:flex;flex-direction:column;gap:11px;padding:0 clamp(8px,1vw,16px)}
+.step:not(:last-child)::after{
+  content:"";position:absolute;top:26px;right:-1px;width:2px;height:calc(100% - 26px);
+  background:linear-gradient(var(--cream-deep),transparent);
+}
+.step .sn{
+  width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+  font-family:var(--serif);font-weight:600;font-size:22px;color:var(--white);
+  background:linear-gradient(150deg,var(--navy-soft),var(--navy));box-shadow:var(--shadow-sm);
+}
+.step.hl .sn{background:linear-gradient(150deg,var(--gold),var(--gold-dark))}
+.step h4{font-size:15px;font-weight:600;color:var(--navy);line-height:1.25}
+.step p{font-size:12.5px;line-height:1.6;color:var(--muted);flex:1}
+.step .urs{display:flex;flex-wrap:wrap;gap:5px}
+.ur{font-size:10.5px;font-weight:600;letter-spacing:.02em;color:var(--gold-dark);background:rgba(224,164,60,.13);border-radius:5px;padding:2px 7px}
+
+.note{
+  margin-top:auto;display:flex;align-items:center;gap:14px;
+  background:var(--navy);color:var(--cream);border-radius:14px;padding:16px 24px;
+  box-shadow:var(--shadow);
+}
+.note .nl{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--gold-light);font-size:15px;white-space:nowrap}
+.note p{font-size:13.5px;line-height:1.5;color:#d7dbe4}
+.note .urs{margin-left:auto}
+.note .ur{background:rgba(224,164,60,.2);color:var(--gold-light)}
+
+/* admin scenario cards */
+.adgrid{flex:1;display:grid;grid-template-columns:repeat(2,1fr);grid-template-rows:1fr 1fr;gap:18px;margin-top:6px}
+.adcard{
+  background:var(--white);border:1px solid var(--cream-deep);border-radius:16px;
+  padding:22px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm);
+  position:relative;overflow:hidden;
+}
+.adcard::before{content:"";position:absolute;inset:0 auto 0 0;width:4px;background:var(--accent)}
+.adcard:nth-child(1){--accent:var(--teal)}
+.adcard:nth-child(2){--accent:var(--gold-dark)}
+.adcard:nth-child(3){--accent:var(--navy-soft)}
+.adcard:nth-child(4){--accent:#b34d4d}
+.adcard .ah{display:flex;align-items:baseline;gap:12px}
+.adcard .ah .ai{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--accent);font-weight:600}
+.adcard h4{font-size:18px;font-weight:600;color:var(--navy)}
+.adcard h4 em{font-style:normal;color:var(--muted);font-size:12.5px;font-weight:400;margin-left:6px}
+.adcard p{font-size:13px;line-height:1.6;color:var(--muted)}
+.adcard .urs{margin-top:auto;display:flex;gap:6px;flex-wrap:wrap}
+
+/* ============ SLIDE 5 · USER REQUIREMENTS ============ */
+.urcols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2.2vw,30px);margin-top:6px}
+.urcol{display:flex;flex-direction:column;gap:12px}
+.urcol-h{display:flex;align-items:center;justify-content:space-between;padding-bottom:11px;border-bottom:2px solid var(--accent)}
+.urcol:nth-child(1){--accent:var(--gold-dark)}
+.urcol:nth-child(2){--accent:var(--teal)}
+.urcol:nth-child(3){--accent:var(--navy-soft)}
+.urcol-h .ct{font-family:var(--serif);font-weight:600;font-size:18px;color:var(--navy);display:flex;align-items:center;gap:9px}
+.urcol-h .ct .ic{color:var(--accent)}
+.urcol-h .cc{font-size:12px;font-weight:600;color:var(--accent);background:color-mix(in srgb,var(--accent) 12%,transparent);padding:2px 9px;border-radius:20px}
+.uritem{
+  display:flex;align-items:center;gap:13px;background:var(--white);
+  border:1px solid var(--cream-deep);border-radius:11px;padding:11px 14px;
+  transition:transform .25s ease,box-shadow .25s ease;
+}
+.uritem:hover{transform:translateX(4px);box-shadow:var(--shadow-sm)}
+.uritem .id{
+  font-family:var(--serif);font-weight:600;font-size:13px;color:var(--accent);
+  background:color-mix(in srgb,var(--accent) 11%,transparent);
+  border-radius:7px;padding:5px 8px;min-width:58px;text-align:center;letter-spacing:.02em;
+}
+.uritem .nm{font-size:13.5px;font-weight:500;color:var(--ink)}
+.urfoot{
+  margin-top:18px;display:flex;align-items:center;justify-content:center;gap:18px;
+  font-family:var(--serif);font-style:italic;font-size:14.5px;color:var(--navy-soft);
+}
+.urfoot b{color:var(--gold-dark);font-style:normal;font-weight:600}
+.urfoot .sep{width:5px;height:5px;border-radius:50%;background:var(--gold)}
+
+/* ---------- Scenario · 독서존 tracks ---------- */
+.tracks{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,42px);align-items:stretch;margin-top:6px}
+.track{position:relative;display:flex;flex-direction:column;gap:18px;background:var(--white);border:1px solid var(--cream-deep);border-radius:18px;padding:clamp(22px,2.3vw,34px);box-shadow:var(--shadow-sm);overflow:hidden}
+.track::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ac)}
+.track.req{--ac:var(--gold-dark)}
+.track.ret{--ac:var(--teal)}
+.track-h{display:flex;align-items:center;gap:14px}
+.track-h .ti{width:48px;height:48px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:23px;background:color-mix(in srgb,var(--ac) 14%,transparent)}
+.track-h h3{font-family:var(--serif);font-size:23px;font-weight:600;color:var(--navy)}
+.track-h h3 em{font-style:normal;font-size:13px;color:var(--muted);font-weight:400;margin-left:8px}
+.tstep{display:flex;gap:15px;align-items:flex-start}
+.tstep .tn{font-family:var(--serif);font-style:italic;font-weight:600;font-size:23px;color:var(--ac);min-width:22px;line-height:1.15}
+.tstep .tt h4{font-size:16px;font-weight:600;color:var(--navy);margin-bottom:4px}
+.tstep .tt p{font-size:13.2px;line-height:1.62;color:var(--muted)}
+.track .urs{margin-top:auto;display:flex;gap:6px;padding-top:4px}
+
+/* ---------- Scenario · 반납존 ---------- */
+.rz{flex:1;display:flex;flex-direction:column;gap:clamp(16px,2vw,26px);margin-top:4px}
+.rz-flow{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.rzcard{position:relative;background:var(--white);border:1px solid var(--cream-deep);border-radius:16px;padding:22px 24px;display:flex;flex-direction:column;gap:10px;box-shadow:var(--shadow-sm)}
+.rzcard:not(:last-child)::after{content:"→";position:absolute;right:-14px;top:50%;transform:translateY(-50%);color:var(--gold);font-size:22px;font-weight:700;z-index:3}
+.rzcard .rzn{width:36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--navy-soft),var(--navy));color:#fff;font-family:var(--serif);font-weight:600;font-size:18px;display:flex;align-items:center;justify-content:center}
+.rzcard h4{font-size:16.5px;font-weight:600;color:var(--navy)}
+.rzcard p{font-size:13px;line-height:1.62;color:var(--muted)}
+.rzcard p b{color:var(--gold-dark);font-weight:600}
+.rzcard .urs{margin-top:auto}
+.rz-assist{position:relative;display:flex;gap:clamp(20px,2.5vw,40px);align-items:center;background:var(--navy);border-radius:16px;padding:clamp(20px,2.2vw,28px) clamp(24px,2.6vw,36px);box-shadow:var(--shadow);overflow:hidden}
+.rz-assist::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:linear-gradient(var(--gold),var(--gold-dark))}
+.rz-assist .al{font-family:var(--serif);font-weight:600;font-size:20px;color:var(--gold-light);white-space:nowrap;line-height:1.25}
+.rz-assist .al em{display:block;font-style:normal;font-size:11.5px;font-weight:400;color:#8090a6;letter-spacing:.02em;margin-top:4px}
+.assist-items{display:flex;gap:clamp(18px,2.4vw,40px);flex:1}
+.aitem{flex:1;display:flex;flex-direction:column;gap:6px;border-left:1px solid rgba(255,255,255,.12);padding-left:22px}
+.aitem h5{font-size:15.5px;font-weight:600;color:var(--cream)}
+.aitem p{font-size:12.8px;line-height:1.55;color:#cfd5e0}
+.aitem .ur{align-self:flex-start;background:rgba(224,164,60,.18);color:var(--gold-light);margin-top:2px}
+
+/* ---------- Scenario · merged (독서존 + 반납존) ---------- */
+.scen-grid{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);align-items:stretch;margin-top:6px}
+.scol{position:relative;display:flex;flex-direction:column;gap:clamp(14px,1.7vw,20px);background:var(--white);border:1px solid var(--cream-deep);border-radius:18px;padding:clamp(20px,2.2vw,30px);box-shadow:var(--shadow-sm);overflow:hidden}
+.scol::before{content:"";position:absolute;inset:0 auto 0 0;width:5px;background:var(--ac)}
+.scol:nth-child(1){--ac:var(--gold-dark)}
+.scol:nth-child(2){--ac:var(--navy-soft)}
+.scol-h{display:flex;align-items:center;gap:13px;padding-bottom:15px;border-bottom:1px solid var(--cream-deep)}
+.scol-h .si{width:46px;height:46px;border-radius:13px;display:flex;align-items:center;justify-content:center;font-size:22px;background:color-mix(in srgb,var(--ac) 13%,transparent)}
+.scol-h h3{font-family:var(--serif);font-size:22px;font-weight:600;color:var(--navy);flex:1}
+.scol-h h3 em{font-style:normal;font-size:12.5px;color:var(--muted);font-weight:400;margin-left:8px}
+.scol-h .pill{font-size:11px;font-weight:600;color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);padding:4px 11px;border-radius:20px;white-space:nowrap}
+.srow{display:grid;grid-template-columns:auto 1fr;gap:12px 13px;align-items:start}
+.srow .sbadge{font-family:var(--serif);font-weight:600;font-size:14px;color:#fff;border-radius:8px;padding:6px 0;min-width:52px;text-align:center}
+.sbadge.gold{background:linear-gradient(var(--gold),var(--gold-dark))}
+.sbadge.teal{background:linear-gradient(var(--teal),#15695f)}
+.srow p{font-size:13.4px;line-height:1.62;color:var(--ink)}
+.srow .urs{grid-column:2;display:flex;gap:5px;margin-top:-4px}
+.mini-flow{display:flex;align-items:center;gap:9px;flex-wrap:wrap}
+.mini-flow .mf{font-size:12.8px;font-weight:600;color:var(--navy);background:var(--cream);border:1px solid var(--cream-deep);border-radius:9px;padding:9px 13px}
+.mini-flow .mf.hl{background:var(--navy);color:#fff;border-color:var(--navy);display:inline-flex;align-items:center;gap:7px}
+.mini-flow .mf.hl b{font-size:10.5px;font-weight:600;color:var(--gold-light);background:rgba(224,164,60,.2);border-radius:5px;padding:2px 6px}
+.mini-flow i{color:var(--gold);font-style:normal;font-weight:700;font-size:16px}
+.assist2{margin-top:auto;display:flex;flex-direction:column;gap:12px;background:var(--navy);border-radius:14px;padding:16px 20px}
+.assist2 .a2-h{font-family:var(--serif);font-weight:600;font-size:14.5px;color:var(--gold-light);padding-bottom:10px;border-bottom:1px solid rgba(255,255,255,.1)}
+.assist2 .a2-h span{color:#8090a6;font-weight:400;font-size:12px}
+.assist2 .a2 h5{font-size:14.5px;font-weight:600;color:var(--cream);display:flex;align-items:center;gap:9px;margin-bottom:3px}
+.assist2 .a2 h5 .ur{background:rgba(224,164,60,.2);color:var(--gold-light)}
+.assist2 .a2 p{font-size:12.5px;line-height:1.5;color:#cfd5e0}
+/* icon flow */
+.flowrow{display:flex;align-items:center;gap:16px}
+.flowrow .sbadge{flex-shrink:0;padding:6px 0;min-width:52px;align-self:center}
+.iflow{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
+.iflow.center{justify-content:center;gap:14px;padding:10px 0 6px}
+.inode{display:flex;flex-direction:column;align-items:center;gap:12px;width:108px}
+.inode .ic{width:84px;height:84px;border-radius:22px;display:flex;align-items:center;justify-content:center;font-size:42px;background:#fff;border:1px solid var(--cream-deep);box-shadow:var(--shadow-sm)}
+/* two-row, card-less scenario */
+.scen2{flex:1;display:flex;flex-direction:column;justify-content:center;align-items:center;margin-top:4px}
+.scen-inner{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(26px,3.8vw,52px)}
+.srow2{display:flex;align-items:center;gap:clamp(24px,3.5vw,56px)}
+.srow2:nth-child(1){--ac:var(--gold-dark)}
+.srow2:nth-child(2){--ac:var(--navy-soft)}
+.zlabel{display:flex;align-items:center;gap:14px;width:190px;flex-shrink:0}
+.zlabel .zi{width:60px;height:60px;border-radius:17px;display:flex;align-items:center;justify-content:center;font-size:29px;background:color-mix(in srgb,var(--ac) 14%,transparent)}
+.zlabel h3{font-family:var(--serif);font-size:27px;font-weight:600;color:var(--navy);line-height:1.1}
+.zlabel em{font-style:normal;font-size:12.5px;color:var(--muted);margin-top:3px;display:block}
+.zflows{display:flex;flex-direction:column;align-items:flex-start;gap:clamp(16px,2vw,26px)}
+.sbadge.navy{background:linear-gradient(var(--navy-soft),var(--navy))}
+.rlabel{font-family:var(--serif);font-style:italic;font-weight:600;font-size:19px;min-width:56px;flex-shrink:0;letter-spacing:.01em}
+.rlabel.gold{color:var(--gold-dark)}
+.rlabel.teal{color:var(--teal)}
+.rlabel.navy{color:var(--navy-soft)}
+.branch{display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.4vw,20px);margin-left:-2px}
+.branch-row{display:flex;align-items:center;gap:7px}
+.darrow{color:var(--gold);font-size:30px;font-weight:700;flex-shrink:0;line-height:1}
+.inode.hl .ic{background:linear-gradient(150deg,var(--gold),var(--gold-dark));border-color:transparent}
+.inode span{font-size:14px;font-weight:600;color:var(--navy);text-align:center;line-height:1.3}
+.iarrow{color:var(--gold);font-size:28px;font-weight:700;flex-shrink:0}
+.sc-urs{margin-top:auto;display:flex;gap:6px;padding-top:8px}
+.a2row{display:flex;align-items:center;gap:13px}
+.a2row .ic2{width:40px;height:40px;border-radius:12px;background:rgba(255,255,255,.07);display:flex;align-items:center;justify-content:center;font-size:20px}
+.a2row h5{flex:1;font-size:15.5px;font-weight:600;color:var(--cream)}
+.a2row .ur{background:rgba(224,164,60,.2);color:var(--gold-light)}
+
+/* ---------- UR image pages ---------- */
+.ur-img-wrap{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;padding:4px 0 8px}
+.ur-img{
+  max-width:min(100%,1080px);max-height:100%;width:auto;height:auto;
+  border-radius:14px;border:1px solid var(--cream-deep);
+  box-shadow:var(--shadow);background:#fff;
+}
+
+/* ---------- Closing slide ---------- */
+.closing{align-items:center;justify-content:center;text-align:center}
+.closing-inner{display:flex;flex-direction:column;align-items:center;gap:clamp(16px,2.4vw,30px)}
+.closing-aba{
+  font-family:var(--serif);font-weight:600;line-height:.85;letter-spacing:-.03em;
+  font-size:clamp(80px,12vw,168px);
+  background:linear-gradient(150deg,var(--gold-light),var(--gold) 55%,var(--gold-dark));
+  -webkit-background-clip:text;background-clip:text;color:transparent;
+}
+.closing-rule{width:64px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.closing-slogan{
+  font-family:var(--serif);font-style:italic;font-weight:400;
+  font-size:clamp(19px,2.4vw,32px);line-height:1.5;color:var(--cream);max-width:24ch;
+}
+.closing-thanks{
+  font-family:var(--serif);font-weight:500;letter-spacing:.04em;
+  font-size:clamp(17px,2vw,26px);color:var(--gold-light);margin-top:6px;
+}
+.closing-thanks span{color:#8090a6;font-style:italic;font-weight:400}
+
+/* ---------- Chrome: nav, progress, counter ---------- */
+.chrome{display:none !important}
+.hint{display:none !important}
+.chrome--unused{position:fixed;inset:auto 0 0 0;z-index:30;display:flex;align-items:center;justify-content:space-between;padding:16px clamp(28px,4vw,52px);pointer-events:none}
+.dots{display:flex;gap:9px;pointer-events:auto}
+.dot{width:9px;height:9px;border-radius:50%;border:1.5px solid var(--gold);background:transparent;cursor:pointer;transition:all .3s ease;padding:0}
+.dot.on{background:var(--gold);width:26px;border-radius:6px}
+.dark-chrome .dot{border-color:var(--gold-light)}.dark-chrome .dot.on{background:var(--gold-light)}
+.nav{display:flex;gap:8px;pointer-events:auto}
+.nav button{
+  width:38px;height:38px;border-radius:50%;border:1.5px solid currentColor;background:transparent;
+  color:var(--navy-soft);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .25s ease;
+}
+.dark-chrome .nav button{color:var(--gold-light)}
+.nav button:hover{background:var(--gold);border-color:var(--gold);color:var(--white)}
+.nav button:disabled{opacity:.3;cursor:default}
+.counter{font-family:var(--serif);font-style:italic;font-size:15px;color:var(--navy-soft);pointer-events:auto}
+.dark-chrome .counter{color:var(--gold-light)}
+.counter b{font-weight:600;color:var(--gold-dark);font-size:19px}
+.dark-chrome .counter b{color:var(--gold)}
+.progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--gold-light),var(--gold),var(--teal));z-index:40;transition:width .5s cubic-bezier(.2,.7,.2,1);box-shadow:0 0 12px rgba(224,164,60,.5)}
+
+.hint{position:fixed;top:18px;right:clamp(28px,4vw,52px);z-index:30;font-size:11px;letter-spacing:.06em;color:var(--muted);display:flex;align-items:center;gap:7px;opacity:.7}
+.dark .hint,.slide.dark ~ .hint{color:#8090a6}
+.hint kbd{font-family:var(--sans);font-size:10px;border:1px solid currentColor;border-radius:4px;padding:1px 6px;opacity:.8}
+
+@media (max-width:820px){
+  .cover{flex-direction:column;justify-content:center}.cover-r{display:none}
+  .topic-body,.urcols,.adgrid{grid-template-columns:1fr;overflow:auto}
+  .steps{grid-template-columns:1fr 1fr;gap:14px}
+}
+
+/* ============ legend chip (priority etc.) ============ */
+.legend{display:flex;align-items:center;gap:16px;flex-wrap:wrap;font-size:11.5px;color:var(--muted);font-weight:500}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .d{width:9px;height:9px;border-radius:50%}
+.d.h{background:var(--gold)}.d.m{background:var(--teal)}.d.l{background:var(--navy-soft)}
+
+/* ============ System Architecture ============ */
+.arch{flex:1;display:flex;flex-direction:column;gap:clamp(9px,1.2vw,15px);margin-top:4px;min-height:0}
+.arch-band{display:grid;grid-template-columns:62px 1fr;gap:13px;align-items:stretch}
+.arch-band .bl{display:flex;align-items:center;justify-content:center;border-radius:12px;color:#fff;background:var(--ac);
+  font-family:var(--serif);font-weight:600;font-size:13.5px;letter-spacing:.06em;writing-mode:vertical-rl;text-orientation:mixed;padding:6px 0}
+.arch-band:nth-child(1){--ac:var(--gold-dark)}
+.arch-band:nth-child(2){--ac:var(--teal)}
+.arch-band:nth-child(3){--ac:var(--navy-soft)}
+.arch-row{flex:1;display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;
+  background:color-mix(in srgb,var(--ac) 6%,var(--white));border:1px solid var(--cream-deep);border-left:4px solid var(--ac);
+  border-radius:14px;padding:13px 15px;position:relative}
+.arch-row .xn{position:absolute;top:9px;right:13px;font-family:var(--serif);font-style:italic;font-size:12px;color:var(--ac);font-weight:600}
+.abox{flex:1;min-width:150px;background:var(--white);border:1px solid var(--cream-deep);border-radius:11px;
+  padding:11px 13px;display:flex;flex-direction:column;gap:6px;box-shadow:var(--shadow-sm)}
+.abox h4{font-size:14px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:7px}
+.abox h4 em{font-style:normal;font-size:11px;color:var(--muted);font-weight:400}
+.abox .svc{display:flex;flex-wrap:wrap;gap:5px}
+.abox .svc span{font-size:11px;font-weight:600;color:var(--ac);background:color-mix(in srgb,var(--ac) 12%,transparent);border-radius:6px;padding:3px 8px}
+.hw-chips{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:2px}
+.hw-chips span{font-size:10.5px;font-weight:500;color:var(--navy-soft);background:var(--cream);border:1px solid var(--cream-deep);border-radius:6px;padding:3px 8px}
+.arch-legend{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:2px;font-size:11.5px;color:var(--muted)}
+.arch-legend b{color:var(--navy-soft);font-weight:600}
+
+/* ============ System Requirements grid ============ */
+.sr-grid{flex:1;column-count:3;column-gap:clamp(12px,1.4vw,18px);margin-top:6px;min-height:0}
+.sr-cat{break-inside:avoid;margin:0 0 14px;display:flex;flex-direction:column;gap:7px;
+  background:var(--white);border:1px solid var(--cream-deep);border-top:4px solid var(--ac);border-radius:13px;padding:13px 15px;box-shadow:var(--shadow-sm)}
+.sr-cat:nth-child(1){--ac:var(--gold-dark)}
+.sr-cat:nth-child(2){--ac:var(--teal)}
+.sr-cat:nth-child(3){--ac:var(--navy-soft)}
+.sr-cat:nth-child(4){--ac:var(--gold-dark)}
+.sr-cat:nth-child(5){--ac:var(--teal)}
+.sr-cat h4{font-family:var(--serif);font-size:15px;font-weight:600;color:var(--navy);display:flex;align-items:center;justify-content:space-between;padding-bottom:7px;border-bottom:1px solid var(--cream-deep)}
+.sr-cat h4 em{font-style:normal;font-size:10.5px;color:var(--ac);font-weight:600}
+.sr-row{display:flex;align-items:center;gap:9px;font-size:12px}
+.sr-row .id{font-family:var(--serif);font-weight:600;font-size:11px;color:var(--navy-soft);min-width:46px}
+.sr-row .nm{flex:1;color:var(--ink)}
+.sr-row .p{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.p.h{background:var(--gold)}.p.m{background:var(--teal)}.p.l{background:var(--navy-soft)}
+
+/* ============ Sequence diagram (image + summary) ============ */
+.seq-body{flex:1;display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(20px,2.6vw,40px);align-items:center;min-height:0;margin-top:4px}
+.seq-img-wrap{display:flex;align-items:center;justify-content:center;height:100%;min-height:0}
+.seq-img{max-width:100%;max-height:100%;width:auto;height:auto;border-radius:12px;border:1px solid var(--cream-deep);box-shadow:var(--shadow);background:#fff}
+.seq-side{display:flex;flex-direction:column;gap:16px}
+.seq-actors{display:flex;flex-wrap:wrap;gap:7px}
+.seq-actors span{font-size:11px;font-weight:600;color:var(--navy-soft);background:var(--cream);border:1px solid var(--cream-deep);border-radius:7px;padding:4px 9px}
+.seq-steps{display:flex;flex-direction:column;gap:11px}
+.seq-step{display:flex;gap:14px;align-items:flex-start}
+.seq-step .n{font-family:var(--serif);font-style:italic;font-weight:600;font-size:21px;color:var(--gold-dark);min-width:24px;line-height:1.15}
+.seq-step h5{font-size:14.5px;font-weight:600;color:var(--navy);margin-bottom:3px}
+.seq-step p{font-size:12.5px;line-height:1.55;color:var(--muted)}
+.seq-note{display:flex;align-items:center;gap:12px;background:var(--navy);border-radius:12px;padding:13px 17px}
+.seq-note .nl{font-family:var(--serif);font-style:italic;font-weight:600;color:var(--gold-light);font-size:14px;white-space:nowrap}
+.seq-note p{font-size:12.5px;line-height:1.45;color:#d7dbe4}
+
+/* ============ State diagram ============ */
+.stated{flex:1;display:flex;align-items:center;justify-content:center;min-height:0;margin-top:2px}
+.stated svg{max-width:100%;max-height:100%;width:auto;height:auto}
+.st-st{fill:#fff;stroke:var(--navy-soft);stroke-width:1.6;rx:14}
+.st-hub{fill:#fff;stroke:var(--gold-dark);stroke-width:2.4}
+.st-estop{fill:#fbe9e9;stroke:#b34d4d;stroke-width:2}
+.st-t{font-family:var(--serif);font-weight:600;fill:var(--navy);text-anchor:middle}
+.st-e{font-family:var(--sans);font-size:10.5px;fill:var(--muted);text-anchor:middle}
+.st-sub{font-family:var(--sans);font-size:10px;fill:var(--muted);text-anchor:middle}
+.st-lbl{font-family:var(--sans);font-size:11px;fill:var(--navy-soft);font-weight:600;text-anchor:middle;paint-order:stroke;stroke:var(--cream);stroke-width:4px;stroke-linejoin:round}
+.st-arrow{fill:none;stroke:var(--navy-soft);stroke-width:1.6}
+
+/* ============ GUI gallery ============ */
+.gui-wrap{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(16px,2vw,26px);margin-top:4px;min-height:0}
+.gui-main{display:flex;flex-direction:column;gap:11px;min-height:0}
+.gui-figure{position:relative;flex:1;min-height:0;border-radius:14px;overflow:hidden;border:1px solid var(--cream-deep);box-shadow:var(--shadow);background:#fff;display:flex;align-items:center;justify-content:center}
+.gui-figure img{width:100%;height:100%;object-fit:contain}
+.gui-figure figcaption{position:absolute;left:0;right:0;bottom:0;display:flex;align-items:center;gap:9px;padding:22px 16px 11px;font-size:12.5px;font-weight:600;color:#fff;background:linear-gradient(to top,rgba(20,31,56,.82),transparent)}
+.gui-figure figcaption .dotc{width:8px;height:8px;border-radius:50%;background:var(--gold-light)}
+.gui-feat{display:flex;flex-wrap:wrap;gap:6px}
+.gui-feat span{font-size:11px;font-weight:600;color:var(--gold-dark);background:rgba(224,164,60,.13);border-radius:6px;padding:3px 9px}
+.gui-side{display:flex;flex-direction:column;gap:14px;min-height:0}
+.gui-card{flex:1;background:var(--white);border:1px solid var(--cream-deep);border-left:4px solid var(--ac);border-radius:13px;padding:14px 16px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow-sm)}
+.gui-card:nth-child(1){--ac:var(--teal)}
+.gui-card:nth-child(2){--ac:var(--navy-soft)}
+.gui-card .gh{display:flex;align-items:center;justify-content:space-between}
+.gui-card h4{font-size:14.5px;font-weight:600;color:var(--navy)}
+.gui-card h4 em{font-style:normal;font-size:11px;color:var(--muted);font-weight:400;margin-left:6px}
+.gui-card .soon{font-size:10px;font-weight:700;color:var(--ac);background:color-mix(in srgb,var(--ac) 13%,transparent);border-radius:20px;padding:3px 10px}
+.gui-card ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.gui-card li{font-size:12px;color:var(--muted);line-height:1.4;padding-left:14px;position:relative}
+.gui-card li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+
+/* ============ Sprint (progress / plan) ============ */
+.sprint{flex:1;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(18px,2.3vw,34px);margin-top:6px;min-height:0}
+.sp-col{display:flex;flex-direction:column;gap:11px;min-height:0}
+.sp-h{font-family:var(--serif);font-size:16px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:9px}
+.sp-h .sc{font-size:11px;font-weight:600;color:var(--gold-dark);background:rgba(224,164,60,.13);border-radius:6px;padding:2px 8px}
+.sp-list{display:flex;flex-direction:column;gap:6px}
+.sp-item{display:flex;align-items:center;gap:10px;font-size:12.5px;background:var(--white);border:1px solid var(--cream-deep);border-radius:10px;padding:8px 12px}
+.sp-item .nm{flex:1;color:var(--ink)}
+.sp-item .st{font-size:9.5px;font-weight:700;border-radius:5px;padding:2px 7px;letter-spacing:.02em}
+.st.done{color:var(--teal);background:rgba(30,140,128,.13)}
+.st.prog{color:var(--gold-dark);background:rgba(224,164,60,.16)}
+.st.todo{color:var(--navy-soft);background:rgba(51,68,95,.1)}
+.retro{display:flex;flex-direction:column;gap:11px}
+.retro-card{background:var(--white);border:1px solid var(--cream-deep);border-left:4px solid var(--ac);border-radius:12px;padding:12px 15px}
+.retro-card:nth-child(1){--ac:var(--teal)}
+.retro-card:nth-child(2){--ac:#b34d4d}
+.retro-card:nth-child(3){--ac:var(--gold-dark)}
+.retro-card h5{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.retro-card p{font-size:12px;color:var(--muted);line-height:1.55}
+.plan-grid{flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(11px,1.3vw,16px);margin-top:6px;min-height:0}
+.plan-card{background:var(--white);border:1px solid var(--cream-deep);border-top:4px solid var(--ac);border-radius:13px;padding:13px 15px;display:flex;flex-direction:column;gap:8px;box-shadow:var(--shadow-sm)}
+.plan-card:nth-child(4n+1){--ac:var(--gold-dark)}
+.plan-card:nth-child(4n+2){--ac:var(--teal)}
+.plan-card:nth-child(4n+3){--ac:var(--navy-soft)}
+.plan-card:nth-child(4n+4){--ac:var(--gold-dark)}
+.plan-card h4{font-family:var(--serif);font-size:14.5px;font-weight:600;color:var(--navy);display:flex;align-items:center;gap:8px}
+.plan-card .pi{font-family:var(--serif);font-style:italic;color:var(--ac);font-size:15px}
+.plan-card ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.plan-card li{font-size:11.8px;color:var(--muted);line-height:1.4;padding-left:13px;position:relative}
+.plan-card li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+</style>
+</head>
+<body>
+<div class="progress" id="prog"></div>
+<div class="hint">탐색 <kbd>←</kbd><kbd>→</kbd></div>
+
+<div id="stage">
+
+  <!-- ===================== 1 · 표지 ===================== -->
+  <section class="slide dark cover" data-theme="dark">
+    <div class="cover-l">
+      <div class="cover-team" data-anim style="--i:0">TEAM <b>ARTE</b></div>
+      <div class="cover-title" data-anim style="--i:1">
+        <div class="cover-aba">ABA</div>
+        <div class="cover-sub">
+          <span>Arte&nbsp;Book&nbsp;Assistance</span>
+          <span>상세설계 · Detailed Design</span>
+        </div>
+      </div>
+      <p class="slogan" data-anim style="--i:2">로봇팔로 책을 직접 집고 옮기는<br>도서관 <b>사서 협동로봇</b>, 리비(Libi)</p>
+      <p class="quote" data-anim style="--i:3">“사람은 지식을 찾고, ARTE는 그 길을 안내합니다.”</p>
+      <div class="robo-chip" data-anim style="--i:4"><span class="dot"></span>주행로봇 + 로봇팔 = <b>사서 협동로봇 (Cobot)</b></div>
+      <dl class="cover-meta" data-anim style="--i:5">
+        <div><dt>Sprint</dt><dd>#2 · 프로젝트 상세설계</dd></div>
+        <div><dt>발표일</dt><dd>2026.06.29</dd></div>
+        <div><dt>Team</dt><dd>ARTE</dd></div>
+      </dl>
+    </div>
+    <div class="cover-r" data-anim style="--i:3">
+      <!-- Libi line-art : mobile base + arm picking a book from a shelf -->
+      <svg viewBox="0 0 420 480" width="100%" style="max-width:440px" fill="none" stroke-linecap="round" stroke-linejoin="round">
+        <!-- shelf -->
+        <g stroke="rgba(224,164,60,.35)" stroke-width="2">
+          <line x1="300" y1="40" x2="300" y2="430"/><line x1="412" y1="40" x2="412" y2="430"/>
+          <line x1="300" y1="40" x2="412" y2="40"/><line x1="300" y1="150" x2="412" y2="150"/>
+          <line x1="300" y1="260" x2="412" y2="260"/><line x1="300" y1="370" x2="412" y2="370"/>
+        </g>
+        <!-- book spines -->
+        <g stroke="rgba(246,242,232,.5)" stroke-width="6">
+          <line x1="312" y1="60" x2="312" y2="140"/><line x1="324" y1="58" x2="324" y2="140"/>
+          <line x1="336" y1="62" x2="336" y2="140"/><line x1="360" y1="58" x2="360" y2="140"/>
+          <line x1="372" y1="60" x2="372" y2="140"/><line x1="396" y1="58" x2="396" y2="140"/>
+          <line x1="312" y1="170" x2="312" y2="250"/><line x1="336" y1="172" x2="336" y2="250"/>
+          <line x1="360" y1="168" x2="360" y2="250"/><line x1="384" y1="170" x2="384" y2="250"/>
+          <line x1="312" y1="282" x2="312" y2="360"/><line x1="336" y1="280" x2="336" y2="360"/>
+          <line x1="372" y1="282" x2="372" y2="360"/>
+        </g>
+        <!-- target book being pulled (gold) -->
+        <rect x="262" y="166" width="42" height="22" rx="3" fill="rgba(224,164,60,.18)" stroke="var(--gold)" stroke-width="2.5"/>
+        <!-- robot mobile base -->
+        <g stroke="var(--gold-light)" stroke-width="2.5">
+          <path d="M70 392 q0 -22 24 -22 h62 q24 0 24 22 v8 q0 14 -16 14 H86 q-16 0 -16 -14 z"/>
+          <circle cx="96" cy="430" r="16"/><circle cx="150" cy="430" r="16"/>
+          <line x1="115" y1="370" x2="115" y2="300"/><line x1="125" y1="370" x2="125" y2="300"/>
+        </g>
+        <!-- head -->
+        <g stroke="var(--gold-light)" stroke-width="2.5">
+          <rect x="86" y="250" width="70" height="50" rx="16"/>
+          <circle cx="106" cy="275" r="4.5" fill="var(--teal-light)" stroke="none"/>
+          <circle cx="121" cy="275" r="4.5" fill="var(--teal-light)" stroke="none"/>
+          <circle cx="136" cy="275" r="4.5" fill="var(--teal-light)" stroke="none"/>
+        </g>
+        <!-- robot arm reaching to the gold book -->
+        <g stroke="var(--gold)" stroke-width="3.2">
+          <circle cx="150" cy="300" r="7" fill="var(--navy-deep)"/>
+          <line x1="150" y1="300" x2="210" y2="232"/>
+          <circle cx="210" cy="232" r="7" fill="var(--navy-deep)"/>
+          <line x1="210" y1="232" x2="256" y2="190"/>
+          <!-- gripper -->
+          <path d="M256 190 l12 -8 M256 190 l4 14"/>
+        </g>
+        <!-- motion arcs -->
+        <g stroke="rgba(127,227,215,.45)" stroke-width="1.5" stroke-dasharray="2 7">
+          <path d="M236 210 q24 6 30 30"/>
+        </g>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===================== 2 · 주제 ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">01</span> 주제 · Topic</span>
+      <h2 class="s-title" data-anim style="--i:1">사서를 대체하지 않는,<br><span class="gold">사서 협동로봇</span> 리비(Libi)</h2>
+    </div>
+    <div class="topic-body">
+      <figure class="topic-img" data-anim style="--i:2">
+        <img src="libi.png" alt="리비(Libi) — 도서관 협동로봇">
+        <figcaption><span class="dotc"></span>리비(Libi) · 도서관 현장</figcaption>
+      </figure>
+      <div class="def">
+        <p class="def-lead" data-anim style="--i:2">
+          <b>리비(Libi)</b>는 주행로봇과 로봇팔이 결합된 <b>모바일 매니퓰레이터</b>로,
+          음성·UI로 도서를 요청받아 <b>서가에서 책을 직접 집어</b> 배달·반납·정렬하고,
+          추천·안내·정리·보안까지 수행하는 <b>도서관 통합 사서 도우미</b>입니다.
+        </p>
+        <div class="formula" data-anim style="--i:3">
+          <span class="lib">리비 Libi</span>
+          <span class="op">=</span>
+          <span class="part">주행로봇<small>Autonomous Base</small></span>
+          <span class="op">+</span>
+          <span class="part">로봇팔<small>Robot Arm</small></span>
+        </div>
+        <div class="modes" data-anim style="--i:4">
+          <div class="mode day"><span class="mt">🌞 주간 · 서비스</span><p>도서 요청·픽업·배달, 반납 회수, 추천·안내</p></div>
+          <div class="mode night"><span class="mt">🌙 야간 · 운영</span><p>침입 감지·녹화·신고 + 서가 정리정돈</p></div>
+        </div>
+        <div class="seq-note" data-anim style="--i:5">
+          <span class="nl">왜 협동로봇</span>
+          <p>초고령사회·인력난 속, 사서의 반복 물리노동(배가·장서점검)을 분담 — 키오스크가 못 하는 <b style="color:var(--gold-light)">‘책을 직접 집어 옮기는 일’</b>을 자동화합니다.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 3 · System Architecture ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">02</span> System Architecture</span>
+      <h2 class="s-title" data-anim style="--i:1">3-Layer <span class="gold">시스템 구성</span> — 클라이언트 · 서버 · 로봇</h2>
+    </div>
+    <div class="arch">
+      <div class="arch-band" data-anim style="--i:2">
+        <div class="bl">CLIENT</div>
+        <div class="arch-row">
+          <div class="abox"><h4>📱 회원 디바이스 <em>Library Member</em></h4><div class="svc"><span>Library Member Browser</span></div></div>
+          <div class="abox"><h4>🧑‍💼 사서 디바이스 <em>Librarian</em></h4><div class="svc"><span>Librarian Browser</span></div></div>
+        </div>
+      </div>
+      <div class="arch-band" data-anim style="--i:3">
+        <div class="bl">SERVER</div>
+        <div class="arch-row">
+          <div class="abox"><h4>🌐 ABA Web Server</h4><div class="svc"><span>ABA Web Service</span></div></div>
+          <div class="abox"><h4>⚙️ ABA Server</h4><div class="svc"><span>ABA Service</span><span>ABA DB</span></div></div>
+          <div class="abox"><h4>🧠 AI Server</h4><div class="svc"><span>AI Service · LLM</span></div></div>
+        </div>
+      </div>
+      <div class="arch-band" data-anim style="--i:4">
+        <div class="bl">ROBOT</div>
+        <div class="arch-row"><span class="xn">Libi × N</span>
+          <div class="abox"><h4>🚙 Libi Drive Board</h4><div class="svc"><span>Drive Controller</span><span>Libi GUI</span><span>Image Sender</span></div></div>
+          <div class="abox"><h4>🦾 Libi Handy Board</h4><div class="svc"><span>Handy Controller</span><span>Image Sender</span></div></div>
+          <div class="hw-chips">
+            <span>Camera</span><span>RPLIDAR C1</span><span>BNO055 IMU</span><span>D435 Depth</span><span>Dynamixel ×2</span><span>Smart Servo ×7</span><span>Mic</span><span>LCD</span><span>LED</span><span>Buzzer</span><span>Piezo</span><span>Battery</span>
+          </div>
+        </div>
+      </div>
+      <div class="arch-legend" data-anim style="--i:5">
+        <span><b>HTTP</b> 회원·사서 ↔ 웹서버</span><span><b>WS</b> 실시간 상태 push</span><span><b>ROS2 (DDS)</b> 로봇 내부 노드</span><span><b>TCP / UDP</b> 영상·센서 스트림</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 4 · System Requirements ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">03</span> System Requirements</span>
+      <h2 class="s-title" data-anim style="--i:1">기능 요구사항 <span class="gold">SR-00 ~ SR-21</span></h2>
+      <div class="legend" data-anim style="--i:2">
+        <span class="lg"><span class="d h"></span>High</span><span class="lg"><span class="d m"></span>Medium</span><span class="lg"><span class="d l"></span>Low</span>
+      </div>
+    </div>
+    <div class="sr-grid">
+      <div class="sr-cat" data-anim style="--i:3">
+        <h4>요청 · 이송 <em>Request &amp; Delivery</em></h4>
+        <div class="sr-row"><span class="id">SR-00</span><span class="nm">요청 인식 (음성·텍스트·터치)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-01</span><span class="nm">이송 기능</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-02</span><span class="nm">도서 식별 (청구기호)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-03</span><span class="nm">픽업 기능 (파지 ≤3회)</span><span class="p h"></span></div>
+      </div>
+      <div class="sr-cat" data-anim style="--i:3">
+        <h4>AI 인지 <em>Perception &amp; AI</em></h4>
+        <div class="sr-row"><span class="id">SR-04</span><span class="nm">도서 카테고리 분류</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-05</span><span class="nm">도서 추천</span><span class="p m"></span></div>
+        <div class="sr-row"><span class="id">SR-06</span><span class="nm">도서 정리 (평탄화·정렬)</span><span class="p l"></span></div>
+      </div>
+      <div class="sr-cat" data-anim style="--i:4">
+        <h4>이용 서비스 <em>User Service</em></h4>
+        <div class="sr-row"><span class="id">SR-07</span><span class="nm">대여 / 반납</span><span class="p m"></span></div>
+        <div class="sr-row"><span class="id">SR-09</span><span class="nm">검색 (도서·시설)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-11</span><span class="nm">길잡이 (직접 안내)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-12</span><span class="nm">파견 (위치 지정 이동)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-13</span><span class="nm">짐꾼 (이용자 추종)</span><span class="p m"></span></div>
+        <div class="sr-row"><span class="id">SR-17</span><span class="nm">친밀감 표시 (인사·표정)</span><span class="p m"></span></div>
+      </div>
+      <div class="sr-cat" data-anim style="--i:4">
+        <h4>운영 · 관리 <em>Operation</em></h4>
+        <div class="sr-row"><span class="id">SR-08</span><span class="nm">정보 관리 (도서·회원·서가)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-10</span><span class="nm">모니터링 (상태·작업·배터리)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-14</span><span class="nm">작업 알림</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-16</span><span class="nm">순회 (대기 중 경로 순회)</span><span class="p h"></span></div>
+      </div>
+      <div class="sr-cat" data-anim style="--i:5">
+        <h4>안전 · 자율 <em>Safety &amp; Autonomy</em></h4>
+        <div class="sr-row"><span class="id">SR-15</span><span class="nm">동적 장애물 회피</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-18</span><span class="nm">자동 충전 (＜15%)</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-19</span><span class="nm">순찰 (야간 침입 감지)</span><span class="p m"></span></div>
+        <div class="sr-row"><span class="id">SR-20</span><span class="nm">비상 정지</span><span class="p h"></span></div>
+        <div class="sr-row"><span class="id">SR-21</span><span class="nm">에러 시 수동 조작</span><span class="p m"></span></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 5 · Sequence · 이송명령 ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">04</span> Sequence Diagram</span>
+      <h2 class="s-title" data-anim style="--i:1">이송 명령 시나리오 — <span class="gold">도서 픽업·배달</span></h2>
+    </div>
+    <div class="seq-body">
+      <div class="seq-img-wrap" data-anim style="--i:2"><img class="seq-img" src="img/seq_delivery.png" alt="이송명령 시퀀스 다이어그램"></div>
+      <div class="seq-side">
+        <div class="seq-actors" data-anim style="--i:3">
+          <span>Member Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive Controller</span><span>Handy Controller</span>
+        </div>
+        <div class="seq-steps">
+          <div class="seq-step" data-anim style="--i:3"><span class="n">1</span><div><h5>요청 &amp; 경로 계획</h5><p>회원이 도서·목적지 요청 → ABA Service가 도서 위치 조회 후 로봇 배정·경로 계획, <b>task_id</b> 발급</p></div></div>
+          <div class="seq-step" data-anim style="--i:4"><span class="n">2</span><div><h5>픽업 (서가 파지)</h5><p>pickup vertex 주행·도착 → arm load → 서가에서 책 파지. <b style="color:var(--gold-dark)">실패 시 최대 3회 재시도</b>, 실패하면 사유 알림</p></div></div>
+          <div class="seq-step" data-anim style="--i:5"><span class="n">3</span><div><h5>이송 &amp; 배치</h5><p>주행 보관함 적재 → dropoff vertex 주행 → 목적지 배치 → task complete 후 작업 완료 알림</p></div></div>
+        </div>
+        <div class="seq-note" data-anim style="--i:5"><span class="nl">상태 push</span><p>진행 중 fsm_state·진행률을 회원에게 실시간 전송(WS)</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 6 · Sequence · 분류 ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">04</span> Sequence Diagram</span>
+      <h2 class="s-title" data-anim style="--i:1">분류 시나리오 — <span class="gold">수거함 → 분류함</span></h2>
+    </div>
+    <div class="seq-body">
+      <div class="seq-img-wrap" data-anim style="--i:2"><img class="seq-img" src="img/seq_sorting.png" alt="분류 시퀀스 다이어그램"></div>
+      <div class="seq-side">
+        <div class="seq-actors" data-anim style="--i:3">
+          <span>사서</span><span>Librarian Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive Controller</span><span>Handy Controller</span>
+        </div>
+        <div class="seq-steps">
+          <div class="seq-step" data-anim style="--i:3"><span class="n">1</span><div><h5>분류 작업 요청</h5><p>트리거: 수거함 가득 참 / 사서 요청 → 수거함·분류함 위치로 작업 생성·로봇 배정</p></div></div>
+          <div class="seq-step" data-anim style="--i:4"><span class="n">2</span><div><h5>수거함 적재 (arm swap)</h5><p>수거함 vertex 주행 → 바스켓 임시 거치 → 수거함을 주행로봇 상단에 적재</p></div></div>
+          <div class="seq-step" data-anim style="--i:5"><span class="n">3</span><div><h5>도서별 반복 분류</h5><p>분류함 vertex 주행 → 청구기호/섹션 판정으로 <b style="color:var(--gold-dark)">과학·예술·문학</b> 분류함에 적재 반복 (SR-04)</p></div></div>
+        </div>
+        <div class="seq-note" data-anim style="--i:5"><span class="nl">AI 노드</span><p>book_detector → book_classifier → arm_controller 파이프라인</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 7 · State Diagram ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">05</span> State Diagram</span>
+      <h2 class="s-title" data-anim style="--i:1">로봇 운영 <span class="gold">상태 전이</span> (FSM)</h2>
+    </div>
+    <div class="stated" data-anim style="--i:2">
+      <svg viewBox="0 0 1000 560" role="img" aria-label="로봇 상태 전이 다이어그램">
+        <defs>
+          <marker id="ah" markerWidth="9" markerHeight="7" refX="6.5" refY="3" orient="auto-start-reverse" markerUnits="userSpaceOnUse">
+            <path d="M0,0 L7,3 L0,6 Z" fill="#33445F"/>
+          </marker>
+        </defs>
+        <!-- transitions -->
+        <circle cx="30" cy="280" r="7" fill="#33445F"/>
+        <path class="st-arrow" d="M37,280 L380,280" marker-end="url(#ah)"/>
+
+        <path class="st-arrow" d="M615,266 L692,266" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="653" y="258">작업 요청</text>
+        <path class="st-arrow" d="M692,296 L618,296" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="655" y="312">완료</text>
+
+        <path class="st-arrow" d="M408,330 L214,438" marker-start="url(#ah)" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="350" y="366">배터리 &lt; 15%</text>
+        <text class="st-lbl" x="272" y="406">완충 복귀</text>
+
+        <path class="st-arrow" d="M408,232 L216,130" marker-start="url(#ah)" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="352" y="176">영업 외</text>
+        <text class="st-lbl" x="274" y="210">영업 시작</text>
+
+        <path class="st-arrow" d="M592,232 L784,130" marker-start="url(#ah)" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="648" y="172">비상정지</text>
+        <text class="st-lbl" x="728" y="206">해제</text>
+
+        <path class="st-arrow" d="M812,332 L812,444" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="812" y="392">파지 3회 실패 · 장애</text>
+
+        <path class="st-arrow" d="M700,468 L566,330" marker-end="url(#ah)"/>
+        <text class="st-lbl" x="648" y="412">복구</text>
+
+        <path class="st-arrow" d="M118,48 C108,14 222,14 212,48" marker-end="url(#ah)"/>
+
+        <!-- states -->
+        <rect class="st-st" x="60" y="46" width="210" height="80" rx="14"/>
+        <text class="st-t" x="165" y="78" font-size="15">야간 순찰</text>
+        <text class="st-e" x="165" y="95">NIGHT PATROL · SR-19</text>
+        <text class="st-sub" x="165" y="112">침입 감지 → 녹화·알림</text>
+
+        <rect class="st-estop" x="730" y="46" width="210" height="80" rx="14"/>
+        <text class="st-t" x="835" y="78" font-size="15" fill="#9c3b3b">비상 정지</text>
+        <text class="st-e" x="835" y="95" fill="#b06b6b">E-STOP · SR-20</text>
+        <text class="st-sub" x="835" y="112" fill="#b06b6b">모든 명령 무시</text>
+        <text class="st-sub" x="835" y="142">(어느 상태에서든 진입)</text>
+
+        <rect class="st-hub" x="385" y="232" width="230" height="96" rx="16"/>
+        <text class="st-t" x="500" y="268" font-size="17">대기 · 순회</text>
+        <text class="st-e" x="500" y="287">IDLE / PATROL · SR-16</text>
+        <text class="st-sub" x="500" y="307">명령이 없으면 경로 순회</text>
+
+        <rect class="st-st" x="700" y="228" width="240" height="104" rx="14"/>
+        <text class="st-t" x="820" y="261" font-size="16">작업 수행</text>
+        <text class="st-e" x="820" y="279">TASK EXECUTION</text>
+        <text class="st-sub" x="820" y="299">이동 → 파지(≤3) → 적재</text>
+        <text class="st-sub" x="820" y="315">→ 이송 → 배치</text>
+
+        <rect class="st-st" x="60" y="440" width="210" height="78" rx="14"/>
+        <text class="st-t" x="165" y="472" font-size="15">충전</text>
+        <text class="st-e" x="165" y="489">CHARGING · SR-18</text>
+        <text class="st-sub" x="165" y="506">충전소 도킹 (≤3회)</text>
+
+        <rect class="st-st" x="700" y="448" width="240" height="72" rx="14"/>
+        <text class="st-t" x="820" y="478" font-size="15">에러 · 수동 조작</text>
+        <text class="st-e" x="820" y="495">ERROR · SR-21</text>
+        <text class="st-sub" x="820" y="511">현장 근처 수동 제어</text>
+      </svg>
+    </div>
+    <div class="arch-legend" data-anim style="--i:3">
+      <span><b>전역 전이</b> 비상정지·배터리는 어느 상태에서든</span><span><b>작업 수행</b> 이송·분류·정리·길잡이·짐꾼 공통</span><span><b>실패 처리</b> 파지 3회 실패 → 에러 → 복구</span>
+    </div>
+  </section>
+
+  <!-- ===================== 8 · GUI Prototype ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">06</span> GUI · Prototype</span>
+      <h2 class="s-title" data-anim style="--i:1">사용자 인터페이스 <span class="gold">3종</span></h2>
+    </div>
+    <div class="gui-wrap">
+      <div class="gui-main" data-anim style="--i:2">
+        <figure class="gui-figure">
+          <img src="img/gui_libi.png" alt="Libi GUI — 로봇 터치패널">
+          <figcaption><span class="dotc"></span>로봇 터치패널 · <b>Libi GUI</b> (desktop_gui)</figcaption>
+        </figure>
+        <div class="gui-feat">
+          <span>길잡이</span><span>검색</span><span>추천</span><span>표정·친밀감</span><span>순찰 상태</span><span>비상정지</span><span>에러 동작(관리자)</span>
+        </div>
+      </div>
+      <div class="gui-side">
+        <div class="gui-card" data-anim style="--i:3">
+          <div class="gh"><h4>도서관 회원 UI <em>mobile_web</em></h4><span class="soon">추후 공개</span></div>
+          <ul>
+            <li>요청 인식 · 도서 검색 / 상세</li>
+            <li>도서관 내부 지도 · 위치 표시</li>
+            <li>이송·픽업 요청, 로봇 실시간 추적</li>
+            <li>추천 · 길잡이 호출 · 대출 현황</li>
+          </ul>
+        </div>
+        <div class="gui-card" data-anim style="--i:4">
+          <div class="gh"><h4>사서 UI <em>central_server</em></h4><span class="soon">추후 공개</span></div>
+          <ul>
+            <li>운영 대시보드 · 실시간 모니터링</li>
+            <li>작업 지시 (이송·분류·정리·파견)</li>
+            <li>도서·서가·회원 관리, 대여/반납</li>
+            <li>야간 보안 · 원격 비상정지</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 9 · 진행 사항 보고 ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">07</span> 진행 사항 · Sprint #2</span>
+      <h2 class="s-title" data-anim style="--i:1">지난 주 <span class="gold">상세설계</span> 스프린트 <small style="font-family:var(--sans);font-size:.42em;color:var(--muted);font-weight:500">2026.06.22 – 06.26</small></h2>
+    </div>
+    <div class="sprint">
+      <div class="sp-col" data-anim style="--i:2">
+        <div class="sp-h">완료 · 진행 작업 <span class="sc">14 / 16 Done</span></div>
+        <div class="sp-list">
+          <div class="sp-item"><span class="nm">시퀀스 · State 다이어그램 작성</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">GUI 설계 3종 (회원·사서·Libi)</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">학습 데이터 수집 (인형·Pinky_pro)</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">기술조사 (딥러닝·로봇팔 제어)</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">소품 제작 · 물품 구매</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">UR · SR · SA 전체 검토</span><span class="st done">DONE</span></div>
+          <div class="sp-item"><span class="nm">분류 기능 기술조사 · 바구니 데이터 수집</span><span class="st prog">진행 중</span></div>
+        </div>
+      </div>
+      <div class="sp-col" data-anim style="--i:3">
+        <div class="sp-h">스프린트 회고</div>
+        <div class="retro">
+          <div class="retro-card"><h5>👍 잘된 점 (Keep)</h5><p>딥러닝 기술조사가 원활. GUI 설계·구성이 빠르게 진척(LLM 기능 포함).</p></div>
+          <div class="retro-card"><h5>⚠️ 문제 (Problem)</h5><p>팀 인원이 감축되어 작업 분배 부담 증가.</p></div>
+          <div class="retro-card"><h5>🔧 개선 (Try)</h5><p>로봇팔 제어 관련 기술조사를 선제적으로 진행해 구현 리스크 완화.</p></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ===================== 10 · 이번 주 계획 ===================== -->
+  <section class="slide cream" data-theme="cream">
+    <div class="head">
+      <span class="eyebrow" data-anim style="--i:0"><span class="num">08</span> 계획 · Next Sprint</span>
+      <h2 class="s-title" data-anim style="--i:1">이번 주 계획 — <span class="gold">구현 착수</span> <small style="font-family:var(--sans);font-size:.42em;color:var(--muted);font-weight:500">2026.06.29 – 07.03</small></h2>
+    </div>
+    <div class="plan-grid">
+      <div class="plan-card" data-anim style="--i:2"><h4><span class="pi">①</span> GUI 구현</h4><ul><li>회원·사서·Libi UI 기능 구현</li></ul></div>
+      <div class="plan-card" data-anim style="--i:2"><h4><span class="pi">②</span> 설계 산출물</h4><ul><li>ERD 작성</li><li>Interface Specification</li></ul></div>
+      <div class="plan-card" data-anim style="--i:3"><h4><span class="pi">③</span> 서버 구축</h4><ul><li>ABA Server · Web Server</li><li>AI Server</li><li>서버 간 연동 테스트</li></ul></div>
+      <div class="plan-card" data-anim style="--i:3"><h4><span class="pi">④</span> 정밀 주행</h4><ul><li>Nav2 params · PID 제어</li><li>ArUco Marker · Line tracing</li></ul></div>
+      <div class="plan-card" data-anim style="--i:4"><h4><span class="pi">⑤</span> 딥러닝 모델</h4><ul><li>Pinky + 사람 모형</li><li>바구니 · 서가</li></ul></div>
+      <div class="plan-card" data-anim style="--i:4"><h4><span class="pi">⑥</span> FMS 구현</h4><ul><li>Sim 상 slotcar plugin</li></ul></div>
+      <div class="plan-card" data-anim style="--i:5"><h4><span class="pi">⑦</span> 소품 출력</h4><ul><li>바구니 · 서가 · 미니어처</li></ul></div>
+      <div class="plan-card" data-anim style="--i:5"><h4><span class="pi">⑧</span> 기술조사</h4><ul><li>perception 후 grab</li><li>바구니 grab</li></ul></div>
+    </div>
+  </section>
+
+  <!-- ===================== 11 · 마무리 ===================== -->
+  <section class="slide dark closing" data-theme="dark">
+    <div class="closing-inner">
+      <div class="cover-team" data-anim style="--i:0">TEAM <b>ARTE</b></div>
+      <h2 class="closing-aba" data-anim style="--i:1">ABA</h2>
+      <span class="closing-rule" data-anim style="--i:2"></span>
+      <p class="closing-slogan" data-anim style="--i:3">“사람은 지식을 찾고,<br>ARTE는 그 길을 안내합니다.”</p>
+      <div class="closing-thanks" data-anim style="--i:4">감사합니다 <span>· Q &amp; A</span></div>
+    </div>
+  </section>
+
+</div>
+
+<!-- chrome -->
+<div class="chrome" id="chrome">
+  <div class="counter"><b id="cur">1</b> / <span id="total">5</span></div>
+  <div class="dots" id="dots"></div>
+  <div class="nav">
+    <button id="prev" aria-label="이전">&#8592;</button>
+    <button id="next" aria-label="다음">&#8594;</button>
+  </div>
+</div>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const dotsWrap=document.getElementById('dots');
+const prog=document.getElementById('prog');
+const curEl=document.getElementById('cur');
+const chromeBar=document.getElementById('chrome');
+const prevBtn=document.getElementById('prev'),nextBtn=document.getElementById('next');
+document.getElementById('total').textContent=slides.length;
+let i=0;
+
+slides.forEach((_,n)=>{
+  const d=document.createElement('button');d.className='dot';d.setAttribute('aria-label','슬라이드 '+(n+1));
+  d.onclick=()=>go(n);dotsWrap.appendChild(d);
+});
+const dots=[...dotsWrap.children];
+
+function go(n){
+  i=Math.max(0,Math.min(slides.length-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('active',k===i));
+  dots.forEach((d,k)=>d.classList.toggle('on',k===i));
+  curEl.textContent=i+1;
+  prog.style.width=((i+1)/slides.length*100)+'%';
+  prevBtn.disabled=i===0;nextBtn.disabled=i===slides.length-1;
+  const dark=slides[i].dataset.theme==='dark';
+  chromeBar.classList.toggle('dark-chrome',dark);
+}
+prevBtn.onclick=()=>go(i-1);nextBtn.onclick=()=>go(i+1);
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(i+1);}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+  if(e.key==='Home')go(0);if(e.key==='End')go(slides.length-1);
+});
+let sx=0;
+addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(i+(dx<0?1:-1));},{passive:true});
+go(0);
+</script>
+</body>
+</html>

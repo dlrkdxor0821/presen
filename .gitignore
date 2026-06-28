@@ -8,3 +8,7 @@ Thumbs.db
 # temp
 *.tmp
 *.log
+__*.html
+
+# secrets (Atlassian API token) — never commit
+.jira.env

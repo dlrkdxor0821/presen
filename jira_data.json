@@ -1,0 +1,429 @@
+{
+ "sprints": [
+  {
+   "id": 3,
+   "name": "Sprint 1. 프로젝트 설계",
+   "state": "closed",
+   "start": "2026-06-15",
+   "end": "2026-06-21",
+   "issues": [
+    {
+     "key": "AR-1",
+     "summary": "시스템 요구사항 작성",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-2",
+     "summary": "시스템 아키텍처 설계",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-3",
+     "summary": "기술조사 항목 정리",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-10",
+     "summary": "UR작성",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-12",
+     "summary": "책 분류",
+     "status": "Done",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-13",
+     "summary": "LLM (도서추천기능)",
+     "status": "Done",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-14",
+     "summary": "온디바이스에서 성능",
+     "status": "Done",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-15",
+     "summary": "다중제어",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-16",
+     "summary": "map ",
+     "status": "Done",
+     "assignee": "이주형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-17",
+     "summary": "딥러닝 툴, 모델 조사",
+     "status": "Done",
+     "assignee": "rogerthat",
+     "type": "Task"
+    },
+    {
+     "key": "AR-19",
+     "summary": "SA 수정",
+     "status": "Done",
+     "assignee": "이주형",
+     "type": "Task"
+    }
+   ]
+  },
+  {
+   "id": 4,
+   "name": "Sprint 2. 프로젝트 상세 설계",
+   "state": "closed",
+   "start": "2026-06-22",
+   "end": "2026-06-28",
+   "issues": [
+    {
+     "key": "AR-15",
+     "summary": "다중제어",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-16",
+     "summary": "map ",
+     "status": "Done",
+     "assignee": "이주형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-20",
+     "summary": "구매 물품 작성",
+     "status": "Done",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-23",
+     "summary": "기술조사 - 딥러닝 성능 조사",
+     "status": "Done",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-24",
+     "summary": "시니라오 작성 - 시퀀스 다이어그램",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-25",
+     "summary": "시나리오 작성 - state 다이어그램",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-26",
+     "summary": "기술조사 - 분류 기능",
+     "status": "In Progress",
+     "assignee": "rogerthat",
+     "type": "Task"
+    },
+    {
+     "key": "AR-27",
+     "summary": "소품제작",
+     "status": "Done",
+     "assignee": "이주형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-28",
+     "summary": "GUI - Library Member UI",
+     "status": "Done",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-29",
+     "summary": "GUI - Librarian UI",
+     "status": "Done",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-30",
+     "summary": "GUI - Libi UI",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-31",
+     "summary": "학습 데이터 수집 - 바구니",
+     "status": "In Progress",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-32",
+     "summary": "학습 데이터 수집 - 인형",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-33",
+     "summary": "학습 데이터 수집 - Pinky_pro",
+     "status": "Done",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-34",
+     "summary": "UR, SR, SA 전체 검토",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-38",
+     "summary": "ERD작성",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-39",
+     "summary": "기술조사 -  perception 후 grab",
+     "status": "In Progress",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-40",
+     "summary": "state, squence diagram, map 수정",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-41",
+     "summary": "온디바이스 vs ai server 성능 차이 비교 (PinkyPro)",
+     "status": "Done",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-42",
+     "summary": "Slam map 재 작성, 정밀제어",
+     "status": "Done",
+     "assignee": "인경일",
+     "type": "Task"
+    }
+   ]
+  },
+  {
+   "id": 5,
+   "name": "Sprint 3. 프로젝트 구현",
+   "state": "active",
+   "start": "2026-06-28",
+   "end": "2026-07-05",
+   "issues": [
+    {
+     "key": "AR-26",
+     "summary": "기술조사 - 분류 기능",
+     "status": "In Progress",
+     "assignee": "rogerthat",
+     "type": "Task"
+    },
+    {
+     "key": "AR-31",
+     "summary": "학습 데이터 수집 - 바구니",
+     "status": "In Progress",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-38",
+     "summary": "ERD작성",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-39",
+     "summary": "기술조사 -  perception 후 grab",
+     "status": "In Progress",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-44",
+     "summary": "Interface Specification",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-45",
+     "summary": "ABA_server 구축",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-46",
+     "summary": "ABA_Web_server구축",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-47",
+     "summary": "Ai_server 구축",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-48",
+     "summary": "각 서버와의 연동 테스트",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-49",
+     "summary": "기술조사 - 바구니 grab",
+     "status": "To Do",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-50",
+     "summary": "정밀주행 - nav2 params",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-51",
+     "summary": "정밀주행 - PID제어",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-52",
+     "summary": "정밀주행 - ArUco Marker",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-53",
+     "summary": "정밀주행 - Line tracing",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-55",
+     "summary": "서가 데이터 수집",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-56",
+     "summary": "딥러닝 모델 구축 - 바구니",
+     "status": "To Do",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-57",
+     "summary": "딥러닝 모델 구축 - 서가",
+     "status": "To Do",
+     "assignee": null,
+     "type": "Task"
+    },
+    {
+     "key": "AR-58",
+     "summary": "딥러닝 모델 구축 - 핑키 + 사람 모형",
+     "status": "To Do",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-59",
+     "summary": "FMS  구현 - sim 상, slotcar plugin",
+     "status": "To Do",
+     "assignee": "이강택",
+     "type": "Task"
+    }
+   ]
+  },
+  {
+   "id": 6,
+   "name": "Sprint 4. 프로젝트 구현",
+   "state": "future",
+   "start": "2026-07-05",
+   "end": "2026-07-12",
+   "issues": []
+  },
+  {
+   "id": 7,
+   "name": "Sprint 5. 프로젝트 구현",
+   "state": "future",
+   "start": "2026-07-12",
+   "end": "2026-07-19",
+   "issues": []
+  },
+  {
+   "id": 8,
+   "name": "Sprint 6. 프로젝트 구현",
+   "state": "future",
+   "start": "2026-07-19",
+   "end": "2026-07-26",
+   "issues": []
+  },
+  {
+   "id": 9,
+   "name": "Sprint 7. 프로젝트 구현",
+   "state": "future",
+   "start": "2026-07-26",
+   "end": "2026-08-02",
+   "issues": []
+  },
+  {
+   "id": 10,
+   "name": "Sprint 8. 프로젝트 안정화",
+   "state": "future",
+   "start": "2026-08-02",
+   "end": "2026-08-09",
+   "issues": []
+  },
+  {
+   "id": 11,
+   "name": "데모데이",
+   "state": "future",
+   "start": "2026-08-09",
+   "end": "2026-08-10",
+   "issues": []
+  }
+ ]
+}
