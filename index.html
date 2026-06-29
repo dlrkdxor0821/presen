@@ -176,7 +176,8 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 /* ============================================================
    5/6 · SEQUENCE
 ============================================================ */
-.seq-slide{padding:clamp(26px,3.7vh,46px) clamp(36px,3.6vw,60px)}
+/* Sequence slides: top/left/right padding = default so the title lines up with other slides; only the bottom stays tight to give the dense diagram a little more height */
+.seq-slide{padding:clamp(38px,5.4vh,62px) clamp(46px,5.6vw,100px) clamp(26px,3.7vh,46px)}
 .seqx{flex:1;display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(18px,2.2vw,38px);min-height:0}
 .seqx-left{display:flex;flex-direction:column;min-height:0}
 .seqx-left .shead{margin-bottom:clamp(8px,1.4vh,16px)}
@@ -216,6 +217,11 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 ============================================================ */
 .stated{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
 .stated svg{max-width:100%;max-height:100%;width:auto;height:auto}
+/* State Diagram (slide 9): header/title stays at the shared default position (consistent with other slides).
+   Hide the footer on this slide only and reclaim the space below so the square diagram grows as large as possible. */
+.slide.state-max{padding-bottom:clamp(14px,2vh,26px)}
+.slide.state-max .sfoot{display:none}
+.slide.state-max .stated img{padding:4px}
 .st-st{fill:#fff;stroke:#7C8597;stroke-width:1.5}
 .st-hub{fill:#FFFDF8;stroke:var(--gold);stroke-width:2.4}
 .st-estop{fill:#FBEAE6;stroke:#B5482F;stroke-width:1.8}
@@ -329,6 +335,8 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jb.prog{color:#2456A6;background:#DCE8FB}
 .jb.todo{color:#6B7280;background:#ECE9E0}
 .gui-slide{padding-left:clamp(28px,3.6vw,60px);padding-right:clamp(28px,3.6vw,60px)}
+/* GUI slide narrows side padding for the wide device mockups; nudge header/footer back to the standard left edge so the title aligns with other slides */
+.gui-slide .shead,.gui-slide .sfoot{padding-left:clamp(18px,2vw,40px);padding-right:clamp(18px,2vw,40px)}
 .jira-shot{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
 .shot-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .shot-wrap img{max-width:100%;max-height:96%;width:auto;height:96%;object-fit:contain;border-radius:10px;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
@@ -637,7 +645,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
   </section>
 
   <!-- ===== 7 · State Diagram ===== -->
-  <section class="slide">
+  <section class="slide state-max">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">05</span> State Diagram <span class="kof">/ 11</span></div>
       <h2 class="stitle anim" style="--d:1">State Diagram</h2>
