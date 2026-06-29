@@ -1,0 +1,164 @@
+<p style="text-align: center;">
+  <ac:structured-macro ac:name="status"><ac:parameter ac:name="colour">Green</ac:parameter><ac:parameter ac:name="title">사서 협동로봇 · Cobot</ac:parameter></ac:structured-macro>
+  &nbsp;
+  <ac:structured-macro ac:name="status"><ac:parameter ac:name="colour">Blue</ac:parameter><ac:parameter ac:name="title">Mobile Manipulator</ac:parameter></ac:structured-macro>
+  &nbsp;
+  <ac:structured-macro ac:name="status"><ac:parameter ac:name="colour">Yellow</ac:parameter><ac:parameter ac:name="title">주야간 통합</ac:parameter></ac:structured-macro>
+</p>
+
+<h1 style="text-align: center;">📚 ABA · 리비(Libi)</h1>
+<p style="text-align: center;"><strong>사서를 대체하지 않고, 사서 곁에서 함께 일하는 도서관 협동로봇</strong></p>
+
+<ac:structured-macro ac:name="panel">
+  <ac:parameter ac:name="bgColor">#EAE6FF</ac:parameter>
+  <ac:parameter ac:name="title">💡 한 줄 정의</ac:parameter>
+  <ac:rich-text-body>
+    <p><strong>리비(Libi)</strong> 는 주행로봇과 로봇팔이 결합된 <strong>모바일 매니퓰레이터</strong>로,
+    서가에서 <strong>책을 직접 집어 배달·반납·정리</strong>하며 사서를 돕는 <strong>도서관 사서 협동로봇</strong>입니다.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<ac:structured-macro ac:name="toc">
+  <ac:parameter ac:name="minLevel">2</ac:parameter>
+  <ac:parameter ac:name="maxLevel">2</ac:parameter>
+  <ac:parameter ac:name="style">none</ac:parameter>
+</ac:structured-macro>
+
+<hr/>
+
+<h2>🤖 1. 프로젝트 주제 <em>(What)</em></h2>
+
+<ac:layout>
+  <ac:layout-section ac:type="two_equal">
+    <ac:layout-cell>
+      <p>리비는 음성·QR로 도서를 요청받아 <strong>서가에서 책을 직접 집어</strong> 배달하고,
+      반납·재배가까지 수행합니다. 추천·안내·정리·보안을 한 대로 처리하는
+      <strong>도서관 통합 사서 도우미</strong>입니다.</p>
+      <ac:structured-macro ac:name="code">
+        <ac:plain-text-body><![CDATA[리비(Libi) = 주행로봇(Autonomous Base)
+          + 로봇팔(Robot Arm)
+        = 사서 협동로봇 (Librarian Cobot)]]></ac:plain-text-body>
+      </ac:structured-macro>
+    </ac:layout-cell>
+    <ac:layout-cell>
+      <table>
+        <tbody>
+          <tr>
+            <th>구분</th>
+            <th>역할</th>
+            <th>핵심 동작</th>
+          </tr>
+          <tr>
+            <td>🌞 <strong>주간 · 서비스</strong></td>
+            <td>이용자·사서 지원</td>
+            <td>도서 요청 픽업·배달, 반납 회수, 추천·안내</td>
+          </tr>
+          <tr>
+            <td>🌙 <strong>야간 · 운영</strong></td>
+            <td>무인 도서관 관리</td>
+            <td>침입 감지·녹화·신고, 서가 정리정돈</td>
+          </tr>
+        </tbody>
+      </table>
+    </ac:layout-cell>
+  </ac:layout-section>
+</ac:layout>
+
+<ac:structured-macro ac:name="tip">
+  <ac:parameter ac:name="title">왜 '협동로봇'인가</ac:parameter>
+  <ac:rich-text-body>
+    <p>리비의 핵심은 <strong>사서와 한 공간에서, 사서를 따라다니며 함께 일한다</strong>는 점입니다.</p>
+    <ul>
+      <li><strong>사람을 대체하지 않음</strong> — 판단·상담·큐레이션은 사서가, 무겁고 반복적인 물리 노동은 리비가 분담</li>
+      <li><strong>추종(Following)</strong> — 사서가 정리·점검할 때 옆에서 따라다니며 책을 받고 옮김</li>
+      <li><strong>목표점 이동</strong> — 사서가 지정한 위치로 책을 배달·반납</li>
+    </ul>
+    <p>👉 리비는 <em>"사서의 일을 빼앗는 로봇"</em>이 아니라 <em>"사서의 손과 다리를 늘려주는 동료"</em>입니다.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<hr/>
+
+<h2>🌍 2. 주제 선정 이유 <em>(Why)</em> — 사회적 배경</h2>
+
+<ac:structured-macro ac:name="info">
+  <ac:rich-text-body>
+    <p>리비는 단순한 편의 기기가 아니라, <strong>사람이 줄어드는 사회에서 공공 서비스를 지키기 위한</strong> 해법입니다.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<h3>① 초고령사회 + 생산가능인구 감소</h3>
+<p>한국은 <strong>2025년 초고령사회(65세 이상 20% 초과)</strong>에 진입했고, 노동인구는 계속 줄고 있습니다.
+공공도서관도 <em>"사람은 부족한데 업무량은 그대로"</em>인 구조여서, 단순·반복 업무의 자동화가 불가피합니다.</p>
+
+<h3>② 사서의 숨은 중노동 — 배가(排架)·정리·장서점검</h3>
+<p>사서 하면 상담·큐레이션을 떠올리지만, 실제 업무 시간의 큰 비중은
+<strong>무거운 책을 서가에 꽂고 빼는 물리 노동</strong>입니다. 반복 하중으로 <strong>근골격계 질환</strong>도 잦습니다.
+그런데 이 <em>"마지막 물리 단계"</em>는 아직 자동화되지 못했습니다.</p>
+
+<ac:structured-macro ac:name="panel">
+  <ac:parameter ac:name="bgColor">#FFFAE6</ac:parameter>
+  <ac:parameter ac:name="title">💬 현장의 목소리 — 한 학교 도서관 사서</ac:parameter>
+  <ac:rich-text-body>
+    <blockquote>
+      <p>"수만 권의 장서를 전수 확인(장서점검)하라는 지시를 받았다. 사서 1인이 개인 업무와 병행하며 하기엔 불가능에 가까운 일이었다."</p>
+    </blockquote>
+    <p>→ 장서점검·배가 같은 <strong>단순 반복 물리 노동</strong>이 사서를 본연의 업무(큐레이션·이용자 상담)에서
+    떼어놓는 현실. <strong>리비가 협동로봇으로서 자동화하려는 바로 그 지점입니다.</strong></p>
+    <p><em>출처: 브런치 「관리자가 바뀔 때마다 생기는 도서관의 고충」</em>
+    &nbsp;<a href="https://brunch.co.kr/@grida-9/1179">https://brunch.co.kr/@grida-9/1179</a></p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<h3>③ 기존 자동화의 빈틈</h3>
+<p>무인 대출·반납기(키오스크)와 RFID 게이트는 이미 보급됐지만,
+<strong>"서가에서 책을 직접 집어 옮기는 일"</strong>은 하지 못합니다.
+→ 잘못 꽂힌 책(<strong>오배가 = 사실상 분실</strong>)과 장서점검 인력 낭비가 그대로 남습니다.
+<strong>리비가 노리는 정확한 빈틈입니다.</strong></p>
+
+<h3>④ 정보취약계층 접근성 + 야간 보안 공백</h3>
+<p>높은 서가의 책을 휠체어 이용자·고령자가 꺼내기 어려운 <strong>접근성 문제</strong>,
+그리고 무인 야간 운영 시의 <strong>보안 공백</strong> — 리비는 주간 서비스 + 야간 감시·정리로 이 둘을 함께 해결합니다.</p>
+
+<hr/>
+
+<h2>✅ 3. 기대 효과 <em>(So What)</em></h2>
+
+<ac:structured-macro ac:name="panel">
+  <ac:parameter ac:name="bgColor">#E3FCEF</ac:parameter>
+  <ac:rich-text-body>
+    <p><strong>키오스크가 못 하는 "책을 물리적으로 다루는 일"</strong>을 사서 협동로봇으로 자동화하여,
+    <strong>사서는 사람만 할 수 있는 큐레이션·이용자 상담 같은 고부가 업무에 집중</strong>할 수 있습니다.</p>
+  </ac:rich-text-body>
+</ac:structured-macro>
+
+<table>
+  <tbody>
+    <tr>
+      <th>대상</th>
+      <th>효과</th>
+    </tr>
+    <tr>
+      <td><strong>사서</strong></td>
+      <td>반복 물리 노동·근골격계 부담 경감 → 전문 업무 집중, <strong>로봇과의 협업</strong></td>
+    </tr>
+    <tr>
+      <td><strong>이용자</strong></td>
+      <td>도서 접근성 향상, 빠른 픽업·반납</td>
+    </tr>
+    <tr>
+      <td><strong>도서관</strong></td>
+      <td>인력난 대응, 오배가 감소, 야간 무인 운영·보안 강화</td>
+    </tr>
+  </tbody>
+</table>
+
+<hr/>
+
+<ac:structured-macro ac:name="note">
+  <ac:parameter ac:name="title">한 줄 요약</ac:parameter>
+  <ac:rich-text-body>
+    <p style="text-align: center;"><strong>리비는 사서를 대체하지 않는다.<br/>
+    사서의 손과 다리가 되어, 사람이 줄어드는 시대의 도서관을 함께 지키는 협동로봇이다.</strong></p>
+  </ac:rich-text-body>
+</ac:structured-macro>

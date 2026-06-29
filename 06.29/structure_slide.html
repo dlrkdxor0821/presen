@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<style>
+:root{
+  --paper:#F6F3EB; --paper-2:#FBF9F3; --card:#FFFFFF; --line:#E7E0D1; --line-soft:#EFEADE;
+  --ink:#1B2738; --ink-2:#5B6473; --ink-3:#97A0AE;
+  --navy:#1B2C4B; --navy-2:#10182B;
+  --gold:#C0852A; --gold-deep:#9A6A1C; --gold-bright:#E0A43C; --gold-soft:#F3E7CC; --gold-line:#E6CF9C;
+  --teal:#1E8C80; --teal-soft:#E0F0ED; --alert:#B5482F; --alert-soft:#F6E5E0;
+  --sans:"Pretendard Variable",Pretendard,"Noto Sans CJK KR","Apple SD Gothic Neo",sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --sh:0 18px 44px -24px rgba(18,28,52,.34);
+  --sh-sm:0 8px 22px -14px rgba(18,28,52,.30);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:var(--sans);-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+.slide{width:1280px;height:720px;overflow:hidden;display:flex;flex-direction:column;
+  padding:44px 60px 26px;
+  background:radial-gradient(130% 100% at 100% 0%, rgba(224,164,60,.06), transparent 55%), var(--paper);
+  color:var(--ink)}
+
+/* header */
+.shead{flex-shrink:0;margin-bottom:18px}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);display:flex;align-items:center;gap:11px;margin-bottom:11px}
+.kicker::before{content:"";width:24px;height:1.5px;background:var(--gold)}
+.kicker .kn{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;letter-spacing:0;color:var(--gold)}
+.kicker .kof{color:var(--ink-3);font-weight:500}
+.stitle{font-weight:650;font-size:32px;line-height:1.13;letter-spacing:-.022em;color:var(--ink)}
+.stitle .hl{color:var(--gold-deep)}
+.stitle .sm{font-family:var(--mono);font-weight:500;font-size:.42em;letter-spacing:.02em;color:var(--ink-3);margin-left:10px;vertical-align:.16em}
+
+/* body : architecture bands */
+.arch{flex:1;display:flex;flex-direction:column;justify-content:center;gap:7px;min-height:0}
+.band{display:grid;grid-template-columns:108px 1fr;gap:13px;align-items:stretch}
+.band .bl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:3px;border-radius:12px;color:#fff;background:var(--ac);padding:8px 0;box-shadow:var(--sh-sm)}
+.band .bl .bln{font-family:var(--serif);font-style:italic;font-size:21px;font-weight:600;line-height:1}
+.band .bl .blt{font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.02em}
+.band.app{--ac:var(--gold-deep)}
+.band.svc{--ac:var(--teal)}
+.band.fleet{--ac:var(--gold)}
+.band.ctrl{--ac:var(--navy)}
+.brow{flex:1;display:flex;gap:11px;flex-wrap:wrap;align-items:stretch;position:relative;
+  background:color-mix(in srgb,var(--ac) 5%,var(--card));border:1px solid var(--line);border-left:4px solid var(--ac);
+  border-radius:14px;padding:12px 15px}
+.brow .xn{position:absolute;top:-9px;right:16px;font-family:var(--mono);font-size:10px;color:var(--ac);font-weight:600;
+  letter-spacing:.04em;background:var(--paper);padding:1px 9px;border:1px solid color-mix(in srgb,var(--ac) 35%,var(--line));border-radius:20px}
+.abox{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:10px 13px;display:flex;flex-direction:column;gap:5px;box-shadow:var(--sh-sm)}
+.abox.star{border-color:var(--gold-line);background:linear-gradient(180deg,var(--gold-soft),var(--card) 60%)}
+.abox h4{font-size:13.5px;font-weight:650;color:var(--ink);display:flex;align-items:baseline;gap:7px;font-family:var(--mono)}
+.abox h4 .st{color:var(--gold-deep);font-size:13px}
+.abox h4 em{font-style:normal;font-size:10px;color:var(--ink-3);font-weight:500;font-family:var(--mono)}
+.abox p{font-size:11.6px;line-height:1.4;color:var(--ink-2);font-family:var(--sans)}
+.abox .svc{display:flex;flex-wrap:wrap;gap:5px;margin-top:1px}
+.abox .svc span{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ac);background:color-mix(in srgb,var(--ac) 11%,transparent);border-radius:6px;padding:2px 7px}
+.abox.star .svc span{color:var(--gold-deep);background:color-mix(in srgb,var(--gold) 14%,transparent)}
+.bridge{display:flex;justify-content:center;align-items:center;color:var(--gold);font-size:12px;line-height:1;height:11px;
+  font-family:var(--mono);gap:7px}
+.bridge::before,.bridge::after{content:"";width:46px;height:1px;background:linear-gradient(90deg,transparent,var(--gold-line))}
+.bridge::after{background:linear-gradient(90deg,var(--gold-line),transparent)}
+.bridge b{font-weight:600;color:var(--gold-deep);font-size:9.5px;letter-spacing:.08em}
+
+/* footer */
+.sfoot{flex-shrink:0;margin-top:14px;padding-top:12px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3)}
+.sfoot .bd{display:flex;align-items:center;gap:9px}
+.sfoot .bd b{color:var(--ink-2);font-weight:600}
+.sfoot .dotg{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.sfoot .rt{display:flex;gap:14px;align-items:center}
+.sfoot .rt i{font-style:normal;display:inline-flex;align-items:center;gap:5px}
+.sfoot .rt i::before{content:"";width:8px;height:8px;border-radius:2px;background:var(--c)}
+</style>
+</head>
+<body>
+<section class="slide">
+  <header class="shead">
+    <div class="kicker"><span class="kn">·</span> Folder Structure <span class="kof">/ Repo Map</span></div>
+    <h2 class="stitle">프로젝트 <span class="hl">폴더 구조</span><span class="sm">app · service · libi_fleet · controller</span></h2>
+  </header>
+
+  <div class="arch">
+
+    <!-- app -->
+    <div class="band app">
+      <div class="bl"><span class="bln">Ⅰ</span><span class="blt">app/</span></div>
+      <div class="brow">
+        <span class="xn">사용자 대면 · 프론트엔드</span>
+        <div class="abox">
+          <h4>libi_gui</h4>
+          <p>리비 운영자용 관제 GUI — 라이브 맵·텔레메트리·명령</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge"><b>HTTP</b></div>
+
+    <!-- service -->
+    <div class="band svc">
+      <div class="bl"><span class="bln">Ⅱ</span><span class="blt">service/</span></div>
+      <div class="brow">
+        <span class="xn">백엔드 서비스 계층</span>
+        <div class="abox">
+          <h4>ABA_service</h4>
+          <p>중앙관제 입구 — FastAPI ↔ ROS2 브리지, 태스크 접수·거절</p>
+        </div>
+        <div class="abox">
+          <h4>ABA_web_service</h4>
+          <p>브라우저 대면 웹</p>
+          <div class="svc"><span>librarian_browser</span><span>library_member_browser</span></div>
+        </div>
+        <div class="abox">
+          <h4>ai_service</h4>
+          <p>도서 추천 · 음성/대화 · 비전</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge"><b>ROS2 · SubmitTask</b></div>
+
+    <!-- libi_fleet -->
+    <div class="band fleet">
+      <div class="bl"><span class="bln">Ⅲ</span><span class="blt">libi_fleet/</span></div>
+      <div class="brow">
+        <span class="xn">★ FMS 두뇌 · 관제 코어 (C++)</span>
+        <div class="abox star">
+          <h4><span class="st">★</span> src/libi_fleet</h4>
+          <p>FMS 본체 — 배차 + 교통 (pluginlib 런타임 스왑)</p>
+          <div class="svc"><span>fleet_node</span><span>navgraph · Dijkstra</span><span>plugins</span></div>
+        </div>
+        <div class="abox">
+          <h4>src/libi_fleet_msgs</h4>
+          <p>인터페이스 계약</p>
+          <div class="svc"><span>SubmitTask·SetPlugins</span><span>Navigate·PerformAction</span></div>
+        </div>
+        <div class="abox">
+          <h4>maps</h4>
+          <p>맵 데이터</p>
+          <div class="svc"><span>navgraph</span><span>building.yaml</span><span>.pgm</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bridge"><b>ROS2 · PathRequest / action</b></div>
+
+    <!-- controller -->
+    <div class="band ctrl">
+      <div class="bl"><span class="bln">Ⅳ</span><span class="blt">controller/</span></div>
+      <div class="brow">
+        <span class="xn">로봇 탑재 컨트롤러 · 로봇 1대 = 도메인 1개</span>
+        <div class="abox">
+          <h4>libi_drive_controller</h4>
+          <p>주행 컨트롤러 (nav2 / slotcar) — fleet은 오직 Drive와만 통신</p>
+        </div>
+        <div class="abox">
+          <h4>libi_handy_controller</h4>
+          <p>로봇팔(Handy) 컨트롤러 — Drive가 지휘 · perform_action</p>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <footer class="sfoot">
+    <span class="bd"><span class="dotg"></span>ABA · Libi <b>Folder Structure</b> · 15 directories · 스켈레톤</span>
+    <span class="rt">
+      <i style="--c:var(--gold-deep)">app</i>
+      <i style="--c:var(--teal)">service</i>
+      <i style="--c:var(--gold)">libi_fleet ★</i>
+      <i style="--c:var(--navy)">controller</i>
+    </span>
+  </footer>
+</section>
+</body>
+</html>

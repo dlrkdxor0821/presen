@@ -113,15 +113,15 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .topic-desc b{color:var(--ink);font-weight:600}
 .topic-cards{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(13px,1.4vw,18px)}
 .tcard{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:clamp(16px,1.6vw,21px);box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:9px}
-.tcard .tc-k{font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
-.tcard h4{font-size:15.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:8px}
-.tcard p{font-size:12.8px;line-height:1.55;color:var(--ink-2)}
+.tcard .tc-k{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.tcard h4{font-size:18px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tcard p{font-size:15px;line-height:1.55;color:var(--ink-2)}
 .eqn{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
 .eqn .term{display:flex;flex-direction:column}
-.eqn .term b{font-size:14.5px;font-weight:650;color:var(--navy)}
-.eqn .term span{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.02em}
-.eqn .op{font-family:var(--serif);font-size:21px;color:var(--gold);font-weight:500}
-.eqn .res{font-size:14.5px;font-weight:650;color:var(--gold-deep)}
+.eqn .term b{font-size:17px;font-weight:650;color:var(--navy)}
+.eqn .term span{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.eqn .op{font-family:var(--serif);font-size:23px;color:var(--gold);font-weight:500}
+.eqn .res{font-size:17px;font-weight:650;color:var(--gold-deep)}
 
 /* ============================================================
    3 · ARCHITECTURE
@@ -182,32 +182,34 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .seqx-left .shead{margin-bottom:clamp(8px,1.4vh,16px)}
 .seqx-left .sfoot{margin-top:auto}
 .seqx-right{min-height:0;display:flex;align-items:center;justify-content:center;margin:calc(-1*clamp(16px,3.1vh,34px)) 0}
-.seqx-right img{height:100%;width:auto;max-width:100%;object-fit:contain;transform:scaleX(1.26);transform-origin:center;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);padding:5px}
-.seqx-right.wide img{transform:scaleX(1.26)}
+.seqx-right img{height:100%;width:auto;max-width:100%;object-fit:contain;transform:none;transform-origin:center;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);padding:5px}
+.seqx-right.wide img{transform:none}
 /* flow · icon stepper */
 .flow-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.9vh,34px);min-width:0}
 .lanes{display:flex;flex-wrap:wrap;gap:7px}
-.lanes span{font-family:var(--mono);font-size:12.5px;font-weight:500;color:var(--navy);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:5px 11px}
+.lanes span{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--navy);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:6px 13px}
 .lanes .trig{color:var(--gold-deep);background:var(--gold-soft);border-color:var(--gold-line)}
 .flow{display:flex;align-items:flex-start;justify-content:flex-start;flex-wrap:nowrap;gap:clamp(4px,0.7vw,11px)}
-.fnode{display:flex;flex-direction:column;align-items:center;gap:11px;flex:0 0 auto;width:clamp(80px,6.6vw,112px)}
-.fnode .fi{width:clamp(70px,5.8vw,98px);height:clamp(70px,5.8vw,98px);border-radius:23px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);color:var(--navy)}
+.fnode{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 auto;width:clamp(92px,7.6vw,128px)}
+.fnode .fi{width:clamp(80px,6.7vw,112px);height:clamp(80px,6.7vw,112px);border-radius:26px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);color:var(--navy)}
 .fnode .fi svg{width:54%;height:54%}
 .fnode.key .fi{background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));border-color:transparent;color:#fff}
-.fnode .fl{font-size:14.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.25}
-.fnode .fl em{display:block;font-style:normal;font-weight:500;font-size:11px;color:var(--ink-3);font-family:var(--mono);margin-top:3px;letter-spacing:.02em}
-.farrow{align-self:flex-start;margin-top:clamp(26px,2.7vw,42px);color:var(--gold);font-size:21px;font-weight:700;flex-shrink:0}
+.fnode .fl{font-size:16.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.25}
+.fnode .fl em{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:var(--ink-3);font-family:var(--mono);margin-top:3px;letter-spacing:.02em}
+.farrow{align-self:flex-start;margin-top:clamp(30px,3.3vw,52px);color:var(--gold);font-size:22px;font-weight:700;flex-shrink:0}
 .flink{position:relative;height:clamp(36px,6vh,60px);margin:clamp(-14px,-1.8vh,-8px) 0;
-  --nw:clamp(80px,6.6vw,112px);--fg:clamp(4px,0.7vw,11px);--aw:18px;
+  --nw:clamp(92px,7.6vw,128px);--fg:clamp(4px,0.7vw,11px);--aw:18px;
   --x4:calc(3.5*var(--nw) + 3*var(--aw) + 6*var(--fg));--x1:calc(var(--nw)/2)}
 .flink span{position:absolute;background:var(--gold);border-radius:1px}
 .flink .v1{left:var(--x4);top:0;width:2.6px;height:calc(50% + 1px);transform:translateX(-50%)}
 .flink .h{top:calc(50% - 1.3px);left:calc(var(--x1) - 1.3px);width:calc(var(--x4) - var(--x1) + 2.6px);height:2.6px}
 .flink .v2{left:var(--x1);top:50%;width:2.6px;height:calc(50% - 7px);transform:translateX(-50%)}
 .flink .v2::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:0;height:0;background:none;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--gold)}
-.flow-sum{font-size:16px;line-height:1.82;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--gold);border-radius:13px;padding:18px 22px}
+.flow-sum{font-size:17px;line-height:1.78;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--gold);border-radius:13px;padding:18px 22px}
 .flow-sum .lab{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:6px}
 .flow-sum b{color:var(--gold-deep);font-weight:600}
+/* step-focus highlight box around a flow row (does not affect layout) */
+.flow.box{outline:2.6px solid var(--gold);outline-offset:10px;border-radius:9px;box-shadow:0 0 0 10px var(--gold-soft),0 16px 36px -18px rgba(192,133,42,.5)}
 
 /* ============================================================
    7 · STATE DIAGRAM
@@ -229,9 +231,9 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .gui{flex:1;display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,1.3vw,22px);align-items:center;min-height:0}
 .gcell{display:flex;flex-direction:column;align-items:center;gap:11px;min-width:0}
 .gcap{text-align:center}
-.gcap .role{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
-.gcap h4{font-size:17px;font-weight:650;color:var(--ink);margin:5px 0 4px}
-.gcap p{font-size:12.5px;line-height:1.5;color:var(--ink-2);max-width:28ch}
+.gcap .role{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.gcap h4{font-size:20px;font-weight:650;color:var(--ink);margin:6px 0 5px}
+.gcap p{font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:30ch}
 .dev-phone{width:clamp(183px,16.1vw,209px);border-radius:28px;background:#0E1730;padding:9px;box-shadow:var(--sh)}
 .dev-phone img{width:100%;height:auto;display:block;border-radius:19px}
 .dev-web{width:100%;max-width:638px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
@@ -330,9 +332,52 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jira-shot{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
 .shot-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
 .shot-wrap img{max-width:100%;max-height:96%;width:auto;height:96%;object-fit:contain;border-radius:10px;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+/* progress: image kept on left + summary table on right */
+.prog-split{flex:1;min-height:0;display:flex;gap:clamp(16px,1.8vw,30px);align-items:stretch}
+.prog-split .shot-wrap{flex:1 1 58%;min-width:0;align-items:center;justify-content:flex-start}
+.prog-split .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-tbl{flex:0 0 clamp(290px,40%,460px);min-width:0;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:clamp(7px,1vh,11px)}
+.tgrp{break-inside:avoid;border:1px solid var(--line);border-radius:9px;background:var(--card);box-shadow:var(--sh-sm);overflow:hidden}
+.tgrp h5{margin:0;display:flex;align-items:center;gap:8px;padding:7px 12px;font-size:16px;font-weight:650;color:var(--ink);background:var(--gold-soft);border-bottom:1px solid var(--gold-line)}
+.tgrp h5 .gd{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:0 0 auto}
+.tgrp ul{list-style:none;margin:0;padding:5px 11px 6px}
+.tgrp li{position:relative;padding:3px 0 3px 14px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.tgrp li::before{content:"";position:absolute;left:2px;top:10px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.tgrp.alert h5{background:var(--alert-soft);color:var(--alert);border-bottom-color:#EBC9BF}
+.tgrp.alert h5 .gd{background:var(--alert)}
+.tgrp.alert li::before{background:var(--alert)}
+.tgrp li{color:var(--ink)}
+.tgrp ul ul{margin:1px 0 2px;padding:0 0 0 12px}
+.tgrp ul ul li{padding:1.5px 0 1.5px 12px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.tgrp ul ul li::before{width:5px;height:1.5px;border-radius:1px;top:8px;left:1px;background:var(--ink-3)}
+/* two-column table flow for content-heavy slides */
+.prog-tbl.cols2{flex-basis:clamp(360px,46%,560px);display:block;column-count:2;column-gap:13px;align-self:center;overflow:visible}
+.prog-tbl.cols2 .tgrp{margin-bottom:clamp(7px,1vh,11px)}
+/* larger image + larger table text to fill the available space */
+.prog-split.big{align-items:stretch}
+.prog-split.big .shot-wrap{align-items:stretch;justify-content:stretch}
+.prog-split.big .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-split.big .prog-tbl.cols2{flex-basis:clamp(330px,40%,500px);column-gap:14px;align-self:center;overflow:visible}
+.prog-split.big .tgrp h5{font-size:16px;padding:7px 13px}
+.prog-split.big .tgrp ul{padding:7px 13px 8px}
+.prog-split.big .tgrp li{font-size:15px;padding:3.5px 0 3.5px 16px}
+.prog-split.big .tgrp li::before{top:11px}
+.prog-split.big .tgrp ul ul li{font-size:13px;padding:2px 0 2px 13px}
+/* folder structure tree */
+.fstree-wrap{flex:1;display:flex;align-items:stretch;justify-content:center;min-height:0}
+.fstree{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:clamp(22px,3.4vh,44px) clamp(28px,3.4vw,56px);display:grid;grid-template-columns:auto 1fr;column-gap:clamp(24px,3.2vw,58px);row-gap:clamp(2px,0.4vh,6px);align-items:baseline;align-content:space-between}
+.fstree .p{white-space:pre;font-size:clamp(12.5px,1.08vw,16.5px);line-height:1.45;color:var(--ink-2)}
+.fstree .tw{color:var(--ink-3)}
+.fstree .root{color:var(--navy);font-weight:700}
+.fstree .dir{color:var(--gold-deep);font-weight:600}
+.fstree .dir.key{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.fstree .file{color:var(--ink-2)}
+.fstree .c{font-family:var(--sans);font-size:clamp(11.5px,0.95vw,14px);color:var(--ink-3);line-height:1.42;align-self:center}
+.fstree .c b{color:var(--gold-deep);font-weight:600}
 
 @media (max-width:860px){
   .jira-cols{column-count:1}.archimg{grid-template-columns:1fr}
+  .prog-split{flex-direction:column}.prog-tbl{flex:none}
   .cover{flex-direction:column}.cv-text{flex:none}.cv-photo{min-height:200px}
   .topic-lead,.prog,.seq{grid-template-columns:1fr}
   .topic-cards{grid-template-columns:1fr}
@@ -392,7 +437,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         <div class="tcard anim" style="--d:5">
           <span class="tc-k">야간 · Operation</span>
           <h4>🌙 무인 도서관 관리</h4>
-          <p>침입 감지·녹화·신고, 서가 정리정돈·분류.</p>
+          <p>침입 감지·녹화·신고.</p>
         </div>
         </div>
       </div>
@@ -451,7 +496,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>System Architecture</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 5 · Sequence · 이송명령 ===== -->
+  <!-- ===== 5 · Sequence · 이송명령 · ① 윗줄 박스 ===== -->
   <section class="slide seq-slide">
     <div class="seqx">
       <div class="seqx-left">
@@ -461,7 +506,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         </header>
         <div class="flow-wrap">
           <div class="lanes anim" style="--d:2"><span class="trig">도서관 회원 · 사서</span><span>Member Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive</span><span>Handy</span></div>
-          <div class="flow anim" style="--d:3">
+          <div class="flow box anim" style="--d:3">
             <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><div class="fl">요청<em>request</em></div></div>
             <span class="farrow">→</span>
             <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="13.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="fl">배차<em>dispatch</em></div></div>
@@ -482,11 +527,46 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         </div>
         <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Sequence · 이송명령</b></span><span class="pg"></span></footer>
       </div>
-      <div class="seqx-right anim" style="--d:2"><img src="img/seq_delivery.png" alt="이송명령 시퀀스 다이어그램"></div>
+      <div class="seqx-right anim" style="--d:2"><img src="img/seq_delivery_1.png" alt="이송명령 시퀀스 다이어그램 — 픽업·배달 1"></div>
     </div>
   </section>
 
-  <!-- ===== 6 · Sequence · 분류 ===== -->
+  <!-- ===== 5 · Sequence · 이송명령 · ② 아랫줄 박스 ===== -->
+  <section class="slide seq-slide">
+    <div class="seqx">
+      <div class="seqx-left">
+        <header class="shead">
+          <div class="kicker anim" style="--d:0"><span class="kn">04</span> Sequence Diagram <span class="kof">/ 11</span></div>
+          <h2 class="stitle anim" style="--d:1">이송 명령 시나리오 <span class="hl">도서 픽업 · 배달</span></h2>
+        </header>
+        <div class="flow-wrap">
+          <div class="lanes anim" style="--d:2"><span class="trig">도서관 회원 · 사서</span><span>Member Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive</span><span>Handy</span></div>
+          <div class="flow anim" style="--d:3">
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><div class="fl">요청<em>request</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="13.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="fl">배차<em>dispatch</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.4-4.3 7-7.5 7-10.6A7 7 0 0 0 5 10.4C5 13.5 7.6 16.7 12 21z"/><circle cx="12" cy="10.4" r="2.3"/></svg></div><div class="fl">서가 이동<em>pickup</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode key"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5"/><path d="M8 6v2.4a4 4 0 0 0 8 0V6"/><rect x="9" y="13" width="6" height="7" rx="1.2"/></svg></div><div class="fl">집기·적재<em>arm_load</em></div></div>
+          </div>
+          <div class="flink anim" style="--d:4"><span class="v1"></span><span class="h"></span><span class="v2"></span></div>
+          <div class="flow box anim" style="--d:4">
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.4-4.3 7-7.5 7-10.6A7 7 0 0 0 5 10.4C5 13.5 7.6 16.7 12 21z"/><circle cx="12" cy="10.4" r="2.3"/></svg></div><div class="fl">목적지 이동<em>dropoff</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode key"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5"/><path d="M8 6v2.4a4 4 0 0 0 8 0V6"/><rect x="9" y="13" width="6" height="7" rx="1.2"/></svg></div><div class="fl">목적지 배치<em>arm_unload</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.4 12.4l2.6 2.6 4.6-5.2"/></svg></div><div class="fl">완료<em>complete</em></div></div>
+          </div>
+          <p class="flow-sum anim" style="--d:4"><span class="lab">주요 흐름</span>도서관 회원·사서가 도서·목적지를 요청하면 ABA가 도서 위치를 조회해 로봇을 <b>배차</b>하고 경로를 계획합니다. 로봇은 서가로 이동해 책을 파지(<b>arm_load</b>)하여 보관함에 적재하고, 목적지로 이동해 배치(<b>arm_unload</b>)한 뒤 완료를 회신합니다. 파지 실패 시 <b>최대 3회 재시도</b>하며, 진행 상태는 state push로 회원 UI에 실시간 반영됩니다.</p>
+        </div>
+        <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Sequence · 이송명령</b></span><span class="pg"></span></footer>
+      </div>
+      <div class="seqx-right anim" style="--d:2"><img src="img/seq_delivery_2.png" alt="이송명령 시퀀스 다이어그램 — 픽업·배달 2"></div>
+    </div>
+  </section>
+
+  <!-- ===== 6 · Sequence · 분류 · ① 윗줄 박스 ===== -->
   <section class="slide seq-slide">
     <div class="seqx">
       <div class="seqx-left">
@@ -496,7 +576,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         </header>
         <div class="flow-wrap">
           <div class="lanes anim" style="--d:2"><span class="trig">사서</span><span>Librarian Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive</span><span>Handy</span></div>
-          <div class="flow anim" style="--d:3">
+          <div class="flow box anim" style="--d:3">
             <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><div class="fl">요청<em>request</em></div></div>
             <span class="farrow">→</span>
             <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="13.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="fl">배차<em>dispatch</em></div></div>
@@ -517,7 +597,42 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         </div>
         <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Sequence · 분류</b></span><span class="pg"></span></footer>
       </div>
-      <div class="seqx-right wide anim" style="--d:2"><img src="img/seq_sorting.png" alt="분류 시퀀스 다이어그램"></div>
+      <div class="seqx-right wide anim" style="--d:2"><img src="img/seq_sorting_1.png" alt="분류 시퀀스 다이어그램 — 분류 1"></div>
+    </div>
+  </section>
+
+  <!-- ===== 6 · Sequence · 분류 · ② 아랫줄 박스 ===== -->
+  <section class="slide seq-slide">
+    <div class="seqx">
+      <div class="seqx-left">
+        <header class="shead">
+          <div class="kicker anim" style="--d:0"><span class="kn">04</span> Sequence Diagram <span class="kof">/ 11</span></div>
+          <h2 class="stitle anim" style="--d:1">분류 시나리오 <span class="hl">수거함 → 분류함</span></h2>
+        </header>
+        <div class="flow-wrap">
+          <div class="lanes anim" style="--d:2"><span class="trig">사서</span><span>Librarian Browser</span><span>ABA Web</span><span>ABA Service</span><span>Drive</span><span>Handy</span></div>
+          <div class="flow anim" style="--d:3">
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="5" y="3" width="14" height="18" rx="2.5"/><path d="M9 8h6M9 12h6M9 16h4"/></svg></div><div class="fl">요청<em>request</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="4" y="8" width="16" height="11" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.6" r="1.3" fill="currentColor" stroke="none"/><circle cx="9" cy="13.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15" cy="13.5" r="1.3" fill="currentColor" stroke="none"/></svg></div><div class="fl">배차<em>dispatch</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.4-4.3 7-7.5 7-10.6A7 7 0 0 0 5 10.4C5 13.5 7.6 16.7 12 21z"/><circle cx="12" cy="10.4" r="2.3"/></svg></div><div class="fl">수거함 이동<em>collect</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode key"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5"/><path d="M8 6v2.4a4 4 0 0 0 8 0V6"/><rect x="9" y="13" width="6" height="7" rx="1.2"/></svg></div><div class="fl">바구니 교체<em>arm_swap</em></div></div>
+          </div>
+          <div class="flink anim" style="--d:4"><span class="v1"></span><span class="h"></span><span class="v2"></span></div>
+          <div class="flow box anim" style="--d:4">
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c4.4-4.3 7-7.5 7-10.6A7 7 0 0 0 5 10.4C5 13.5 7.6 16.7 12 21z"/><circle cx="12" cy="10.4" r="2.3"/></svg></div><div class="fl">분류함 이동<em>sort bin</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode key"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3v5"/><path d="M8 6v2.4a4 4 0 0 0 8 0V6"/><rect x="9" y="13" width="6" height="7" rx="1.2"/></svg></div><div class="fl">도서 분류<em>arm_sort</em></div></div>
+            <span class="farrow">→</span>
+            <div class="fnode"><div class="fi"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M8.4 12.4l2.6 2.6 4.6-5.2"/></svg></div><div class="fl">완료<em>complete</em></div></div>
+          </div>
+          <p class="flow-sum anim" style="--d:4"><span class="lab">주요 흐름</span>수거함이 가득 차거나 사서가 요청하면 분류 작업이 생성·<b>배차</b>됩니다. 로봇이 수거함으로 이동해 바구니와 수거함을 교체(<b>arm_swap</b>)한 뒤, 분류함으로 이동해 책을 한 권씩 집어 청구기호를 인식하고 과학·예술·문학으로 분류 적재(<b>arm_sort</b>)합니다. 모든 도서를 처리한 뒤 작업 완료를 회신합니다.</p>
+        </div>
+        <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Sequence · 분류</b></span><span class="pg"></span></footer>
+      </div>
+      <div class="seqx-right wide anim" style="--d:2"><img src="img/seq_sorting_2.png" alt="분류 시퀀스 다이어그램 — 분류 2"></div>
     </div>
   </section>
 
@@ -531,56 +646,127 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>State Diagram · FSM</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 8 · GUI ===== -->
+  <!-- ===== 8 · Folder Structure ===== -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">06</span> Folder Structure <span class="kof">/ 11</span></div>
+      <h2 class="stitle anim" style="--d:1"><span class="hl">Folder Structure</span> <span class="sm">ABA_folder_structure</span></h2>
+    </header>
+    <div class="sbody"><div class="fstree-wrap anim" style="--d:2"><div class="fstree">
+      <div class="p"><span class="root">ABA_folder_structure/</span></div><div class="c"></div>
+      <div class="p"><span class="tw">├── </span><span class="dir">app/</span></div><div class="c">사용자 대면 애플리케이션 (프론트엔드)</div>
+      <div class="p"><span class="tw">│   └── </span><span class="dir">libi_gui/</span></div><div class="c">리비 운영자용 관제 GUI</div>
+      <div class="p"><span class="tw">├── </span><span class="dir">controller/</span></div><div class="c">로봇 탑재 컨트롤러 (로봇 1대 = 도메인 1개)</div>
+      <div class="p"><span class="tw">│   ├── </span><span class="dir">libi_drive_controller/</span></div><div class="c">주행 컨트롤러 — fleet은 오직 Drive와만 통신</div>
+      <div class="p"><span class="tw">│   │   └── </span><span class="dir">src/</span></div><div class="c">drive_node 등 주행 노드 (nav2/slotcar 백엔드)</div>
+      <div class="p"><span class="tw">│   └── </span><span class="dir">libi_handy_controller/</span></div><div class="c">로봇팔(Handy) 컨트롤러 — Drive가 지휘</div>
+      <div class="p"><span class="tw">├── </span><span class="dir">libi_fleet/</span></div><div class="c">FMS 두뇌 (관제 코어, C++) — 배차 + 교통</div>
+      <div class="p"><span class="tw">│   ├── </span><span class="dir">maps/</span></div><div class="c">맵 데이터 (navgraph · building.yaml · .pgm)</div>
+      <div class="p"><span class="tw">│   └── </span><span class="dir">src/</span></div><div class="c"></div>
+      <div class="p"><span class="tw">│       ├── </span><span class="dir">libi_fleet/</span></div><div class="c">FMS 코어 패키지 (traffic · task_dispatcher · task_manager)</div>
+      <div class="p"><span class="tw">│       └── </span><span class="dir">libi_fleet_msgs/</span></div><div class="c">인터페이스 패키지 (srv/msg/action 계약)</div>
+      <div class="p"><span class="tw">└── </span><span class="dir">service/</span></div><div class="c">백엔드 서비스 계층 (중앙관제 + 부가 서비스)</div>
+      <div class="p"><span class="tw">    ├── </span><span class="dir">ABA_service/</span></div><div class="c">중앙관제 입구 (FastAPI ↔ ROS2 브리지)</div>
+      <div class="p"><span class="tw">    ├── </span><span class="dir">ABA_web_service/</span></div><div class="c">웹 서비스 (브라우저 대면)</div>
+      <div class="p"><span class="tw">    │   ├── </span><span class="dir">librarian_browser/</span></div><div class="c">사서용 웹 — 로봇 호출/관제/태스크 발행</div>
+      <div class="p"><span class="tw">    │   └── </span><span class="dir">library_member_browser/</span></div><div class="c">이용자용 웹 — 책 안내/배달 요청</div>
+      <div class="p"><span class="tw">    └── </span><span class="dir">ai_service/</span></div><div class="c">AI 서비스 — YOLO 비전 인식 기반</div>
+    </div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Folder Structure · ABA_folder_structure</b></span><span class="pg"></span></footer>
+  </section>
+
+  <!-- ===== 9 · GUI ===== -->
   <section class="slide gui-slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">06</span> GUI · Prototype <span class="kof">/ 11</span></div>
+      <div class="kicker anim" style="--d:0"><span class="kn">07</span> GUI · Prototype <span class="kof">/ 11</span></div>
       <h2 class="stitle anim" style="--d:1"><span class="hl">GUI</span></h2>
     </header>
     <div class="sbody"><div class="gui">
       <div class="gcell anim" style="--d:2">
         <div class="dev-web"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><img src="img/gui_librarian.png" alt="사서 운영 대시보드"></div>
-        <div class="gcap"><div class="role">Librarian · central_server</div><h4>사서 UI</h4><p>운영 대시보드 · 모니터링 · 작업 지시 · 도서/서가/회원 관리</p></div>
+        <div class="gcap"><div class="role">librarian_browser</div><h4>사서 UI</h4><p>운영 대시보드 · 모니터링 · 작업 지시 · 도서/서가/회원 관리</p></div>
       </div>
       <div class="gcell anim" style="--d:3">
         <div class="dev-phone"><img src="img/gui_member.png" alt="회원 모바일 앱 홈"></div>
-        <div class="gcap"><div class="role">Member · mobile_web</div><h4>회원 UI</h4><p>음성·검색 요청 · 내부 지도 · 추천 · 길잡이 호출</p></div>
+        <div class="gcap"><div class="role">library_member_browser</div><h4>회원 UI</h4><p>음성·검색 요청 · 내부 지도 · 추천 · 길잡이 호출</p></div>
       </div>
       <div class="gcell anim" style="--d:4">
         <div class="dev-tab"><img src="img/gui_libi.png" alt="로봇 터치패널 Libi GUI"></div>
-        <div class="gcap"><div class="role">Robot · desktop_gui</div><h4>Libi GUI</h4><p>길잡이 · 검색 · 추천 · 표정 · 비상정지 · 에러 동작</p></div>
+        <div class="gcap"><div class="role">libi_gui</div><h4>Libi GUI</h4><p>길잡이 · 검색 · 추천 · 표정 · 비상정지 · 에러 동작</p></div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI Prototype</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 9 · 진행 사항 (Jira) ===== -->
+  <!-- ===== 10 · Map Design ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">07</span> Progress · Sprint 2 <span class="kof">/ 11</span></div>
-      <h2 class="stitle anim" style="--d:1">지난 주 진행 사항 <span class="hl">Sprint 2</span> <span class="sm">2026.06.22 – 06.28</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">08</span> Map Design <span class="kof">/ 11</span></div>
+      <h2 class="stitle anim" style="--d:1"><span class="hl">Map Design</span></h2>
+    </header>
+    <div class="sbody"><div class="stated anim" style="--d:2"><img src="img/map_design.png" alt="Libi 도서관 배치도" style="max-width:100%;max-height:100%;width:auto;height:auto;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);padding:10px"></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Map Design · 도서관 배치도</b></span><span class="pg"></span></footer>
+  </section>
+
+  <!-- ===== 11 · 진행 사항 (Jira) ===== -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">09</span> Progress · Sprint 2 <span class="kof">/ 11</span></div>
+      <h2 class="stitle anim" style="--d:1">지난 주 진행 사항 <span class="hl">Sprint 2</span> <span class="sm">2026.06.22 – 06.26</span></h2>
     </header>
     <div class="sbody"><div class="jira-shot">
-      <div class="jira-meta anim" style="--d:2"><span class="sp">Sprint 2. 프로젝트 상세 설계</span> · 2026.06.22 – 06.28 · <span class="cnt"><i style="background:#1E8C80"></i>완료 16</span><span class="cnt"><i style="background:#2456A6"></i>진행 3</span><span class="cnt"><i style="background:#A9AEB8"></i>예정 1</span> · 총 20건<span class="src"><span class="lv"></span>Jira · arte1 · 실시간</span></div>
-      <div class="shot-wrap anim" style="--d:2"><img src="img/jira_sprint2.png" alt="Sprint Jira 보드"></div>
+      <div class="jira-meta anim" style="--d:2"><span class="sp">Sprint 2. 프로젝트 상세 설계</span> · 2026.06.22 – 06.26 · <span class="cnt"><i style="background:#1E8C80"></i>완료 16</span><span class="cnt"><i style="background:#2456A6"></i>진행 3</span><span class="cnt"><i style="background:#A9AEB8"></i>예정 1</span> · 총 20건<span class="src"><span class="lv"></span>Jira · arte1 · 실시간</span></div>
+      <div class="prog-split anim" style="--d:3">
+        <div class="shot-wrap"><img src="img/jira_sprint2_crop.png" alt="Sprint Jira 보드"></div>
+        <div class="prog-tbl cols2">
+          <div class="tgrp"><h5><span class="gd"></span>소품 제작</h5><ul><li>필요 물품 구매</li><li>구현에 필요한 소품 제작</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>상세 설계</h5><ul><li>시퀀스 다이어그램</li><li>State 다이어그램</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>GUI · 프로토타입</h5><ul><li>library_member_browser</li><li>librarian_browser</li><li>libi_gui</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>학습데이터 수집</h5><ul><li>사람 인형</li><li>핑키 프로</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>기술 조사</h5><ul><li>온디바이스 환경에서 딥러닝 모델 성능 조사</li><li>nav2 package로 현재 맵상에서의 주행</li></ul></div>
+          <div class="tgrp alert"><h5><span class="gd"></span>미완료 사항</h5><ul><li>바구니 데이터 수집</li><li>분류기능 관련해서 구현이 가능한지 (perception)</li><li>perception 후 로봇팔이 물체에 정확히 다가가서 픽업</li><li>ERD 작성 (미진행)</li></ul></div>
+        </div>
+      </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · Sprint 2</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 10 · 이번 주 계획 (Jira) ===== -->
+  <!-- ===== 12 · 이번 주 계획 (Jira) ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> Next Sprint · Sprint 3 <span class="kof">/ 11</span></div>
-      <h2 class="stitle anim" style="--d:1">이번 주 계획 <span class="hl">Sprint 3</span> <span class="sm">2026.06.28 – 07.05</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">10</span> Next Sprint · Sprint 3 <span class="kof">/ 11</span></div>
+      <h2 class="stitle anim" style="--d:1">이번 주 계획 <span class="hl">Sprint 3</span> <span class="sm">2026.06.29 – 07.03</span></h2>
     </header>
     <div class="sbody"><div class="jira-shot">
-      <div class="jira-meta anim" style="--d:2"><span class="sp">Sprint 3. 프로젝트 구현</span> · 2026.06.28 – 07.05 · <span class="cnt"><i style="background:#2456A6"></i>진행 3</span><span class="cnt"><i style="background:#A9AEB8"></i>예정 16</span> · 총 19건<span class="src"><span class="lv"></span>Jira · arte1 · 실시간</span></div>
-      <div class="shot-wrap anim" style="--d:2"><img src="img/jira_sprint3.png" alt="Sprint Jira 보드"></div>
+      <div class="jira-meta anim" style="--d:2"><span class="sp">Sprint 3. 프로젝트 구현</span> · 2026.06.29 – 07.03 · <span class="cnt"><i style="background:#2456A6"></i>진행 3</span><span class="cnt"><i style="background:#A9AEB8"></i>예정 16</span> · 총 19건<span class="src"><span class="lv"></span>Jira · arte1 · 실시간</span></div>
+      <div class="prog-split big anim" style="--d:3">
+        <div class="shot-wrap"><img src="img/jira_sprint3.png" alt="Sprint Jira 보드"></div>
+        <div class="prog-tbl cols2">
+          <div class="tgrp"><h5><span class="gd"></span>상세 설계</h5><ul><li>ERD 작성</li><li>Interface Specification</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>기술 조사</h5><ul>
+            <li>perception 후 grab<ul><li>도서</li><li>바구니</li></ul></li>
+            <li>분류 기능</li>
+            <li>정밀주행<ul><li>nav2 params</li><li>PID 제어</li><li>ArUco Marker</li><li>Line Tracing</li></ul></li>
+          </ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>구현</h5><ul>
+            <li>FMS<ul><li>sim 상에서 — slocar plugin 사용</li></ul></li>
+          </ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>딥러닝 모델 구축</h5><ul>
+            <li>바구니<ul><li>데이터 수집</li><li>모델 구축</li></ul></li>
+            <li>서가<ul><li>데이터 수집</li><li>모델 구축</li></ul></li>
+            <li>핑키 + 사람모형<ul><li>모델 구축</li></ul></li>
+          </ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>GUI · 구현</h5><ul>
+            <li>Server 구축<ul><li>ABA_server</li><li>ABA_Web_server</li><li>Ai_server</li></ul></li>
+            <li>각 서버끼리 연동 테스트</li>
+          </ul></div>
+        </div>
+      </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Next Sprint · Sprint 3</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 11 · 마무리 ===== -->
+  <!-- ===== 13 · 마무리 ===== -->
   <section class="slide closing dark">
     <div class="cl-in">
       <div class="cl-team anim" style="--d:0">TEAM <b>ARTE</b></div>
