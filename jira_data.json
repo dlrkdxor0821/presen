@@ -172,7 +172,7 @@
     },
     {
      "key": "AR-31",
-     "summary": "학습 데이터 수집 - 바구니",
+     "summary": "딥러닝 모델 구축 - 바구니",
      "status": "In Progress",
      "assignee": "HyungJoo Lee",
      "type": "Task"
@@ -201,14 +201,14 @@
     {
      "key": "AR-38",
      "summary": "ERD작성",
-     "status": "To Do",
-     "assignee": null,
+     "status": "Done",
+     "assignee": "이세형",
      "type": "Task"
     },
     {
      "key": "AR-39",
      "summary": "기술조사 -  perception 후 grab",
-     "status": "In Progress",
+     "status": "Done",
      "assignee": "이세형",
      "type": "Task"
     },
@@ -238,7 +238,7 @@
   {
    "id": 5,
    "name": "Sprint 3. 프로젝트 구현",
-   "state": "active",
+   "state": "closed",
    "start": "2026-06-28",
    "end": "2026-07-05",
    "issues": [
@@ -251,7 +251,7 @@
     },
     {
      "key": "AR-31",
-     "summary": "학습 데이터 수집 - 바구니",
+     "summary": "딥러닝 모델 구축 - 바구니",
      "status": "In Progress",
      "assignee": "HyungJoo Lee",
      "type": "Task"
@@ -259,50 +259,29 @@
     {
      "key": "AR-38",
      "summary": "ERD작성",
-     "status": "To Do",
-     "assignee": null,
+     "status": "Done",
+     "assignee": "이세형",
      "type": "Task"
     },
     {
      "key": "AR-39",
      "summary": "기술조사 -  perception 후 grab",
-     "status": "In Progress",
+     "status": "Done",
      "assignee": "이세형",
      "type": "Task"
     },
     {
      "key": "AR-44",
      "summary": "Interface Specification",
-     "status": "To Do",
-     "assignee": null,
+     "status": "Done",
+     "assignee": "HyungJoo Lee",
      "type": "Task"
     },
     {
      "key": "AR-45",
-     "summary": "ABA_server 구축",
-     "status": "To Do",
-     "assignee": null,
-     "type": "Task"
-    },
-    {
-     "key": "AR-46",
-     "summary": "ABA_Web_server구축",
+     "summary": "Server 구축",
      "status": "To Do",
      "assignee": "인경일",
-     "type": "Task"
-    },
-    {
-     "key": "AR-47",
-     "summary": "Ai_server 구축",
-     "status": "To Do",
-     "assignee": null,
-     "type": "Task"
-    },
-    {
-     "key": "AR-48",
-     "summary": "각 서버와의 연동 테스트",
-     "status": "To Do",
-     "assignee": null,
      "type": "Task"
     },
     {
@@ -315,63 +294,42 @@
     {
      "key": "AR-50",
      "summary": "정밀주행 - nav2 params",
-     "status": "To Do",
+     "status": "Done",
      "assignee": "인경일",
      "type": "Task"
     },
     {
      "key": "AR-51",
      "summary": "정밀주행 - PID제어",
-     "status": "To Do",
+     "status": "Done",
      "assignee": "인경일",
      "type": "Task"
     },
     {
      "key": "AR-52",
      "summary": "정밀주행 - ArUco Marker",
-     "status": "To Do",
+     "status": "In Progress",
      "assignee": "인경일",
      "type": "Task"
     },
     {
      "key": "AR-53",
      "summary": "정밀주행 - Line tracing",
-     "status": "To Do",
+     "status": "In Progress",
      "assignee": "인경일",
-     "type": "Task"
-    },
-    {
-     "key": "AR-55",
-     "summary": "서가 데이터 수집",
-     "status": "To Do",
-     "assignee": null,
-     "type": "Task"
-    },
-    {
-     "key": "AR-56",
-     "summary": "딥러닝 모델 구축 - 바구니",
-     "status": "To Do",
-     "assignee": "HyungJoo Lee",
-     "type": "Task"
-    },
-    {
-     "key": "AR-57",
-     "summary": "딥러닝 모델 구축 - 서가",
-     "status": "To Do",
-     "assignee": null,
      "type": "Task"
     },
     {
      "key": "AR-58",
      "summary": "딥러닝 모델 구축 - 핑키 + 사람 모형",
-     "status": "To Do",
+     "status": "In Progress",
      "assignee": "이강택",
      "type": "Task"
     },
     {
      "key": "AR-59",
      "summary": "FMS  구현 - sim 상, slotcar plugin",
-     "status": "To Do",
+     "status": "In Progress",
      "assignee": "이강택",
      "type": "Task"
     }
@@ -380,10 +338,95 @@
   {
    "id": 6,
    "name": "Sprint 4. 프로젝트 구현",
-   "state": "future",
-   "start": "2026-07-05",
+   "state": "active",
+   "start": "2026-07-06",
    "end": "2026-07-12",
-   "issues": []
+   "issues": [
+    {
+     "key": "AR-26",
+     "summary": "기술조사 - 분류 기능",
+     "status": "In Progress",
+     "assignee": "rogerthat",
+     "type": "Task"
+    },
+    {
+     "key": "AR-31",
+     "summary": "딥러닝 모델 구축 - 바구니",
+     "status": "In Progress",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-45",
+     "summary": "Server 구축",
+     "status": "To Do",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-49",
+     "summary": "기술조사 - 바구니 grab",
+     "status": "To Do",
+     "assignee": "HyungJoo Lee",
+     "type": "Task"
+    },
+    {
+     "key": "AR-52",
+     "summary": "정밀주행 - ArUco Marker",
+     "status": "In Progress",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-53",
+     "summary": "정밀주행 - Line tracing",
+     "status": "In Progress",
+     "assignee": "인경일",
+     "type": "Task"
+    },
+    {
+     "key": "AR-58",
+     "summary": "딥러닝 모델 구축 - 핑키 + 사람 모형",
+     "status": "In Progress",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-59",
+     "summary": "FMS  구현 - sim 상, slotcar plugin",
+     "status": "In Progress",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-60",
+     "summary": "기술조사 - 로봇팔 파지 후 배치 가능성 검토 및 관련 기술 조사",
+     "status": "In Progress",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-61",
+     "summary": "기술조사 - 로봇팔 파지 후 배치 실물 테스트",
+     "status": "To Do",
+     "assignee": "이세형",
+     "type": "Task"
+    },
+    {
+     "key": "AR-62",
+     "summary": "기술조사 - tracking 관련 기술조사",
+     "status": "To Do",
+     "assignee": "이강택",
+     "type": "Task"
+    },
+    {
+     "key": "AR-63",
+     "summary": "기술조사 - tracking 실물 테스트",
+     "status": "To Do",
+     "assignee": "이강택",
+     "type": "Task"
+    }
+   ]
   },
   {
    "id": 7,

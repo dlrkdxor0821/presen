@@ -1,0 +1,739 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ABA · Libi — 주간 진행 보고 &amp; 향후 계획</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<style>
+:root{
+  --paper:#F6F3EB; --paper-2:#FBF9F3; --card:#FFFFFF; --line:#E7E0D1; --line-soft:#EFEADE;
+  --ink:#1B2738; --ink-2:#5B6473; --ink-3:#97A0AE;
+  --navy:#1B2C4B; --navy-2:#10182B;
+  --gold:#C0852A; --gold-deep:#9A6A1C; --gold-bright:#E0A43C; --gold-soft:#F3E7CC; --gold-line:#E6CF9C;
+  --teal:#1E8C80; --teal-soft:#E0F0ED; --alert:#B5482F; --alert-soft:#F6E5E0;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --sh:0 18px 44px -24px rgba(18,28,52,.34);
+  --sh-sm:0 8px 22px -14px rgba(18,28,52,.30);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* ---------- stage / slides ---------- */
+#stage{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(38px,5.4vh,62px) clamp(46px,5.6vw,100px);
+  background:
+    radial-gradient(130% 100% at 100% 0%, rgba(224,164,60,.05), transparent 55%),
+    var(--paper);
+  color:var(--ink)}
+.slide.dark{background:
+  radial-gradient(120% 120% at 88% 12%, rgba(224,164,60,.12), transparent 52%),
+  linear-gradient(160deg,#1C2E4E 0%, var(--navy-2) 100%);
+  color:#EEEADF}
+.slide.on{display:flex}
+
+/* entrance */
+.anim{opacity:0;transform:translateY(15px)}
+.slide.on .anim{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*80ms + 90ms)}
+@media (prefers-reduced-motion:reduce){.anim{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* ---------- shared header ---------- */
+.shead{margin-bottom:clamp(18px,2.6vh,30px);flex-shrink:0}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);display:flex;align-items:center;gap:11px;margin-bottom:13px}
+.kicker::before{content:"";width:24px;height:1.5px;background:var(--gold)}
+.kicker .kn{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;letter-spacing:0;color:var(--gold)}
+.kicker .kof{color:var(--ink-3);font-weight:500}
+.stitle{font-weight:650;font-size:clamp(27px,3.3vw,41px);line-height:1.13;letter-spacing:-.022em;color:var(--ink)}
+.stitle .hl{color:var(--gold-deep)}
+.stitle .sm{font-family:var(--mono);font-weight:500;font-size:.4em;letter-spacing:.02em;color:var(--ink-3);margin-left:6px;vertical-align:.16em}
+.dark .stitle{color:#F4F1E8}.dark .stitle .hl{color:var(--gold-bright)}
+.slead{margin-top:12px;font-size:clamp(13.5px,1.15vw,16.5px);line-height:1.62;color:var(--ink-2);max-width:64ch}
+
+.sbody{flex:1;min-height:0;display:flex;flex-direction:column}
+
+/* ---------- footer ---------- */
+.sfoot{margin-top:auto;padding-top:15px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);flex-shrink:0}
+.sfoot .bd{display:flex;align-items:center;gap:9px}
+.sfoot .bd b{color:var(--ink-2);font-weight:600}
+.sfoot .dotg{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* progress rail */
+#rail{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;
+  background:linear-gradient(90deg,var(--gold-bright),var(--gold),var(--teal));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+
+/* ============================================================
+   1 · COVER
+============================================================ */
+.cover{flex-direction:row;padding:0;gap:0}
+.cv-text{flex:0 0 47%;background:
+   radial-gradient(120% 90% at 12% 8%, rgba(224,164,60,.12), transparent 50%),
+   linear-gradient(165deg,#21345A 0%, #131F38 60%, #0E1730 100%);
+  padding:clamp(46px,5.4vw,86px) clamp(42px,4.6vw,72px);
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.2vh,26px);position:relative;overflow:hidden}
+.cv-team{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
+.cv-team b{color:#fff;font-weight:600}
+.cv-mark{display:flex;align-items:flex-end;gap:18px}
+.cv-aba{font-family:var(--serif);font-weight:600;line-height:.82;font-size:clamp(72px,9vw,140px);letter-spacing:-.03em;
+  background:linear-gradient(150deg,#FBE2A8,var(--gold-bright) 52%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-mark .cv-full{font-family:var(--serif);font-style:italic;font-size:clamp(14px,1.3vw,18px);color:#C9D2E2;padding-bottom:13px;letter-spacing:.01em}
+.cv-title{font-size:clamp(21px,2.2vw,31px);font-weight:600;line-height:1.28;color:#F3F0E7;letter-spacing:-.01em}
+.cv-title b{color:var(--gold-bright);font-weight:700}
+.cv-sub{font-size:clamp(13px,1.1vw,15.5px);color:#9CA8BD;line-height:1.55;max-width:34ch;border-left:2px solid var(--gold);padding-left:15px}
+.cv-meta{display:flex;gap:clamp(20px,2.6vw,42px);margin-top:8px}
+.cv-meta .ml{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#7E8AA1;text-transform:uppercase;margin-bottom:5px}
+.cv-meta .mv{font-size:14px;color:#E9E5DA;font-weight:500}
+.cv-photo{flex:1;position:relative;overflow:hidden;background:#0E1730}
+.cv-photo img{width:100%;height:100%;object-fit:cover}
+.cv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#131F38 0%, rgba(19,31,56,.35) 14%, transparent 34%)}
+.spine-tag{position:absolute;left:clamp(24px,2.6vw,40px);bottom:clamp(24px,3vh,40px);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(255,255,255,.93);
+  border:1px solid var(--gold-line);border-radius:7px;padding:9px 13px;box-shadow:var(--sh);font-family:var(--mono)}
+.spine-tag .dewey{font-size:18px;font-weight:600;color:var(--navy);letter-spacing:.04em}
+.spine-tag .lbl{font-size:9.5px;letter-spacing:.18em;color:var(--gold-deep);font-weight:600}
+
+/* ============================================================
+   2 · TOPIC
+============================================================ */
+.topic{gap:clamp(20px,3vh,34px);justify-content:center}
+.topic-lead{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,60px);align-items:end}
+.topic-stmt{font-size:clamp(22px,2.5vw,34px);font-weight:650;line-height:1.26;letter-spacing:-.02em;color:var(--ink)}
+.topic-stmt b{color:var(--gold-deep)}
+.topic-stmt .q{font-family:var(--serif);font-style:italic;color:var(--gold);font-weight:500}
+.topic-desc{font-size:clamp(13px,1.1vw,15.5px);line-height:1.7;color:var(--ink-2)}
+.topic-desc b{color:var(--ink);font-weight:600}
+.topic-cards{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(13px,1.4vw,18px)}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:clamp(16px,1.6vw,21px);box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:9px}
+.tcard .tc-k{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.tcard h4{font-size:18px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tcard p{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.eqn{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.eqn .term{display:flex;flex-direction:column}
+.eqn .term b{font-size:17px;font-weight:650;color:var(--navy)}
+.eqn .term span{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.eqn .op{font-family:var(--serif);font-size:23px;color:var(--gold);font-weight:500}
+.eqn .res{font-size:17px;font-weight:650;color:var(--gold-deep)}
+
+/* ============================================================
+   3 · ARCHITECTURE
+============================================================ */
+.arch{gap:clamp(8px,1vh,12px);justify-content:center}
+.band{display:grid;grid-template-columns:64px 1fr;gap:13px;align-items:stretch}
+.band .bl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:12px;color:#fff;background:var(--ac);padding:8px 0}
+.band .bl .bln{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:600;line-height:1}
+.band .bl .blt{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em}
+.band:nth-of-type(1){--ac:var(--gold-deep)}
+.band:nth-of-type(3){--ac:var(--teal)}
+.band:nth-of-type(5){--ac:var(--navy)}
+.brow{flex:1;display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;position:relative;
+  background:color-mix(in srgb,var(--ac) 5%,var(--card));border:1px solid var(--line);border-left:4px solid var(--ac);
+  border-radius:14px;padding:13px 16px}
+.brow .xn{position:absolute;top:10px;right:14px;font-family:var(--mono);font-size:10.5px;color:var(--ac);font-weight:600;letter-spacing:.04em}
+.abox{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:11px 14px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--sh-sm)}
+.abox h4{font-size:13.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:7px}
+.abox h4 em{font-family:var(--mono);font-style:normal;font-size:10px;color:var(--ink-3);font-weight:500}
+.abox .svc{display:flex;flex-wrap:wrap;gap:5px}
+.abox .svc span{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--ac);background:color-mix(in srgb,var(--ac) 11%,transparent);border-radius:6px;padding:3px 8px}
+.hwline{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:1px}
+.hwline span{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.bridge{display:flex;justify-content:center;align-items:center;color:var(--gold);font-size:13px;line-height:1;height:6px}
+.legend-proto{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:8px;font-family:var(--mono);font-size:10.5px;color:var(--ink-2)}
+.legend-proto b{color:var(--gold-deep);font-weight:600}
+
+/* ============================================================
+   4 · SYSTEM REQUIREMENTS
+============================================================ */
+.legend{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:13px;font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .d{width:9px;height:9px;border-radius:50%}
+.d.h{background:var(--gold)}.d.m{background:var(--teal)}.d.l{background:var(--ink-3)}
+.sr-list{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(34px,4.4vw,72px);align-content:center;min-height:0}
+.sr-col{display:flex;flex-direction:column;justify-content:center}
+.sr-row{display:flex;align-items:center;gap:15px;padding:clamp(11px,2.15vh,20px) 2px;border-bottom:1px solid var(--line-soft)}
+.sr-row:last-child{border-bottom:none}
+.sr-row .id{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--gold-deep);min-width:54px}
+.sr-row .nm{font-weight:650;color:var(--ink);font-size:16.5px;flex-shrink:0}
+.sr-row .ds{flex:1;color:var(--ink-2);font-size:14px;line-height:1.32;padding-right:74px}
+.sr-row .p{width:10px;height:10px;border-radius:50%;flex-shrink:0;position:relative}
+.sr-row .p::after{position:absolute;right:100%;margin-right:15px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.p.h{background:var(--gold)}.p.m{background:var(--teal)}.p.l{background:var(--ink-3)}
+.p.h::after{content:"High";color:var(--gold-deep)}
+.p.m::after{content:"Medium";color:var(--teal)}
+.p.l::after{content:"Low";color:var(--ink-3)}
+.sr-row.core{background:var(--gold-soft);border-bottom-color:transparent;border-radius:10px}
+.sr-row.core .id,.sr-row.core .nm{color:var(--gold-deep)}
+
+/* ============================================================
+   5/6 · SEQUENCE
+============================================================ */
+/* Sequence slides: top/left/right padding = default so the title lines up with other slides; only the bottom stays tight to give the dense diagram a little more height */
+.seq-slide{padding:clamp(38px,5.4vh,62px) clamp(46px,5.6vw,100px) clamp(26px,3.7vh,46px)}
+.seqx{flex:1;display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(18px,2.2vw,38px);min-height:0}
+.seqx-left{display:flex;flex-direction:column;min-height:0}
+.seqx-left .shead{margin-bottom:clamp(8px,1.4vh,16px)}
+.seqx-left .sfoot{margin-top:auto}
+.seqx-right{min-height:0;display:flex;align-items:center;justify-content:center;margin:calc(-1*clamp(16px,3.1vh,34px)) 0}
+.seqx-right img{height:100%;width:auto;max-width:100%;object-fit:contain;transform:none;transform-origin:center;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);padding:5px}
+.seqx-right.wide img{transform:none}
+/* flow · icon stepper */
+.flow-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.9vh,34px);min-width:0}
+.lanes{display:flex;flex-wrap:wrap;gap:7px}
+.lanes span{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--navy);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:6px 13px}
+.lanes .trig{color:var(--gold-deep);background:var(--gold-soft);border-color:var(--gold-line)}
+.flow{display:flex;align-items:flex-start;justify-content:flex-start;flex-wrap:nowrap;gap:clamp(4px,0.7vw,11px)}
+.fnode{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 auto;width:clamp(92px,7.6vw,128px)}
+.fnode .fi{width:clamp(80px,6.7vw,112px);height:clamp(80px,6.7vw,112px);border-radius:26px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);color:var(--navy)}
+.fnode .fi svg{width:54%;height:54%}
+.fnode.key .fi{background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));border-color:transparent;color:#fff}
+.fnode .fl{font-size:16.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.25}
+.fnode .fl em{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:var(--ink-3);font-family:var(--mono);margin-top:3px;letter-spacing:.02em}
+.farrow{align-self:flex-start;margin-top:clamp(30px,3.3vw,52px);color:var(--gold);font-size:22px;font-weight:700;flex-shrink:0}
+.flink{position:relative;height:clamp(36px,6vh,60px);margin:clamp(-14px,-1.8vh,-8px) 0;
+  --nw:clamp(92px,7.6vw,128px);--fg:clamp(4px,0.7vw,11px);--aw:18px;
+  --x4:calc(3.5*var(--nw) + 3*var(--aw) + 6*var(--fg));--x1:calc(var(--nw)/2)}
+.flink span{position:absolute;background:var(--gold);border-radius:1px}
+.flink .v1{left:var(--x4);top:0;width:2.6px;height:calc(50% + 1px);transform:translateX(-50%)}
+.flink .h{top:calc(50% - 1.3px);left:calc(var(--x1) - 1.3px);width:calc(var(--x4) - var(--x1) + 2.6px);height:2.6px}
+.flink .v2{left:var(--x1);top:50%;width:2.6px;height:calc(50% - 7px);transform:translateX(-50%)}
+.flink .v2::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:0;height:0;background:none;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--gold)}
+.flow-sum{font-size:17px;line-height:1.78;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--gold);border-radius:13px;padding:18px 22px}
+.flow-sum .lab{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:6px}
+.flow-sum b{color:var(--gold-deep);font-weight:600}
+/* step-focus highlight box around a flow row (does not affect layout) */
+.flow.box{outline:2.6px solid var(--gold);outline-offset:10px;border-radius:9px;box-shadow:0 0 0 10px var(--gold-soft),0 16px 36px -18px rgba(192,133,42,.5)}
+
+/* ============================================================
+   7 · STATE DIAGRAM
+============================================================ */
+.stated{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.stated svg{max-width:100%;max-height:100%;width:auto;height:auto}
+/* State Diagram (slide 9): header/title stays at the shared default position (consistent with other slides).
+   Hide the footer on this slide only and reclaim the space below so the square diagram grows as large as possible. */
+.slide.state-max{padding-bottom:clamp(14px,2vh,26px)}
+.slide.state-max .sfoot{display:none}
+.slide.state-max .stated img{padding:4px}
+.st-st{fill:#fff;stroke:#7C8597;stroke-width:1.5}
+.st-hub{fill:#FFFDF8;stroke:var(--gold);stroke-width:2.4}
+.st-estop{fill:#FBEAE6;stroke:#B5482F;stroke-width:1.8}
+.st-t{font-family:var(--sans);font-weight:650;fill:var(--ink);text-anchor:middle}
+.st-e{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3);text-anchor:middle}
+.st-sub{font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle}
+.st-lbl{font-family:var(--mono);font-size:10.5px;fill:var(--navy);font-weight:500;text-anchor:middle;paint-order:stroke;stroke:var(--paper);stroke-width:4.5px;stroke-linejoin:round}
+.st-arrow{fill:none;stroke:#7C8597;stroke-width:1.5}
+
+/* ============================================================
+   8 · GUI
+============================================================ */
+.gui{flex:1;display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,1.3vw,22px);align-items:center;min-height:0}
+.gcell{display:flex;flex-direction:column;align-items:center;gap:11px;min-width:0}
+.gcap{text-align:center}
+.gcap .role{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.gcap h4{font-size:20px;font-weight:650;color:var(--ink);margin:6px 0 5px}
+.gcap p{font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:30ch}
+.dev-phone{width:clamp(183px,16.1vw,209px);border-radius:28px;background:#0E1730;padding:9px;box-shadow:var(--sh)}
+.dev-phone img{width:100%;height:auto;display:block;border-radius:19px}
+.dev-web{width:100%;max-width:638px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+.dev-web .bar{height:26px;background:#ECE8DE;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line)}
+.dev-web .bar i{width:9px;height:9px;border-radius:50%;background:#CFC8B8}
+.dev-web .bar .url{margin-left:8px;flex:1;height:13px;border-radius:7px;background:#F6F3EB}
+.dev-web img{width:100%;height:auto;display:block}
+.dev-tab{width:100%;max-width:638px;border-radius:14px;background:#0E1730;padding:10px;box-shadow:var(--sh)}
+.dev-tab img{width:100%;height:auto;display:block;border-radius:7px}
+
+/* ============================================================
+   9 · PROGRESS  /  10 · PLAN
+============================================================ */
+.prog{flex:1;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,3vw,46px);min-height:0}
+.pcol{display:flex;flex-direction:column;gap:11px;min-height:0}
+.pcol-h{font-size:15.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:10px}
+.pcol-h .tag{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--gold-deep);background:var(--gold-soft);border-radius:6px;padding:2px 9px}
+.tlist{display:flex;flex-direction:column;gap:6px}
+.titem{display:flex;align-items:center;gap:11px;font-size:12.6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+.titem .nm{flex:1;color:var(--ink)}
+.titem .st{font-family:var(--mono);font-size:9px;font-weight:600;border-radius:5px;padding:2px 7px;letter-spacing:.04em}
+.st.done{color:var(--teal);background:var(--teal-soft)}
+.st.prog{color:var(--gold-deep);background:var(--gold-soft)}
+.kpt{display:flex;flex-direction:column;gap:11px}
+.kcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ac);border-radius:12px;padding:13px 16px}
+.kcard:nth-of-type(1){--ac:var(--teal)}
+.kcard:nth-of-type(2){--ac:var(--alert)}
+.kcard:nth-of-type(3){--ac:var(--gold-deep)}
+.kcard h5{font-size:13px;font-weight:650;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.kcard p{font-size:12.2px;line-height:1.55;color:var(--ink-2)}
+
+.plan{flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(12px,1.4vw,17px);min-height:0}
+.plancard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:13px;padding:14px 16px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--sh-sm)}
+.plancard:nth-of-type(4n+1){--ac:var(--gold-deep)}
+.plancard:nth-of-type(4n+2){--ac:var(--teal)}
+.plancard:nth-of-type(4n+3){--ac:var(--navy)}
+.plancard:nth-of-type(4n+4){--ac:var(--gold-deep)}
+.plancard h4{font-size:14.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:9px}
+.plancard .pi{font-family:var(--serif);font-style:italic;color:var(--ac);font-size:17px;font-weight:600}
+.plancard ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.plancard li{font-size:11.8px;line-height:1.45;color:var(--ink-2);padding-left:14px;position:relative}
+.plancard li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+
+/* ============================================================
+   11 · CLOSING
+============================================================ */
+.closing{align-items:center;justify-content:center;text-align:center}
+.cl-in{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.2vh,26px)}
+.cl-team{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
+.cl-aba{font-family:var(--serif);font-weight:600;line-height:.85;letter-spacing:-.03em;font-size:clamp(70px,11vw,150px);
+  background:linear-gradient(150deg,#FBE2A8,var(--gold-bright) 52%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cl-rule{width:58px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cl-q{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(18px,2.2vw,28px);line-height:1.5;color:#EDE9DE;max-width:24ch}
+.cl-thx{font-size:clamp(15px,1.8vw,22px);color:var(--gold-bright);font-weight:600;margin-top:4px}
+.cl-thx span{color:#8893a6;font-weight:400}
+
+/* shelf motif (closing) */
+.shelf{display:flex;align-items:flex-end;gap:5px;height:34px;margin-top:6px;opacity:.8}
+.shelf i{display:block;width:9px;border-radius:2px 2px 0 0;background:var(--gold)}
+.shelf i:nth-child(odd){background:var(--gold-deep)}
+.shelf i:nth-child(3n){background:var(--teal)}
+
+/* topic: left image + right vertical cards */
+.topic2{flex:1;display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(22px,3vw,46px);min-height:0;align-items:stretch}
+.topic-photo{min-height:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#0E1730}
+.topic-photo img{width:100%;height:100%;object-fit:cover;object-position:64% center;display:block}
+.topic-right{display:flex;flex-direction:column;gap:clamp(11px,1.7vh,17px);justify-content:center;min-height:0}
+.topic-right .topic-stmt{font-size:clamp(17px,1.85vw,25px);line-height:1.3}
+.tcards-v{display:flex;flex-direction:column;gap:11px}
+
+/* architecture as images */
+.archimg{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);min-height:0}
+.archcard{display:flex;flex-direction:column;min-height:0}
+.archcard .imgwrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-sm);padding:12px}
+.archcard .imgwrap img{max-width:100%;max-height:100%;width:auto;height:auto}
+.archcard .cap{flex:0 0 auto;text-align:center;padding-top:9px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+
+/* live Jira sprint tables */
+.jira{flex:1;display:flex;flex-direction:column;gap:13px;min-height:0}
+.jira-meta{display:flex;align-items:center;gap:15px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--ink-2)}
+.jira-meta .sp{font-weight:600;color:var(--ink)}
+.jira-meta .cnt{display:inline-flex;align-items:center;gap:6px}
+.jira-meta .cnt i{width:8px;height:8px;border-radius:2px}
+.jira-meta .src{margin-left:auto;display:inline-flex;align-items:center;gap:7px;color:var(--ink-3)}
+.jira-meta .src .lv{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.jira-cols{flex:1;column-count:2;column-gap:clamp(24px,3vw,46px);min-height:0}
+.jrow{break-inside:avoid;display:grid;grid-template-columns:48px minmax(0,1fr) 58px 50px;gap:10px;align-items:center;padding:6px 4px;border-bottom:1px solid var(--line-soft)}
+.jrow .jk{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);font-weight:600}
+.jrow .js{font-size:12px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jrow .ja{font-size:10.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+.jrow .jb{font-family:var(--mono);font-size:9px;font-weight:700;border-radius:4px;padding:3px 0;text-align:center;letter-spacing:.02em;white-space:nowrap}
+.jb.done{color:#1E6B5E;background:#DCF0EA}
+.jb.prog{color:#2456A6;background:#DCE8FB}
+.jb.todo{color:#6B7280;background:#ECE9E0}
+.gui-slide{padding-left:clamp(28px,3.6vw,60px);padding-right:clamp(28px,3.6vw,60px)}
+/* GUI slide narrows side padding for the wide device mockups; nudge header/footer back to the standard left edge so the title aligns with other slides */
+.gui-slide .shead,.gui-slide .sfoot{padding-left:clamp(18px,2vw,40px);padding-right:clamp(18px,2vw,40px)}
+.jira-shot{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
+.shot-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.shot-wrap img{max-width:100%;max-height:96%;width:auto;height:96%;object-fit:contain;border-radius:10px;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+/* progress: image kept on left + summary table on right */
+.prog-split{flex:1;min-height:0;display:flex;gap:clamp(16px,1.8vw,30px);align-items:stretch}
+.prog-split .shot-wrap{flex:1 1 58%;min-width:0;align-items:center;justify-content:flex-start}
+.prog-split .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-tbl{flex:0 0 clamp(290px,40%,460px);min-width:0;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:clamp(7px,1vh,11px)}
+.tgrp{break-inside:avoid;border:1px solid var(--line);border-radius:9px;background:var(--card);box-shadow:var(--sh-sm);overflow:hidden}
+.tgrp h5{margin:0;display:flex;align-items:center;gap:8px;padding:7px 12px;font-size:16px;font-weight:650;color:var(--ink);background:var(--gold-soft);border-bottom:1px solid var(--gold-line)}
+.tgrp h5 .gd{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:0 0 auto}
+.tgrp ul{list-style:none;margin:0;padding:5px 11px 6px}
+.tgrp li{position:relative;padding:3px 0 3px 14px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.tgrp li::before{content:"";position:absolute;left:2px;top:10px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.tgrp.alert h5{background:var(--alert-soft);color:var(--alert);border-bottom-color:#EBC9BF}
+.tgrp.alert h5 .gd{background:var(--alert)}
+.tgrp.alert li::before{background:var(--alert)}
+.tgrp li{color:var(--ink)}
+.tgrp ul ul{margin:1px 0 2px;padding:0 0 0 12px}
+.tgrp ul ul li{padding:1.5px 0 1.5px 12px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.tgrp ul ul li::before{width:5px;height:1.5px;border-radius:1px;top:8px;left:1px;background:var(--ink-3)}
+/* two-column table flow for content-heavy slides */
+.prog-tbl.cols2{flex-basis:clamp(360px,46%,560px);display:block;column-count:2;column-gap:13px;align-self:center;overflow:visible}
+.prog-tbl.cols2 .tgrp{margin-bottom:clamp(7px,1vh,11px)}
+/* larger image + larger table text to fill the available space */
+.prog-split.big{align-items:stretch}
+.prog-split.big .shot-wrap{align-items:stretch;justify-content:stretch}
+.prog-split.big .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-split.big .prog-tbl.cols2{flex-basis:clamp(330px,40%,500px);column-gap:14px;align-self:center;overflow:visible}
+.prog-split.big .tgrp h5{font-size:16px;padding:7px 13px}
+.prog-split.big .tgrp ul{padding:7px 13px 8px}
+.prog-split.big .tgrp li{font-size:15px;padding:3.5px 0 3.5px 16px}
+.prog-split.big .tgrp li::before{top:11px}
+.prog-split.big .tgrp ul ul li{font-size:13px;padding:2px 0 2px 13px}
+/* folder structure tree */
+.fstree-wrap{flex:1;display:flex;align-items:stretch;justify-content:center;min-height:0}
+.fstree{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:clamp(22px,3.4vh,44px) clamp(28px,3.4vw,56px);display:grid;grid-template-columns:auto 1fr;column-gap:clamp(24px,3.2vw,58px);row-gap:clamp(2px,0.4vh,6px);align-items:baseline;align-content:space-between}
+.fstree .p{white-space:pre;font-size:clamp(12.5px,1.08vw,16.5px);line-height:1.45;color:var(--ink-2)}
+.fstree .tw{color:var(--ink-3)}
+.fstree .root{color:var(--navy);font-weight:700}
+.fstree .dir{color:var(--gold-deep);font-weight:600}
+.fstree .dir.key{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.fstree .file{color:var(--ink-2)}
+.fstree .c{font-family:var(--sans);font-size:clamp(11.5px,0.95vw,14px);color:var(--ink-3);line-height:1.42;align-self:center}
+.fstree .c b{color:var(--gold-deep);font-weight:600}
+
+@media (max-width:860px){
+  .jira-cols{column-count:1}.archimg{grid-template-columns:1fr}
+  .prog-split{flex-direction:column}.prog-tbl{flex:none}
+  .cover{flex-direction:column}.cv-text{flex:none}.cv-photo{min-height:200px}
+  .topic-lead,.prog,.seq{grid-template-columns:1fr}
+  .topic-cards{grid-template-columns:1fr}
+  .gui{grid-template-columns:1fr}
+  .plan{grid-template-columns:1fr 1fr}
+  .sr-grid{grid-template-columns:1fr}
+}
+
+/* WEEKLY DECK helpers */
+.ph{border:1.6px dashed var(--gold-line);border-radius:13px;
+  background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(192,133,42,.045) 10px 20px),var(--paper-2);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;min-height:0}
+.ph.img{flex:1}
+.ph .pl{display:flex;flex-direction:column;gap:6px;color:var(--ink-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.03em}
+.ph .pl b{color:var(--gold-deep);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ws{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,40px);min-height:0}
+.ws-col{display:flex;flex-direction:column;gap:clamp(11px,1.7vh,18px);min-height:0}
+.plan.five{grid-template-columns:repeat(5,1fr);grid-auto-rows:1fr}
+.pbar{height:5px;border-radius:3px;background:var(--line);margin:5px 0 7px;overflow:hidden}
+.pbar span{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--gold-bright),var(--gold-deep))}
+.pdeliv{margin-top:auto;padding-top:8px;font-family:var(--mono);font-size:11px;color:var(--ink-3);border-top:1px dashed var(--line)}
+.issuegrid{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:clamp(12px,1.7vw,22px);min-height:0}
+.issuegrid .kcard{display:flex;flex-direction:column;justify-content:center;min-height:0}
+.issuegrid .kcard h5{font-size:17px}
+.issuegrid .kcard p{font-size:16.5px;line-height:1.68}
+/* combined issues — clean 3-column editorial */
+.issues3{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;min-height:0}
+.iss{padding:8px clamp(24px,2.6vw,46px);border-left:1px solid var(--line);display:flex;flex-direction:column;justify-content:center;gap:15px}
+.iss:first-child{border-left:none;padding-left:0}
+.iss:last-child{padding-right:0}
+.ihead{display:flex;flex-direction:column;gap:7px;padding-bottom:13px;border-bottom:2px solid var(--ac2)}
+.ihead .ino{font-family:var(--serif);font-style:italic;font-weight:600;font-size:34px;color:var(--ac2);line-height:.9}
+.ihead .it{font-size:20px;font-weight:650;color:var(--ink);line-height:1.3}
+.iss .ilab{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac2);margin-bottom:5px}
+.iss p{font-size:15.5px;line-height:1.58;color:var(--ink-2)}
+.iss p b{color:var(--ink);font-weight:650}
+/* Pi4 CPU issue — evidence layout */
+.issue-evi{flex:1;display:grid;grid-template-columns:0.72fr 1fr;gap:clamp(16px,2vw,32px);min-height:0}
+.evi-text{display:flex;flex-direction:column;gap:clamp(8px,1.3vh,14px);min-height:0}
+.evi-text .kcard p{font-size:12.4px}
+.evi-text .kcard ul{list-style:none;display:flex;flex-direction:column;gap:4px;margin-top:3px}
+.evi-text .kcard li{position:relative;padding-left:13px;font-size:12.2px;line-height:1.42;color:var(--ink-2)}
+.evi-text .kcard li::before{content:"";position:absolute;left:0;top:7px;width:4px;height:4px;border-radius:50%;background:var(--ac)}
+.evi-text .kcard li b,.evi-text .kcard p b{color:var(--alert);font-weight:700}
+.evi-shots{display:grid;grid-template-rows:1fr 1fr;gap:10px;min-height:0}
+.evi-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;min-height:0}
+.shotcard{min-width:0;min-height:0;display:flex;flex-direction:column;background:var(--card);border:1px solid var(--line);border-radius:11px;overflow:hidden;box-shadow:var(--sh-sm)}
+.shotcard img{width:100%;flex:1;min-height:0;object-fit:contain;background:#0b0f18}
+.shotcard .cap{flex:0 0 auto;font-family:var(--mono);font-size:10px;padding:5px 9px;color:var(--ink-2);border-top:1px solid var(--line);display:flex;justify-content:space-between;align-items:center;gap:8px}
+.shotcard .cap b{color:var(--alert);font-weight:700;white-space:nowrap}
+/* roadmap sprint label + this-week task columns */
+.plancard .pspr{font-family:var(--mono);font-size:9.5px;color:var(--gold-deep);letter-spacing:.03em;margin-top:-2px}
+.plancard .pgoal{font-size:11px;line-height:1.42;color:var(--ink);font-weight:600;padding-left:9px;border-left:2px solid var(--ac);margin:1px 0 2px}
+.taskcols{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-template-rows:1fr 1fr;gap:clamp(11px,1.5vw,18px);min-height:0}
+.taskcols .tgrp{min-height:0;display:flex;flex-direction:column;justify-content:center}
+.tw-meta{margin-bottom:clamp(10px,1.4vh,16px)}
+.taskcols li{display:flex;align-items:center;flex-wrap:wrap;gap:2px}
+.taskcols .tgrp h5{font-size:16.5px}
+.taskcols .tgrp li{font-size:15px}
+.taskcols li .b{font-family:var(--mono);font-size:10px;font-weight:700;border-radius:4px;padding:2px 6px;margin-left:5px}
+.taskcols li .b.p{color:var(--gold-deep);background:var(--gold-soft)}
+.taskcols li .b.t{color:#6B7280;background:#ECE9E0}
+.taskcols li .who{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);margin-left:auto}
+.jira-meta.tw-meta{font-size:13px}
+.plan.five .plancard h4{font-size:17px}
+.plan.five .plancard li{font-size:14.5px;line-height:1.55}
+.plan.five .pspr{font-size:11px}
+.plan.five .pgoal{font-size:12.5px;line-height:1.42}
+.plan.five .pi{font-size:15px}
+.pmile{font-size:12.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:6px;padding:3px 9px;margin:6px 0 4px;display:inline-block}
+/* roadmap — detailed card body */
+.plan.five .plancard{gap:5px;padding:13px 16px}
+.plan.five .plancard li{font-size:13px;line-height:1.42}
+.plan.five .pgoal{font-size:13.5px;line-height:1.4}
+.plan.five .pdeliv{font-size:12px}
+.plancard .plabel{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin:8px 0 2px}
+.plancard li b{color:var(--ink);font-weight:650}
+.plancard li .jira{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.02em}
+.plancard ul.pdod{list-style:none;display:flex;flex-direction:column;gap:5px}
+.plancard .pdod li{padding-left:17px;font-size:12.5px;line-height:1.42;color:var(--ink-2);position:relative}
+.plancard .pdod li::before{content:"✓";width:auto;height:auto;background:none;border-radius:0;position:absolute;left:0;top:1px;color:var(--teal);font-weight:700;font-size:12px}
+.plancard .prisk{margin-top:7px;font-size:12px;line-height:1.4;color:var(--ink-2);background:var(--gold-soft);border-radius:8px;padding:7px 10px}
+.plancard .prisk b{color:var(--alert);font-weight:700}
+/* dense 4-card progress layout */
+.srtag{margin-top:9px;font-family:var(--mono);font-size:12.5px;letter-spacing:.01em;color:var(--ink-3);line-height:1.4}
+.srtag b{color:var(--gold-deep);font-weight:600}
+.ws4{flex:1;display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1fr 1fr;gap:clamp(10px,1.3vw,15px);min-height:0}
+.ws4 .tgrp{min-height:0;display:flex;flex-direction:column;justify-content:center;overflow:hidden}
+.ws4 .tgrp h5{font-size:16px;padding:7px 13px}
+.ws4 .tgrp ul{padding:7px 14px 8px}
+.ws4 .tgrp li{font-size:15px;line-height:1.46;padding:3.5px 0 3.5px 16px}
+.ws4 .tgrp li::before{top:10px}
+.ws4 .srb{font-family:var(--mono);font-size:10.5px;font-weight:700;color:var(--gold-deep)}
+.tgrp.next h5{background:var(--teal-soft);border-bottom-color:#C3E3DD}
+.tgrp.next h5 .gd{background:var(--gold-deep)}
+.tgrp.next li::before{background:var(--teal)}
+/* progress ROW layout — icon tile + label + 2-col bullets (reference style) */
+.prows{flex:1;display:flex;flex-direction:column;min-height:0}
+.prow{flex:1;display:grid;grid-template-columns:80px 150px 1fr;gap:24px;align-items:center;padding:12px 16px;border-radius:14px;min-height:0}
+.prow:nth-child(odd){background:var(--paper-2)}
+.pico{width:70px;height:70px;border-radius:17px;background:linear-gradient(150deg,#27426f,#15223b);display:flex;align-items:center;justify-content:center;font-size:30px;box-shadow:var(--sh-sm)}
+.plabel{font-weight:700;font-size:17px;color:var(--gold-deep);border-right:2px solid var(--gold-line);padding-right:20px;line-height:1.32}
+.pbul{display:grid;grid-template-columns:1fr 1fr;gap:4px 34px}
+.pbul ul{display:flex;flex-direction:column;gap:6px;list-style:none}
+.pbul li{font-size:15px;line-height:1.46;color:var(--ink-2);padding-left:15px;position:relative}
+.pbul li::before{content:"";position:absolute;left:0;top:9px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.pbul li b{color:var(--ink);font-weight:650}
+/* this-week: Jira board image + summary table */
+.jira2{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(20px,2.4vw,42px);align-content:center;align-items:center;min-height:0}
+.jira-shot2{min-height:0;display:flex;align-items:center;justify-content:center}
+.jira-shot2 img{width:100%;height:auto;max-height:100%;object-fit:contain;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh-sm);background:#fff}
+.jtbl{display:flex;flex-direction:column;justify-content:center;gap:13px;min-height:0}
+.jtbl-cap{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep)}
+.jtbl table{width:100%;border-collapse:collapse;font-size:15.5px}
+.jtbl th{text-align:left;font-weight:700;color:var(--ink);padding:12px 12px;background:var(--gold-soft);border-bottom:2px solid var(--gold-line)}
+.jtbl td{padding:14px 12px;color:var(--ink-2);border-bottom:1px solid var(--line-soft);vertical-align:middle;line-height:1.4}
+.jtbl td:first-child{font-weight:650;color:var(--ink);white-space:nowrap}
+.jtbl td b{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:4px;padding:2px 6px;margin-left:5px;white-space:nowrap}
+.jtbl td b.t{color:#6B7280;background:#ECE9E0}
+.jtbl-foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:10px}
+
+</style>
+</head>
+<body>
+<div id="rail"></div>
+<main id="stage">
+
+  <section class="slide cover dark">
+    <div class="cv-text">
+      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 주간 진행 보고 · 2026.07.06</div>
+      <div class="cv-mark anim" style="--d:1">
+        <span class="cv-aba">ABA</span>
+        <span class="cv-full">Arte&nbsp;Book&nbsp;Assistance</span>
+      </div>
+      <h1 class="cv-title anim" style="--d:2">도서관 사서를 돕는<br><b>사서 협동로봇, 리비(Libi)</b></h1>
+      <p class="cv-sub anim" style="--d:3">주행로봇과 로봇팔이 결합된 모바일 매니퓰레이터 — 사서의 손과 다리가 되어 책을 직접 집고 옮깁니다.</p>
+    </div>
+    <div class="cv-photo">
+      <img src="libi.png" alt="리비(Libi) — 도서관에서 책을 집는 협동로봇">
+    </div>
+  </section>
+
+
+  <section class="slide topic">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">01</span> Topic</div>
+      <h2 class="stitle anim" style="--d:1">사서를 <span class="hl">대체</span>하지 않는, 사서 <span class="hl">협동로봇</span></h2>
+    </header>
+    <div class="sbody topic2">
+      <figure class="topic-photo anim" style="--d:2"><img src="libi.png" alt="리비 — 서가에서 책을 집는 협동로봇"></figure>
+      <div class="topic-right">
+        <p class="topic-stmt anim" style="--d:2">리비는 사서를 <b>대체하지 않는다.</b> 사서의 <span class="q">손과 다리</span>가 되는 협동로봇.</p>
+        <div class="tcards-v">
+        <div class="tcard anim" style="--d:3">
+          <span class="tc-k">What · 정의</span>
+          <div class="eqn">
+            <span class="term"><b>주행로봇</b><span>Autonomous Base</span></span>
+            <span class="op">+</span>
+            <span class="term"><b>로봇팔</b><span>Robot Arm</span></span>
+            <span class="op">=</span>
+            <span class="res">사서 협동로봇</span>
+          </div>
+          <p>서가에서 책을 직접 집어 배달·반납·정렬.</p>
+        </div>
+        <div class="tcard anim" style="--d:4">
+          <span class="tc-k">주간 · Service</span>
+          <h4>☀️ 이용자·사서 지원</h4>
+          <p>도서 요청 픽업·배달, 반납 회수, 추천·검색·길잡이 안내.</p>
+        </div>
+        <div class="tcard anim" style="--d:5">
+          <span class="tc-k">야간 · Operation</span>
+          <h4>🌙 무인 도서관 관리</h4>
+          <p>침입 감지·녹화·신고.</p>
+        </div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>도서관 사서 협동로봇</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 주행</div>
+      <h2 class="stitle anim" style="--d:1">주행 <span class="hl">Navigation</span></h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-01 이송 · SR-11 길잡이 · SR-12 파견 · SR-15 회피 · SR-16 순회 · SR-18 충전 · SR-19 순찰</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li><span class='srb'>[완료]</span> Nav2 자율주행 스택 튜닝 — 소형 맵(1×2m)·초소형 로봇(r 6cm) (AR-50·51)</li><li>경로추종 <b>RPP</b> · AMCL 위치추정(홈 부팅 정합) · NavFn 전역경로</li></ul><ul><li><span class='srb'>[진행]</span> ArUco 마커 도킹 — OpenCV 8종 딕셔너리·서브픽셀 (AR-52)</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>컨트롤러 = <b>Regulated Pure Pursuit (PID 아님)</b> — 곡률·costmap 기반 선속도 규제</li><li>lookahead <b>0.6→0.2m 축소</b>(작은 맵 전방충돌 오판정 완화) · 회전우선 20°</li></ul><ul><li>저속 정밀 — 0.10m/s · 도착 xy 5cm/yaw 8.5° · 장애물 0.1m 감속</li><li>⚠️ ArUco — 캘리브 부재로 solvePnP 불가 → <b>2D 픽셀 fallback 퇴화</b>(3D pose 미활용)</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>카메라 캘리브레이션(체스보드→.npz) → ArUco <b>3D pose 모드</b> 활성화</li><li>제어 픽셀 → 3D pose(x·z·yaw) 전환 · 정면 수직 도킹</li></ul><ul><li>Pose 필터(EMA/칼만) · 멀티마커(ArUco Board) 검토</li><li>Line tracing 실주행 완성</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>RPP 튜닝만으로 소형 맵 정밀·안정 주행 (별도 PID 불필요)</li></ul><ul><li>ArUco 마커 검출 성공 (제어 정밀도는 캘리브 후 개선)</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 주행</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span></h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-03 픽업(3회 재시도) · SR-01 이송 · SR-02 식별 · SR-04 분류 · SR-06 정리</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li><span class='srb'>[완료]</span> perception 후 grab 기술조사 (AR-39)</li><li><span class='srb'>[진행]</span> 파지 후 배치(진열) 가능성 검토 (AR-60)</li></ul><ul><li><span class='srb'>[예정]</span> 배치 실물 테스트(AR-61) · 바구니 grab 조사(AR-49)</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>JetCobot + RealSense D435 · ArUco rvec/tvec로 3D 위치·자세</li><li>QR→ArUco 전환 · 거리는 depth 대신 <b>tvec.z</b> (근거리 depth 불안정)</li></ul><ul><li>채택 = <b>One-Shot Pose Grasp</b> (1회 안정 인식→계산 좌표, 오차누적 최소)</li><li>MoveJ(스캔)·MoveL(1회 이동)·Jog(정렬) 조합</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>Hand-eye calibration 적용 (현재 오프셋 수동 보정 한계)</li></ul><ul><li>파지 성공 센서 확인 + 파지→배치 시퀀스 실물 테스트</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>One-Shot Pose Grasp로 현재 최고 파지 정확도</li></ul><ul><li>인식·파지 파이프라인 확정</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 딥러닝 모델</div>
+      <h2 class="stitle anim" style="--d:1">딥러닝 모델 <span class="hl">Deep-Learning</span></h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-02 식별 · SR-04 분류 · SR-06 감지 · SR-13 추종 · SR-15 회피 · SR-19 침입</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li><span class='srb'>[완료]</span> 툴·모델 조사·온디바이스 성능·서버 비교 (AR-14·17·41)</li><li><span class='srb'>[완료]</span> 학습데이터 인형·Pinky_pro·LLM 도서추천 (AR-32·33·13)</li></ul><ul><li><span class='srb'>[진행]</span> 바구니·핑키+사람 모델·분류 조사 (AR-31·58·26)</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>Teachable Machine→YOLOv8n 전환 · 635장 best ep72</li><li><b>엣지 Pi4 4.96FPS·CPU85%·67.6℃ vs 서버 19FPS·21ms</b> → 서버 오프로드</li><li>Depth Cam ValidDepth 48.5%(경고) · ChArUco 캘리 reproj&lt;0.5px</li></ul><ul><li>책분류 QR vs OCR → <b>EasyOCR 선정</b> (한국어·Pi 실시간)</li><li>Labi Bot — Ollama qwen3:1.7b 경량 RAG (벡터DB X, 4개국어)</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>바구니 모델 완성 + 도서 커스텀 YOLO 데이터셋·fine-tune</li></ul><ul><li>ROS2 연동 publish (AI Server→ABA Service)</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>서버 오프로드 배치 근거(성능·발열) 확보</li></ul><ul><li>모델·OCR·챗봇 방식 확정</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 딥러닝 모델</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
+      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Person Following</span></h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-13 짐꾼(추종) · SR-11 길잡이 · SR-19 순찰 감지</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li><span class='srb'>[진행]</span> 핑키+사람 모형 모델 (AR-58, 추종 대상 인식)</li><li><span class='srb'>[예정]</span> tracking 기술조사·실물 테스트 (AR-62·63)</li></ul><ul><li>S4 본격 착수 — 상세 레퍼런스 확보</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>파이프라인 — YOLO 검출 → <b>ByteTrack</b> MOT(가림 강함) → track_id</li><li>재식별 — 얼굴 InsightFace(ArcFace 512d) 잠금 → 몸통 <b>OSNet ReID</b> 2단</li><li>거리 — RealSense mm 실측, 유실 시 Track Coasting(방향 외삽)</li></ul><ul><li>제어 — &lt;0.8m STOP / 0.8~1.5m P제어 / &gt;1.5m Nav2 하이브리드</li><li>Nav2 follow_point(GoalUpdater+TruncatePath) · 대상은 costmap 제외</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>온디바이스 실현 가능 조합 선정 → 실물 테스트</li></ul><ul><li>근/원거리 하이브리드 파라미터 튜닝</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>추적·ReID·제어 스택 설계 확정</li></ul><ul><li>온라인 지속학습(OCL) 전략 정의</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 관제</div>
+      <h2 class="stitle anim" style="--d:1">관제 <span class="hl">Fleet Control</span></h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-10 모니터링 · SR-01·12 배차 · SR-14 작업 알림</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li><span class='srb'>[완료]</span> 다중제어 · Interface Specification (AR-15·44)</li><li><span class='srb'>[진행]</span> FMS sim slotcar plugin(AR-59) · libi_fleet 알고리즘 선정</li></ul><ul><li><span class='srb'>[예정]</span> ABA Service 서버 구축 (AR-45)</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>배차 MRTA(ST-SR) 1차 = <b>Greedy + Cost</b>(거리+배터리+task+순찰+혼잡)</li><li>우선순위 이송&gt;가이드&gt;returning&gt;파견 (배차·교통 양보 공유)</li></ul><ul><li>교통협상 4종 — CBS / Dijkstra예약+데드락DFS / Edge·Node Lock / ORCA</li><li>open-rmf는 우선순위 없음(지연최소) → 자체 FMS 선택 근거</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>libi_fleet 배차/교통 알고리즘 최종 선정</li></ul><ul><li>ABA Service 서버 구축 + slotcar plugin 완성</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>FMS 아키텍처·우선순위·교통협상 방식 정리</li></ul><ul><li>Interface Spec 완료</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 관제</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
+      <h2 class="stitle anim" style="--d:1">GUI</h2>
+      <div class="srtag anim" style="--d:2"><b>관련 SR</b> — SR-00 요청 · SR-05 추천 · SR-09 검색 · SR-11 길잡이 · SR-17 친밀감 · SR-20 비상정지 · SR-21 수동조작</div>
+    </header>
+    <div class="sbody"><div class="prows anim" style="--d:3"><div class="prow"><div class="pico">🚀</div><div class="plabel">진행 내용</div><div class="pbul"><ul><li>libi_gui 온보드 터치패널 <b>실구현</b> — C++/Qt5.15(QML), 풀스크린</li><li>화면 7종 — Home·Guide·Search·Recommend·Status·Admin</li></ul><ul><li>공식 repo 코드 반영 (팀 내 유일 실동작 코드)</li></ul></div></div><div class="prow"><div class="pico">🔍</div><div class="plabel">핵심 조사·결정</div><div class="pbul"><ul><li>회원 — 요청(음성/텍스트/터치)·검색·지도·추천·<b>로봇 실시간 추적</b></li><li>사서 — 대시보드·모니터링·작업지시(이송/분류/짐꾼/파견)·야간 보안</li></ul><ul><li>로봇 QT — 홈(표정 8종)·친밀감(SR-17)·길잡이·비상정지(SR-20)</li><li>libi_gui — 수동조작(SR-21, 주행·팔·그리퍼)·PIN 관리자</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>3종 UI ↔ ABA Web ↔ FMS 연동 (Server 구축 AR-45 의존)</li></ul><ul><li>로봇 추적·모니터링을 실 FMS 상태와 결선</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>3접점 UI 완성 + 로봇 QT 실동작 코드</li></ul><ul><li>화면 흐름·ERD 확정</li></ul></div></div></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · GUI</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Issues · 애로사항</div>
+      <h2 class="stitle anim" style="--d:1">애로사항 <span class="hl">3건</span></h2>
+    </header>
+    <div class="sbody"><div class="issues3">
+      <div class="iss" style="--ac2:var(--alert);--d:2">
+        <div class="ihead"><span class="ino">01</span><span class="it">CPU 점유율 · 정밀주행 (Pi4)</span></div>
+        <div><div class="ilab">현상</div><p>순수 bringup만 <b>60~80%</b> → ArUco·UDP 영상 송출 시 <b>97%↑</b> (load 15·19.5FPS). nav2 주행 토픽까지 받으면 추가 악화 우려.</p></div>
+        <div><div class="ilab">대응</div><p>BT로 프로세스 사용/미사용 구간 구분 · perception AI 서버 오프로딩 · 노드 경량화.</p></div>
+      </div>
+      <div class="iss" style="--ac2:var(--gold-deep);--d:3">
+        <div class="ihead"><span class="ino">02</span><span class="it">GUIDE 기능 · 카메라 추가</span></div>
+        <div><div class="ilab">현상</div><p>길잡이(SR-11) 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div>
+        <div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div>
+      </div>
+      <div class="iss" style="--ac2:var(--teal);--d:4">
+        <div class="ihead"><span class="ino">03</span><span class="it">바구니 모델 선정</span></div>
+        <div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (AR-31 Sprint 2부터 진행 중) · grab 방식(AR-49)도 미착수 → 분류·이송 시나리오 블로킹.</p></div>
+        <div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">04</span> This Week · 이번주 계획</div>
+      <h2 class="stitle anim" style="--d:1">이번 주 계획 <span class="hl">Jira · Sprint 4</span></h2>
+      <div class="srtag anim" style="--d:2"><b>Sprint 4</b> · 2026.07.06 – 07.12 · 목표 전체 기능 20% · v0.2 · Jira arte1 · 12건</div>
+    </header>
+    <div class="sbody"><div class="jira2">
+      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_sprint4.png" alt="Jira Sprint 4 보드"></div>
+      <div class="jtbl anim" style="--d:4">
+        <div class="jtbl-cap">Sprint 4 · 영역별 요약</div>
+        <table>
+          <tr><th>영역</th><th>태스크 · 상태</th></tr>
+          <tr><td>정밀주행</td><td>ArUco · Line tracing<b>진행</b></td></tr>
+          <tr><td>딥러닝 모델</td><td>바구니 · 핑키+사람<b>진행</b></td></tr>
+          <tr><td>로봇팔 파지</td><td>배치 검토<b>진행</b> · 실물<b class="t">예정</b></td></tr>
+          <tr><td>Tracking</td><td>관련 조사 · 실물<b class="t">예정</b></td></tr>
+          <tr><td>서버 · FMS</td><td>FMS slotcar<b>진행</b> · Server<b class="t">예정</b></td></tr>
+          <tr><td>분류 · 바구니</td><td>분류 조사<b>진행</b> · grab<b class="t">예정</b></td></tr>
+        </table>
+        <div class="jtbl-foot">진행 7 · 예정 5 · 총 12건</div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>This Week · Jira</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">05</span> Roadmap · 향후 계획</div>
+      <h2 class="stitle anim" style="--d:1">향후 <span class="hl">Roadmap</span> · Sprint 4 – 8</h2>
+    </header>
+    <div class="sbody"><div class="plan five">
+        <div class="plancard anim" style="--d:2"><h4><span class="pi">Sprint 4</span> 7.6 – 7.10</h4><div class="pspr">구현 · 진행 중</div><div class="pgoal">구현 인프라 착수 → 이동(sim)·추종 기본</div><div class="pmile">전체 기능 20% · v0.2</div><div class="pbar"><span style="width:20%"></span></div><div class="plabel">개발 항목</div><ul><li><b>서버 구축</b> — 태스크 접수·상태 브리지 <span class="jira">AR-45</span></li><li><b>FMS sim 주행</b> — slotcar, 배차+교통+PathRequest <span class="jira">AR-59</span></li><li><b>정밀주행 착수</b> — ArUco·Line·Nav2/PID <span class="jira">AR-52·53</span></li><li><b>딥러닝 모델 1차</b> — 바구니·사람 모형 인식 <span class="jira">AR-31·58</span></li><li><b>추종(tracking) 기본</b> — drive→ai_service→주행 제어 <span class="jira">AR-62·63</span></li><li><b>이동 시나리오 통합</b> — 접수→배차→주행→도착 통지</li></ul><div class="plabel">완료 조건</div><ul class="pdod"><li>이동 시나리오 sim 관통</li><li>ArUco/Line tracing·추종 기본 동작</li><li>로봇팔 파지 실물 테스트로 S5 근거 확보</li></ul><div class="prisk"><b>⚠ 의존</b> 로봇팔 파지 기술조사(AR-60·61) → <b>Sprint 5 착수 전제</b></div><div class="pdeliv">📄 산출물 — Integration Test Report (v0.2)</div></div>
+        <div class="plancard anim" style="--d:3"><h4><span class="pi">Sprint 5</span> 7.13 – 7.17</h4><div class="pspr">구현</div><div class="pgoal">실물주행 전환 · 이송·진열·짐꾼 완성</div><div class="pmile">전체 기능 50% · v0.3</div><div class="pbar"><span style="width:50%"></span></div><div class="plabel">개발 항목</div><ul><li><b>실물주행 전환</b> — FMS 주행 sim→실물 로봇 이관</li><li><b>정밀주행 마감</b> — ArUco 도킹 정렬·Line tracing (실물)</li><li><b>로봇팔(Handy) 신규 구현</b> — pick/place/align (코드 전무→착수)</li><li><b>이송 시나리오</b> — 서가 도킹→픽업→목적지→배치</li><li><b>진열 시나리오</b> — 바구니 책 인식→해당 서가 배치</li><li><b>짐꾼(추종) 완성</b> — 놓쳤을 때 복구: 10초→좌우30°→180°→순찰전환</li></ul><div class="plabel">완료 조건</div><ul class="pdod"><li>실물 로봇 주행·ArUco 도킹 성공</li><li>책 1권 파지→지정 위치 배치 실물 성공</li><li>이송·진열 관통 · 짐꾼 상실→복구 동작</li></ul><div class="prisk"><b>⚠ 리스크</b> 로봇팔 코드 전무 = <b>최대 난이도</b> · sim→실물 격차·도킹→파지 선행</div><div class="pdeliv">📄 산출물 — Integration Test Report (v0.3)</div></div>
+        <div class="plancard anim" style="--d:4"><h4><span class="pi">Sprint 6</span> 7.20 – 7.24</h4><div class="pspr">구현</div><div class="pgoal">분류·길잡이 · 회원·사서 UI · 실시간 연동</div><div class="pmile">전체 기능 80% · v0.4</div><div class="pbar"><span style="width:80%"></span></div><div class="plabel">개발 항목</div><ul><li><b>분류(arm_sort)</b> — 수거함→인식→기준 판정→분류 배치</li><li><b>길잡이</b> — 목적지 조회→앞장→동행 검증→도착 통지</li><li><b>회원 UI</b> — 검색·추천(LLM)·음성 요청·로봇 추적</li><li><b>사서 UI</b> — 대출·반납·도서/회원 관리·모니터링 <span class="jira">SR-07·08</span></li><li><b>실시간 채널</b> — WS(robot·task-state)·MJPEG·UDP(Image→AI)</li><li><b>GUI 실시간 연동</b> — 폴링 탈피, 위치·상태·영상 실시간</li></ul><div class="plabel">완료 조건</div><ul class="pdod"><li>분류 다권 기준별 배치 관통</li><li>회원 요청·추천 / 사서 대출·반납 동작</li><li>WS로 상태 갱신·영상 스트림 표시</li></ul><div class="prisk"><b>⚠ 리스크</b> 실시간 전환=<b>CPU 부하↑</b> · UI↔DB 연동 범위 관리</div><div class="pdeliv">📄 산출물 — Integration Test Report (v0.4)</div></div>
+        <div class="plancard anim" style="--d:5"><h4><span class="pi">Sprint 7</span> 7.27 – 7.31</h4><div class="pspr">구현</div><div class="pgoal">순찰·보안 + 전체 통합·멀티로봇</div><div class="pmile">전체 기능 100% · v0.5</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>순찰</b> — 경로 7분30초 주행→자동 복귀, 사람감지→추적·녹화</li><li><b>야간 보안</b> — day/night 전환·침입 알림·현장 영상</li><li><b>전체 통합</b> — 8종 순차/동시 실행, 예외(배터리→충전·비상정지)</li><li><b>멀티로봇 검증</b> — 배차×교통 조합, 교차·병목 충돌 회피</li></ul><div class="plabel">완료 조건</div><ul class="pdod"><li>순찰·보안 시나리오 관통</li><li>8종 전부 데모 시나리오로 재현</li><li>2대+ 동시 작업 충돌 없이 완수</li></ul><div class="prisk"><b>⚠ 리스크</b> 멀티로봇 실물 재현 — <b>sim 완전검증 + 실물 축소 데모</b> 병행</div><div class="pdeliv">📄 산출물 — Integration Test Report (v0.5)</div></div>
+        <div class="plancard anim" style="--d:6"><h4><span class="pi">Sprint 8</span> 8.3 – 8.7</h4><div class="pspr">안정화</div><div class="pgoal">기능 동결 → 안정화·검증·발표 준비</div><div class="pmile">품질 100% · v1.0</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>버그·성능 안정화</b> — 결함 수정, 신규 기능 동결</li><li><b>CPU 부하 대응</b> — WS+비전 동시구동 계측·완화</li><li>온디바이스 vs AI 서버 추론 배치 최종 결정</li><li><b>검증 종합</b> — v0.3~0.5 → Validation Report, SR 충족 매트릭스</li><li><b>발표 준비</b> — 자료·데모 대본·리허설, 백업 플랜</li></ul><div class="plabel">완료 조건</div><ul class="pdod"><li>데모 시나리오 무중단 연속 성공</li><li>장시간 구동 크래시 없음</li><li>Validation Report 완성</li></ul><div class="prisk"><b>⚠ 관리</b> S7 기능 100% → <b>S8 안정화만</b>, 기능 동결선 엄수</div><div class="pdeliv">🏁 데모데이 8.9~8.10 · Validation Report v1.0</div></div>
+      </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Roadmap · 향후 계획</b></span><span class="pg"></span></footer>
+  </section>
+
+  <!-- ===== 마무리 ===== -->
+  <section class="slide closing dark">
+    <div class="cl-in">
+      <div class="cl-team anim" style="--d:0">TEAM <b>ARTE</b></div>
+      <div class="cl-aba anim" style="--d:1">ABA</div>
+      <span class="cl-rule anim" style="--d:2"></span>
+      <p class="cl-q anim" style="--d:3">“사람은 지식을 찾고,<br>ARTE는 그 길을 안내합니다.”</p>
+      <div class="cl-thx anim" style="--d:4">감사합니다 <span>· Q &amp; A</span></div>
+      <div class="shelf anim" style="--d:5"><i style="height:30px"></i><i style="height:22px"></i><i style="height:34px"></i><i style="height:18px"></i><i style="height:28px"></i><i style="height:24px"></i><i style="height:32px"></i><i style="height:20px"></i><i style="height:26px"></i></div>
+    </div>
+  </section>
+
+</main>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const total=slides.length;
+const rail=document.getElementById('rail');
+let i=0;
+slides.forEach((s,idx)=>{const pg=s.querySelector('.pg');if(pg)pg.textContent=String(idx+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');});
+function go(n){
+  i=Math.max(0,Math.min(total-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  rail.style.width=((i+1)/total*100)+'%';
+}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(i+1);}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+  if(e.key==='Home')go(0);if(e.key==='End')go(total-1);
+});
+let sx=0;
+addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(i+(dx<0?1:-1));},{passive:true});
+go(0);
+</script>
+</body>
+</html>

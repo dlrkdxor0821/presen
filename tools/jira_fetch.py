@@ -15,7 +15,10 @@ def load_env(p):
             env[k.strip()] = v.strip()
     return env
 
-env = load_env(os.path.join(ROOT, ".jira.env"))
+_envp = os.path.join(ROOT, ".jira.env")
+if not os.path.exists(_envp):
+    _envp = os.path.expanduser("~/.config/atlassian/.env")  # 전역 fallback
+env = load_env(_envp)
 BASE = f"https://{env['JIRA_SITE']}"
 AUTH = base64.b64encode(f"{env['JIRA_EMAIL']}:{env['JIRA_TOKEN']}".encode()).decode()
 BOARD = env.get("JIRA_BOARD", "2")

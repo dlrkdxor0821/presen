@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>ABA · Libi — 발표 템플릿 (Presentation Template)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/variable/pretendardvariable.css" />
+<style>
+:root{
+  --paper:#F6F3EB; --paper-2:#FBF9F3; --card:#FFFFFF; --line:#E7E0D1; --line-soft:#EFEADE;
+  --ink:#1B2738; --ink-2:#5B6473; --ink-3:#97A0AE;
+  --navy:#1B2C4B; --navy-2:#10182B;
+  --gold:#C0852A; --gold-deep:#9A6A1C; --gold-bright:#E0A43C; --gold-soft:#F3E7CC; --gold-line:#E6CF9C;
+  --teal:#1E8C80; --teal-soft:#E0F0ED; --alert:#B5482F; --alert-soft:#F6E5E0;
+  --sans:"Pretendard Variable",Pretendard,-apple-system,system-ui,"Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+  --serif:"Fraunces",Georgia,serif;
+  --mono:"IBM Plex Mono",ui-monospace,monospace;
+  --sh:0 18px 44px -24px rgba(18,28,52,.34);
+  --sh-sm:0 8px 22px -14px rgba(18,28,52,.30);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html,body{height:100%}
+body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:hidden;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility}
+
+/* ---------- stage / slides ---------- */
+#stage{position:fixed;inset:0}
+.slide{position:absolute;inset:0;display:none;flex-direction:column;
+  padding:clamp(38px,5.4vh,62px) clamp(46px,5.6vw,100px);
+  background:
+    radial-gradient(130% 100% at 100% 0%, rgba(224,164,60,.05), transparent 55%),
+    var(--paper);
+  color:var(--ink)}
+.slide.dark{background:
+  radial-gradient(120% 120% at 88% 12%, rgba(224,164,60,.12), transparent 52%),
+  linear-gradient(160deg,#1C2E4E 0%, var(--navy-2) 100%);
+  color:#EEEADF}
+.slide.on{display:flex}
+
+/* entrance */
+.anim{opacity:0;transform:translateY(15px)}
+.slide.on .anim{opacity:1;transform:none;transition:opacity .6s cubic-bezier(.2,.7,.2,1),transform .6s cubic-bezier(.2,.7,.2,1);transition-delay:calc(var(--d,0)*80ms + 90ms)}
+@media (prefers-reduced-motion:reduce){.anim{opacity:1!important;transform:none!important;transition:none!important}}
+
+/* ---------- shared header ---------- */
+.shead{margin-bottom:clamp(18px,2.6vh,30px);flex-shrink:0}
+.kicker{font-family:var(--mono);font-size:12px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;
+  color:var(--gold-deep);display:flex;align-items:center;gap:11px;margin-bottom:13px}
+.kicker::before{content:"";width:24px;height:1.5px;background:var(--gold)}
+.kicker .kn{font-family:var(--serif);font-style:italic;font-weight:500;font-size:16px;letter-spacing:0;color:var(--gold)}
+.kicker .kof{color:var(--ink-3);font-weight:500}
+.stitle{font-weight:650;font-size:clamp(27px,3.3vw,41px);line-height:1.13;letter-spacing:-.022em;color:var(--ink)}
+.stitle .hl{color:var(--gold-deep)}
+.stitle .sm{font-family:var(--mono);font-weight:500;font-size:.4em;letter-spacing:.02em;color:var(--ink-3);margin-left:6px;vertical-align:.16em}
+.dark .stitle{color:#F4F1E8}.dark .stitle .hl{color:var(--gold-bright)}
+.slead{margin-top:12px;font-size:clamp(13.5px,1.15vw,16.5px);line-height:1.62;color:var(--ink-2);max-width:64ch}
+
+.sbody{flex:1;min-height:0;display:flex;flex-direction:column}
+
+/* ---------- footer ---------- */
+.sfoot{margin-top:auto;padding-top:15px;border-top:1px solid var(--line);
+  display:flex;align-items:center;justify-content:space-between;
+  font-family:var(--mono);font-size:11px;letter-spacing:.04em;color:var(--ink-3);flex-shrink:0}
+.sfoot .bd{display:flex;align-items:center;gap:9px}
+.sfoot .bd b{color:var(--ink-2);font-weight:600}
+.sfoot .dotg{width:6px;height:6px;border-radius:50%;background:var(--gold)}
+
+/* progress rail */
+#rail{position:fixed;top:0;left:0;height:3px;width:0;z-index:50;
+  background:linear-gradient(90deg,var(--gold-bright),var(--gold),var(--teal));transition:width .5s cubic-bezier(.2,.7,.2,1)}
+
+/* ============================================================
+   1 · COVER
+============================================================ */
+.cover{flex-direction:row;padding:0;gap:0}
+.cv-text{flex:0 0 47%;background:
+   radial-gradient(120% 90% at 12% 8%, rgba(224,164,60,.12), transparent 50%),
+   linear-gradient(165deg,#21345A 0%, #131F38 60%, #0E1730 100%);
+  padding:clamp(46px,5.4vw,86px) clamp(42px,4.6vw,72px);
+  display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.2vh,26px);position:relative;overflow:hidden}
+.cv-team{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
+.cv-team b{color:#fff;font-weight:600}
+.cv-mark{display:flex;align-items:flex-end;gap:18px}
+.cv-aba{font-family:var(--serif);font-weight:600;line-height:.82;font-size:clamp(72px,9vw,140px);letter-spacing:-.03em;
+  background:linear-gradient(150deg,#FBE2A8,var(--gold-bright) 52%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cv-mark .cv-full{font-family:var(--serif);font-style:italic;font-size:clamp(14px,1.3vw,18px);color:#C9D2E2;padding-bottom:13px;letter-spacing:.01em}
+.cv-title{font-size:clamp(21px,2.2vw,31px);font-weight:600;line-height:1.28;color:#F3F0E7;letter-spacing:-.01em}
+.cv-title b{color:var(--gold-bright);font-weight:700}
+.cv-sub{font-size:clamp(13px,1.1vw,15.5px);color:#9CA8BD;line-height:1.55;max-width:34ch;border-left:2px solid var(--gold);padding-left:15px}
+.cv-meta{display:flex;gap:clamp(20px,2.6vw,42px);margin-top:8px}
+.cv-meta .ml{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.18em;color:#7E8AA1;text-transform:uppercase;margin-bottom:5px}
+.cv-meta .mv{font-size:14px;color:#E9E5DA;font-weight:500}
+.cv-photo{flex:1;position:relative;overflow:hidden;background:#0E1730}
+.cv-photo img{width:100%;height:100%;object-fit:cover}
+.cv-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,#131F38 0%, rgba(19,31,56,.35) 14%, transparent 34%)}
+.spine-tag{position:absolute;left:clamp(24px,2.6vw,40px);bottom:clamp(24px,3vh,40px);z-index:2;
+  display:flex;flex-direction:column;align-items:center;gap:2px;background:rgba(255,255,255,.93);
+  border:1px solid var(--gold-line);border-radius:7px;padding:9px 13px;box-shadow:var(--sh);font-family:var(--mono)}
+.spine-tag .dewey{font-size:18px;font-weight:600;color:var(--navy);letter-spacing:.04em}
+.spine-tag .lbl{font-size:9.5px;letter-spacing:.18em;color:var(--gold-deep);font-weight:600}
+
+/* ============================================================
+   2 · TOPIC
+============================================================ */
+.topic{gap:clamp(20px,3vh,34px);justify-content:center}
+.topic-lead{display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(28px,4vw,60px);align-items:end}
+.topic-stmt{font-size:clamp(22px,2.5vw,34px);font-weight:650;line-height:1.26;letter-spacing:-.02em;color:var(--ink)}
+.topic-stmt b{color:var(--gold-deep)}
+.topic-stmt .q{font-family:var(--serif);font-style:italic;color:var(--gold);font-weight:500}
+.topic-desc{font-size:clamp(13px,1.1vw,15.5px);line-height:1.7;color:var(--ink-2)}
+.topic-desc b{color:var(--ink);font-weight:600}
+.topic-cards{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:clamp(13px,1.4vw,18px)}
+.tcard{background:var(--card);border:1px solid var(--line);border-radius:15px;padding:clamp(16px,1.6vw,21px);box-shadow:var(--sh-sm);display:flex;flex-direction:column;gap:9px}
+.tcard .tc-k{font-family:var(--mono);font-size:12.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.tcard h4{font-size:18px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:8px}
+.tcard p{font-size:15px;line-height:1.55;color:var(--ink-2)}
+.eqn{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.eqn .term{display:flex;flex-direction:column}
+.eqn .term b{font-size:17px;font-weight:650;color:var(--navy)}
+.eqn .term span{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);letter-spacing:.02em}
+.eqn .op{font-family:var(--serif);font-size:23px;color:var(--gold);font-weight:500}
+.eqn .res{font-size:17px;font-weight:650;color:var(--gold-deep)}
+
+/* ============================================================
+   3 · ARCHITECTURE
+============================================================ */
+.arch{gap:clamp(8px,1vh,12px);justify-content:center}
+.band{display:grid;grid-template-columns:64px 1fr;gap:13px;align-items:stretch}
+.band .bl{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border-radius:12px;color:#fff;background:var(--ac);padding:8px 0}
+.band .bl .bln{font-family:var(--serif);font-style:italic;font-size:18px;font-weight:600;line-height:1}
+.band .bl .blt{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em}
+.band:nth-of-type(1){--ac:var(--gold-deep)}
+.band:nth-of-type(3){--ac:var(--teal)}
+.band:nth-of-type(5){--ac:var(--navy)}
+.brow{flex:1;display:flex;gap:12px;flex-wrap:wrap;align-items:stretch;position:relative;
+  background:color-mix(in srgb,var(--ac) 5%,var(--card));border:1px solid var(--line);border-left:4px solid var(--ac);
+  border-radius:14px;padding:13px 16px}
+.brow .xn{position:absolute;top:10px;right:14px;font-family:var(--mono);font-size:10.5px;color:var(--ac);font-weight:600;letter-spacing:.04em}
+.abox{flex:1;min-width:150px;background:var(--card);border:1px solid var(--line);border-radius:11px;
+  padding:11px 14px;display:flex;flex-direction:column;gap:7px;box-shadow:var(--sh-sm)}
+.abox h4{font-size:13.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:7px}
+.abox h4 em{font-family:var(--mono);font-style:normal;font-size:10px;color:var(--ink-3);font-weight:500}
+.abox .svc{display:flex;flex-wrap:wrap;gap:5px}
+.abox .svc span{font-family:var(--mono);font-size:10.5px;font-weight:500;color:var(--ac);background:color-mix(in srgb,var(--ac) 11%,transparent);border-radius:6px;padding:3px 8px}
+.hwline{flex-basis:100%;display:flex;flex-wrap:wrap;gap:6px;margin-top:1px}
+.hwline span{font-family:var(--mono);font-size:10px;font-weight:500;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line);border-radius:6px;padding:3px 8px}
+.bridge{display:flex;justify-content:center;align-items:center;color:var(--gold);font-size:13px;line-height:1;height:6px}
+.legend-proto{display:flex;gap:18px;flex-wrap:wrap;justify-content:center;margin-top:8px;font-family:var(--mono);font-size:10.5px;color:var(--ink-2)}
+.legend-proto b{color:var(--gold-deep);font-weight:600}
+
+/* ============================================================
+   4 · SYSTEM REQUIREMENTS
+============================================================ */
+.legend{display:flex;align-items:center;gap:15px;flex-wrap:wrap;margin-top:13px;font-family:var(--mono);font-size:11px;color:var(--ink-2)}
+.legend .lg{display:inline-flex;align-items:center;gap:6px}
+.legend .d{width:9px;height:9px;border-radius:50%}
+.d.h{background:var(--gold)}.d.m{background:var(--teal)}.d.l{background:var(--ink-3)}
+.sr-list{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(34px,4.4vw,72px);align-content:center;min-height:0}
+.sr-col{display:flex;flex-direction:column;justify-content:center}
+.sr-row{display:flex;align-items:center;gap:15px;padding:clamp(11px,2.15vh,20px) 2px;border-bottom:1px solid var(--line-soft)}
+.sr-row:last-child{border-bottom:none}
+.sr-row .id{font-family:var(--mono);font-weight:600;font-size:13px;color:var(--gold-deep);min-width:54px}
+.sr-row .nm{font-weight:650;color:var(--ink);font-size:16.5px;flex-shrink:0}
+.sr-row .ds{flex:1;color:var(--ink-2);font-size:14px;line-height:1.32;padding-right:74px}
+.sr-row .p{width:10px;height:10px;border-radius:50%;flex-shrink:0;position:relative}
+.sr-row .p::after{position:absolute;right:100%;margin-right:15px;top:50%;transform:translateY(-50%);font-family:var(--mono);font-size:11px;font-weight:600;letter-spacing:.02em;white-space:nowrap}
+.p.h{background:var(--gold)}.p.m{background:var(--teal)}.p.l{background:var(--ink-3)}
+.p.h::after{content:"High";color:var(--gold-deep)}
+.p.m::after{content:"Medium";color:var(--teal)}
+.p.l::after{content:"Low";color:var(--ink-3)}
+.sr-row.core{background:var(--gold-soft);border-bottom-color:transparent;border-radius:10px}
+.sr-row.core .id,.sr-row.core .nm{color:var(--gold-deep)}
+
+/* ============================================================
+   5/6 · SEQUENCE
+============================================================ */
+/* Sequence slides: top/left/right padding = default so the title lines up with other slides; only the bottom stays tight to give the dense diagram a little more height */
+.seq-slide{padding:clamp(38px,5.4vh,62px) clamp(46px,5.6vw,100px) clamp(26px,3.7vh,46px)}
+.seqx{flex:1;display:grid;grid-template-columns:1fr 1.12fr;gap:clamp(18px,2.2vw,38px);min-height:0}
+.seqx-left{display:flex;flex-direction:column;min-height:0}
+.seqx-left .shead{margin-bottom:clamp(8px,1.4vh,16px)}
+.seqx-left .sfoot{margin-top:auto}
+.seqx-right{min-height:0;display:flex;align-items:center;justify-content:center;margin:calc(-1*clamp(16px,3.1vh,34px)) 0}
+.seqx-right img{height:100%;width:auto;max-width:100%;object-fit:contain;transform:none;transform-origin:center;border-radius:12px;border:1px solid var(--line);background:#fff;box-shadow:var(--sh);padding:5px}
+.seqx-right.wide img{transform:none}
+/* flow · icon stepper */
+.flow-wrap{flex:1;display:flex;flex-direction:column;justify-content:center;gap:clamp(16px,2.9vh,34px);min-width:0}
+.lanes{display:flex;flex-wrap:wrap;gap:7px}
+.lanes span{font-family:var(--mono);font-size:14px;font-weight:500;color:var(--navy);background:var(--paper-2);border:1px solid var(--line);border-radius:7px;padding:6px 13px}
+.lanes .trig{color:var(--gold-deep);background:var(--gold-soft);border-color:var(--gold-line)}
+.flow{display:flex;align-items:flex-start;justify-content:flex-start;flex-wrap:nowrap;gap:clamp(4px,0.7vw,11px)}
+.fnode{display:flex;flex-direction:column;align-items:center;gap:12px;flex:0 0 auto;width:clamp(92px,7.6vw,128px)}
+.fnode .fi{width:clamp(80px,6.7vw,112px);height:clamp(80px,6.7vw,112px);border-radius:26px;display:flex;align-items:center;justify-content:center;background:var(--card);border:1px solid var(--line);box-shadow:var(--sh-sm);color:var(--navy)}
+.fnode .fi svg{width:54%;height:54%}
+.fnode.key .fi{background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));border-color:transparent;color:#fff}
+.fnode .fl{font-size:16.5px;font-weight:600;color:var(--ink);text-align:center;line-height:1.25}
+.fnode .fl em{display:block;font-style:normal;font-weight:500;font-size:12.5px;color:var(--ink-3);font-family:var(--mono);margin-top:3px;letter-spacing:.02em}
+.farrow{align-self:flex-start;margin-top:clamp(30px,3.3vw,52px);color:var(--gold);font-size:22px;font-weight:700;flex-shrink:0}
+.flink{position:relative;height:clamp(36px,6vh,60px);margin:clamp(-14px,-1.8vh,-8px) 0;
+  --nw:clamp(92px,7.6vw,128px);--fg:clamp(4px,0.7vw,11px);--aw:18px;
+  --x4:calc(3.5*var(--nw) + 3*var(--aw) + 6*var(--fg));--x1:calc(var(--nw)/2)}
+.flink span{position:absolute;background:var(--gold);border-radius:1px}
+.flink .v1{left:var(--x4);top:0;width:2.6px;height:calc(50% + 1px);transform:translateX(-50%)}
+.flink .h{top:calc(50% - 1.3px);left:calc(var(--x1) - 1.3px);width:calc(var(--x4) - var(--x1) + 2.6px);height:2.6px}
+.flink .v2{left:var(--x1);top:50%;width:2.6px;height:calc(50% - 7px);transform:translateX(-50%)}
+.flink .v2::after{content:"";position:absolute;left:50%;bottom:-10px;transform:translateX(-50%);width:0;height:0;background:none;border-left:6px solid transparent;border-right:6px solid transparent;border-top:9px solid var(--gold)}
+.flow-sum{font-size:17px;line-height:1.78;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--gold);border-radius:13px;padding:18px 22px}
+.flow-sum .lab{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep);display:block;margin-bottom:6px}
+.flow-sum b{color:var(--gold-deep);font-weight:600}
+/* step-focus highlight box around a flow row (does not affect layout) */
+.flow.box{outline:2.6px solid var(--gold);outline-offset:10px;border-radius:9px;box-shadow:0 0 0 10px var(--gold-soft),0 16px 36px -18px rgba(192,133,42,.5)}
+
+/* ============================================================
+   7 · STATE DIAGRAM
+============================================================ */
+.stated{flex:1;display:flex;align-items:center;justify-content:center;min-height:0}
+.stated svg{max-width:100%;max-height:100%;width:auto;height:auto}
+/* State Diagram (slide 9): header/title stays at the shared default position (consistent with other slides).
+   Hide the footer on this slide only and reclaim the space below so the square diagram grows as large as possible. */
+.slide.state-max{padding-bottom:clamp(14px,2vh,26px)}
+.slide.state-max .sfoot{display:none}
+.slide.state-max .stated img{padding:4px}
+.st-st{fill:#fff;stroke:#7C8597;stroke-width:1.5}
+.st-hub{fill:#FFFDF8;stroke:var(--gold);stroke-width:2.4}
+.st-estop{fill:#FBEAE6;stroke:#B5482F;stroke-width:1.8}
+.st-t{font-family:var(--sans);font-weight:650;fill:var(--ink);text-anchor:middle}
+.st-e{font-family:var(--mono);font-size:9.5px;fill:var(--ink-3);text-anchor:middle}
+.st-sub{font-family:var(--sans);font-size:10px;fill:var(--ink-2);text-anchor:middle}
+.st-lbl{font-family:var(--mono);font-size:10.5px;fill:var(--navy);font-weight:500;text-anchor:middle;paint-order:stroke;stroke:var(--paper);stroke-width:4.5px;stroke-linejoin:round}
+.st-arrow{fill:none;stroke:#7C8597;stroke-width:1.5}
+
+/* ============================================================
+   8 · GUI
+============================================================ */
+.gui{flex:1;display:grid;grid-template-columns:1fr auto 1fr;gap:clamp(10px,1.3vw,22px);align-items:center;min-height:0}
+.gcell{display:flex;flex-direction:column;align-items:center;gap:11px;min-width:0}
+.gcap{text-align:center}
+.gcap .role{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+.gcap h4{font-size:20px;font-weight:650;color:var(--ink);margin:6px 0 5px}
+.gcap p{font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:30ch}
+.dev-phone{width:clamp(183px,16.1vw,209px);border-radius:28px;background:#0E1730;padding:9px;box-shadow:var(--sh)}
+.dev-phone img{width:100%;height:auto;display:block;border-radius:19px}
+.dev-web{width:100%;max-width:638px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+.dev-web .bar{height:26px;background:#ECE8DE;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line)}
+.dev-web .bar i{width:9px;height:9px;border-radius:50%;background:#CFC8B8}
+.dev-web .bar .url{margin-left:8px;flex:1;height:13px;border-radius:7px;background:#F6F3EB}
+.dev-web img{width:100%;height:auto;display:block}
+.dev-tab{width:100%;max-width:638px;border-radius:14px;background:#0E1730;padding:10px;box-shadow:var(--sh)}
+.dev-tab img{width:100%;height:auto;display:block;border-radius:7px}
+
+/* ============================================================
+   9 · PROGRESS  /  10 · PLAN
+============================================================ */
+.prog{flex:1;display:grid;grid-template-columns:1.25fr 1fr;gap:clamp(24px,3vw,46px);min-height:0}
+.pcol{display:flex;flex-direction:column;gap:11px;min-height:0}
+.pcol-h{font-size:15.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:10px}
+.pcol-h .tag{font-family:var(--mono);font-size:11px;font-weight:600;color:var(--gold-deep);background:var(--gold-soft);border-radius:6px;padding:2px 9px}
+.tlist{display:flex;flex-direction:column;gap:6px}
+.titem{display:flex;align-items:center;gap:11px;font-size:12.6px;background:var(--card);border:1px solid var(--line);border-radius:10px;padding:9px 13px}
+.titem .nm{flex:1;color:var(--ink)}
+.titem .st{font-family:var(--mono);font-size:9px;font-weight:600;border-radius:5px;padding:2px 7px;letter-spacing:.04em}
+.st.done{color:var(--teal);background:var(--teal-soft)}
+.st.prog{color:var(--gold-deep);background:var(--gold-soft)}
+.kpt{display:flex;flex-direction:column;gap:11px}
+.kcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ac);border-radius:12px;padding:13px 16px}
+.kcard:nth-of-type(1){--ac:var(--teal)}
+.kcard:nth-of-type(2){--ac:var(--alert)}
+.kcard:nth-of-type(3){--ac:var(--gold-deep)}
+.kcard h5{font-size:13px;font-weight:650;color:var(--ink);margin-bottom:5px;display:flex;align-items:center;gap:7px}
+.kcard p{font-size:12.2px;line-height:1.55;color:var(--ink-2)}
+
+.plan{flex:1;display:grid;grid-template-columns:repeat(4,1fr);grid-auto-rows:1fr;gap:clamp(12px,1.4vw,17px);min-height:0}
+.plancard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac);border-radius:13px;padding:14px 16px;display:flex;flex-direction:column;gap:9px;box-shadow:var(--sh-sm)}
+.plancard:nth-of-type(4n+1){--ac:var(--gold-deep)}
+.plancard:nth-of-type(4n+2){--ac:var(--teal)}
+.plancard:nth-of-type(4n+3){--ac:var(--navy)}
+.plancard:nth-of-type(4n+4){--ac:var(--gold-deep)}
+.plancard h4{font-size:14.5px;font-weight:650;color:var(--ink);display:flex;align-items:center;gap:9px}
+.plancard .pi{font-family:var(--serif);font-style:italic;color:var(--ac);font-size:17px;font-weight:600}
+.plancard ul{list-style:none;display:flex;flex-direction:column;gap:5px}
+.plancard li{font-size:11.8px;line-height:1.45;color:var(--ink-2);padding-left:14px;position:relative}
+.plancard li::before{content:"";position:absolute;left:0;top:7px;width:5px;height:5px;border-radius:50%;background:var(--ac)}
+
+/* ============================================================
+   11 · CLOSING
+============================================================ */
+.closing{align-items:center;justify-content:center;text-align:center}
+.cl-in{display:flex;flex-direction:column;align-items:center;gap:clamp(14px,2.2vh,26px)}
+.cl-team{font-family:var(--mono);font-size:12px;letter-spacing:.26em;text-transform:uppercase;color:var(--gold-bright)}
+.cl-aba{font-family:var(--serif);font-weight:600;line-height:.85;letter-spacing:-.03em;font-size:clamp(70px,11vw,150px);
+  background:linear-gradient(150deg,#FBE2A8,var(--gold-bright) 52%,var(--gold-deep));-webkit-background-clip:text;background-clip:text;color:transparent}
+.cl-rule{width:58px;height:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent)}
+.cl-q{font-family:var(--serif);font-style:italic;font-weight:400;font-size:clamp(18px,2.2vw,28px);line-height:1.5;color:#EDE9DE;max-width:24ch}
+.cl-thx{font-size:clamp(15px,1.8vw,22px);color:var(--gold-bright);font-weight:600;margin-top:4px}
+.cl-thx span{color:#8893a6;font-weight:400}
+
+/* shelf motif (closing) */
+.shelf{display:flex;align-items:flex-end;gap:5px;height:34px;margin-top:6px;opacity:.8}
+.shelf i{display:block;width:9px;border-radius:2px 2px 0 0;background:var(--gold)}
+.shelf i:nth-child(odd){background:var(--gold-deep)}
+.shelf i:nth-child(3n){background:var(--teal)}
+
+/* topic: left image + right vertical cards */
+.topic2{flex:1;display:grid;grid-template-columns:0.82fr 1.18fr;gap:clamp(22px,3vw,46px);min-height:0;align-items:stretch}
+.topic-photo{min-height:0;border-radius:16px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#0E1730}
+.topic-photo img{width:100%;height:100%;object-fit:cover;object-position:64% center;display:block}
+.topic-right{display:flex;flex-direction:column;gap:clamp(11px,1.7vh,17px);justify-content:center;min-height:0}
+.topic-right .topic-stmt{font-size:clamp(17px,1.85vw,25px);line-height:1.3}
+.tcards-v{display:flex;flex-direction:column;gap:11px}
+
+/* architecture as images */
+.archimg{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.6vw,40px);min-height:0}
+.archcard{display:flex;flex-direction:column;min-height:0}
+.archcard .imgwrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center;background:#fff;border:1px solid var(--line);border-radius:14px;box-shadow:var(--sh-sm);padding:12px}
+.archcard .imgwrap img{max-width:100%;max-height:100%;width:auto;height:auto}
+.archcard .cap{flex:0 0 auto;text-align:center;padding-top:9px;font-family:var(--mono);font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
+
+/* live Jira sprint tables */
+.jira{flex:1;display:flex;flex-direction:column;gap:13px;min-height:0}
+.jira-meta{display:flex;align-items:center;gap:15px;flex-wrap:wrap;font-family:var(--mono);font-size:11.5px;color:var(--ink-2)}
+.jira-meta .sp{font-weight:600;color:var(--ink)}
+.jira-meta .cnt{display:inline-flex;align-items:center;gap:6px}
+.jira-meta .cnt i{width:8px;height:8px;border-radius:2px}
+.jira-meta .src{margin-left:auto;display:inline-flex;align-items:center;gap:7px;color:var(--ink-3)}
+.jira-meta .src .lv{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.jira-cols{flex:1;column-count:2;column-gap:clamp(24px,3vw,46px);min-height:0}
+.jrow{break-inside:avoid;display:grid;grid-template-columns:48px minmax(0,1fr) 58px 50px;gap:10px;align-items:center;padding:6px 4px;border-bottom:1px solid var(--line-soft)}
+.jrow .jk{font-family:var(--mono);font-size:10.5px;color:var(--ink-3);font-weight:600}
+.jrow .js{font-size:12px;color:var(--ink);overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.jrow .ja{font-size:10.5px;color:var(--ink-3);overflow:hidden;text-overflow:ellipsis;white-space:nowrap;text-align:right}
+.jrow .jb{font-family:var(--mono);font-size:9px;font-weight:700;border-radius:4px;padding:3px 0;text-align:center;letter-spacing:.02em;white-space:nowrap}
+.jb.done{color:#1E6B5E;background:#DCF0EA}
+.jb.prog{color:#2456A6;background:#DCE8FB}
+.jb.todo{color:#6B7280;background:#ECE9E0}
+.gui-slide{padding-left:clamp(28px,3.6vw,60px);padding-right:clamp(28px,3.6vw,60px)}
+/* GUI slide narrows side padding for the wide device mockups; nudge header/footer back to the standard left edge so the title aligns with other slides */
+.gui-slide .shead,.gui-slide .sfoot{padding-left:clamp(18px,2vw,40px);padding-right:clamp(18px,2vw,40px)}
+.jira-shot{flex:1;display:flex;flex-direction:column;gap:12px;min-height:0}
+.shot-wrap{flex:1;min-height:0;display:flex;align-items:center;justify-content:center}
+.shot-wrap img{max-width:100%;max-height:96%;width:auto;height:96%;object-fit:contain;border-radius:10px;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
+/* progress: image kept on left + summary table on right */
+.prog-split{flex:1;min-height:0;display:flex;gap:clamp(16px,1.8vw,30px);align-items:stretch}
+.prog-split .shot-wrap{flex:1 1 58%;min-width:0;align-items:center;justify-content:flex-start}
+.prog-split .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-tbl{flex:0 0 clamp(290px,40%,460px);min-width:0;min-height:0;overflow:auto;display:flex;flex-direction:column;gap:clamp(7px,1vh,11px)}
+.tgrp{break-inside:avoid;border:1px solid var(--line);border-radius:9px;background:var(--card);box-shadow:var(--sh-sm);overflow:hidden}
+.tgrp h5{margin:0;display:flex;align-items:center;gap:8px;padding:7px 12px;font-size:16px;font-weight:650;color:var(--ink);background:var(--gold-soft);border-bottom:1px solid var(--gold-line)}
+.tgrp h5 .gd{width:7px;height:7px;border-radius:50%;background:var(--teal);flex:0 0 auto}
+.tgrp ul{list-style:none;margin:0;padding:5px 11px 6px}
+.tgrp li{position:relative;padding:3px 0 3px 14px;font-size:15px;line-height:1.4;color:var(--ink-2)}
+.tgrp li::before{content:"";position:absolute;left:2px;top:10px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.tgrp.alert h5{background:var(--alert-soft);color:var(--alert);border-bottom-color:#EBC9BF}
+.tgrp.alert h5 .gd{background:var(--alert)}
+.tgrp.alert li::before{background:var(--alert)}
+.tgrp li{color:var(--ink)}
+.tgrp ul ul{margin:1px 0 2px;padding:0 0 0 12px}
+.tgrp ul ul li{padding:1.5px 0 1.5px 12px;font-size:13px;line-height:1.35;color:var(--ink-2)}
+.tgrp ul ul li::before{width:5px;height:1.5px;border-radius:1px;top:8px;left:1px;background:var(--ink-3)}
+/* two-column table flow for content-heavy slides */
+.prog-tbl.cols2{flex-basis:clamp(360px,46%,560px);display:block;column-count:2;column-gap:13px;align-self:center;overflow:visible}
+.prog-tbl.cols2 .tgrp{margin-bottom:clamp(7px,1vh,11px)}
+/* larger image + larger table text to fill the available space */
+.prog-split.big{align-items:stretch}
+.prog-split.big .shot-wrap{align-items:stretch;justify-content:stretch}
+.prog-split.big .shot-wrap img{width:100%;height:100%;max-width:100%;max-height:100%;object-fit:fill}
+.prog-split.big .prog-tbl.cols2{flex-basis:clamp(330px,40%,500px);column-gap:14px;align-self:center;overflow:visible}
+.prog-split.big .tgrp h5{font-size:16px;padding:7px 13px}
+.prog-split.big .tgrp ul{padding:7px 13px 8px}
+.prog-split.big .tgrp li{font-size:15px;padding:3.5px 0 3.5px 16px}
+.prog-split.big .tgrp li::before{top:11px}
+.prog-split.big .tgrp ul ul li{font-size:13px;padding:2px 0 2px 13px}
+/* folder structure tree */
+.fstree-wrap{flex:1;display:flex;align-items:stretch;justify-content:center;min-height:0}
+.fstree{font-family:var(--mono);background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh);padding:clamp(22px,3.4vh,44px) clamp(28px,3.4vw,56px);display:grid;grid-template-columns:auto 1fr;column-gap:clamp(24px,3.2vw,58px);row-gap:clamp(2px,0.4vh,6px);align-items:baseline;align-content:space-between}
+.fstree .p{white-space:pre;font-size:clamp(12.5px,1.08vw,16.5px);line-height:1.45;color:var(--ink-2)}
+.fstree .tw{color:var(--ink-3)}
+.fstree .root{color:var(--navy);font-weight:700}
+.fstree .dir{color:var(--gold-deep);font-weight:600}
+.fstree .dir.key{color:var(--gold);text-decoration:underline;text-underline-offset:3px;text-decoration-thickness:1.5px}
+.fstree .file{color:var(--ink-2)}
+.fstree .c{font-family:var(--sans);font-size:clamp(11.5px,0.95vw,14px);color:var(--ink-3);line-height:1.42;align-self:center}
+.fstree .c b{color:var(--gold-deep);font-weight:600}
+
+@media (max-width:860px){
+  .jira-cols{column-count:1}.archimg{grid-template-columns:1fr}
+  .prog-split{flex-direction:column}.prog-tbl{flex:none}
+  .cover{flex-direction:column}.cv-text{flex:none}.cv-photo{min-height:200px}
+  .topic-lead,.prog,.seq{grid-template-columns:1fr}
+  .topic-cards{grid-template-columns:1fr}
+  .gui{grid-template-columns:1fr}
+  .plan{grid-template-columns:1fr 1fr}
+  .sr-grid{grid-template-columns:1fr}
+}
+
+/* ============================================================
+   WEEKLY DECK — skeleton placeholders & helpers
+============================================================ */
+.ph{border:1.6px dashed var(--gold-line);border-radius:13px;
+  background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(192,133,42,.045) 10px 20px),var(--paper-2);
+  display:flex;align-items:center;justify-content:center;text-align:center;padding:20px;min-height:0}
+.ph.img{flex:1}
+.ph .pl{display:flex;flex-direction:column;gap:6px;color:var(--ink-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.03em}
+.ph .pl b{color:var(--gold-deep);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:600}
+.ph-note{font-family:var(--mono);font-size:11px;color:var(--ink-3);letter-spacing:.02em;text-align:center}
+.ws{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.4vw,40px);min-height:0}
+.ws-col{display:flex;flex-direction:column;gap:clamp(11px,1.7vh,18px);min-height:0}
+.tgrp li.todo,.kcard p.todo,.topic-stmt .todo{color:var(--ink-3);font-style:italic}
+.plan.five{grid-template-columns:repeat(5,1fr)}
+
+</style>
+</head>
+<body>
+<div id="rail"></div>
+<main id="stage">
+
+  <!-- 1 · 표지 -->
+  <section class="slide cover dark">
+    <div class="cv-text">
+      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 발표</div>
+      <div class="cv-mark anim" style="--d:1">
+        <span class="cv-aba">ABA</span>
+        <span class="cv-full">Arte&nbsp;Book&nbsp;Assistance</span>
+      </div>
+      <h1 class="cv-title anim" style="--d:2">사서 협동로봇 <b>리비(Libi)</b><br>발표 제목 자리</h1>
+      <p class="cv-sub anim" style="--d:3">워크스트림별 진행 상황 · 애로사항 · 향후 로드맵</p>
+      <div class="cv-meta anim" style="--d:4">
+        <div><span class="ml">Date</span><span class="mv">YYYY.MM.DD</span></div>
+        <div><span class="ml">Team</span><span class="mv">Arte Project Team</span></div>
+      </div>
+    </div>
+    <div class="cv-photo">
+      <img src="libi.png" alt="리비(Libi) — 사서 협동로봇">
+      <div class="spine-tag"><span class="dewey">ARTE</span><span class="lbl">WEEKLY</span></div>
+    </div>
+  </section>
+
+
+  <!-- 2 · 주제 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">01</span> Topic</div>
+      <h2 class="stitle anim" style="--d:1">프로젝트 <span class="hl">주제</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="topic2">
+        <div class="topic-photo anim" style="--d:2"><img src="libi.png" alt="리비"></div>
+        <div class="topic-right anim" style="--d:3">
+          <p class="topic-stmt"><span class="todo">한 줄 주제 문장 자리 — 초안에서 채움</span></p>
+          <div class="tcards-v">
+            <div class="tcard"><div class="tc-k">Goal</div><p class="todo">내용 자리</p></div>
+            <div class="tcard"><div class="tc-k">Scope</div><p class="todo">내용 자리</p></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Topic</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · 주행 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 주행</div>
+      <h2 class="stitle anim" style="--d:1">주행 <span class="hl">Navigation</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>주행 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 주행</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · 로봇팔 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>로봇팔 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · 딥러닝 모델 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 딥러닝 모델</div>
+      <h2 class="stitle anim" style="--d:1">딥러닝 모델 <span class="hl">Deep-Learning</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>딥러닝 모델 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 딥러닝 모델</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · 추종 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
+      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Person Following</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>추종 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · 관제 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 관제</div>
+      <h2 class="stitle anim" style="--d:1">관제 <span class="hl">Fleet Control</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>관제 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 관제</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Progress · GUI -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
+      <h2 class="stitle anim" style="--d:1">GUI</h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="tgrp"><h5><span class="gd"></span>이번 주 진행</h5>
+            <ul><li class="todo">내용 자리 — 초안에서 채움</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+          <div class="tgrp"><h5><span class="gd"></span>결과 · 성과</h5>
+            <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Screenshot / Diagram</b><span>GUI 관련 이미지 자리</span></div></div>
+          <div class="ph-note">※ 데모·그래프·구조도 등 첨부 예정</div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · GUI</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Issue · CPU 점유율 · 정밀주행 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Issues · 애로사항</div>
+      <h2 class="stitle anim" style="--d:1">CPU 점유율 · 정밀주행 <span class="hl">Pi4</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="kcard"><h5>현상</h5><p class="todo">내용 자리 — 초안에서 채움</p></div>
+          <div class="kcard"><h5>원인 분석</h5><p class="todo">내용 자리</p></div>
+          <div class="kcard"><h5>대응 방안</h5><p class="todo">내용 자리</p></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Evidence</b><span>측정치 · 로그 · 사진 자리</span></div></div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- Issue · GUIDE 기능 -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Issues · 애로사항</div>
+      <h2 class="stitle anim" style="--d:1">GUIDE 기능 <span class="hl">카메라 추가</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="ws">
+        <div class="ws-col anim" style="--d:2">
+          <div class="kcard"><h5>현상</h5><p class="todo">내용 자리 — 초안에서 채움</p></div>
+          <div class="kcard"><h5>원인 분석</h5><p class="todo">내용 자리</p></div>
+          <div class="kcard"><h5>대응 방안</h5><p class="todo">내용 자리</p></div>
+        </div>
+        <div class="ws-col anim" style="--d:3">
+          <div class="ph img"><div class="pl"><b>Evidence</b><span>측정치 · 로그 · 사진 자리</span></div></div>
+        </div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- 11 · 이번주 계획 (Jira) -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">04</span> This Week · 이번주 계획</div>
+      <h2 class="stitle anim" style="--d:1">이번 주 계획 <span class="hl">Jira</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="jira-shot anim" style="--d:2">
+        <div class="jira-meta"><span class="sp">Sprint N · 프로젝트</span> · <span class="todo">기간 자리</span><span class="src"><span class="lv"></span>Jira · 실시간</span></div>
+        <div class="shot-wrap"><div class="ph img" style="width:100%;height:100%"><div class="pl"><b>Jira Board</b><span>Jira 스프린트 보드 캡처 자리</span></div></div></div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>This Week · Jira</b></span><span class="pg"></span></footer>
+  </section>
+
+
+  <!-- 12 · 향후 계획 (Roadmap) -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">05</span> Roadmap · 향후 계획</div>
+      <h2 class="stitle anim" style="--d:1">향후 5주 <span class="hl">Roadmap</span></h2>
+    </header>
+    <div class="sbody">
+      <div class="plan five">
+        <div class="plancard anim" style="--d:2"><h4><span class="pi">W1</span> M.D – M.D</h4>
+          <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        <div class="plancard anim" style="--d:3"><h4><span class="pi">W2</span> M.D – M.D</h4>
+          <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        <div class="plancard anim" style="--d:4"><h4><span class="pi">W3</span> M.D – M.D</h4>
+          <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        <div class="plancard anim" style="--d:5"><h4><span class="pi">W4</span> M.D – M.D</h4>
+          <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+        <div class="plancard anim" style="--d:6"><h4><span class="pi">W5</span> M.D – M.D</h4>
+          <ul><li class="todo">내용 자리</li><li class="todo">내용 자리</li><li class="todo">내용 자리</li></ul></div>
+      </div>
+    </div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Roadmap · 향후 계획</b></span><span class="pg"></span></footer>
+  </section>
+
+</main>
+
+<script>
+const slides=[...document.querySelectorAll('.slide')];
+const total=slides.length;
+const rail=document.getElementById('rail');
+let i=0;
+slides.forEach((s,idx)=>{const pg=s.querySelector('.pg');if(pg)pg.textContent=String(idx+1).padStart(2,'0')+' / '+String(total).padStart(2,'0');});
+function go(n){
+  i=Math.max(0,Math.min(total-1,n));
+  slides.forEach((s,k)=>s.classList.toggle('on',k===i));
+  rail.style.width=((i+1)/total*100)+'%';
+}
+addEventListener('keydown',e=>{
+  if(['ArrowRight','ArrowDown',' ','PageDown'].includes(e.key)){e.preventDefault();go(i+1);}
+  if(['ArrowLeft','ArrowUp','PageUp'].includes(e.key)){e.preventDefault();go(i-1);}
+  if(e.key==='Home')go(0);if(e.key==='End')go(total-1);
+});
+let sx=0;
+addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
+addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-sx;if(Math.abs(dx)>50)go(i+(dx<0?1:-1));},{passive:true});
+go(0);
+</script>
+</body>
+</html>
