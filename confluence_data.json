@@ -1,0 +1,473 @@
+{
+ "space": "Arte",
+ "pages": [
+  {
+   "id": "98419",
+   "title": "26-xx-xx Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/98419/26-xx-xx+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.18 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n팀 이슈\n\n개별 이슈\n전체 할 일\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n\n인경일\n\n이형주\n\n이주형\n\n이세형\n\n이강택\n\nTo Do"
+  },
+  {
+   "id": "98453",
+   "title": "User Requirements",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/98453/User+Requirements",
+   "text": "UR-ID\nName\nDescription\n\nUR-01\n도서 이송 기능\n리비에게 도서를 이송 요청할 수 있다\n테이블\n\n대여 데스크\n\n반납 데스크\n\nUR-02\n도서 추천 기능\n사용자에게 도서를 추천해 줄 수 있다.\n평소 관심분야\n\n취미\n\nUR-03\n가이드 기능\n사용자가 요청한 책의 위치를 안내해준다.\n\nUR-04\n음성 인식 기능\n사용자는 음성으로 기능을 이용할 수 있다.\n\nUR-05\n목표 지점 이동 기능\n관리자는 직접 원하는 위치로 로봇을 이동시킬 수 있다.\n\nUR-06\n추종 기능\n관리자를 추종하여 관리자를 따라다닌다.\n\nUR-07\n진열 기능\n로봇이 직접 진열할 수 잇다.\n\nUR-08\n도서 재고 및 위치 현황 파악\n관리자가 도서관의 도서 재고 및 위치 현황을 파악할 수 있다.\n\nUR-09\n로봇 위치 파악\n관리자는 로봇의 위치를 파악할 수 있다.\n\nUR-10\n로그 현황 및 조회\n관리자는 로봇의 작업의 현황 및 작업내역을 조회할 수 있다.\n\nUR-11\n정리기능\n도서관의 전반적인 환경을 정리정돈한다\n매대에 있는 책을 정렬한다\n\n바닥에 있는 큰 물건들을 치운다\n책\n\n큰 쓰레기\n\nUR-12\n분류 기능\n수거함에 있는 책들을 섹션별로 분류한다.\n\nUR-13\n상시 주행 기능\n평소에 도서관을 계속 돌아다니면서 명령을 대기한다.\n\nUR-14\n사람회피 기능\n사람이 인식되면 다른 경로로 이동한다.\n\n책을 집거나 놓는 행위를 하는 도중 사람이 감지되면 멈춘다.\n\nUR-15\n자동충전 기능\n배터리가 특정 수치 미만으로 내려갈 경우 자동충전을 한다.\n\nUR-16\n상태표시 기능\n사용자가 현재 로봇이 어떤 상태인지 알 수 있다\n사용자 명령 수행\n\n관리자 명령 수행\n\n명령 대기\n\n배터리 부족 / 에러\n\nUR-17\n보안 기능\n영업 외의 시간에 침입자가 있는지 감지하고 영상을 녹화한다\n\n녹화한 영상을 기반으로 신고한다.\n\n관리자에게도 이 사실을 알린다.\n\nUR-18\n상호작용 기능\n사람이 인사하면 인사를 받아준다\n\n로봇끼리 지나칠경우 경례를 한다.\n\nUR-19\n(예외처리) 테이블에서 도서 요청 시 도서가 없을 경우\n요청한 테이블로 돌아가서 도서가 없다고 알려준다"
+  },
+  {
+   "id": "98461",
+   "title": "시나리오 가정 / 약속",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/98461",
+   "text": "로봇 이용\n대여데스크 (이동까지)\n\n반납데스크 (진열 + 사람이 이동가능)\n\n테이블에서 요청 가능\n\n사람\n테이블 에서 반납은 사람이 직접한다.\n\n \n대여데스크 요청한 책을 로봇이 수행\n반납데스크 반납한 책을 진열하는 행위는 로봇이 수행\n테이블에서 요청한 책을 가져다 주는거는 로봇이 수행\n테이블에서 반납은 사람이 수거함으로 직접수행\n수거함을 로봇바구니에 실고 분류장소로 이동 후 내려놓고 분류할 바구니에 분류하는건 로봇이수행\n분류된 바구니를 진열하는 행위하는 행위는 사람이 수행\n \n분류 시나리오 가정\n분류장소로 가서   바구니를 담고, 수거함으로 가서 바구니놓고 수거함 바구니를 올리고, 분류장소에있었던 바구니를  내리고, 분류장소로가서 분류하는 시나리오\n\n \n \n→ 시나리오 자체 모두 로봇 + 사람이 가능  단, 테이블에서 반납만 사람이 수거함으로 직접수행\n \n즉, 사서를 도와주는 모바일 매니풀레이터 서비스 로봇\n반납, 대여 → 직접적인 전산처리(?)는 사서가 직접 진행\n터치 패널에 터치가 입력되는 순간부터 상태전환\nn초후 다시 대기상태\n \n동시 성립 시 우선순위: 에러 > 배터리 부족 > 관리자 > 사용자 > 대기"
+  },
+  {
+   "id": "98471",
+   "title": "관제",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/98471",
+   "text": ""
+  },
+  {
+   "id": "131681",
+   "title": "26-06-12 Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/131681/26-06-12+Mentoring",
+   "text": "과정명\n ROS2와 AI를 활용한 자율주행&로봇팔 개발자 부트캠프 심화13기\n\n프로젝트\nABA\n회의일시\n26.06.12\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 정호재, 인경일, 노미승 강사님\n\n피드백 내용\n도서관인지 서점인지 명확하게 하기\n\n반납 / 이송 기능 명확히 하기\n추가로 원격에서도 명령을 수행할 수 있겠금\n\n임팩트있는 기능 하나 추가하기\n\nUser requirements\n관리자 기능 중복\n\n직원을 위한 기능\n반납만 하는게 아니라 도우미 기능으로 해서 활용성 높히기"
+  },
+  {
+   "id": "131722",
+   "title": "주행",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/131722",
+   "text": ""
+  },
+  {
+   "id": "229554",
+   "title": "Arte",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/overview",
+   "text": "Arte 팀\n🎨 TEAM ARTE\n\"사람은 지식을 찾고, ARTE는 그 길을 안내합니다.\"\n도서관에서 사서를 돕는 협동로봇 리비(Libi) 를 만드는 팀, ARTE 입니다.\n👋 우리 팀은\nARTE는 주행로봇과 로봇팔을 결합한 사서 협동로봇을 통해\n\"사람이 줄어드는 시대에도 도서관이 멈추지 않게 한다\" 를 목표로 모인 팀입니다.\n🤖 무엇을 — 책을 직접 집고 옮기는 도서관 사서 협동로봇 리비(Libi)\n\n🎯 왜 — 사서의 반복 물리 노동(배가·정리·장서점검)을 덜고, 사람만 할 수 있는 일에 집중하도록\n\n🤝 어떻게 — 사람을 대체하지 않고 함께 일하는 협동(Cobot) 방식으로\n\n👥 팀원 소개\n이름\n역할\n담당\n비고\n\n이강택\n팀장 　\n　\n　\n\n인경일\n팀원\n　\n　\n\n정호재　\n팀원　\n　\n　\n\n이형주\n팀원　\n　\n　\n\n이주형\n팀원\n\n이세형\n팀원\n\n🤖 프로젝트 한눈에 — ABA · 리비(Libi)\nABA (Arte Book Assistance) 는 도서관 업무를 통합 지원하는 사서 협동로봇 프로젝트입니다.\n구분\n역할\n핵심 동작\n\n🌞 주간 · 서비스\n이용자·사서 지원\n도서 요청 픽업·배달, 반납 회수, 추천·안내\n\n🌙 야간 · 운영\n무인 도서관 관리\n침입 감지·녹화·신고, 서가 정리정돈\n\nwide760📂 작업 공간 바로가기\n프로젝트 주제\n\n사용자 요구사항 (User Requirements)\n\nSystem Requirements\n\nSystem Architecture\n\n시나리오\n\n개발 일정\n\n회의록\n\n산출물\n\n발표 자료"
+  },
+  {
+   "id": "229796",
+   "title": "Validation",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/229796/Validation",
+   "text": ""
+  },
+  {
+   "id": "229804",
+   "title": "Sprint #0",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/229804/Sprint+0",
+   "text": "과정명\nP1\n\n프로젝트명\nVLA 모방학습\n팀명\n \n\nSprint 회고\n\nSprint #0 프로젝트 설계 및 기술조사\n2025.04.23 ~ 2025.04.24\n\n \n\n주요 작업\n \n\n잘 진행된 사항\n \n\n문제 사항\n \n\n개선 사항"
+  },
+  {
+   "id": "229830",
+   "title": "System Architecture",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/229830/System+Architecture",
+   "text": "Hardware Architecture\n1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemextensionUntitled Diagram-1781774982075.drawioUntitled Diagram-1781774982075.drawio1522983013182815https://arte1.atlassian.net/wiki701493topautofalsetrue100falsePRODUCTION749a9938-c09c-436f-93b0-af4181633103ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io Diagramdraw.io Diagramdefault749a9938-c09c-436f-93b0-af41816331031afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemextensionUntitled Diagram-1781774982075.drawioUntitled Diagram-1781774982075.drawio1522983013182815https://arte1.atlassian.net/wiki701493topautofalsetrue100falsePRODUCTION749a9938-c09c-436f-93b0-af4181633103ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io Diagramdraw.io Diagramdefault749a9938-c09c-436f-93b0-af4181633103Software Architecture\n1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemextensionUntitled Diagram-1781834568523.drawioUntitled Diagram-1781834568523.drawio17229830258896717https://arte1.atlassian.net/wiki701500.50000000000017topautofalsetrue100falsePRODUCTION26de1aaa-612c-423f-87c5-c315caf38dbaari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io Diagramdraw.io Diagramdefault26de1aaa-612c-423f-87c5-c315caf38dba1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemextensionUntitled Diagram-1781834568523.drawioUntitled Diagram-1781834568523.drawio17229830258896717https://arte1.atlassian.net/wiki701500.50000000000017topautofalsetrue100falsePRODUCTION26de1aaa-612c-423f-87c5-c315caf38dbaari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io Diagramdraw.io Diagramdefault26de1aaa-612c-423f-87c5-c315caf38dba"
+  },
+  {
+   "id": "327988",
+   "title": "주제 선정 및 기획",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/327988",
+   "text": "true"
+  },
+  {
+   "id": "360479",
+   "title": "Sprint #2",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360479/Sprint+2",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.06.22 ~ 2025.06.26\n\n \nhttps://arte1.atlassian.net/issues/?jql=%20project%20%3D%20AR%20AND%20key%20%3E%3D%20AR-20%20AND%20key%20%3C%3D%20AR-42%20ORDER%20BY%20key%20ASC\n주요 작업\nGUI 작업\n\n딥러닝 모델 데이터 수집\n\n상세설계\nSequence Diagram\n\nState Diagram\n\nERD\n\n소품 제작\n\n기술조사\n\n물품구매\n\n잘 진행된 사항\n딥러닝 관련 기술조사 가 원활히 이루어 졌다.\n\nGUI 설계 및 구성이 빨리 되었다\nLLM 기능\n\n문제 사항\n인원이 감축되었다.\n\n개선된 사항\n로봇팔 제어 관련 기술조사가 원활히 진행되었다.\n\nSprint 계획\n\nSprint #3 프로젝트 구현\n2026.06.29 ~ 2025.07.03\n\nhttps://arte1.atlassian.net/issues/?jql=key%20in%20(%0AAR-11%2C%0AAR-26%2C%0AAR-31%2C%0AAR-35%2C%0AAR-36%2C%0AAR-37%2C%0AAR-38%2C%0AAR-39%2C%0AAR-43%2C%0AAR-44%2C%0AAR-45%2C%0AAR-46%2C%0AAR-47%2C%0AAR-48%2C%0AAR-49%2C%0AAR-50%2C%0AAR-51%2C%0AAR-52%2C%0AAR-53%2C%0AAR-55%2C%0AAR-56%2C%0AAR-57%2C%0AAR-58%2C%0AAR-59%0A)%0AORDER%20BY%20key \n\n주요 작업\nGUI\n\nERD\n\n주행 관련 정밀제어\n아르코마커\n\nPID 제어\n\nNav2 Param\n\n바구니 / 서가 출력\n\n딥러닝 모델 구축\nPinky_pro and person\n\n바구니\n\n미니어처\n\nFMS 구현\n\nInterface Specification"
+  },
+  {
+   "id": "360488",
+   "title": "Sprint #3",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360488/Sprint+3",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.06.29 ~ 2025.07.03\n\n \nhttps://arte1.atlassian.net/issues/?jql=key%20in%20(AR-31%2C%20AR-26%2C%20AR-44%2C%20AR-50%2C%20AR-39%2C%20AR-38%2C%20AR-51%2C%20AR-59%2C%20AR-45%2C%20AR-49%2C%20AR-52%2C%20AR-53%2C%20AR-58)%20ORDER%20BY%20Rank%20ASC\n주요 작업\n소품 3D 프린팅\n\n정밀주행\nNav2 Params\n\nPID제어\n\nArUco Marker\n\n바구니 데이터 수집\n\nFMS - sim상 구현\n\n사람모형 + 핑키 → 모델 학습\n\n잘 진행된 사항\nMap 소품, 책 등이 잘 구비되었다.\n\n로봇 파지 동작 구현\n\n문제 사항\n결석 인원이 많아 기존에 하기로 했던 사항들이 잘 진행되지 않았다.\n\n개선사항\n설계가 보다 더 상세해졌다.\n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.07.06 ~ 2025.07.10\n\n \n\n주요 작업\n로봇팔 파지 후 배치\n\nfollow 기능\n\nServer 구축 및 연동 테스트\nABA_server 구축\n\nABA_web_server 구축\n\nAi_server 구축\n\n딥러닝 모델 구축 바구니\n3D 프린팅\n\n학습데이터 수집\n\n딥러닝 모델 구축\n\n정밀 주행\nLine tracing"
+  },
+  {
+   "id": "360497",
+   "title": "Sprint #4",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360497/Sprint+4",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.07.06 ~ 2025.07.10\n\n \n\n주요 작업\n\n잘 진행된 사항\n\n문제 사항\n\n개선사항\n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.07.13 ~ 2025.07.18\n\n \n\n주요 작업"
+  },
+  {
+   "id": "360506",
+   "title": "Sprint #5",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360506/Sprint+5",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.07.13 ~ 2025.07.18\n\n \n\n주요 작업\n\n잘 진행된 사항\n\n문제 사항\n\n개선사항\n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.07.20 ~ 2025.07.24\n\n \n\n주요 작업"
+  },
+  {
+   "id": "360515",
+   "title": "Sprint #6",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360515/Sprint+6",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.07.20 ~ 2025.07.24\n\n \n\n주요 작업\n\n잘 진행된 사항\n\n문제 사항\n\n개선사항\n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.07.27 ~ 2025.07.31\n\n \n\n주요 작업"
+  },
+  {
+   "id": "360524",
+   "title": "Sprint #8",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360524/Sprint+8",
+   "text": "과정명\nP1\n\n프로젝트명\nVLA 모방학습\n팀명\n \n\nSprint 회고\n\nSprint #0 프로젝트 설계 및 기술조사\n2025.08.03 ~ 2025.08.07\n\n \n\n주요 작업\n \n\n잘 진행된 사항\n \n\n문제 사항\n \n\n개선 사항"
+  },
+  {
+   "id": "360536",
+   "title": "System Requirements",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/360536/System+Requirements",
+   "text": "프로젝트 주제\n리비(Libi) 는 주행로봇과 로봇팔이 결합된 모바일 매니퓰레이터(Mobile Manipulator) 로,\n도서관에서 사서를 돕는 협동로봇입니다\nSR ID\n기능\n설명\n관련 UR\nPriority\n\nSR-00\n요청 인식 기능\n다음과 같은 종류로 요청을 인식한다.\n음성\n\n텍스트\n\n터치 패널\n\nUR-04\nHigh\n\nSR-01\n이송 기능\n사물의 이송요청하면 특정 위치로 도서를 가져다 줄 수 있다.\n요청한 사물을 픽업하여 요청한 위치로 가져다 준다\n사물\n도서\n\n책꽂이 선반\n수거함\n\n분류함\n\n요청한 위치\n ◦ 테이블\n ◦ 서가\n ◦ 안내데스크\n\nUR-01, UR-19\nHigh\n\nSR-02\n도서 식별 기능\n시스템은 도서를 식별 및 대조할 수 있다.\n분류 정보(섹션/청구기호)를 확인할 수 있다.\n\nUR-07, UR-12\nHigh\n\nSR-03\n픽업 기능\n다음과 같은 사물을 집어서 요청 위치이동시킬 수 있다\n사물\n ◦ 도서\n ◦ 책꽂이 선반\n ◦ 수거함\n ◦ 분류함\n\n요청 위치\n ◦ 로봇 자체 보관함\n ◦ 서가\n ◦ 안내 데스크\n ◦ 분류함\n ◦ 수거함\n\n파지 실패 시 최대 3회 재시도, 실패 시 알림 기능\n\nUR-01, UR-07, UR-12\nHigh\n\nSR-04\n도서 카테고리 분류 기능\n도서를 종류별로 분류할 수 있다.\n과학분야\n\n예술분야\n\n문학분야\n\nUR-12\nHigh\n\nSR-05\n도서 추천 기능\n사용자에게 도서를 추천해 줄 수 있다.\n해당 정보를 얻어 도서를 추천해준다\n책을 읽는 목적\n ◦ 자기개발\n ◦ 휴식\n\n관심분야\n ◦ 과학\n ◦ 예술\n ◦ 문학\n ◦ 취미\n\nUR-02\nMedium\n\nSR-06\n도서 정리 기능\n정리 기능 종류는 다음과 같다\n서가 평탄화\n\n흐트러진 도서 감지 후 정렬\n\n바닥에 있는 책을 감지하여 진열한다.\n\nUR-11\nLow\n\nSR-07\n도서 대여/반납 기능\n회원은 도서를 대여 및 반납할 수 있다.\nUR-08\nMedium\n\nSR-08\n정보 관리 기능\n서가의 섹션 종류를 바꿀 수 있다.\n ◦ 과학분야\n ◦ 예술분야\n ◦ 문학분야\n\n서가에 위치하는 도서 정보를 수정 및 조회할 수 있다\n ◦ 도서 종류 변경\n ◦ 도서 위치 변경\n ◦ 도서 재고 조회\n\n회원 정보 관리할 수 있다.\n ◦ 회원 개인 정보\n ◦ 대출 이력\n\n대여 / 반납 처리를 할 수 있다\n\nUR-08, UR-10\nHigh\n\nSR-09\n검색 기능\n위치 검색 기능\n시설물\n ◦ 화장실\n ◦ 도서 섹션\n ◦ 안내 데스크\n ◦ 수거함\n ◦ 테이블\n ◦ 도서 위치\n\n도서 검색 기능\n ◦ 도서 종류\n ◦ 대여 여부\n\nUR-03, UR-08\nHigh\n\nSR-10\n모니터링 기능\n각 로봇마다 해당 종류들을 모니터링 할 수 있다.\n가용 여부\n ◦ 불가\n  ▪ 배터리 부족 및 충전 중\n  ▪ 작업 수행 중\n  ▪ 에러\n ◦ 가능\n  ▪ 대기 중 (순회)\n\n작업 현황\n ◦ 현재 진행 중인 작업 내용\n ◦ 성공 내역\n ◦ 실패 내역\n\n현재 로봇의 위치\n\n배터리 충전량\n\n에러모드 여부\n\n도서 부재 여부\n ◦ 해당 도서가 도서관 내부에 존재하는지, 대여되어 존재하지 않은지 파악할 수 있다.\n\nUR-09, UR-10, UR-16\nHigh\n\nSR-11\n길잡이 기능\n로봇이 직접이동함으로써 요청장소의 위치를 알려준다.\n시설물\n\n도서위치\n\nUR-03\nHigh\n\nSR-12\n파견 기능\n로봇을 지정한 위치로 이동시킬 수 있다.\n직접 위치 지정\n\nUR-05\nHigh\n\nSR-13\n짐꾼 기능\n이용자를 추종함으로써 짐꾼 역할을해준다.\n추종 대상 확인\n\n이용자 추종\n\n추종 대상 재탐색\n ◦ 추종 대상을 잃어버렸을 시 재탐색하여 추종을 재개한다\n ◦ 실패 시 순회 모드\n\nUR-06\nMedium\n\nSR-14\n작업  알림 기능\n작업 완료 시 작업 요청자에게 작업이 완료되었음을 알린다\n작업 종료 시 현재 작업종류를 사용자에게 알린다.\n사용자 명령 수행 표시\n\n관리자 명령 수행 표시\n\n명령 대기 표시\n\n배터리 부족 표시\n\n에러 표시\n\nUR-01, UR-03, UR-05\nHigh\n\nSR-15\n동적 장애물 회피 기능\n동적 장애물 대응\n장애물이 전방에 15cm 내에 인식되면 10초간 대기한다\n\n10초 후 다른 경로로 우회하여 이동한다.\n\n장애물과의 전방거리가 30cm 이내이면 주행 속도를 감속한다.\n\n장애물은 다음과 같다.\n동적 장애물\n사람\n\n다른 로봇\n\nUR-14\nHigh\n\nSR-16\n순회 기능\n시스템은 명령이 없을 때 도서관 내부를 순회하며 작업 요청을 대기한다.\n작업 중단 및 작업 완료 했을 경우 이어서 기존에 정해진 경로를 순회한다.\n\nUR-13\nHigh\n\nSR-17\n친밀감 표시 기능\n사람과 다음과 같은 상호작용이 가능하다\n ◦ 손인사\n ◦ 배꼽인사\n\n로봇끼리 다음과 같은 상호 작용이 가능하다.\n ◦ 경례 동작\n\nUR-18\nMedium\n\nSR-18\n자동 충전 기능\n배터리 잔량이 특정 수치 미만으로 떨어졌을 경우 충전소로 이동한다\n작업 중이라면 해당 작업을 완료 한 뒤 이동한다.\n\n15% 미만 시\n\n도킹 실패 시 최대 3회 재시도\n실패 시 알림\n\n작업이 없을 때 배터리 부족 시 새로운 작업 요청을 받지 않고 충전소로 이동한다.\n\nUR-15\nHigh\n\nSR-19\n순찰 기능\n시스템은 영업 외 시간에 침입자 유무를 감지한다\n15분 에 한대 씩 도서관 전체를 순찰을 1회 실시한다.\n\n침입자 감지 시\n ◦ 현장 영상을 녹화 및 저장한다.\n ◦ 침입 사실과 현장 영상을 관리자에게 알린다.\n\nUR-17\nMiddle\n\nSR-20\n비상 정지 기능\n강제로 로봇을 비상정지 시킬 수 있다.\n진행중인 작업을 멈추고 정지한다.\n\n추가적인 조치가 있을 때 까지 정지한다, 그전까지 모든 명령을 무시한다\n\nUR-14\nHigh\n\nSR-21\n에러 시 동작 기능\n에러 시에 로봇 근처에서만 수동 조작이 가능하다.\nUR-05, UR-16\nMedium\n\n도서관 회원UI\n요청인식(음성, 텍스트, 터치패널 )\n\n이송 및 픽업기능(도서)\\\n\n추천기능\n\n검색기능\n\n작업 알림기능 (사용자 명령 수행표시)\n\n사서UI\n요청 인식(텍스트, 터치패널)\n\n이송 및 픽업기능(도서 / 책꽂이 선반)\n\n분류기능\n\n정리기능\n\n대여 / 반납 기능\n\n정보관리\n\n검색기능\n\n모니터링\n\n짐꾼\n\n작업 알림기능\n\n로봇 QT(터치패널)\n길잡이\n\n추천\n\n검색\n\n비상정지\n\n에러 동작 기능 (관리자)"
+  },
+  {
+   "id": "426008",
+   "title": "Sprint #1",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/426008/Sprint+1",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #1 프로젝트 설계 및 기술조사\n2026.06.15 ~ 2025.06.19\n\n \nhttps://arte1.atlassian.net/issues/?jql=%20%20project%20%3D%20AR%20AND%20key%20%3E%3D%20AR-1%20AND%20key%20%3C%3D%20AR-19%20AND%20key%20not%20in%20(AR-4%2CAR-5%2C%20AR-6)%20ORDER%20BY%20key%20ASC\n주요 작업\n UR, SR, SA 작성\n\n기술조사\nLLM\n\n딥러닝 모델\n\n온디바이스\n\n주행\n\n다중제어\n\n잘 진행된 사항\n 다들 너무 열심히 해주셔서 기술조사가 원활히 이루어졌다.\n\n스텐드업 미팅 참여율 높다\n\nLLM, UI  → 프로토타입이 빨리 나왔다.\n\n문제 사항\nmap 너무 좁아  성능이 너무 떨어졌다.\nPID, aruco마커  사용 검토 해야함\n\n맵 재구성 해야 할수도 있다. \n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.06.22 ~ 2025.06.26\n\nhttps://arte1.atlassian.net/issues/?jql=%20project%20%3D%20AR%20AND%20key%20%3E%3D%20AR-20%20AND%20key%20%3C%3D%20AR-37%20ORDER%20BY%20key%20ASC \n\n주요 작업\n 구매 물품 작성\n압전 센서\n\n폼보드\n\n피규어\n\n칼, 풀, 양면테이프\n\n케이블타이\n\n도화지\n\n필라멘트\n\n기술조사\nmap\n\n다중제어\n\n딥러닝 성능 조사\n책 Detecting\nqr\n\nocr\n\nyolo\n\n시나리오\n시퀀스 다이어그램\n\nstate 다이어그램\n\n로봇팔 제어\n분류 기능 가능 여부 검토\n\n 소품 제작\nmap 구성요소, 책 제작\n\nmap 확정 짓기\n\nGUI\nLibrary Member UI\n\nLibrarian UI\n\nLibi UI\n\n학습데이터 수집\n바구니\n\n인형\n\nPinky"
+  },
+  {
+   "id": "426017",
+   "title": "Sprint #7",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/426017/Sprint+7",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트명\nABA(Arte Book Asistance)\n팀명\nArte\n\nSprint 회고\n\nSprint #2 프로젝트 상세설계\n2026.07.27 ~ 2025.07.31\n\n \n \n\n주요 작업\n \n\n잘 진행된 사항\n \n\n문제 사항\n \n\n개선사항\n \n\nSprint 계획\n\nSprint #2 프로젝트 상세설계\n2026.08.03 ~ 2025.08.07\n\n \n \n\n주요 작업"
+  },
+  {
+   "id": "524877",
+   "title": "일정관리",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/524877",
+   "text": "1주차 (Sprint 0) - 06.09~06.12\n진행 내용\n개발환경 구축\n\n장비교육 - 주행로봇\n\n주제선정\n\n산출물\n프로젝트 기획서 (SR)\n\n2주차 (Sprint 1) - 06.15~06.19\n진행 내용\n장비교육 - 로봇팔\n\n프로젝트 설계\nSR, SA, Map\n\n기술조사\n기술조사 항목 정리 및 계획\n\n산출물\n프로젝트 설계 문서 (SR, SA, Map)\n\n기술조사 보고서\n\n수행일지 + 멘토링 일지\n\n3주차 (Sprint 2) - 06.22~06.26\n진행 내용\n프로젝트 상세 설계\nScenario, Data, GUI\n\n프로젝트 개발 계획\n전체 Sprint 별 목표 및 이슈\n\n기술조사\n딥러닝 모델 선정 및 학습데이터 수집\n\n산출물\n프로젝트 상세설계문서\n\n프로젝트 개발 계획서\n\n수행일지 + 멘토링 일지\n\n4주차 (Sprint 3) - 06.29~07.03\n진행 내용\n프로젝트 상세설계\nInterface Specification\n\n프로젝트 구현\n1차 인덱싱 목표\n\n기술조사\n딥러닝 학습 및 테스트 완료\n\n산출물\n프로젝트 상세설계문서\n\n프로젝트 릴리즈 : v0.1\nIntegration Test Report\n\n수행일지 + 멘토링 일지\n\n5주차 (Sprint 4) - 07.06~07.10\n진행 내용\n프로젝트 구현\n전체 기능의 20%\n\n산출물\n프로젝트 코드 리뷰 : v0.2\nIntegration Test Report\n\n수행일지 + 멘토링일지\n\n6주차 (Sprint 5) - 07.13~07.16\n진행 내용\n프로젝트 구현\n전체 기능의 50%\n\n산출물\n프로젝트 코드 리뷰 : v0.3\nIntegration Test Report\n\n수행일지 + 멘토링 일지\n\n7주차 (Sprint 6) - 07.20~07.24\n진행 내용\n프로젝트 구현\n전체 기능의 80%\n\n산출물\n프로젝트 코드 리뷰 : v0.4\nIntegration Test Report\n\n수행일지 + 멘토링 일지\n\n8주차 (Sprint 7) - 07.27~07.31\n진행 내용\n전체 기능의 100%\n\n산출물\n 프로젝트 코드 리뷰 : v0.5\nIntegration Test Report\n\n수행일지 + 맨토링 일지\n\n9주차 (Sprint 8) - 08.03~08.07\n진행 내용\n프로젝트 안정화\n\n발표자료 준비\n\n산출물\n프로젝트 코드 리뷰 : v1.0\nValidation Report\n\n수행일지 + 멘토링 일지\n\n발표자료\n\n10주차(데모데이)\n발표"
+  },
+  {
+   "id": "524885",
+   "title": "발표",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/524885",
+   "text": ""
+  },
+  {
+   "id": "524893",
+   "title": "Standup Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/524893/Standup+Meeting",
+   "text": ""
+  },
+  {
+   "id": "557468",
+   "title": "Sequence Diagram",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/557468/Sequence+Diagram",
+   "text": ""
+  },
+  {
+   "id": "590009",
+   "title": "회의록",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/590009",
+   "text": ""
+  },
+  {
+   "id": "622778",
+   "title": "기술조사",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/622778",
+   "text": ""
+  },
+  {
+   "id": "622800",
+   "title": "기타",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/622800",
+   "text": ""
+  },
+  {
+   "id": "622850",
+   "title": "Interface Specification",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/622850/Interface+Specification",
+   "text": ""
+  },
+  {
+   "id": "622865",
+   "title": "로봇팔",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/622865",
+   "text": ""
+  },
+  {
+   "id": "655708",
+   "title": "Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/655708/Mentoring",
+   "text": ""
+  },
+  {
+   "id": "655716",
+   "title": "# 26-xx-xx Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/655716/26-xx-xx+Mentoring",
+   "text": "과정명\n\n프로젝트\n회의일시\n\n팀명\n작성자\n\n참석자\n\n회의안건\n\n회의내용\n\n결정사항"
+  },
+  {
+   "id": "655764",
+   "title": "Map Design",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/655764/Map+Design",
+   "text": "V2.0\nV1.0"
+  },
+  {
+   "id": "655772",
+   "title": "UI",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/655772/UI",
+   "text": ""
+  },
+  {
+   "id": "688432",
+   "title": "설계",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/688432",
+   "text": "true"
+  },
+  {
+   "id": "852187",
+   "title": "Scenario",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/852187/Scenario",
+   "text": ""
+  },
+  {
+   "id": "884774",
+   "title": "ER Diagram",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/884774/ER+Diagram",
+   "text": "1. 기존 고객/도서/요청 테이블\n테이블\n역할\n\ncb_members\n일반 사용자 계정 정보 관리\n\ncb_books\n도서 카탈로그 관리. 제목, 저자, 카테고리, 위치, 재고 여부, 다국어 요약 포함\n\ncb_robot_tasks\n사용자가 도서를 요청했을 때 생성되는 기존 로봇 호출 작업\n\ncb_robot_control_logs\n자연어 기반 로봇 제어 요청과 분석된 액션 로그\n\n이 영역은 사용자와 도서 요청의 시작점입니다.\nwide7602. 기존 챗봇/관리자/AI 설정 테이블\n테이블\n역할\n\ncb_conversations\n고객용 챗봇 대화 세션\n\ncb_messages\n고객용 챗봇 메시지\n\nrc_conversations\n로봇 관제 챗봇 대화 세션\n\nrc_messages\n로봇 관제 챗봇 메시지\n\ncb_admin_users\n고객용 또는 웹 관리자 계정\n\nrc_admins\n로봇 관제 관리자 계정\n\ncb_ai_model_settings\n고객용 챗봇 AI 모델 설정\n\nrc_ai_model_settings\n관제 챗봇 AI 모델 설정\n\n이 영역은 사용자/관리자 대화 기록과 AI 모델 설정 관리를 담당합니다.\n실제 FK 관계는 주로 다음 두 개입니다.\nwide7603. 기존 로봇 관제 기본 테이블\n테이블\n역할\n\nrc_robots\n로봇 장비 정보. 이름, 타입, IP, 포트, ROS Domain ID 등\n\nrc_motion_sequences\nJetCobot 또는 로봇 동작 시퀀스 정의\n\nrc_lcd_images\n로봇 LCD에 표시할 이미지 메타데이터\n\n이 영역은 로봇 장비 자체를 관리하는 기본 관제 테이블입니다.\nwide7604. 추가 도서 위치/실물 도서/추천 테이블\n테이블\n역할\n\ncb_shelf_slots\n서가 내부의 실제 책 위치 관리\n\ncb_book_copies\n실물 도서 한 권 단위 관리\n\ncb_member_preferences\n도서 추천을 위한 사용자 관심분야/취미/선호 카테고리 관리\n\n기존 cb_books는 “도서 정보”이고, 추가된 cb_book_copies는 “실제 책 한 권”입니다.\n cb_shelf_slots는 로봇이 책을 집거나 진열할 때 필요한 물리적 위치 기준입니다.\nwide760이 구조가 있어야 같은 책이 여러 권 있거나, 책의 실제 위치가 바뀌는 상황을 처리할 수 있습니다.\n5. 추가 로봇 기능/미션/명령 테이블\n테이블\n역할\n\nrc_capabilities\nUR-01~UR-19 기능 요구사항과 실제 로봇 기능 매핑\n\nrc_missions\n로봇이 실제 수행하는 작업 단위\n\nrc_mission_steps\n미션의 세부 단계 관리\n\nrc_robot_commands\n로봇에 실제 전송한 명령 기록\n\n이 영역이 추가 스키마의 핵심입니다.\n 기존 cb_robot_tasks가 “사용자 요청”이라면, rc_missions는 로봇이 실제로 수행하는 “실행 단위”입니다.\nwide760예를 들어 도서 이송 기능은 다음처럼 나뉩니다.\nwide7606. 추가 ROS2 Nav2 이동 테이블\n테이블\n역할\n\nrc_map_locations\nNav2 이동 목표 지점 관리\n\nrc_nav_goals\nNav2에 전달한 이동 목표와 결과 기록\n\n이 영역은 로봇의 자율주행/목표지점 이동을 관리합니다.\n 테이블, 대여 데스크, 반납 데스크, 서가 앞, 충전소 같은 좌표를 rc_map_locations에 저장하고, 실제 이동 명령 결과를 rc_nav_goals에 남깁니다.\nwide760주로 관련되는 기능은 다음입니다.\nwide7607. 추가 JetCobot 팔 작업/인식 테이블\n테이블\n역할\n\nrc_manipulation_actions\nJetCobot 팔과 그리퍼 작업 기록\n\nrc_perception_logs\nArUco, QR, 책, 사람, 장애물 등 인식 결과 로그\n\n이 영역은 책을 집고, 놓고, 진열하고, 인식하는 기능을 관리합니다.\nwide760주로 관련되는 기능은 다음입니다.\nwide7608. 추가 로봇 상태/이벤트/화면 표시 테이블\n테이블\n역할\n\nrc_robot_state_snapshots\n로봇 위치, 배터리, 네트워크, 상태를 주기적으로 저장\n\nrc_robot_events\n작업 중 발생한 이벤트, 에러, 예외 로그 저장\n\nrc_display_events\nLCD 또는 상태 표시 화면에 표시한 내용 기록\n\n이 영역은 관리자 관제 화면과 로그 조회 기능에 필요합니다.\nwide760주로 관련되는 기능은 다음입니다.\nwide7609. 전체 구조 요약\n가장 중요한 흐름은 아래입니다.\nwide760이동은 아래 테이블이 담당합니다.\nwide760책 집기/진열은 아래 테이블이 담당합니다.\nwide760상태와 로그는 아래 테이블이 담당합니다.\nwide760정리하면, 이 ERD의 테이블은 크게 다음 5개 묶음으로 보면 됩니다.\n구분\n핵심 역할\n\n고객/도서/요청\n사용자가 책을 찾고 요청하는 영역\n\n챗봇/관리자/AI\n대화 기록과 관리자/AI 설정 영역\n\n로봇 관제 기본\n로봇 장비, 동작 시퀀스, LCD 리소스 영역\n\n로봇 실행 추가\n미션, 단계, 명령, Nav2, JetCobot 실행 영역\n\n운영 로그 추가\n상태, 이벤트, 인식, 화면 표시 기록 영역\n\n작성 기준 및 반영 범위\n현재 실제 Web 관련 기능 구현에 사용되는 DB 데이터(ERD, 테이블정의)는 인경일님이 작업중인 Labi Admin 웹페이지에서 실시간으로 조회 가능하도록 적용하셨기때문에 해당 페이지(계정 로그인 필요)에 접속하여 확인이 가능합니다.\n본 ERD에서 추가로 제시한 스키마는 실제 DB에 바로 반영한 구조가 아니라, 프로젝트의 전체 기능 구현을 위해 향후 필요할 것으로 예상되는 데이터 구조를 설계 단계에서 예시로 정리한 것입니다.\n각 기능은 담당자별 구현 방식과 진행 과정에 따라 테이블 구조, 컬럼 구성, 관계 설정이 변경될 가능성이 높기 때문에, 현재 단계에서는 실제 DB에 반영하지 않고 참고용 예시 ERD 이미지(SVG) 로만 업로드하였습니다."
+  },
+  {
+   "id": "917580",
+   "title": "Test plan",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/917580/Test+plan",
+   "text": "P ID\n테스트 항목 (Input)\n기대 결과 (Output)\n상태\n\nTP_01\n \n \n미구현"
+  },
+  {
+   "id": "950292",
+   "title": "프로젝트 주제 - 기획서",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/950292/-",
+   "text": "📚 ABA · 리비(Libi) — 사서 협동로봇\n사서를 대체하는 로봇이 아니라, 사서 곁에서 함께 일하는 협동로봇(Cobot)\n1. 프로젝트 주제 (What)\n리비(Libi) 는 주행로봇과 로봇팔이 결합된 모바일 매니퓰레이터(Mobile Manipulator) 로,\n도서관에서 사서를 돕는 협동로봇입니다.\n음성/ UI로 도서를 요청받아 서가에서 책을 직접 집어 배달·반납·정렬하고,\n추천·안내·정리·보안까지 수행하는 도서관 통합 사서 도우미입니다.\nwide760구분\n역할\n핵심 동작\n\n🌞 주간 · 서비스\n이용자·사서 지원\n도서 요청 픽업·배달, 반납 회수, 추천·안내\n\n🌙 야간 · 운영\n무인 도서관 관리\n침입 감지·녹화·신고, 서가 정리정돈\n\n왜 '협동로봇'인가\n리비의 핵심은 사서와 한 공간에서, 사서를 따라다니며 함께 일한다는 점입니다.\n사람을 대체하지 않음 — 판단·상담·큐레이션은 사서가, 무겁고 반복적인 물리 노동은 리비가 분담\n\n추종(Following) — 사서가 정리·점검할 때 옆에서 따라다니며 책을 받고 옮김\n\n목표점 이동 — 사서가 지정한 위치로 책을 배달·반납\n\n리비는 \"사서의 일을 빼앗는 로봇\" 이 아니라 \"사서의 손과 다리를 늘려주는 동료\" 입니다.\n2. 주제 선정 이유 (Why) — 사회적 배경\nℹ️ 리비는 단순한 편의 기기가 아니라, 사람이 줄어드는 사회에서 공공 서비스를 지키기 위한 해법입니다.\n① 초고령사회 + 생산가능인구 감소\n한국은 2025년 초고령사회(65세 이상 20% 초과) 에 진입했고, 노동인구는 계속 줄고 있습니다.\n공공도서관도 \"사람은 부족한데 업무량은 그대로\" 인 구조여서, 단순·반복 업무의 자동화가 불가피합니다.\n② 사서의 숨은 중노동 — 배가(排架)·정리·장서점검\n사서 하면 상담·큐레이션을 떠올리지만, 실제 업무 시간의 큰 비중은\n무거운 책을 서가에 꽂고 빼는 물리 노동입니다. 반복 하중으로 근골격계 질환도 잦습니다.\n그런데 이 \"마지막 물리 단계\" 는 아직 자동화되지 못했습니다.\n💬 현장의 목소리 — 한 학교 도서관 사서\n\"수만 권의 장서를 전수 확인(장서점검)하라는 지시를 받았다. 사서 1인이 개인 업무와 병행하며\n하기엔 불가능에 가까운 일이었다.\"\n→ 장서점검·배가 같은 단순 반복 물리 노동이 사서를 본연의 업무(큐레이션·이용자 상담)에서\n떼어놓는 현실. 리비가 협동로봇으로서 자동화하려는 바로 그 지점입니다.\n*(출처: 브런치 「관리자가 바뀔 때마다 생기는 도서관의 고충」 https://brunch.co.kr/@grida-9/1179)*\n③ 기존 자동화의 빈틈\n무인 대출·반납기(키오스크)와 RFID 게이트는 이미 보급됐지만,\n\"서가에서 책을 직접 집어 옮기는 일\" 은 하지 못합니다.\n→ 잘못 꽂힌 책(오배가 = 사실상 분실)과 장서점검 인력 낭비가 그대로 남습니다.\n리비가 노리는 정확한 빈틈입니다.\n④ 정보취약계층 접근성 + 야간 보안 공백\n높은 서가의 책을 휠체어 이용자·고령자가 꺼내기 어려운 접근성 문제,\n그리고 무인 야간 운영 시의 보안 공백 — 리비는 주간 서비스 + 야간 감시·정리로 이 둘을 함께 해결합니다.\n3. 기대 효과 (So What)\n✅ 키오스크가 못 하는 \"책을 물리적으로 다루는 일\" 을 사서 협동로봇으로 자동화하여,\n사서는 사람만 할 수 있는 큐레이션·이용자 상담 같은 고부가 업무에 집중할 수 있습니다.\n대상\n효과\n\n사서\n반복 물리 노동·근골격계 부담 경감 → 전문 업무 집중, 로봇과의 협업\n\n이용자\n도서 접근성 향상, 빠른 픽업·반납\n\n도서관\n인력난 대응, 오배가 감소, 야간 무인 운영·보안 강화\n\n한 줄 요약\n리비는 사서를 대체하지 않는다. 사서의 손과 다리가 되어,\n사람이 줄어드는 시대의 도서관을 함께 지키는 협동로봇이다."
+  },
+  {
+   "id": "950423",
+   "title": "LLM - 자연어 기반 도서 추천 챗봇 구현 기술",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/950423/LLM+-",
+   "text": "자연어 기반 도서 추천 챗봇 구현 기술 조서\n1. 프로젝트 개요\n프로젝트명 : Labi Bot (도서관 AI 가이드 챗봇)\n\n목적 : 사용자의 자연어 또는 음성 질의를 기반으로 도서 추천, 서가 위치 안내 및 다국어 응답 제공\n\n구현 방식 : 로컬 LLM(Ollama) + 실DB 기반 컨텍스트 주입(RAG 방식)\n\n본 시스템은 임베딩, BERT, 벡터DB, Elasticsearch 등 고비용 AI 검색 구조를 사용하지 않고, 정규식 기반 의도 분석과 DB 검색 결과를 LLM에 주입하는 경량 RAG 구조로 구현하였다.\n2. 전체 처리 흐름\n사용자 자연어/음성 입력\n↓\n의도 판별 (정규식 기반)\n↓\n후보 도서 검색 (MySQL LIKE 검색)\n↓\n도서 정보 컨텍스트 생성\n↓\n로컬 LLM(Ollama) 프롬프트 주입\n↓\n추천 결과 스트리밍 응답\n↓\n도서 카드 / 서가 위치 / 지도 표시\n3. 구현 상세\n3.1 의도 판별 (Intent Detection)\n처리 방식\n정규식(Regex) 기반 키워드 매칭을 활용하여 사용자의 질의 의도를 판별한다.\n예시)\n\"책 추천해줘\"\n\n\"뭐 읽을까?\"\n\n\"recommend a book\"\n\n\"推荐一本书\"\n\n\"gợi ý sách\"\n\n위와 같은 표현이 포함될 경우 추천 요청으로 인식한다.\n예시\n키워드\n카테고리\n\n소설\nliterature\n\n과학\nscience\n\n미술\nart\n\n역사\nhistory\n\n특징\n한국어 / 영어 / 중국어 / 베트남어 지원\n\n별도 AI 분류 모델 없이 동작\n\n빠른 응답 속도 확보\n\n3.2 후보 도서 검색\n처리 방식\nMariaDB + SQLAlchemy 기반 LIKE 검색을 수행한다.\n검색 대상\n제목(title)\n\n저자(author)\n\n요약(summary)\n\n태그(for_whom_kr)\n\n예시\nwide760추천 API\nwide760정렬 정책\n재고 보유 도서 우선\n\n무작위 정렬 (RAND())\n\n추천 다양성 확보\n\nFallback\n검색 결과가 없을 경우\n재고 보유 도서 중 랜덤 추천\n\n특징\nElasticsearch 미사용\n\n벡터 검색 미사용\n\n경량 구조\n\n운영 및 유지보수 용이\n\n3.3 컨텍스트 주입 (Lightweight RAG)\n처리 방식\nDB에서 조회한 도서 정보를 LLM 프롬프트에 직접 삽입한다.\n예시\nwide760생성된 도서 목록을 시스템 프롬프트에 삽입한다.\n예시\nwide760효과\n실제 보유 도서만 추천\n\n환각(Hallucination) 감소\n\n서가 위치 안내 가능\n\n별도 벡터DB 없이 RAG 효과 구현\n\n3.4 로컬 LLM 응답 생성\n모델\nOllama\n\nqwen3:1.7b\n\n호출 구조\nwide760주요 설정\nwide760스트리밍 처리\nNDJSON 응답을 실시간 파싱하여 토큰 단위로 출력한다.\n결과적으로 사용자는 타이핑 효과와 유사한 응답 경험을 제공받는다.\n다국어 지원\n시스템 프롬프트를 통해\n한국어\n\n영어\n\n중국어\n\n베트남어\n\n중 원하는 언어로 응답하도록 제어한다.\n예외 처리\nLLM 연결 실패 시\n정규식 기반 안내문(makeReply())으로 자동 대체\n\n4. 인프라 구성\n경로\n대상\n역할\n\n/\nfrontend/dist\nReact SPA\n\n/api/\nFastAPI(8010)\n도서/관리 API\n\n/api/speech/ws\nFastAPI(8010)\n음성 STT\n\n/ollama/\nOllama(11434)\n로컬 LLM\n\n특징\nNginx Reverse Proxy 사용\n\nSame-Origin 구조\n\nCORS 이슈 없음\n\nLLM 스트리밍 지원\n\n장시간 생성 대응 (proxy_read_timeout 600s)\n\n5. 기술 스택 비교\n기능\n실제 구현 방식\n일반적인 AI 구현 방식\n\n의도 분석\n정규식 기반 키워드 매칭\nBERT, 임베딩\n\n카테고리 분류\n키워드 매핑\n온톨로지, 분류 모델\n\n후보 검색\nMySQL LIKE 검색\n벡터DB, Elasticsearch\n\n근거 제공\nDB 결과 프롬프트 주입\nRAG\n\n답변 생성\nOllama qwen3:1.7b\nLLM\n\n응답 방식\n스트리밍\n스트리밍\n\n6. 결론\n본 시스템은 정규식 기반 의도 판별과 MySQL 키워드 검색을 활용하여 추천 대상 도서를 선정하고, 검색 결과를 로컬 LLM(Ollama)의 프롬프트에 주입하는 경량 RAG 구조로 구현하였다.\n이를 통해 별도의 임베딩 모델, 벡터DB, 검색엔진 없이도 자연어 기반 도서 추천, 다국어 응답, 서가 위치 안내 기능을 제공하며, 실제 보유 도서를 기반으로 추천함으로써 환각을 최소화하고 운영 효율성을 확보하였다.\n이 버전이면 지라에 올렸을 때 \"AI 적용 여부\", \"RAG 사용 여부\", \"실제 구현 기술\"이 모두 설명되고, 기술 검토나 과제 결과 보고용 문서로도 충분한 수준입니다.\nOllama를 활용 하여 AI 모델을 유동적으로 변경할 수 있게 처리 확장성 확보."
+  },
+  {
+   "id": "1081345",
+   "title": "folder-structure",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1081345/folder-structure",
+   "text": ""
+  },
+  {
+   "id": "1114113",
+   "title": "State Diagram",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1114113/State+Diagram",
+   "text": "1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystema236c1c9-9976-454b-87c1-19cc976f32e8ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro1114113page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782356232300.drawioUntitled Diagram-1782356232300.drawio3111411378970953https://arte1.atlassian.net/wiki961.00000000000031001falsetrue100falsedraw.io Diagramdefaulta236c1c9-9976-454b-87c1-19cc976f32e81afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystema236c1c9-9976-454b-87c1-19cc976f32e8ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro1114113page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782356232300.drawioUntitled Diagram-1782356232300.drawio3111411378970953https://arte1.atlassian.net/wiki961.00000000000031001falsetrue100falsedraw.io Diagramdefaulta236c1c9-9976-454b-87c1-19cc976f32e8"
+  },
+  {
+   "id": "1114121",
+   "title": "GUI",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1114121/GUI",
+   "text": ""
+  },
+  {
+   "id": "1114145",
+   "title": "perception",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1114145/perception",
+   "text": ""
+  },
+  {
+   "id": "1638422",
+   "title": "개인일정",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1638422",
+   "text": "일정관리\n6/30~7/2 - 이강택\n\n7/24, 7/27 - 정호재\n\n7/10 - 이세형\n\n6/25 - 인경일"
+  },
+  {
+   "id": "1802283",
+   "title": "MAP",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1802283/MAP",
+   "text": "MAPF가 소형 다중로봇에 더 적합\nMAPF는 그리드 기반 사전 계획이야. 맵을 격자로 나누고, 충돌 없는 경로를 출발 전에 중앙에서 미리 계산. 1m×2m 맵이면 격자 크기 5cm로도 20×40 = 800셀짜리 그리드 — CBS 알고리즘으로 3대 동시 계획이 실시간으로 가능. Nav2처럼 런타임에 계속 costmap 업데이트하고 re-plan할 필요 없음.\nPID + State Machine 조합\nPID로 waypoint 추종하고, 상태 기계(대기 → 이동 → 도착 → 완료)로 전체 흐름 관리. 코드가 단순하고 디버깅이 쉬움. 실제로 시연 영상을 보면 꽤 안정적으로 동작하는 게 보임.\nLiDAR + IMU + Encoder 퓨전 (robot_localization EKF)\nAMCL 단독보다 훨씬 안정적. robot_localization 패키지로 세 센서를 EKF로 퓨전하면 단기 주행 중 위치 드리프트가 크게 줄어. AMCL은 그 위에서 전역 보정용으로만 써도 됨.\n slam_toolbox localization mode (AMCL 대신)\n매핑 완료 후 slam_toolbox를 localization 모드로 전환하면 AMCL보다 scan matching 정확도가 높다. loop closure 기반이라 좁은 공간에서도 상대적으로 강함\n현재 스택 (pinky_pro)\n  ┌───────┬─────────────────────────────────────────────────────────────────┐\n  │ 항목  │                              내용                               │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ ROS   │ ROS 2 Jazzy (Ubuntu 24.04)                                      │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ Lidar │ Slamtec RPLidar C1 (max range 설정 10m)                         │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ IMU   │ BNO055                                                          │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ SLAM  │ slam_toolbox (mapping 모드)                                     │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ Nav   │ Nav2 — Planner: NavFn, Controller: Regulated Pure Pursuit (RPP) │\n  ├───────┼─────────────────────────────────────────────────────────────────┤\n  │ 구동  │ 차동구동(differential), 소형 — footprint 0.12m × 0.12m          │\n  └───────┴─────────────────────────────────────────────────────────────────┘\n  이 로봇은 풋프린트가 12cm로 아주 작은 소형 로봇입니다. 그래서 좁은 맵 튜닝 방향이 일반\n  로봇과 좀 다릅니다.\n  진단: 현재 설정의 문제점 (좁은 맵 관점)\ninflation_radius: 0.15 가 로봇 크기 대비 너무 큽니다 ⚠️  (가장 큰 문제)\n\n로봇 반경은 약 0.085m(대각선)인데 inflation이 0.15m라, 벽 양쪽에서 30cm씩 costmap이\n부풀어 오릅니다.\n\n폭 40~50cm 통로면 중앙이 전부 막혀서 경로 생성 실패합니다.\n\n→ 좁은 통로면 0.08 ~ 0.10으로 줄이세요.\n\nresolution: 0.05 (5cm) — 좁은 곳엔 너무 거침\n\n5cm 셀이면 얇은 문틀/좁은 틈이 뭉개집니다.\n\n→ costmap, slam 모두 0.02 ~ 0.03으로 높이면 좁은 통로를 \"통과 가능\"으로 인식합니다.\n\nSLAM minimum_travel_distance: 0.5 / heading: 0.5 — 너무 큼\n\n50cm마다 스캔 갱신이라 좁은 곳에서 디테일이 빠집니다.\n\n→ 0.1 ~ 0.2 / 0.2로 줄여 자주 갱신.\n\nmax_laser_range: 10.0 (RPLidar C1)\n\nC1은 실내 근거리는 정확하지만 원거리 노이즈가 있습니다. 좁은 실내면 8.0 정도로 줄이면\n매핑이 깔끔해집니다.\n\n  추천 변경값\n  mapper_params.yaml (SLAM)\n  resolution: 0.025\n  max_laser_range: 8.0\n  minimum_travel_distance: 0.15\n  minimum_travel_heading: 0.2\n좁은 평행 벽에서 스캔매칭 안정화\n  link_match_minimum_response_fine: 0.12\n  loop_search_maximum_distance: 3.0   # 좁은 루프면 유지/약간 축소\n\nnav2_params.yaml (Navigation)\n두 costmap 모두\n  resolution: 0.025\n  inflation_layer:\n    inflation_radius: 0.10      # 통로가 더 좁으면 0.08\n    cost_scaling_factor: 5.0    # 벽 근처를 더 또렷하게 (3.0→5.0)\nRPP 컨트롤러 — 좁은 곳은 천천히\n  RegulatedPurePursuitController:\n    desired_linear_vel: 0.15           # 0.2 → 0.15\n    use_regulated_linear_velocity_scaling: true\n    use_cost_regulated_linear_velocity_scaling: true   # 장애물 근처 자동 감속\n    min_approach_linear_velocity: 0.05\n    max_angular_accel: 3.2\n  추가 팁\ngoal tolerance 0.25는 그대로 두세요. 좁은 곳에서 더 빡빡하게(예: 0.05) 하면 RPP가 목표\n근처에서 진동합니다.\n\nrecovery의 spin이 좁은 곳에선 위험합니다. 막혔을 때 제자리 회전하다 벽에 부딪힐 수\n있으니, 좁은 환경에선 backup + wait 위주로 두거나 spin 각도를 줄이세요.\n\n매핑할 때 천천히, 회전 느리게 — RPLidar C1은 회전 중 스캔 왜곡에 민감합니다.\n\nIMU(BNO055)가 있으니 robot_localization EKF로 오도메트리 융합이 안 돼 있다면 추가하면\n좁은 곳 위치추정이 크게 개선됩니다."
+  },
+  {
+   "id": "1900545",
+   "title": "26-06-18 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1900545/26-06-18+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.18 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n전체 할 일\nSR 작성\n\nSR이 빨리 끝나면 SA 작성\n\n팀원\n오늘 할 일\n\n정호재\n딥러닝 툴, 모델 조사\n\n인경일\nLLM - 자연어 기반 추천 기술조사\n\n이형주\n책 분류\n\n이주형\nmap - 전반적인 주행관련\n\n이세형\n온디바이스 성능\n\n이강택\n다중제어\n\nTo Do\n개별 기술조사"
+  },
+  {
+   "id": "1900554",
+   "title": "26-06-19 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1900554/26-06-19+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.19 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n전체 할 일\n기술조사\n\nSA 작성\n\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n티쳐블, yolo기술조사\nocr 기술조사, api연결\n\n인경일\nllm 기술조사\n주행테스트, 추천도서 기능추가\n\n이형주\n온디바이스 성능 기술조사\nyolo 모델 학습 및 추론\n\n이주형\n주행테스트\nSA작성, 주행테스트\n\n이세형\n책분류 관련 기술조사\n로봇 팔 QR 코드 트랙킹\n\n이강택\nSR 보완, SA 초안 작성\nopen-rmf 기술조사"
+  },
+  {
+   "id": "1900563",
+   "title": "26-06-17 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1900563/26-06-17+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.18 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호체\n\n회의 안건\n일정관리\n6/30~7/1 - 이강택\n\n7/24, 7/27 - 정호재\n\n7/10 - 이세형\n\nJira, Confluence, git  사용 유무 파악\n\n본인이 담당하고 싶은 분야\n로봇팔\n이형주, 이세형, 정호재, 이강택\n\nUI\n\n주행\n이주형\n\n관제 + 통신 + DB\n이주형, 인경일, 이강택\n\n딥러닝 + 비전\n이세형, 이주형\n\n설계\n\n발표자\n정호재\n\n다음부턴 스텐드업미팅 10시에 하기로 결정"
+  },
+  {
+   "id": "1933314",
+   "title": "Sprint",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/1933314/Sprint",
+   "text": ""
+  },
+  {
+   "id": "2949124",
+   "title": "26-06-19 Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/2949124/26-06-19+Mentoring",
+   "text": "과정명\n ROS2와 AI를 활용한 자율주행&로봇팔 개발자 부트캠프 심화13기\n\n프로젝트\nABA\n회의일시\n26.06.19 9:40 ~ 10 : 15\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 정호재, 인경일, 노미승 강사님\n\n피드백 내용\nSystem Architecture 피드백\n  HW 설계 피드백\n작명 (Naming)\n\nUI → Client로 변경. HW 제품명이 들어간 이름이어야 함 (그냥 \"UI\"는 안 됨).\n\nControl Server → 고유 이름 부여. 그냥 \"Control Server\"가 아니라 이름을 붙일\n것.\n\n메인 서버는 프로젝트 이름을 쓸 자격이 있음 → Libi 서버, Libi Webserver로\n명명.\n\nUser Device → 구체화. \"user\"는 너무 범용적. → 도서관 사용자로. (Libi\nDevice는 아래로 내림.)\n\n**Admin → \"사서\" 또는 \"직원용\"**으로 변경.\n\n아키텍처 / 통신 구조\n\nWeb Server가 있는데 왜 Control Server로 바로 가는가 → 공통 인터페이스가\n없음. 중간 공통 인터페이스를 둘 것.\n\n장비(Equip)는 UI 장비의 \"머리\"에 붙어 있어야 함.\n연결되어 있을 때는 연결된 역할을 수행.\n\n장비의 머리가 서버와 통신하는 구조.\n\nJetCobot도 서버와 직접 통신 금지. (상위 컨트롤러를 거치도록.)\n\n시각 / 레이아웃\n\n폰트 키울 것 (글자 너무 작음).\n\n화살표 머리(arrowhead)도 키울 것.\n\n간격 정렬 — 박스 사이 간격 균일하게.\n\n화살표 일자로 정렬 (직선으로 맞출 것).\n\n선 연결 규칙:\n연두색 = 지정 위치에 고정해서 붙임.\n\n파란색 = 자동 배치(알아서 배치).\n\n전체 배치 후 마지막에 정렬해서 예쁘게 마무리\n\n  SW 설계 피드백\n작명 (Naming)\n\nPinky_pro Controller → \"역할\" 기반 이름으로 변경. 제품명 재활용 금지. (무슨 역할을 하는지로 명명.)\n\n(동일 원칙) 제품명 재활용하지 말고 역할명으로 지을 것.\n\n아키텍처 / 통신 구조\n\nControl ↔ AI 간 영상 흐름 명시:\n가는 방향 = 영상 전송, 오는 방향 = 디텍팅 결과 수신.\n\n갈 때 / 올 때 프로토콜이 다름 → 화살표 2개로 표현해야 함.\n\nAPI Server(Image Sender) 경로 재검토:\nPinky_pro Controller를 거칠 필요가 있는가?\n\nCam만 전담해서 바로 전달하는 구조여야 함. (이 부분을 고민했어야 함.)\n\nJetCobot Controller → Libi Controller에 붙일 것. (직접 통신 금지, 상위 컨트롤러 경유.)\n\n시각 / 레이아웃 (편집 툴 제대로 활용)\n\n텍스트 박스 쓰지 말 것 → 박스에 직접 텍스트 작성. (별도 텍스트 박스는 따라다님.)\n\n그루핑(grouping) 적용 — 텍스트가 박스를 따라오도록.\n\n박스 크기 축소 — 전체적으로 박스가 너무 큼. (글씨가 작은 게 아니라 박스가 큰 것.)\n\nUI 영역 축소 / EQUIP 영역 확대.\n\n화살표 안 따라가는 요소는 박스 안으로 넣을 것(쑥 넣기).\n\n글자 가독성 개선 (글자가 너무 안 보임).\n\n※ 편집하기 쉬우라고 쓰는 툴인데 기능을 제대로 활용하지 못하고 있음 — 그루핑·고정·정렬 기능 적극 활용할 것.\n\n  공통 핵심 원칙 (HW·SW 양쪽 반복된 사항)\n이름은 \"역할\" 또는 \"프로젝트명(Libi)\" 기반 — 범용어(\"user\", \"Control Server\")·제품명 재활용 금지.\n\n하위 장비는 서버와 직접 통신 금지 — 상위 컨트롤러(머리)를 경유.\n\n양방향 통신은 프로토콜이 다르므로 화살표 2개로 구분.\n\n레이아웃: 박스에 직접 작성 + 그루핑 + 고정(연두)/자동(파랑) + 최종 정렬 + 폰트·화살표 키우기."
+  },
+  {
+   "id": "3244611",
+   "title": "26-06-15 Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3244611/26-06-15+Mentoring",
+   "text": "과정명\n ROS2와 AI를 활용한 자율주행&로봇팔 개발자 부트캠프 심화13기\n\n프로젝트\nABA\n회의일시\n26.06.15\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 정호재, 인경일, 노미승 강사님\n\n피드백 내용\nSystem Requirements 피드백\n기능 정의 — 이름과 단위\n\n기능은 \"왜 있는지(존재 이유)\"로 이름을 짓는다. 의도에 맞게 작명할 것.\n\n기술은 기능이 아니다. 구현 기술명을 기능 이름으로 쓰지 말 것.\n\n기능 레벨이 아닌 것을 기능으로 적은 항목이 몇몇 보인다 → 정리.\n\n구조 — 배열과 묶음\n\n카테고리별로 묶지 말 것.\n\n시간 순서대로 배열할 것.\n\n시나리오를 먼저 생각하고, 기능을 좀 더 넓게 잡을 것.\n\n예외처리는 해당 기능 바로 아래에 둘 것.\n\n작업 취소는 별도 항목이 아니라 그 기능 안에 포함할 것.\n\n표현 — 용어와 구체성\n\n\"상태\"는 너무 모호한 표현 → **\"알림\"**으로 바꿀 것.\n\n전체적으로 모호한 말이 많다 → 더 구체적으로 쓸 것.\n\n개별 기능 지적\n\n수동(원격) 조작\n위험하거나 자율주행이 어려운 상황을 수동으로 수습하기 위한 기능이 필요.\n\n단, '원격'보다 로봇 옆에서 직접 구동하는 편이 나을 수 있음.\n\n어시스트 기능\n'추종'은 어시스트 기능을 구현하기 위한 기술명일 뿐 → 어시스트 기능 관점으로 정리할 것."
+  },
+  {
+   "id": "3277300",
+   "title": "딥러닝 툴, 모델 조사",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3277300",
+   "text": "Teachable machine\nTeachable Machine 실험\n과학, 문학, 역사, Error 4개 클래스를 구성하여 이미지 분류 모델을 제작하였다.\n사용 데이터\n과학: 코스모스, 사피엔스, 이기적 유전자, 시간은 흐르지 않는다, 떨림과 울림\n\n문학: 데미안, 어린왕자, 1984, 죄와 벌, 노인과 바다\n\n역사: 총균쇠, 역사란 무엇인가, 한국사 편지, 거꾸로 읽는 세계사, 징비록\n\nError: BUG\n\n다양한 각도와 거리에서 촬영한 약 50장 이상의 이미지를 활용하여 학습을 수행하였다.\n실험 결과\n기본적인 카테고리 분류 가능\n\n데이터 수 증가 시 정확도 향상 확인\n\n촬영 환경 및 배경에 영향을 받는 한계 확인\n\n실제 서비스 적용 시 YOLO 기반 객체 탐지가 더 적합함을 확인\n\n결론\nTeachable Machine을 활용한 카테고리 분류 실험을 수행하였으나, 실제 서비스 환경에서는 객체 위치 인식 및 다중 객체 탐지가 필요하다고 판단하였다. 이에 따라 프로젝트의 핵심 비전 기능은 YOLO 기반 객체 탐지 모델을 중심으로 구현하는 방향을 제안한다.\nYOLO\n도서관 서비스 로봇의 도서 인식 기능 검토를 위해 YOLO(Ultralytics) 기반 객체 인식 기술을 조사하고 PoC(Proof of Concept)를 수행하였다.\n수행 내용\nUbuntu 환경에서 Python 가상환경 구축\n\nUltralytics YOLOv8 설치\n\n웹캠 연동을 통한 실시간 객체 인식 테스트\n\nVS Code 기반 개발 환경 구성\n\n사람(Person) 객체 실시간 인식 검증\n\n객체 검출 결과(클래스, 신뢰도, Bounding Box) 출력 확인\n\n도서(Book) 객체 인식 가능 여부 테스트\n\n테스트 결과\nPerson 객체 인식 성공\n\n실시간 추론 속도 약 4~10ms 수준 확인\n\n카메라 입력 → YOLO 추론 → 객체 분류 → Bounding Box 출력 파이프라인 정상 동작 확인\n\n일반 YOLOv8n 기본 모델은 도서 인식 정확도가 낮음\n\n일부 도서를 \"tie\" 등 다른 객체로 오인식하는 현상 확인\n\n분석 결과\n기본 YOLOv8n 모델은 COCO Dataset 기반으로 학습되어 있으며, 도서관 환경의 다양한 책 표지 및 측면 이미지를 정확히 인식하는 데 한계가 존재함.\n도서관 로봇 서비스에 적용하기 위해서는 별도의 도서 데이터셋 구축 및 커스텀 학습이 필요함.\n향후 계획\n도서 이미지 데이터 수집\n소설\n\n과학\n\n역사\n\n데이터 라벨링 수행\nRoboflow 또는 LabelImg 활용\n\nCustom YOLO Dataset 구축\n\nYOLO Fine-Tuning 진행\n\n학습 모델(http://best.pt ) 적용\n\nROS2 연동\n도서 인식 결과 Publish\n\nNavigation 및 서비스 시나리오 연계\n\n기대 효과\n도서 자동 분류 기능 구현\n\n사용자 요청 도서 탐색 지원\n\n도서관 로봇 서비스 자동화 기반 확보\n\n향후 서가 탐색 및 도서 배달 기능으로 확장 가능\n\nStatus: Research Completed / PoC Completed\nPriority: High\nRelated Feature: 도서 분류 및 탐색 서비스 (Library Robot AI Vision Module) 🚀📚🤖"
+  },
+  {
+   "id": "3277404",
+   "title": "길잡이 시나리오",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3277404",
+   "text": "1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystema53f2827-a73a-4b18-91fe-f63c587117c2ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3277404page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:ed4ec05c-f0e0-48e1-95ad-cc058cf1096a11f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782107598185.drawioUntitled Diagram-1782107598185.drawio3327740443253973https://arte1.atlassian.net/wiki1697.662479.5falsetrue100falsedraw.io Diagramdefaulta53f2827-a73a-4b18-91fe-f63c587117c21afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystema53f2827-a73a-4b18-91fe-f63c587117c2ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3277404page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:ed4ec05c-f0e0-48e1-95ad-cc058cf1096a11f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782107598185.drawioUntitled Diagram-1782107598185.drawio3327740443253973https://arte1.atlassian.net/wiki1697.662479.5falsetrue100falsedraw.io Diagramdefaulta53f2827-a73a-4b18-91fe-f63c587117c21afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemb54e4e89-a5ea-47d1-9c83-4f870d0b4e3dari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3277404page3Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782368502910.drawioUntitled Diagram-1782368502910.drawio2327740484541662https://arte1.atlassian.net/wiki1416.00000000000073552.9999999999995falsetrue100falsedraw.io Diagramdefaultb54e4e89-a5ea-47d1-9c83-4f870d0b4e3d1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemb54e4e89-a5ea-47d1-9c83-4f870d0b4e3dari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3277404page3Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782368502910.drawioUntitled Diagram-1782368502910.drawio2327740484541662https://arte1.atlassian.net/wiki1416.00000000000073552.9999999999995falsetrue100falsedraw.io Diagramdefaultb54e4e89-a5ea-47d1-9c83-4f870d0b4e3d"
+  },
+  {
+   "id": "3375577",
+   "title": "책분류 가능성 검토",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3375577",
+   "text": "도서 분류 기술 조사\n1. 후보 기술 선정\n도서관 로봇의 도서 식별 및 분류 방법으로 QR 코드 기반 방식과 OCR 기반 방식을 후보로 선정하였다.\nQR 코드 기반 방식\n도서에 부착된 QR 코드를 인식하여 DB에서 도서 정보를 조회하는 방식이다.\n선정 이유\n높은 인식 정확도\n\n빠른 처리 속도\n\n구현 난이도가 낮음\n\n실제 서비스 적용 가능성이 높음\n\nOCR 기반 방식\n카메라를 이용하여 책등의 제목을 인식하고 도서 정보를 추출하는 방식이다.\n선정 이유\n별도의 QR 부착 없이 도서 식별 가능\n\n신간 도서 자동 등록 가능\n\nAI 및 Computer Vision 기술 활용 가능\n\n프로젝트 차별화 요소 확보 가능\n\n2. 제외한 기술\nRFID\nRFID 태그를 이용하여 도서를 식별하는 방식이다.\n제외 이유\n별도의 RFID 태그 및 리더기 필요\n\n여러 권의 책이 동시에 인식될 가능성 존재\n\n특정 책만 선택적으로 인식하기 어려움\n\n프로젝트 규모 대비 비용 증가\n\n바코드\n도서관에서 일반적으로 사용하는 바코드를 인식하는 방식이다.\n제외 이유\nQR 코드 대비 저장 가능한 정보가 적음\n\n인식 방향에 제약이 존재\n\nQR 코드가 기능적으로 상위 호환 가능\n\nYOLO\n객체 인식 모델을 이용하여 책을 분류하는 방식이다.\n제외 이유\n도서 종류가 증가할수록 재학습 필요\n\n신간 도서 대응이 어려움\n\n분류 정확도 확보를 위한 대규모 데이터셋 필요\n\n도서 식별보다는 객체 검출에 적합\n\n3. OCR 모델 조사\nOCR 기술 적용을 위해 PaddleOCR, EasyOCR, Tesseract OCR을 비교 분석하였다.\n모델\n장점\n단점\n\nPaddleOCR\n높은 정확도, 우수한 한국어 성능\n모델 크기가 크고 실시간 처리 부담\n\nEasyOCR\n한국어 지원, 사용 편의성, 적당한 정확도\nPaddleOCR 대비 정확도 다소 낮음\n\nTesseract OCR\n가볍고 설치가 간단함\n한국어 성능 및 정확도 낮음\n\n4. OCR 모델 선정\n선정 모델\nEasyOCR\n선정 이유\n한국어 인식 지원\n\n라즈베리파이 환경에서 실시간 처리 가능\n\n설치 및 사용이 비교적 간단\n\n정확도와 성능의 균형이 우수\n\n프로젝트 개발 및 테스트가 용이\n\n따라서 본 프로젝트에서는 도서 제목 인식 기능 구현을 위해 EasyOCR을 선정하였다.\n5. QR과 OCR 비교\n항목\nQR\nOCR\n\n인식 정확도\n높음\n보통\n\n처리 속도\n빠름\n보통\n\n구현 난이도\n낮음\n중간\n\n환경 영향\n적음\n조명, 각도 영향 존재\n\n신규 도서 대응\nQR 부착 필요\n가능\n\nAI 활용성\n낮음\n높음\n\n6. 결론\nQR 방식은 높은 정확도와 안정성을 제공하여 도서 식별 및 분류 기능에 적합하다.\nOCR 방식은 신간 도서 자동 등록, 도서 제목 인식, 오배치 도서 탐지 등 지능형 기능 구현에 활용할 수 있다.\n따라서 본 프로젝트에서는 QR 코드 기반 방식과 OCR 기반 방식을 최종 후보 기술로 선정하여 검토한다."
+  },
+  {
+   "id": "3768330",
+   "title": "순찰 시나리오",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3768330",
+   "text": "1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem19f30708-3358-4ffe-8212-9bf00ae5413dari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io 다이어그램extensionPRODUCTIONmacro3768330page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f609cce6bb050a70069ba837b11f816df-d68b-4a53-b613-489e6130af59제목 없는 다이어그램-1782095239762.drawio제목 없는 다이어그램-1782095239762.drawio2376833040632512https://arte1.atlassian.net/wiki1721.00000000000021805.0000000000002falsetrue100falsedraw.io 다이어그램default19f30708-3358-4ffe-8212-9bf00ae5413d1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem19f30708-3358-4ffe-8212-9bf00ae5413dari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io 다이어그램extensionPRODUCTIONmacro3768330page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f609cce6bb050a70069ba837b11f816df-d68b-4a53-b613-489e6130af59제목 없는 다이어그램-1782095239762.drawio제목 없는 다이어그램-1782095239762.drawio2376833040632512https://arte1.atlassian.net/wiki1721.00000000000021805.0000000000002falsetrue100falsedraw.io 다이어그램default19f30708-3358-4ffe-8212-9bf00ae5413d1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem6b7421df-c612-4a2f-95ee-aeb3ca6471d5ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3768330page2Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782358443274.drawioUntitled Diagram-1782358443274.drawio1376833080281811https://arte1.atlassian.net/wiki1186.52451falsetrue100falsedraw.io Diagramdefault6b7421df-c612-4a2f-95ee-aeb3ca6471d51afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem6b7421df-c612-4a2f-95ee-aeb3ca6471d5ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro3768330page2Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782358443274.drawioUntitled Diagram-1782358443274.drawio1376833080281811https://arte1.atlassian.net/wiki1186.52451falsetrue100falsedraw.io Diagramdefault6b7421df-c612-4a2f-95ee-aeb3ca6471d5"
+  },
+  {
+   "id": "3833857",
+   "title": "26-06-22 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3833857/26-06-22+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.22 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n12시까지 시퀀스 다이어그램 완성하기\n책 요청 시나리오\n이강택\n\n분류 시나리오\n정호재\n\n짐꾼 시나리오\n이형주\n\n순찰 시나리오\n인경일\n\n복귀 시나리오\n이주형\n\n길잡이 시나리오\n이세형\n\n3시에 소품 제작\n구매물품 작성"
+  },
+  {
+   "id": "3899406",
+   "title": "짐꾼 시나리오",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/3899406",
+   "text": ""
+  },
+  {
+   "id": "4030491",
+   "title": "이송명령 시나리오",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/4030491",
+   "text": "이송명령 시나리오\n1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem79831751-63d1-4ee3-b565-b92567677366ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro557468page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782105799387.drawioUntitled Diagram-1782105799387.drawio1403049179626281https://arte1.atlassian.net/wiki1119.50000000000071961falsetrue100falsedraw.io Diagramdefault79831751-63d1-4ee3-b565-b925676773661afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystem79831751-63d1-4ee3-b565-b92567677366ari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro557468page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782105799387.drawioUntitled Diagram-1782105799387.drawio1403049179626281https://arte1.atlassian.net/wiki1119.50000000000071961falsetrue100falsedraw.io Diagramdefault79831751-63d1-4ee3-b565-b92567677366"
+  },
+  {
+   "id": "4358186",
+   "title": "분류 시나리오",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/4358186",
+   "text": "1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemc2ca0da9-2274-4c46-bdb1-5fc657dbad3aari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro4358186page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782361993684.drawioUntitled Diagram-1782361993684.drawio2435818683230732https://arte1.atlassian.net/wiki1176.64285714285672377falsetrue100falsedraw.io Diagramdefaultc2ca0da9-2274-4c46-bdb1-5fc657dbad3a1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiocom.atlassian.ecosystemc2ca0da9-2274-4c46-bdb1-5fc657dbad3aari:cloud:ecosystem::extension/1afdce52-d22e-4d27-84db-5be989c3c83b/92d899e8-452f-4c9b-9f60-823ab11c8253/static/drawiodraw.io DiagramextensionPRODUCTIONmacro4358186page1Arte229382ari:cloud:confluence:11f816df-d68b-4a53-b613-489e6130af59:workspace/663dc878-1834-419f-86c2-f293f7d1f25f712020:891b2dd8-9fb1-4df6-8e05-3431bb62896511f816df-d68b-4a53-b613-489e6130af59Untitled Diagram-1782361993684.drawioUntitled Diagram-1782361993684.drawio2435818683230732https://arte1.atlassian.net/wiki1176.64285714285672377falsetrue100falsedraw.io Diagramdefaultc2ca0da9-2274-4c46-bdb1-5fc657dbad3a"
+  },
+  {
+   "id": "5079041",
+   "title": "26-06-23 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/5079041/26-06-23+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.23 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n시퀀스 다이어그램 작성, 소품제작\n온디바이스 상에서 성능테스트\nOCR\n\nYOLO\n\nQR\n\n인경일\n시퀀스 다이어그램 작성, 소품제작\n주행, 로봇팔 전반적인 동작 기술 조사\n\n이형주\n시퀀스 다이어그램 작성, 소품제작\n책, 보관함 규격 조사\n\n이주형\n시퀀스 다이어그램 작성, 소품제작\npinky pro 데이터셋 모으기 및 모델 구축\n\n오후 2시에 개인사정으로 인한 조퇴\n\n이세형\n시퀀스 다이어그램 작성, 소품제작\n로봇팔 인식 후 이동 관련 기술조사\n\n이강택\n시퀀스 다이어그램 작성, 소품제작\nopen-rmf 기술조사"
+  },
+  {
+   "id": "6062081",
+   "title": "26-06-24 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/6062081/26-06-24+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.24 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n상세설계 회의 (14시~)\n통신 방식, DB 종류, 관리자 / 사용자 기능 정의, folder structure\n\n이외의 특이사항 없음"
+  },
+  {
+   "id": "6979623",
+   "title": "회의일지",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/6979623",
+   "text": ""
+  },
+  {
+   "id": "7110700",
+   "title": "Mariadb 접속정보",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/7110700/Mariadb",
+   "text": "http://192.168.0.9/phpmyadmin/\nid : labi_user\npw : 106a1752c19b1f58429b7a6c131dfedb\nport : 3306"
+  },
+  {
+   "id": "7274497",
+   "title": "26-06-24 회의일지",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/7274497/26-06-24",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.18 14:00 ~ 14:50(50분)\n\n팀명\nArte\n작성자\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n회의 내용\n서버 아키텍처\n    - 서버 구성\n        - 웹 서버 (정적 서빙)\n      - WAS 서버 (핵심 로직 + FMS 통합)\n            - DB 접속\n        - UI 명령 수신\n        - 로봇 커맨드 발행\n        - AI 서버 호출\n        - ROS Domain Bridge 포함\n      - AI 서버 (영상 분석, 대형 모델)\n    - FMS는 WAS에 통합 (별도 서버 분리 시 통신 경로 증가, 관리 포인트 증가)\n    - 통신 방식\n        - 웹 서버 ↔ WAS: HTTP / WebSocket\n      - WAS ↔ AI 서버: HTTP / WebSocket\n      - WAS ↔ 로봇: ROS Topic (Domain Bridge 경유)\nROS 통신 구조\n각 로봇마다 별도 ROS Domain ID 부여\n\n중앙 관제 서버에 ROS Domain Bridge 탑재\n여러 로봇의 토픽을 동시 수신하기 위함\n\n네임스페이스 방식은 불필요한 트래픽 증가 우려로 제외\n\n관제 서버 → 특정 로봇에 명령 시: 해당 로봇의 Domain ID로 토픽 발행\n\n로봇 온보드 구조\n각 로봇에 FastAPI 서버 탑재\nROS 노드 브링업 관리\n\n외부 명령 수신 (HTTP / WebSocket / UDP 모두 가능)\n\nROS 토픽 발행·구독 처리\n\nAI 모델 분류\n온보드: YOLO, OCR 등 경량 모델\n\nAI 서버: 메모리 요구량 높은 대형 모델\n\nQR 인식: 온보드에서 처리 후 직접 DB 조회 (AI 서버 불필요)\n\n기술 스택 확정\nWAS 프레임워크: FastAPI (Flask·Django 대비 속도 우위)\n\nDB: MariaDB\n\n사용자 역할 명칭 확정\n도서관 회원 (일반 이용자)\n\n사서 (도서관 운영 담당)\n\n관리자 (로봇·시스템 전문 인력)\n\n입력 방식\n도서관 회원: 음성(STT/TTS) + 텍스트 + 터치패널\n\n사서: 텍스트 + 터치패널 (음성 불필요)\n\n로봇 QT: 터치 전용 (음성 제거)\n\n기능별 접근 권한\n도서관 회원\n요청 인식 (음성·텍스트)\n\n도서 검색 / 추천\n\n이송·픽업 (로봇팔)\n\n길잡이 (로봇 QT에서 직접 요청 시에만)\n\n작업 알림 수신\n\n사서\n검색 / 분류 / 정리 / 대여·반납\n\n정보관리 (도서 위치, 회원 정보, 대출 처리)\n\n모니터링\n\n비상정지\n\n작업 알림 수신\n\n관리자\n비상정지\n\n에러 시 수동조작 (텔레옵, 근거리 한정)\n\n작업 알림 수신\n\n로봇 QT UI 구성\n버튼 3개만 (검색 / 길잡이 / 픽업)\n\n음성 입력 없음\n\nUI 없이 자동 동작하는 기능\n인적 장애물 회피\n\n순회\n\n친밀감\n\n자동 청소\n\n순찰: 정보관리 메뉴에서 마감 시간 스케줄 설정 → 자동 실행\n\n비상정지\n사서 UI 페이지 내 소프트웨어 버튼으로 구현 (IoT 스위치 구매 X)\n\n접근 권한: 사서 + 관리자\n\n에러 시 수동조작 (텔레옵)\n관리자 전용 (사서 제외, 전문 인력 필요)\n\n근거리에서만 동작 (원거리 외부 조작 위험)\n\nWeb UI에서 관리자 로그인 후에만 버튼 노출"
+  },
+  {
+   "id": "7700486",
+   "title": "교통 충돌 시 협상 알고리즘",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/7700486",
+   "text": "교통 협상 알고리즘 정리\nFMS 자체 제작 참고용. 각 절은 동일 포맷: ① 뭔지(구성요소) + 왜 같이 쓰나 → ② 플로우 → ③ 장단점.\n0. 충돌 회피 알고리즘 지도\n방식\n대표 알고리즘\n결정 위치\n특징 (요약)\n상세\n\n중앙 일괄계획\nCBS + space-time A*\n중앙\n최적 보장, 무거움 — 예: robocallee\n§1\n\n예약 + 데드락 해소\nDijkstra + 노드예약 + DFS\n중앙/혼합\n실행 중 예약·순환 감지 양보\n§2\n\n구간 잠금\nEdge/Node Lock, lane lock\n중앙(서버)\n단순, 교착 관리 쉬움 — 예: 쑈뼁끼\n§3\n\n상호 양보 (속도)\nORCA / VO (RVO)\n분산(로봇)\n분산·실시간·빠름, 교착 위험\n§4\n\n우선순위 협상\nVR-ORCA, MCCA, priority-based\n분산(로봇)\n양보 순서 결정, 교착 완화\n§5\n\nRMF식 협상\nopen-rmf negotiation\n중앙 DB + fleet\nschedule DB 필요, 정교\n§6\n\n갈림 축 2개: 언제 계획(출발 전 ↔ 실행 중) · 누가 결정(중앙 ↔ 분산). \"교착 관리 쉬움\" = 구조가 단순해 순서화로 예방하기 쉽다는 뜻(자동 해소는 아님, §3).\n1. CBS + space-time A*\n중앙에서 출발 전 모든 경로를 미리 계산 → 충돌 0으로 동시 출발.\n① 뭔지\nCBS (Conflict-Based Search) — 모든 로봇 경로를 한 번에 똑똑하게 짜는 게 아니라, 일단 각자 남 신경 안 쓰고 최단경로를 그린 뒤, 부딪히는 지점이 보이면 \"그 로봇은 그 시각·그 위치 가지 마\"라는 규칙(제약)을 하나 추가하고 그 로봇만 다시 그리게 함. 충돌이 없어질 때까지 \"규칙 추가 → 재계산\"을 반복하는 심판 역할. (경로를 직접 만들진 않음 — 그건 A* 몫)\n\nspace-time A* — 보통 A*는 \"어느 칸으로 갈까\"(공간)만 푸는데, 여기에 시간 축을 더해서 \"몇 초에 어디 있을까\"까지 같이 푸는 길찾기. 위치만이 아니라 (위치, 시각)을 다루니까 \"여기서 한 박자 쉬었다 가기(wait)\" 같은 것도 자연스럽게 경로의 일부가 됨. CBS가 준 금지 규칙을 지키면서 우회로를 찾는 선수 역할.\n\n참고 — 부딪힘(충돌)엔 2종류: vertex(같은 시각·같은 위치에 둘이 있음) / edge(서로 자리를 맞바꾸며 지나침).\n왜 같이 쓰나 — CBS는 충돌을 찾아 규칙만 주고, A*는 그 규칙을 지키며 실제 길을 그림. \"누가 부딪혀? (CBS)\" + \"그럼 어떻게 비켜? (A*)\" 가 한 팀. 하나만으론 안 됨 — CBS 혼자선 길을 못 만들고, A* 혼자선 다른 로봇 존재를 모름.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n출발 시 충돌 0 보장(최적) · 실시간 통신 불필요\n동적 장애물 막히면 전체 재계획 · 로봇↑ 계산량 폭발\n\n한 줄: 출발 전 체스처럼 다 계산, 막히면 처음부터.\n2. Dijkstra + 노드 예약 + 데드락 DFS\n실행 중 실시간으로 충돌 회피 (사전 계획 X).\n① 뭔지\nDijkstra — 가장 기본적인 최단경로 찾기 알고리즘. 여기선 길이 막히면 돌아가는 길도 다시 찾아주는 내비게이션 역할.\n\n노드 예약 — 로봇이 지나갈 길목(노드)을 미리 \"나 몇 시~몇 시에 여기 쓸게\" 하고 잠가두는 것. 그래야 다른 로봇이 같은 자리에 동시에 못 들어옴. 주차 예약과 같은 개념.\n\n데드락(교착) DFS — \"A는 B가 비키길, B는 A가 비키길\" 처럼 **서로 기다리다 둘 다 멈춰버린 상황(교착)**을 찾아내는 장치. 누가-누굴-기다리는지 화살표 그래프를 그렸을 때 빙 도는 고리(사이클)가 생기면 = 교착이라고 판정함(그 고리를 찾는 데 DFS 탐색을 씀) → 고리 안의 낮은 우선순위 로봇을 후퇴/주차시켜 고리를 끊음. 교통경찰 역할.\n\n왜 같이 쓰나 — Dijkstra만 있으면 남이 어디 있는지 몰라 부딪히고, 예약만 있으면 서로 양보를 안 해 교착이 남음. 그래서 길찾기(Dijkstra) + 자리잠금(예약) + 교착풀기(DFS) 셋이 한 세트.\n⚠️ 양보시킨 뒤에도 같은 교착이 반복(livelock)될 수 있어서, 우선순위는 매번 같은 기준으로 고정해 둬야 함.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n동적 장애물에 비교적 강함 (그때그때 대응)\n충돌 0 보장 X · 데드락 해소 후 재시도\n\n한 줄: 달리면서 자리 잠그고, 막힌 순환은 DFS로 풀기.\n3. Edge/Node Lock (Request–Approve–Release)\n한 칸 갈 때마다 서버에 허락받고 이동. 본질은 분산 락(mutex).\n① 뭔지\nEdge Lock (구간 잠금) — 한 지점에서 다음 지점으로 가는 길(통로) 자체를 잠그는 것. \"이 복도 지금 A가 지나가는 중이니 들어오지 마.\" → 통로 한가운데서 마주치는 충돌을 막음.\n\nNode Lock (도착지 잠금) — 도착할 자리(목적 WP)를 잠그는 것. \"이 칸은 A가 들어갈 거니까 비워둬.\" → 같은 칸에 둘이 들어가려는 충돌을 막음.\n\nFIFO 큐 — 같은 자리를 기다리는 로봇이 여럿이면 온 순서대로 줄 세우는 번호표. 없으면 누구를 먼저 보낼지 모르고, 특정 로봇만 계속 밀릴 수 있음.\n\n왜 같이 쓰나 — 통로(edge)만 잠그면 도착지 충돌을 못 막고, 도착지(node)만 잠그면 가는 길 충돌을 못 막음 → 둘 다 잠가야 함. 거기에 큐로 순서까지 보장. 본질은 컴퓨터 OS의 락(mutex, 한 번에 하나만 쓰게 하기) 과 똑같음.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n구현 가장 단순 · 서버 부하 낮음\n데드락 감지 없음 — 순환 대기 시 영원히 멈춤\n\n데드락 회피책: 자원 순서화(정해진 순서로만 락 → 순환 불가) · 교차로 단위 락 · 타임아웃. 다 붙이면 §2로 진화. 한 줄: \"가도 돼요?\" 묻고 가기. 단순하지만 교착은 스스로 못 풂.\n4. ORCA / VO (상호 양보 — 속도공간 분산)\n중앙 없이 각 로봇이 매 순간 \"안 부딪힐 속도\"를 스스로 선택. (§1~3은 그래프 노드 단위, 이건 연속 속도 벡터 단위 — 결이 다름)\n① 뭔지 — VO → RVO → ORCA, 한 계열의 발전사\nVO (Velocity Obstacle, 속도 장애물) — 상대 로봇의 위치·속도를 보고 \"내가 이 속도로 가면 곧 부딪힌다\"는 위험한 속도들의 범위를 계산함. 그 범위만 피해서 속도를 고르면 안전. 경로가 아니라 매 순간 \"속도\"를 고른다는 게 핵심.\n\nRVO (Reciprocal VO, 상호 VO) — VO엔 문제가 있음: 둘 다 똑같이 피하면 다음 순간 또 마주봐서 좌우로 왔다갔다 진동함. 그래서 \"상대도 절반은 피해줄 것\" 이라 믿고 나는 절반만 틀게 함 → 진동이 사라짐.\n\nORCA (Optimal Reciprocal Collision Avoidance) — RVO를 계산하기 쉬운 형태로 다듬은 것. \"피해야 할 속도 영역\"을 직선으로 자른 반쪽 영역(반평면) 으로 표현해서, 주변에 로봇이 많아도 간단한 수식(선형계획, LP)으로 한 번에 가장 적절한 속도를 구함. 실제 라이브러리 RVO2 로 널리 쓰임.\n\n왜 이렇게 발전? — 셋은 별개가 아니라 같은 아이디어의 1→2→3세대: VO(진동이 단점) → RVO(\"상호 절반 양보\"로 진동 해결) → ORCA(그걸 빠른 수학으로 실용화).\n② 플로우 (매 제어주기 반복)\nwide760③ 장단점\n장점\n단점\n\n완전 분산(통신 거의 X) · 부드럽고 즉각 반응 → 동적 장애물 강함\n충돌 0 보장 X(국소) · 좁은 통로 대칭서 데드락 · 위치/속도 추정에 민감\n\n대칭 데드락(둘 다 똑같이 비키다 멈춤)이 약점 → 해소는 §5 우선순위 협상. 한 줄: 각자 매 순간 안 부딪힐 속도를 고름. 빠르지만 좁은 데서 서로 막힘.\n5. 우선순위 협상 (priority-based / VR-ORCA / MCCA)\n§4 ORCA의 대칭 데드락(둘 다 똑같이 양보 → 막힘)을 우선순위·책임 비대칭으로 푸는 계열. 핵심 = \"대칭을 깬다.\"\n① 뭔지 — \"누가 먼저 갈지\" 정하는 3가지 방식\npriority-based (우선순위 기반) — 가장 단순·직관적. 로봇(또는 작업)마다 우선순위를 매겨두고, 높은 쪽이 그냥 직진하고 낮은 쪽이 비킴. 응급차가 먼저 가고 나머지 차가 갓길로 빠지는 것과 같음.\n\nVR-ORCA — ORCA에서 \"둘 다 절반씩 양보\"였던 회피 책임을 상황에 맞게 다르게 나눔. 50:50 고정이 아니라 \"둘이 합쳐서 100%면 됨\"으로 풀어서, 더 급한 쪽은 조금만 비키고 덜 급한 쪽이 더 많이 비키게 함.\n\nMCCA — 'masked velocity'(가려진 속도) 라는 숨은 우선순위 신호를 각 로봇이 들고, 그걸 옆 로봇에게 퍼뜨려 \"누가 먼저\"인지 줄을 세움. 중앙 지휘 없이 분산으로 순서가 정해지는 게 특징(차륜형 로봇·좁은 통로에 강함).\n\n왜 필요 — ORCA(§4)는 \"둘 다 똑같이 양보\"라서 좁은 데서 서로 비키다 둘 다 멈춤. 누가 먼저 갈지만 정해주면 그 교착이 풀림 → 그래서 \"비대칭(우선순위)\"을 일부러 넣는 것.\n⭐ 우리 FMS 연결 — task 우선순위(이송 > 가이드 > returning > 파견)가 그대로 입력. 이송 = 직진, 파견/returning = 양보. 분산이면 그 우선순위를 VR-ORCA 책임비율 또는 MCCA masked velocity 로 인코딩.\n③ 장단점\n장점\n단점\n\n대칭 데드락 직접 해소 · \"중요한 일 먼저\" 정책 반영\n우선순위 설계 나쁘면 낮은 쪽 기아(starvation)\n\n출처: VR-ORCA (IEEE RA-L 2021) · MCCA (IEEE 2024) / arXiv:2305.04511 한 줄: 우선순위로 한쪽 먼저 보내 교착 풀기 — 우리 task 우선순위와 직결.\n6. RMF식 협상 (open-rmf)\n오픈소스 open-rmf 의 공식 방식. 배차 + 교통을 시스템 레벨로.\n① 뭔지\nBidding (배차) — 일감이 들어오면 중앙(Dispatcher)이 \"이 일 할 사람?\" 하고 공고하고, 각 로봇 그룹(fleet)이 \"제가 하면 비용 이만큼이요\" 하고 견적을 냄 → 가장 싸게 부른 쪽이 낙찰. 경매와 같은 방식.\n\nTraffic Schedule DB — 모든 로봇이 \"나는 앞으로 이렇게 움직일 예정\" 이라는 궤적을 미리 등록해두는 공용 일정표. 칸(격자) 단위가 아니라 연속시간 곡선(spline) 이라 \"몇 초 뒤 정확히 어디 있을지\"까지 알 수 있어 정밀함.\n\nNegotiation (교통 협상) — 일정표(DB)가 두 로봇 궤적이 겹칠 것 같으면 미리 감지해 양쪽에 알림 → 양쪽이 대안 궤적을 내고, 안 맞으면 또 내고를 반복 → 심판(Judge)이 전체 지연이 가장 적은 안을 골라줌.\n\ntraffic_blockade — 협상할 능력이 없는 단순한 로봇을 위한 것. 협상 결과만 받아 \"멈춰 / 가\" 신호만 따름.\n\n왜 같이 쓰나 — 미리 궤적 공유(예방) → 겹침 감지 → 양방향 협상 의 3단계로 굴러감. 큰 특징은 우선순위가 없다는 것 — 누가 더 중요하냐가 아니라 전체 지연이 최소가 되도록 판정함.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n연속시간이라 정교 · 검증된 오픈소스 · fleet 간 공정\nschedule DB 등 인프라 무거움 · 우선순위 없음 → 우리 task 우선순위와 상충\n\n우리와 차이: open-rmf는 동등 대우(지연 최소), 우리는 task 타입 우선순위 → 설계 선택 포인트.\n전체 비교표\nCBS + A*\nDijkstra + 예약 + DFS\nEdge/Node Lock\nORCA / VO\n\n계획 시점\n출발 전 전체\n실행 중 경로 단위\n실행 중 한 칸씩\n실행 중 매 순간(속도)\n\n결정 위치\n중앙\n중앙/혼합\n중앙(서버)\n분산(로봇)\n\n단위\n노드+시간\n노드+시간창\n노드/엣지\n연속 속도 벡터\n\n동적 장애물\n취약(전체 재계획)\n비교적 강함\n중간(WAIT 재시도)\n강함(즉각 반응)\n\n구현 난이도\n높음\n중간\n낮음\n중간\n\n데드락\n없음(사전 보장)\nDFS로 해소\n감지 안함\n대칭 시 발생(→§5)\n\n충돌 보장\n출발 시 보장(최적)\n보장 못함\n보장 못함\n보장 못함(국소)\n\n서버 부하\n높음\n중간\n낮음\n낮음(분산)\n\n§5 우선순위 협상 = ORCA에 우선순위를 더한 확장, §6 RMF = 시스템 레벨 방식이라 위 표(저수준 4종)와 별도."
+  },
+  {
+   "id": "7929866",
+   "title": "26-06-25 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/7929866/26-06-25+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.25 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n분류 작업 (로봇팔) 로직 개발\n분류 작업 (로봇팔) 로직 개발\n\n인경일\n전반적인 설계 및 주행 기술조사\n병가\n\n이형주\nyolo 학습 및 실제환경 구동 테스트\n바구니 픽업 테스트\n\n이세형\n로봇팔 제어 기술조사\n도서 픽업 기술조사\n인식 후 로봇팔 이동 관련 로직\n\n이강택\n관제 알고리즘 기술조사\nsepeunce diagram 수정\n\nmap(제출, 발표용)\n\n기술조사 항목 정리\n\nstate diagram\n\nerd , data, interface 초안\n\nfolder structure 정하기"
+  },
+  {
+   "id": "8159263",
+   "title": "물체 인식",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/8159263",
+   "text": "aruco marker\nQR"
+  },
+  {
+   "id": "8159291",
+   "title": "Depth  Cam 온디바이스",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/8159291/Depth+Cam",
+   "text": "전체적으로 보면 온디바이스에서 매우 안정적으로 동작하는 수준입니다. ValidDepth만 기준을 만족하지 못했지만, 현재 테스트 환경의 영향일 가능성이 큽니다\n항목\n측정값\n기준\n결과\n의미\n\nFPS (초당 처리 프레임 수)\n30.0 FPS\n≥ 25 FPS\n✅\n실시간 처리 성능이 매우 우수함\n\nLatency (처리 지연시간)\n22.3 ms\n≤ 60 ms\n✅\n영상 처리 지연이 매우 낮음\n\nCPU (CPU 사용률)\n61.5 %\n≤ 70 %\n✅\n라즈베리파이에서 여유 있게 처리 중\n\nRAM (메모리 사용률)\n28.0 %\n≤ 80 %\n✅\n메모리 사용량이 매우 낮음\n\nTemp (CPU 온도)\n63.9 ℃\n≤ 70 ℃\n✅\n발열이 안정적인 수준\n\nValidDepth (유효 깊이 비율)\n48.5 %\n≥ 85 %\n❎\nROI 안의 절반 정도만 유효한 깊이값을 획득\n\nROI Std (현재 깊이 흔들림)\n0.37 cm\n≤ 2.0 cm\n✅\n현재 거리 측정이 매우 안정적\n\nHist Std (시간에 따른 거리 흔들림)\n0.05 cm\n≤ 2.0 cm\n✅\n시간에 따른 거리 변화가 거의 없음\n\nDropped (누락 프레임 수)\n0\n≤ 5\n✅\n프레임 손실 없이 정상 동작\n\nOverall Score\n89%\n\nFinal Status\nWARNING\n\n결과 해석\n✅ 1. 실시간 처리 성능\n30 FPS를 안정적으로 유지하고 있습니다.\n\n실시간 로봇 비전 시스템에서 충분한 성능입니다.\n\n✅ 2. 지연시간\n22.3 ms는 매우 좋은 수치입니다.\n\n카메라 입력부터 처리까지 지연이 거의 느껴지지 않는 수준입니다.\n\n✅ 3. 시스템 자원\nCPU 61.5%\n\nRAM 28%\n\n온도 63.9℃\n\n라즈베리파이가 과부하 상태가 아니며, 추가적인 영상 처리나 로봇 제어 작업을 수행할 여유도 있습니다.\n✅ 4. 거리 측정 안정성\nROI 표준편차 0.37 cm\n\n시간 기준 표준편차 0.05 cm\n\n깊이값의 흔들림이 매우 작기 때문에 거리 측정은 상당히 안정적입니다.\n❎ 5. ValidDepth가 낮은 이유\n현재 ROI 안에 손가락과 줄자처럼 서로 다른 거리의 물체가 함께 들어가 있습니다.\n또한,\n검은색 또는 반사가 있는 물체\n\n얇은 물체(줄자)\n\n물체의 모서리\n\n깊이 카메라의 최소 측정 거리(약 20 cm 근처)\n\n등의 영향으로 일부 픽셀은 깊이값을 얻지 못해 유효 깊이 비율이 낮아질 수 있습니다.\n즉, ValidDepth 48.5%는 라즈베리파이의 성능 문제가 아니라 측정 환경의 영향일 가능성이 큽니다.\n정리\nRealSense Depth Camera를 Raspberry Pi에서 온디바이스로 실행한 결과, 30 FPS의 실시간 처리 성능, 22.3 ms의 낮은 처리 지연시간, CPU 사용률 61.5%, 메모리 사용률 28%, CPU 온도 63.9℃를 기록하여 안정적으로 동작함을 확인하였다. 또한 깊이 측정의 표준편차는 0.37 cm, 시간에 따른 거리 변화의 표준편차는 0.05 cm로 매우 안정적인 거리 측정 성능을 보였다."
+  },
+  {
+   "id": "8355858",
+   "title": "Pinky_pro perception 온디바이스 / 로컬",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/8355858/Pinky_pro+perception",
+   "text": "모델 학습 설정\n모델: YOLOv8n (nano)\n\nepochs: 100, batch: 8\n\n데이터: 총 635장 (pinky_pro 354 + person 281)\n\n클래스: pinky_pro, person\n\nbest.pt = epoch 72에서 선택됨\n\n실테스트 결과\n항목\n엣지(온디바이스)\nAI 서버\n\n추론 위치\n라즈베리파이 Pi 4 (Cortex-A72) CPU\n로컬 PC (GPU)\n\n모델\nNCNN 경량, imgsz 320, threads=4\nfull 모델 (PyTorch)\n\n네트워크\n없음\nUDP 왕복 (정식 전송 프로토콜)\n\n지표\nidle (기준선)\n엣지(온디바이스)\n서버(UDP)\n\nFPS\n—\n4.96\n19.09\n\ne2e 지연 평균\n—\n182 ms\n21.0 ms\n\n지연 p95\n—\n274 ms\n23.6 ms\n\n추론 자체\n—\n~182 ms (Pi CPU)\n8.6 ms (GPU)\n\n추가 비용\n—\n없음\n네트워크 12.5 ms\n\nPi CPU 사용률\n9.5%\n85.3%\n30.4%\n\nPi 온도\n53.1 ℃\n62.7 ℃ (max 67.6)\n54.3 ℃\n\n영상\n온디아비스\nai_server"
+  },
+  {
+   "id": "8454147",
+   "title": "배차 알고리즘 (task_dispatcher)",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/8454147/task_dispatcher",
+   "text": "배차(Task Dispatch) 알고리즘 정리\nFMS 자체 제작 참고용. 교통 협상 문서의 짝 문서. 교통 협상이 \"이미 배정된 로봇들이 길에서 안 부딪히게\"라면, 배차는 그 앞 단계 — \"이 task를 누구한테 줄까\" 를 정함. 학계 용어로는 MRTA (Multi-Robot Task Allocation).\n각 절 포맷은 교통 협상 문서와 동일: ① 뭔지(구성요소) + 왜 같이 쓰나 → ② 플로우 → ③ 장단점.\n0. 배차 지도\n교통 협상이 \"언제 계획 / 누가 결정\" 2축이었다면, 배차는 MRTA 택소노미(Gerkey & Matarić, 2004) 3축으로 봄. 배차 알고리즘을 정리하는 표준 좌표.\nST vs MT — 로봇 하나가 한 번에 task 1개만(Single-Task) vs 여러 개(Multi-Task)\n\nSR vs MR — task 하나에 로봇 1대면 됨(Single-Robot) vs 여러 대 필요(Multi-Robot)\n\nIA vs TA — 지금 들어온 것만 즉시 배정(Instantaneous) vs 미래 task까지 묶어 일정 최적화(Time-extended)\n\n우리 FMS(이송/가이드/순찰 같은 단독 task)는 거의 ST-SR. IA냐 TA냐가 설계 선택 포인트.\n방식\n대표 알고리즘\n결정 위치\n분류\n특징 (요약)\n상세\n\n탐욕/효용\nGreedy + Cost Function\n중앙\nST-SR-IA\n단순·빠름, 근시안적 — 현재 우리 방식\n§1\n\n최적 매칭\nHungarian (Kuhn-Munkres)\n중앙\nST-SR-IA\n1:1 최적 보장, 일괄\n§2\n\n경매\nAuction / SSI\n중앙/분산\nST-SR\n확장성·내고장성, 통신 ↑\n§3\n\n묶음 합의\nCBBA\n분산\nST-MR-TA\n분산 최적 근사(50% 보장)\n§4\n\n수리최적화\nMILP / VRP\n중앙\nTA\n최적이지만 무거움\n§5\n\n메타휴리스틱\nGA / ACO\n중앙\nTA\n대규모용, 보장 X\n§6\n\nRMF식\nopen-rmf bidding\n중앙 DB + fleet\nST-SR\n경매 기반(= 교통문서 §6)\n§3 참고\n\n1. Greedy + Cost Function (효용 기반)\ntask가 들어오는 대로 그 순간 가장 좋은 로봇에 즉시 배정. 현재 우리 1차 구현.\n① 뭔지\ntask가 들어오면 각 로봇에 대해 점수(비용)를 계산하고, 제일 좋은 로봇에게 즉시 배정. 우리가 쓰는 distance + battery + task + patrol + congestion 가중합이 바로 이 cost function. \"한 번에 하나씩, 그 순간 최선\"이라 IA에 해당.\n왜 cost function인가 — 단일 기준(거리만)으론 배터리 부족 로봇이 뽑히거나, 혼잡 구역 로봇이 뽑혀 교통 협상 부담이 커짐. 여러 요소를 가중합으로 묶어 한 점수로 만들면 \"종합적으로 가장 적합한\" 로봇을 고를 수 있음.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n구현 가장 단순 · 빠름 · 실시간\n전역 최적 아님 · 근시안적(나중에 더 적합한 로봇 와도 늦음)\n\n한 줄: 들어오는 대로 그 순간 제일 싼 로봇한테. 우리 1차 구현으로 정답.\n2. Hungarian (Kuhn-Munkres)\n대기 task를 모아 일괄(batch)로 최적 1:1 매칭. Greedy의 바로 다음 업그레이드.\n① 뭔지\nN개 로봇 × M개 task의 비용 행렬을 만들고, 총비용이 최소가 되는 1:1 완전 매칭을 한 번에 푸는 알고리즘. Greedy가 task 하나씩 탐욕적으로 보는 것과 달리, 여러 task를 모아 동시에 최적 배정. 핵심은 \"일괄(batch)로 최적\".\n왜 Greedy 대신 — Greedy는 task A를 로봇1에 줬는데, 직후 들어온 task B에는 로봇1이 훨씬 더 적합한 경우를 되돌리지 못함(근시안). Hungarian은 A·B를 모아 행렬로 보고 전체 합이 최소가 되게 배정하므로 이런 손해를 피함.\n참고 — task 수 ≠ 로봇 수면 가상(dummy) 행/열로 패딩해 정사각 행렬을 만든 뒤 풂.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n그 배치(batch)에 대해 최적 보장 · O(n³)\ntask를 모아야 효과 ↑ · 순서/시간(TA) 미반영 · 패딩 필요\n\n한 줄: cost 행렬 짜서 최적 1:1 매칭. Greedy의 바로 다음 업그레이드.\n3. Auction / SSI (경매 기반)\ntask를 경매에 부쳐 최저가 입찰자가 낙찰. open-rmf가 바로 이 방식(교통문서 §6).\n① 뭔지\nAuction(경매) — task를 경매에 부치면 각 로봇이 \"내가 하면 비용 이만큼\"이라고 입찰하고, 최저가가 낙찰. 중앙 없이도 굴러가 분산화에 강함.\nSSI (Sequential Single-Item) — task를 한 개씩 라운드로 돌려 매번 입찰→낙찰을 반복하는 변형. 한 라운드마다 가장 이득 큰 1개만 배정하고 다음 라운드로 넘어감. 단순함과 품질의 균형이 좋아 실무에서 많이 씀.\n왜 같이 쓰나 — 순수 경매는 한 번에 모든 task를 부치면 입찰 계산이 복잡해짐. SSI는 \"한 라운드 한 개\"로 쪼개 계산을 단순화하면서도, 라운드마다 최신 상태를 반영해 품질을 유지함.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n분산 가능 · 로봇 추가/고장에 강함 · 확장성\n라운드 간 탐욕이라 전역 최적 X · 통신 오버헤드\n\n한 줄: \"이 일 할 사람?\" → 최저가 낙찰. open-rmf가 바로 이 방식.\n4. CBBA (Consensus-Based Bundle Algorithm)\n분산 + 다중 task용 정석. 각자 일감 바구니 담고, 겹치면 합의로 양보.\n① 뭔지\n분산 환경에서 여러 task를 묶음(bundle) 으로 배정하는 알고리즘. 2단계로 돎.\nbundle construction(묶음 구성) — 각 로봇이 자기에게 이득 큰 task를 탐욕적으로 자기 bundle에 담음.\n\nconsensus(합의) — 로봇끼리 입찰값을 주고받아 \"이 task는 누구 거\"를 합의로 충돌 해소. 더 높은 입찰자가 차지하고, 진 로봇은 그 task를 bundle에서 뺌.\n\n중앙 지휘 없이 분산으로 최적 근사(이론상 최적의 50% 이상 보장)에 도달하는 게 특징. ST-MR-TA까지 커버.\n왜 같이 쓰나 — bundle만 있으면 여러 로봇이 같은 task를 중복으로 담아 충돌함. consensus 단계가 이 충돌을 분산 합의로 정리해줘야 비로소 모순 없는 배정이 됨.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n완전 분산 · 수렴/품질 보장 · 다중 task\n구현 복잡 · 통신 라운드 필요\n\n한 줄: 각자 일감 바구니 담고, 겹치면 합의로 양보. 분산 + 다중 task용 정석.\n5. 수리최적화 (MILP / VRP)\n문제를 수식으로 만들어 솔버에 던지기. 규모 작고 최적이 중요할 때.\n① 뭔지\nMILP (혼합정수계획) — 배차를 정수계획으로 모델링해서 솔버로 최적해를 구함. \"어느 로봇이 어느 task를 맡을지\"를 0/1 변수로, \"총 이동·지연 최소\"를 목적함수로, \"용량·시간창\"을 제약으로 표현.\nVRP / mTSP — task가 pickup-delivery + 경로(이송 동선)까지 엮이면 VRP(Vehicle Routing Problem) / multiple TSP 형태로 푸는 게 자연스러움. 시간·순서까지 고려하는 TA의 대표.\n왜 같이 쓰나 — 단순 배정만이면 MILP 매칭으로 충분하지만, \"한 로봇이 여러 지점을 어떤 순서로 도느냐\"까지 최적화하려면 VRP 모델이 필요. 둘은 같은 수리최적화 틀의 난이도 차이.\n② 플로우\nwide760③ 장단점\n장점\n단점\n\n전역 최적 · 복잡 제약 표현 가능\n무거움(NP-hard) · 실시간 어려움 · 규모 ↑ 폭발\n\n한 줄: 문제를 수식으로 만들어 솔버에 던지기. 규모 작고 최적이 중요할 때.\n6. 메타휴리스틱 (GA / ACO / Tabu)\n최적 포기, 규모로 승부. (FMS 초기 규모엔 보통 오버스펙)\n① 뭔지\nMILP가 너무 무거운 대규모에서 쓰는 근사법. 유전 알고리즘(GA), 개미군집(ACO), 타부 서치(Tabu Search) 등으로 \"충분히 좋은\" 해를 빠르게 찾음. 최적 보장은 없지만 규모 확장성이 좋음.\nGA — 배정안을 \"유전자\"로 보고 교배·돌연변이로 좋은 해를 진화시킴.\n\nACO — 개미가 페로몬을 남기듯 좋은 경로/배정에 가중치를 쌓아 수렴.\n\n③ 장단점\n장점\n단점\n\n대규모에 현실적 · 유연\n최적 보장 X · 파라미터 튜닝 의존\n\n한 줄: 최적 포기, 규모로 승부. FMS 초기 규모엔 보통 오버스펙.\n전체 비교표\nGreedy + Cost\nHungarian\nAuction / SSI\nCBBA\nMILP / VRP\n\n결정 시점\ntask마다 즉시\nbatch 모아서\ntask/라운드마다\n라운드 합의\n일괄 정식화\n\n결정 위치\n중앙\n중앙\n중앙/분산\n분산\n중앙\n\nMRTA 분류\nST-SR-IA\nST-SR-IA\nST-SR\nST-MR-TA\nTA\n\n최적성\n근시안(국소)\nbatch 내 최적\n라운드 탐욕\n50% 근사 보장\n전역 최적\n\n확장성\n높음\n중간(n³)\n높음(분산)\n높음(분산)\n낮음(폭발)\n\n구현 난이도\n낮음\n중간\n중간\n높음\n높음\n\n실시간성\n강함\n중간\n강함\n중간\n약함\n\n배차 ↔ 교통 협상 관계\nwide760Scheduler/Dispatcher 자리가 이 배차 알고리즘, Fleet Adapter 이후 주행 단계가 교통 협상. 우리 OpenRMF식 파이프라인(Task Manager → Scheduler → Dispatcher → Fleet Adapter → Robot)에 그대로 대응됨.\n우선순위 연결\n교통 협상 문서 §5에서 정리한 task 우선순위(이송 > 가이드 > returning > 파견)는 배차에도 그대로 입력 가능 — cost function의 task 가중치 항이 바로 그 우선순위를 점수화하는 자리. 즉 배차의 cost 항 ↔ 교통 협상의 양보 순서가 같은 우선순위 정책을 공유함."
+  },
+  {
+   "id": "8912898",
+   "title": "26-06-26 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/8912898/26-06-26+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.26 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n분류 작업 (로봇팔) 로직 개발\n로봇팔 분류 작업\n- Aruco marker 사용\n\n인경일\n병가\n\nslam_map 작성\n정밀 주행제어 관련 기술조사\n\n이형주\n바구니 학습\n바구니 perception\n\n이세형\n로봇팔 제어 기술조사\n도서 픽업 기술조사\n로봇팔 인식 후 제어\n\n이강택\n설계 문서 정리\n온디바이스 성능 차이 확인\n온디바이스 성능 차이 확인\n다중 관제 로직 설정"
+  },
+  {
+   "id": "9207811",
+   "title": "카메라 캘리브레이션",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/9207811",
+   "text": "카메라 캘리브레이션 & ChArUco 정리\n체크보드 + ArUco 마커로 하는 카메라 캘리브레이션 핵심 정리\n1. 왜 카메라 캘리브레이션을 하나\n카메라는 3D 세상을 2D 픽셀로 찍는데, 렌즈가 완벽하지 않아 왜곡이 생긴다.\n캘리브레이션 = 이 카메라의 \"수학적 모델\"을 알아내는 과정.\n구하는 값\n내부 파라미터 (Intrinsic, K) — 초점거리(fx, fy), 주점(cx, cy). 카메라+렌즈 고유값\n\n왜곡 계수 (Distortion) — 렌즈 휘어짐 (특히 광각/어안에서 직선이 휘는 배럴 왜곡)\n\n왜 필요한가\n픽셀 ↔ 실제 거리/각도 변환 (측정, 거리 추정)\n\n영상 왜곡 보정 (undistort)\n\n3D 복원, AR, 로봇 비전, hand-eye 캘리브레이션의 전제 조건\n\n캘리 안 하면 \"이 픽셀이 실제로 어디인지\"를 정확히 말할 수 없다.\n2. 왜 ChArUco를 쓰나 (체스보드 대비)\n문제 (일반 체스보드)\nChArUco의 해결\n\n보드 일부가 가려지거나 화면 밖으로 나가면 그 사진 전체를 버림\nArUco ID로 보이는 코너만 골라 써도 됨\n\n어느 코너가 몇 번 코너인지 모름 → 방향/순서 오류\n각 ArUco가 고유 ID → 코너 위치 자동 식별\n\n화면 가장자리 데이터 확보가 어려움\n부분만 보여도 OK → 가장자리 왜곡 추정 정확↑\n\n한 줄 요약: ArUco의 \"식별 능력\" + 체스보드 코너의 \"서브픽셀 정밀도\"를 합친 것.\n⚠️ 흔한 오해: ArUco의 역할\nArUco는 ID도 주고 자세(pose)도 주지만, ChArUco 안에서의 핵심 일은 \"식별(ID)\".\nArUco → \"이 부분이 보드의 몇 번째 칸이다\" 라는 위치 라벨 역할\n\n체스보드 코너 → 실제 정밀 좌표를 서브픽셀로 담당\n\n즉 \"각도를 ArUco로 잰다\"가 아니라,\n\"어느 코너인지 식별 → 그 코너의 정확한 픽셀은 체스보드로\" 라는 분업.\n그래서 일부만 보여도 ID로 골라 쓸 수 있다.\n3. QR로도 가능한가?\n원리상 가능, 실전상 부적합. QR도 고유 데이터 + 위치 검출 패턴이 있어 식별은 되지만, 캘리에는 ArUco가 압도적으로 유리.\n항목\nArUco\nQR\n\n목적\n위치 마커(fiducial) 전용\n데이터 저장용\n\n정보량\n적음(ID 1개) → 작고 단순\n많음 → 조밀 → 고해상도 필요\n\n검출 거리/각도\n멀리·비스듬해도 잘 잡힘\n흐릿/비스듬하면 디코딩 실패 잦음\n\n오류정정\n사전(dictionary) ID 간 해밍거리 보장\n있으나 무겁고 느림\n\n코너 정밀도\npose용으로 최적화\n정밀 위치 추정 목적 아님\n\n비유: QR은 \"택배 송장(정보 잔뜩)\", ArUco는 \"주차장 바닥 번호 스티커(딱 위치만)\".\n캘리는 후자가 필요하다.\n참고: 같은 계열 다른 마커\nAprilTag — ArUco보다 노이즈/저해상도에 강해 로봇 쪽에서 많이 씀 (검출은 좀 더 무거움)\n\nARTag 등\n\n캘리·hand-eye 둘 다에서 ArUco/ChArUco, AprilTag가 사실상 표준\n\n4. 작동 원리\nArUco 검출 — 각 마커의 ID·위치를 찾음 → \"보드의 어느 부분인지\" 파악\n\nChArUco 코너 보간 — 식별된 마커 기준으로, 그 사이 체스보드 코너를 서브픽셀로 정밀 검출\n\n대응 쌍 수집 — 3D 보드 좌표(실측 mm) ↔ 2D 픽셀 좌표 쌍을 여러 사진에서 모음\n\n최적화 — 이 대응들을 가장 잘 설명하는 K와 왜곡계수를 탐색\n기준: 리프로젝션 에러(3D점을 다시 픽셀로 투영했을 때 실제 검출점과의 오차)를 최소화\n\n5. 적용 방법 (실전 순서)\n준비\nChArUco 보드 생성 → 평평한 판에 정확히 출력/부착 (휘면 캘리 망함)\n\nsquareLength(mm) 는 자로 잰 실측값 입력\n\n촬영 (가장 중요)\n같은 보드를 15~30장 다양하게:\n여러 각도 (보드를 기울여서 — 정면만 찍으면 안 됨)\n\n여러 거리\n\n화면의 구석구석 (중앙·네 모서리 모두 채우기)\n\n흔들림 없이 선명하게, 조명 균일하게\n\n계산 (OpenCV 4.7+)\npywide760 4:\n        all_corners.append(ch_corners)\n        all_ids.append(ch_ids)\n        img_size = gray.shape[::-1]\n\n# K, 왜곡계수 추정\nret, K, dist, rvecs, tvecs = aruco.calibrateCameraCharuco(\n    all_corners, all_ids, board, img_size, None, None)\nprint(\"reprojection error:\", ret)   # 0.1~0.5 px 면 양호]]>검증\n리프로젝션 에러 < 0.5 px 목표 (1px 넘으면 사진 다시 찍기)\n\ncv2.undistort() 로 보정 후 직선이 직선으로 펴지는지 눈으로 확인\n\n⚠️ 버전 주의\nOpenCV 4.7+ 는 CharucoDetector 클래스 사용 (위 코드).\n그 이전 버전은 interpolateCornersCharuco() 등 옛 API라 코드가 다름.\n6. 추종(YOLO) 시 캘리가 필요한가?\n대체로 불필요하지만, \"어떤 추종이냐\"에 따라 갈린다.\n캘리 필요 없는 경우 (대부분의 YOLO 추종)\n이미지 공간에서만 추종하면 캘리 불필요.\nYOLO로 bbox 검출 → bbox 중심이 화면 중앙에서 벗어난 만큼 카메라/로봇을 돌려서 따라감\n\n오차 신호가 \"픽셀 단위\" 면 됨: \"박스가 왼쪽에 있네 → 왼쪽으로 틀어\"\n\n실제 mm/거리/3D좌표가 필요 없음 → 내부 파라미터 몰라도 동작\n\n이걸 image-based visual servoing이라 함. 추종 로봇/짐벌 대부분이 이 방식.\n캘리가 필요해지는 경우\n상황\n이유\n\n실제 거리를 알아야 함 (몇 m 앞?)\nbbox 크기→거리 환산에 초점거리(intrinsic) 필요. 보통은 뎁스 카메라로 대체\n\n픽셀 오차를 **실제 각도(도)**로 바꿔 제어\n픽셀↔각도 변환에 intrinsic 필요\n\n대상의 3D 위치를 로봇 좌표계로 변환\nintrinsic + extrinsic(+ hand-eye) 필요\n\n광각/어안 렌즈라 가장자리 왜곡 심함\n화면 끝에서 대상 위치가 휘어 추종 정확도↓ → undistort 도움\n\n여러 카메라/센서 융합\n좌표계 정합에 캘리 필수\n\n결론\n단순 추종(중앙 유지) → ✅ 캘리 안 해도 됨\n\n거리·3D 위치·로봇 좌표 연계 → 캘리(또는 뎁스 센서) 필요\n\n요약\n캘리브레이션 = 카메라의 내부 파라미터(K) + 왜곡 계수를 알아내는 것\n\nChArUco = 체스보드(정밀 코너) + ArUco(고유 ID 식별)의 결합 → 일부만 보여도 사용 가능\n\nArUco의 핵심 역할 = 각도 측정이 아니라 고유 ID로 코너 식별\n\nQR = 식별은 되지만 데이터 저장용이라 캘리에는 부적합, ArUco/AprilTag 같은 전용 마커가 정답\n\n실전 핵심 = 평평한 보드 + 다양한 각도·거리·위치로 15~30장 + 리프로젝션 에러 0.5px 이하"
+  },
+  {
+   "id": "10256386",
+   "title": "UI별 요구사항",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/10256386/UI",
+   "text": "도서관 회원 UI\n로그인\n\n요청 인식 (음성 / 텍스트 / 터치) — \"○○ 책 갖다줘\", \"화장실 어디야\"\n\n도서 검색 (제목·저자·키워드) — 대여 가능 / 대여 중 표시\n\n도서 상세 보기 (표지, 소개, 청구기호, 서가 위치, 대여 상태)\n\n지도 보기 (도서관 내부 지도 — 서가·시설·내 위치, 검색한 책 위치 표시)\n\n도서 미리보기 / 독서 보기 (목차·일부 페이지·소개 읽기)\n\n도서 이송 / 픽업 요청 (도서 + 받을 위치 지정)\n\n내가 부른 로봇 실시간 추적 (현위치 / 도착 예정)\n\n추천 (목적·관심분야 기반, 베스트셀러 / 신간)\n\n내 정보 / 대출 현황 (대여 중인 책, 반납일, 대출 이력)\n\n대여 연장 / 도서 예약 (대출 중인 책 예약 대기)\n\n반납일 · 연체 알림\n\n읽고 싶은 책 (위시리스트 / 즐겨찾기)\n\n작업 알림 (내 요청 상태: 수락 → 이동 중 → 도착)\n\n접근성 모드 (큰 글씨 · 음성 안내)\n\n도서관 안내 (운영시간 / 층별 안내), 언어 선택\n\n사서 UI\n로그인\n\n운영 대시보드 (전체 로봇·작업·알림 한눈에)\n\n실시간 모니터링 (로봇별 상태 / 배터리 / 현재 작업 / 에러) + 지도에서 로봇 위치 보기\n\n작업 지시 (이송 / 분류 / 정리 / 짐꾼 / 파견) + 작업 큐 · 이력 · 진행률 + 특정 로봇 / 랜덤 로봇 둘다 할 수 있으면 베스트\n\n작업 알림 (완료 / 실패)\n\n에러 · 작업 성공/실패 로그 + 재시도 로그\n\n도서 관리 (도서 등록·수정·삭제, 재고, 위치 / 청구기호)\n\n서가 관리 (섹션 종류 변경, 서가별 배치 지도)\n\n정리 · 분류 리포트(잘 수행하였는지, 분류결과, 정리결과 등)\n\n회원 관리 (회원 정보 + 대출 이력)\n\n대여 / 반납 처리\n\n통합 검색 (도서 · 위치 · 회원)\n\n야간 보안 (운영모드 전환, 침입 알림, 침입 영상 보기)\n\n통계 / 리포트 (대출 통계, 작업 통계)\n\n로봇 QT 터치패널\n관리자 모드 로그인\n\n대기 / 홈 (인사, 표정 표시, 순회 중 표시)\n\n친밀감 인터랙션 (손인사 · 표정 등)\n\n길잡이 (목적지 선택 → 로봇 앞장, 안내 중 지도·남은 거리·상태 표시)\n\n검색 (도서 / 시설) → 위치 지도 표시\n\n추천\n\n작업 / 안내 상태 표시\n\n비상정지\n\n에러 동작 기능 (관리자) — 에러 시 현장 수동 조작 (주행 / 팔 / 주변장치), 상태·로그"
+  },
+  {
+   "id": "10747987",
+   "title": "로봇팔 비전 제어 및 파지 동작 구현",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/10747987",
+   "text": "로봇팔 제어 기술조사 및 구현 결과 정리\n1. 프로젝트 목표\n이번 작업의 목표는 JetCobot 로봇팔과 카메라를 이용해서 책장 또는 평면 대상에 부착된 ArUco 마커를 인식하고, 로봇팔 그리퍼가 해당 위치까지 접근하여 파지하는 제어 방식을 구현하는 것이었다.\n초기 목표는 단순히 카메라 화면 중앙에 마커를 맞추는 것이었지만, 실제 파지 단계에서는 카메라와 그리퍼의 위치가 서로 다르기 때문에 카메라 중심 정렬만으로는 정확한 파지가 어렵다는 문제가 있었다.\n따라서 최종적으로는 다음과 같은 구조를 목표로 설정했다.\nwide7602. 사용 장비 및 환경\n하드웨어\nwide760소프트웨어 및 라이브러리\nwide760OpenCV의 ArUco 모듈을 사용해 마커의 중심 좌표, 거리, 회전 벡터를 계산했고, 이를 로봇팔의 MoveL / send_coords 기반 이동 명령으로 변환했다.\n3. 기술조사 및 사용 이유\n3.1 QR 코드 기반 인식\n초기에는 QR 코드를 이용해 화면 내 위치를 인식하고 로봇팔을 제어하는 방식을 테스트했다.\n사용 이유\nwide760한계\nwide760QR 코드는 화면 중심 정렬 정도에는 사용할 수 있었지만, 로봇팔이 실제로 물체를 잡기 위해 필요한 3D 위치와 방향 계산에는 부족했다.\n그래서 이후 ArUco 마커 방식으로 전환했다.\n3.2 ArUco 마커 기반 인식\nArUco 마커는 OpenCV에서 지원하는 사각형 마커로, 카메라 캘리브레이션 정보와 실제 마커 크기를 알면 rvec, tvec를 통해 3D 위치와 자세를 계산할 수 있다.\n사용 이유\nwide760얻을 수 있는 정보\nwide760ArUco 방식으로 전환한 이후부터 단순 화면 중심 정렬이 아니라, 카메라 기준 실제 3D 좌표를 이용한 접근이 가능해졌다.\n3.3 Depth Camera 사용 검토\nIntel RealSense D435를 사용했기 때문에 초기에 depth 값을 이용해서 거리 제어를 하는 방식도 검토했다.\n사용 이유\nwide760한계\nwide760결과적으로 최종 제어에서는 depth 값보다 ArUco pose estimation의 tvec.z 값을 거리 기준으로 사용하는 방식이 더 적합했다.\n3.4 MoveJ 방식 테스트\nMoveJ는 로봇팔의 관절 각도를 기반으로 움직이는 방식이다.\n사용 이유\nwide760테스트 결과\nwide760MoveJ는 특정 자세로 이동하는 데는 유용했지만, 카메라와 마커 사이의 상대 위치를 유지하면서 접근하는 데는 한계가 있었다.\n3.5 MoveL 방식 테스트\nMoveL은 로봇팔의 엔드포인트가 직선 경로로 이동하도록 하는 방식이다.\n사용 이유\nwide760테스트 결과\nwide760MoveL은 최종적으로 계산된 목표 좌표로 한 번에 이동하는 방식에서는 좋은 결과를 보였다.\n 하지만 실시간으로 계속 MoveL을 반복하는 방식은 안정성이 떨어졌다.\n3.6 Jog 방식 테스트\nJog 방식은 특정 축 방향으로 계속 움직이다가 정지시키는 방식이다.\n사용 이유\nwide760테스트 결과\nwide760Jog 방식은 책장 스캔, 마커 탐색, 높이 정렬에는 적합했지만, 최종 파지 위치까지 정밀하게 접근하는 방식으로는 한계가 있었다.\n4. 제어 방식 변화 과정\n4.1 초기 방식: 화면 중앙 정렬\n처음에는 ArUco 마커를 화면 중앙에 맞추는 방식으로 접근했다.\nwide760문제점\nwide760즉, 카메라가 마커를 정확히 보고 있어도 실제 그리퍼는 마커 옆이나 위쪽을 향할 수 있었다.\n4.2 고정 픽셀 오프셋 방식\n이후 카메라 화면에서 그리퍼가 실제로 향하는 위치를 빨간 X 목표점으로 설정하고, 마커를 그 위치에 맞추는 방식을 시도했다.\nwide760개선점\nwide760문제점\nwide760따라서 고정 픽셀 방식은 임시 테스트에는 효과가 있었지만, 최종 방식으로는 부족했다.\n4.3 tvec 기반 카메라-그리퍼 오프셋 보정\n다음으로 ArUco의 tvec를 사용해 카메라 기준 실제 mm 단위 위치를 계산하고, 그리퍼가 있어야 하는 위치와 비교하는 방식을 적용했다.\nwide760사용 이유\nwide760결과\nwide760이 단계에서 중요한 결론이 나왔다.\nwide7604.4 rvec/tvec 기반 grasp target 계산 방식\n이후 방식은 “마커를 끝까지 보면서 접근”하는 것이 아니라, 마커가 보이는 거리에서 한 번 위치와 각도를 계산하고 이후에는 계산된 좌표로 이동하는 방식으로 변경했다.\nwide760사용 이유\nwide760결과\n이 방식에서 정확도가 크게 개선되었다.\nwide7605. 현재 최종 방식: One-Shot Pose Grasp\n현재 가장 좋은 결과를 보인 방식은 One-Shot 방식이다.\n동작 흐름\nwide760One-Shot 방식의 장점\nwide760기존 방식과 비교\n방식\n장점\n한계\n결과\n\nQR 인식\n구현 쉬움\n3D 자세 추정 어려움\n정밀 파지 부적합\n\nArUco 화면 중앙 정렬\n인식 안정적\n그리퍼 위치와 불일치\n근접 시 오차 큼\n\n고정 픽셀 오프셋\n그리퍼 위치 일부 반영\n거리 변화에 취약\n일부 개선\n\ntvec 오프셋 보정\nmm 단위 보정 가능\n가까워지면 마커 분실\n많이 개선\n\n단계별 MoveL 보정\n순차적 제어 가능\n오차 누적, 속도 느림\n불안정 요소 존재\n\nOne-Shot 방식\n오차 누적 적음, 빠름\n초기 pose 정확도에 의존\n현재 가장 우수\n\n6. 현재 작업 상황\n현재 구현된 기능은 다음과 같다.\nwide760현재는 실험 결과, 한 번에 보고 움직이는 방식이 가장 높은 정확도를 보이고 있다.\n특히 기존에는 마커를 계속 추적하려고 하면서 가까운 거리에서 마커가 사라질 때 실패로 처리되었지만, 현재 방식에서는 이를 정상적인 상황으로 보고 계산된 좌표를 기반으로 최종 접근한다.\n7. 개선된 점\n7.1 인식 방식 개선\nwide760단순 2D 중심 좌표가 아니라 rvec/tvec를 사용해 위치와 각도를 계산할 수 있게 되었다.\n7.2 거리 계산 개선\nwide760가까운 거리에서 depth 값이 불안정한 문제를 줄이고, 마커 크기 기반 pose estimation을 활용했다.\n7.3 이동 방식 개선\nwide760반복적인 보정 명령을 줄여 로봇팔 움직임이 더 안정적이고 예측 가능해졌다.\n7.4 카메라-그리퍼 오차 보정\nwide760카메라가 보는 위치와 그리퍼가 실제로 잡는 위치가 다르다는 문제를 반영했다.\n7.5 마커 분실 처리 개선\nwide760그리퍼가 파지 위치에 접근하면 카메라 시야에서 마커가 사라질 수 있다는 점을 반영했다.\n7.6 파지 후 복귀 동작 추가\nwide760작업 흐름이 단순 테스트에서 실제 작업 시퀀스에 가까워졌다.\n8. 사용 이유 정리\nArUco를 사용한 이유\nwide760MoveL을 사용한 이유\nwide760One-Shot 방식을 사용한 이유\nwide760카메라-그리퍼 오프셋을 반영한 이유\nwide7609. 현재 한계\n현재 방식은 많이 개선되었지만, 아직 다음과 같은 한계가 있다.\nwide760현재 방식은 실험적으로는 좋은 성능을 보이지만, 더 높은 정확도를 위해서는 카메라와 로봇 TCP 사이의 정밀 변환 관계를 구하는 hand-eye calibration이 필요하다.\n10. 향후 개선 방향\n10.1 Hand-Eye Calibration 적용\n현재는 카메라-그리퍼 오프셋을 수동 값으로 보정하고 있다.\n향후에는 정식 hand-eye calibration을 적용해 다음 변환을 정확히 구할 수 있다.\nwide760이를 통해 마커 위치를 더 정확한 로봇 목표 좌표로 변환할 수 있다.\n10.2 파지 성공 여부 확인\n현재는 그리퍼를 닫은 후 실제로 물체를 잡았는지 센서로 확인하지 않는다.\n향후에는 다음 방법을 적용할 수 있다.\nwide76010.3 반복 실험을 통한 파라미터 튜닝\n현재 주요 튜닝 값은 다음과 같다.\nwide760반복 실험을 통해 각 값을 조정하면 성공률을 더 높일 수 있다.\n11. 최종 결론\n이번 작업에서는 JetCobot 로봇팔과 RealSense 카메라를 이용해 ArUco 마커 기반 파지 제어를 구현했다.\n초기에는 QR 코드와 화면 중심 정렬 방식으로 시작했지만, 실제 파지 단계에서는 카메라와 그리퍼의 위치 차이 때문에 정확도가 부족했다.\n이후 ArUco의 rvec/tvec를 이용해 마커의 3D 위치와 각도를 계산하고, 카메라-그리퍼 오프셋을 반영하는 방식으로 개선했다.\n최종적으로는 마커를 계속 추적하는 방식보다, 처음 한 번 안정적으로 인식한 뒤 계산된 좌표로 한 번에 이동하는 One-Shot 방식이 가장 높은 정확도를 보였다.\n현재 시스템은 다음 기능까지 구현된 상태이다.\nwide760따라서 현재 단계는 단순 인식 테스트를 넘어, 비전 기반 로봇팔 파지 시퀀스가 동작하는 수준까지 개선된 상태라고 정리할 수 있다."
+  },
+  {
+   "id": "11042817",
+   "title": "26-06-29 Stand Up Meeting",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/11042817/26-06-29+Stand+Up+Meeting",
+   "text": "과정명\n심화_ROS2와 AI를 활용한 자율주행로봇&로봇팔 개발자 부트캠프\n\n프로젝트\nABA(Arte Book Asistance)\n회의일시\n26.06.29 10:00 ~ 10:15(15분)\n\n팀명\nArte\n작성자\n이강택\n\n참석자\n이강택, 이세형, 이주형, 이형주, 인경일, 정호재\n\n개별 이슈\n팀원\n어제 한 일\n오늘 할 일\n비고\n\n정호재\n휴가\n\n인경일\n정밀주행 테스트\n\nArUco\n\nNav2 prams\n\n이형주\n바구니 모델 선정\n\nInterface Specifiaction 작성\n\n이세형\nperception 후 grab 기술조사\n\napril tag 기술조사\n\n사람 모형 출력\n\n소품 모델링 작업\n\n이강택\nFMS 기술조사\n\n발표자료\n\nfolder structire작성\n\nlibi_gui 구현\n\n발표자료 작성\n\n시퀀스다이어그램 수정"
+  },
+  {
+   "id": "11304973",
+   "title": "26-06-29 Mentoring",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/11304973/26-06-29+Mentoring",
+   "text": "부트캠프 과정\n심화 ROS2와 AI를 활용한 자율주행 로봇 & 로봇팔 개발자 부트캠프\n\n프로젝트 명\nABA(Arte Bokk Assistance)\n팀명\nArte(2팀)\n\n멘토\n노미승 강사님\n작성자\n이강택\n\n스프린트\nSprin #2\n작성일시\n26.06.29\n\n발표내용\nhttps://luminous-llama-f4c356.netlify.app/\n진행상황 보고\n주제, SR, SA, Sequence Diagram, State Diagram, Map Design, Folder Structure, GUI, jira 기반 저번주 했던 작업, 이번주 계획 발표\n\n피드백 내용\nSystem Architecture\nServer단 에서 LOW 단 통신 프로토콜 필요\n\nSquence Diagram\n실패시, 성공시 로 나누기\n\nState Diagram\nERROR\n원격 조작은 위험하다\n\n아예 모터가 나가서 수동조작하는 경우와, 소프트웨어적으로 해결가능한 범위인지 판단 필요\n\nCHARGING에서 배터리 80%이상이면 너무 비효율 적이다\n\nTask States\n\nFolder Structure\nlibi_gui가 controller 단이면 폴더 배치를 libi_drive_controller에 배치해야한다.\n\nGUI\nlibi_gui에서 버튼의 크기를 늘릴 필요가 있다.\n\n중요한 기능은 빠르게 접근 가능하도록 ui를 설계해야 한다.\n\nJira\n하루의 작업 단위는 4~8시간\ntask를 1~2일 작업 단위로 설정해야한다.\n\n실제 일하는 작업시간기준이다.\n즉, 8시간짜리 작업을 3일에 걸치는 것도 task\n\n때문에 task 제목에서 그 작업 단위가 보여야 한다.\n\n사진"
+  },
+  {
+   "id": "11534350",
+   "title": "중간 발표 멘토링 일지",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/11534350",
+   "text": ""
+  },
+  {
+   "id": "12156932",
+   "title": "정밀주행 - nav2 params",
+   "url": "https://arte1.atlassian.net/wiki/spaces/Arte/pages/12156932/-+nav2+params",
+   "text": "Pinky\nNavigation (Nav2) 소스 분석\n대상: pinky_navigation 패키지\n실행 명령:\n분석일: 2026-06-30\n핵심 요약: 이 시스템은 Nav2 (Navigation2) 스택이며, 작은 맵(1m×2m)과\n아주 작은 로봇(반지름 6cm)에 맞춰 튜닝되어 있다.\n경로 추종 제어는 PID가 아니라 Regulated Pure Pursuit (RPP) 이다.\n1. 전체 자율주행 파이프라인 (데이터 흐름)\nwide760동시에 amcl(파티클 필터)이 LiDAR로 맵 안에서 로봇의 현재 위치를 추정한다\n(map → odom TF 발행). 위치추정(localization)과 주행(navigation)이 함께 돌아가는 게 핵심.\nlaunch 구조\nbringup_launch.xml : 전체 진입점. nav2 컨테이너 + localization + navigation 포함.\nlocalization_launch.xml → map_server, amcl\n\nnavigation_launch.xml  → controller_server, planner_server,\nbehavior_server, bt_navigator, waypoint_follower, velocity_smoother\n\n기본 파라미터 파일: params/nav2_params.yaml\n\nuse_composition: True → 모든 노드를 단일 컨테이너(nav2_container)에 적재.\n\n2. AMCL — 위치 추정 (nav2_params.yaml:1-48)\n맵 안에서 \"내가 지금 어디 있나\"를 LiDAR 스캔과 파티클 필터로 추정.\n파라미터\n값\n의미\n\nrobot_model_type\nDifferentialMotionModel\n차동구동(좌우 바퀴) 로봇 모델\n\nmax_particles / min_particles\n2000 / 500\n위치 후보(파티클) 개수\n\nrecovery_alpha_fast/slow\n0.1 / 0.001\n위치를 잃으면 자동 재추정(납치 복구). 원래 0이었는데 켬\n\nupdate_min_d / a\n0.15m / 0.1rad\n이만큼 움직여야 위치 갱신\n\nset_initial_pose + initial_pose(0,0,0)\nTrue\n켤 때 맵 원점(홈)에 로봇이 있다고 가정 → 부팅 즉시 위치 인식\n\n⚠️ 즉, 로봇을 항상 맵 제작 시작 지점(홈) 에 놓고 켜야 위치가 맞는다.\n다른 곳을 홈으로 하려면 그 지점의 맵 좌표로 initial_pose의 x, y, yaw를 바꾼다.\n3. Planner — 전역 경로 생성 (nav2_params.yaml:256-265)\nyamlwide760NavFn (Dijkstra) 알고리즘으로 출발점→목표점 최단 경로를 격자(grid) 위에서 계산.\n\ntolerance: 0.5 → 목표에 정확히 못 닿으면 0.5m 이내 가장 가까운 점까지 경로 생성.\n\nglobal_costmap 기준 1Hz로 갱신.\n\n4. Controller — 경로 추종 제어 (★ 핵심, nav2_params.yaml:77-160)\nPID가 아니라 Regulated Pure Pursuit (RPP). 20Hz로 동작.\nPID vs RPP 차이\nPID 제어\nRegulated Pure Pursuit (현재 설정)\n\n원리\n목표값-현재값의 오차(error) 에 P·I·D 게인을 곱해 제어\n경로 위 앞쪽 한 점(lookahead point / carrot)을 보고 향하는 곡률을 기하학적으로 계산\n\n튜닝 파라미터\nKp, Ki, Kd\nlookahead_dist, desired_linear_vel, max_angular_vel 등\n\n적분/미분항\n있음\n없음\n\n속도/가속 제한\n파라미터\n값\n의미\n\ndesired_linear_vel\n0.10 m/s\n평상시 목표 전진 속도 (매우 느림 — 작은 로봇)\n\nmax_angular_vel\n0.7 rad/s\n최대 회전 속도\n\nmax_linear_accel/decel\n0.3 / 0.5\n가속/감속 한계\n\n경로 추종 (Pure Pursuit 핵심)\n파라미터\n값\n의미\n\nlookahead_dist\n0.20m\n경로상 앞쪽 목표점(carrot) 까지 거리. 이 점을 향해 곡선 주행\n\nmin/max_lookahead_dist\n0.10 / 0.30\n속도에 따라 lookahead 가변\n\nuse_velocity_scaled_lookahead_dist\ntrue\n빠르면 멀리, 느리면 가까이 봄\n\n💡 주석에 따르면 원래 0.6/0.3/0.9였는데 맵이 너무 작아 \"전방 충돌\"로 판정돼\n멈추는 문제가 있어 1/3 수준으로 축소했다.\n회전 우선 로직 (use_rotate_to_heading)\n이 로봇 동작의 가장 큰 특징:\nrotate_to_heading_min_angle: 0.35 (약 20°) → 가야 할 방향과 머리 방향 차이가\n20°를 넘으면 전진을 멈추고 제자리에서 먼저 회전.\n\nrotate_to_heading_angular_vel: 0.7 로 회전.\n\nuse_rotate_to_heading_threshold: 0.15 이내로 정렬되면 다시 전진.\n\nallow_reversing: false → 후진은 안 함.\n\n목표 도착 시 allow_final_rotation → 마지막에 목표 방향(yaw)으로 고개 맞춤.\n\n→ 결과적으로 \"멈춰서 돌고 → 직진 → 멈춰서 돌고\" 식의 깔끔한 주행 패턴.\n안전 감속 (Regulated 부분 = RPP의 \"R\")\n파라미터\n값\n의미\n\nuse_approach_velocity_scaling\ntrue\n목표 근처에서 감속\n\nmin_approach_linear_velocity\n0.05\n접근 시 최소 속도\n\nuse_cost_regulated_linear_velocity_scaling\ntrue\n장애물에 가까우면 자동 감속\n\nregulated_linear_scaling_min_radius\n0.20\n곡률 반경이 작으면(급커브) 감속\n\ncost_scaling_dist\n0.10\n장애물 0.1m 이내부터 감속 시작\n\n도착 판정 (Goal / Progress checker)\ngeneral_goal_checker (SimpleGoalChecker): xy_goal_tolerance: 0.05(5cm),\nyaw_goal_tolerance: 0.15(약 8.5°) 이내면 도착으로 인정.\n\nprogress_checker (SimpleProgressChecker): 10초 안에 0.15m 못 움직이면 실패 처리.\n\n5. Costmap — 장애물 인식 (nav2_params.yaml:163-240)\n항목\nlocal (실시간)\nglobal (전체)\n\n기준 프레임\nodom\nmap\n\n크기\n3×3m 롤링윈도우\n맵 전체\n\n갱신\n5Hz\n1Hz\n\n레이어\nvoxel + inflation\nstatic + obstacle + inflation\n\nrobot_radius: 0.06 → 로봇을 반지름 6cm 원으로 간주.\n\nresolution: 0.02 → 2cm 격자 (작은 로봇이라 고해상도).\n\ninflation_radius: 0.08, cost_scaling_factor: 5.0 → 장애물 주변 8cm를 \"위험구역\"으로\n부풀려 벽에 밀착 주행 방지 (주석상 튜닝됨).\n\nLiDAR(/scan)로 장애물 마킹, 최대 2.5m까지 인식.\n\n6. Behavior — 복구 동작 (nav2_params.yaml:276-302)\n길이 막히거나 추종 실패 시 bt_navigator가 호출:\nspin (제자리 회전), backup (후진), drive_on_heading (직진),\nwait (대기), assisted_teleop.\n\n7. Velocity Smoother — 최종 속도 가공 (nav2_params.yaml:315-328)\n컨트롤러가 낸 cmd_vel_nav를 받아 부드럽게 만든 뒤 최종 cmd_vel로 발행\n(navigation_launch.xml:85-86의 remap).\nmax_velocity: [0.25, 0.0, 1.5] → [전진, 횡(0=차동구동 불가), 회전] 한계.\n\nfeedback: OPEN_LOOP → odom 피드백 없이 직전 명령 기준으로 부드럽게.\n\n정리\n단계\n담당\n알고리즘\n\n어디 있나\namcl\n파티클 필터 (AMCL)\n\n어디로 갈까\nplanner\nNavFn / Dijkstra\n\n어떻게 갈까\ncontroller\nRegulated Pure Pursuit (PID 아님)\n\n막히면\nbehavior\nspin/backup/wait\n\n속도 다듬기\nvelocity_smoother\nopen-loop 스무딩\n\n전체적으로 \"매우 작은 로봇 + 좁은 맵\" 에 맞춰 속도(0.1m/s)·lookahead·inflation을\n모두 줄이고, 회전 우선 + 장애물 근접 자동 감속으로 안전하게 도는 것이 이 설정의 특징.\n실제 휠 단위 PID는 이 패키지가 아니라 모터 드라이버/펌웨어 계층에 있다\n(cmd_vel → 바퀴 RPM 변환 단계)."
+  }
+ ]
+}
