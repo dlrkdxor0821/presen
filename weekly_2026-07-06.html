@@ -526,7 +526,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 /* 주행 Navigation — 왼쪽 사진 2장(위·아래) + 오른쪽 2섹션 */
 .prows.cols.nav-photo{grid-template-columns:1.5fr 1fr 1fr}
 .prows.cols.nav-photo.photoright{grid-template-columns:1fr 1fr 1.5fr}
-.prows.cols.nav-photo.hasflow{grid-template-rows:auto 1fr;grid-template-areas:"photos algo1 algo2" "photos flow flow"}
+.prows.cols.nav-photo.hasflow{grid-template-rows:1fr auto;grid-template-areas:"photos algo1 algo2" "photos flow flow"}
 .hasflow .ncol-photos{grid-area:photos}
 .hasflow .prow.algo1{grid-area:algo1}
 .hasflow .prow.algo2{grid-area:algo2}
@@ -541,7 +541,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .nav-photo .navph .pl{display:flex;flex-direction:column;gap:5px;font-family:var(--mono);font-size:12.5px;color:var(--ink-3)}
 .nav-photo .navph .pl b{color:var(--gold-deep);font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
 .nav-photo .navph.filled{border-style:solid;border-color:var(--line);background:#fff;padding:8px;overflow:hidden}
-.nav-photo .navph img{width:100%;height:100%;object-fit:contain;border-radius:8px}
+.nav-photo .navph img,.nav-photo .navph video{width:100%;height:100%;object-fit:contain;border-radius:8px}
 .nav-photo .navrow{flex:1;min-height:0;display:flex;gap:clamp(11px,1.6vh,20px)}
 .nav-photo .navrow .navph{min-width:0}
 /* 추종 — 기술 카드 6개 */
@@ -565,6 +565,42 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jtbl td b.t{color:#6B7280;background:#ECE9E0}
 .jtbl td b.d{color:var(--teal);background:#E3F0ED}
 .jtbl-foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:10px}
+
+.pbul li code{font-family:var(--mono);font-size:.84em;background:var(--gold-soft);color:var(--gold-deep);border-radius:4px;padding:1px 5px;font-weight:600}
+/* p6 관제 — 배차·교통 상세 알고리즘 카드 (dense, 폰트 축소) */
+.hasflow .prow.algo1,.hasflow .prow.algo2{padding-top:clamp(24px,3vh,34px)}
+.hasflow .prow.algo1 .plabel,.hasflow .prow.algo2 .plabel{font-size:clamp(16px,1.5vw,20px);padding-bottom:6px}
+.alg-tag{display:block;width:fit-content;margin:5px auto 0;font-family:var(--mono);font-size:clamp(11px,1vw,13px);font-weight:700;letter-spacing:.02em;color:#F4F1E8;background:linear-gradient(150deg,#27426f,#15223b);border-radius:6px;padding:3px 11px;text-transform:none}
+.alg{display:flex;flex-direction:column;gap:clamp(5px,0.8vh,9px);margin-top:7px;min-height:0}
+.alg-steps{list-style:none;counter-reset:st;display:flex;flex-direction:column;gap:clamp(4px,0.7vh,8px)}
+.alg-steps li{counter-increment:st;font-size:clamp(13px,1.25vw,16px);line-height:1.34;color:var(--ink-2);padding-left:23px;position:relative}
+.alg-steps li::before{content:counter(st);position:absolute;left:0;top:1px;width:17px;height:17px;border-radius:50%;background:var(--gold-deep);color:#fff;font-family:var(--mono);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
+.alg-steps li b{color:var(--ink);font-weight:700}
+.alg-steps li code{font-family:var(--mono);font-size:.9em;background:var(--paper-2);color:var(--gold-deep);border-radius:3px;padding:0 3px;font-weight:600}
+.alg-sh{font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);font-weight:700;letter-spacing:.05em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:5px}
+.alg-sh.sec2{margin-top:7px;border-top:1px dashed var(--line);padding-top:8px}
+.alg-sub{font-size:clamp(12px,1.12vw,14.5px);line-height:1.34;color:var(--ink-2);margin-top:4px}
+.alg-sub b{color:var(--ink);font-weight:700}
+.alg-sub code{font-family:var(--mono);font-size:.9em;background:var(--paper-2);color:var(--gold-deep);border-radius:3px;padding:0 3px;font-weight:600}
+.alg-p{font-size:clamp(13px,1.25vw,16px);line-height:1.44;color:var(--ink-2)}
+.alg-p b{color:var(--ink);font-weight:700}
+.alg-lad-cap{font-family:var(--mono);font-size:clamp(11.5px,1.08vw,13.5px);font-weight:700;letter-spacing:.03em;color:var(--gold-deep);margin-top:1px}
+.alg-lad-cap span{color:var(--ink-3);font-weight:500}
+.alg-ladder{list-style:none;display:flex;flex-direction:column;gap:3px;border-left:2px solid var(--gold-line);padding-left:10px;margin-top:2px}
+.alg-ladder li{font-size:clamp(12.5px,1.18vw,15px);line-height:1.32;color:var(--ink-2)}
+.alg-ladder li .lv{font-weight:700;color:var(--ink)}
+/* 워크플로우 — pico 제거(라벨 가림 해소) + 컴팩트 스트립 */
+.hasflow .prow.flow{padding-top:clamp(10px,1.5vh,16px);padding-bottom:clamp(6px,0.9vh,11px);justify-content:flex-start}
+.hasflow .prow.flow .plabel{font-size:clamp(13px,1.2vw,16px);padding-bottom:4px}
+.prow.flow .wf{flex:1;min-height:0;display:flex;align-items:stretch;justify-content:space-between;gap:clamp(3px,0.45vw,8px);margin-top:clamp(5px,0.8vh,10px)}
+.wf-step{flex:1;min-width:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;gap:clamp(2px,0.3vh,4px);
+  background:var(--card);border:1px solid var(--line);border-top:3px solid var(--gold-deep);border-radius:11px;box-shadow:var(--sh-sm);padding:clamp(6px,0.85vh,10px) clamp(3px,0.28vw,6px)}
+.wf-step .wf-ico{width:clamp(30px,2.4vw,38px);height:clamp(30px,2.4vw,38px);border-radius:50%;
+  background:linear-gradient(150deg,#27426f,#15223b);display:flex;align-items:center;justify-content:center;font-size:clamp(16px,1.4vw,21px);box-shadow:var(--sh-sm)}
+.wf-step .wf-n{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.1em;color:var(--gold-deep)}
+.wf-step .wf-t{font-size:clamp(11px,1.05vw,14px);font-weight:700;color:var(--ink);line-height:1.1;word-break:keep-all}
+.wf-step .wf-s{font-family:var(--mono);font-size:clamp(7px,0.6vw,9px);color:var(--ink-2);line-height:1.22;word-break:break-word;max-width:100%}
+.prow.flow .wf-arr{align-self:center;color:var(--gold);font-weight:800;font-size:clamp(11px,1.2vw,17px);flex:none}
 
 </style>
 </head>
@@ -651,25 +687,8 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 딥러닝 모델</div>
       <h2 class="stitle anim" style="--d:1">딥러닝 모델 <span class="hl">Deep-Learning</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo anim" style="--d:3"><div class="ncol-photos"><div class="navph"><div class="pl"><b>Photo · 상단</b><span>딥러닝 이미지 1</span></div></div><div class="navrow"><div class="navph filled"><img src="img/dl_img2.png" alt="딥러닝 이미지 2"></div><div class="navph filled"><img src="img/dl_img3.png" alt="딥러닝 이미지 3"></div></div></div><div class="prow"><div class="pico">📊</div><div class="plabel">구현 모델 · 성능</div><div class="pbul"><ul><li><b>YOLOv8n</b> — 635장 학습·best ep72 (Teachable Machine→전환)</li><li>엣지 Pi4 <b>4.96FPS·CPU85%·67.6℃</b> vs 서버 <b>19FPS·21ms</b> → 서버 오프로드</li></ul><ul><li><b>EasyOCR</b> — 책 분류(한국어·Pi 실시간)</li><li><b>Labi Bot</b> — Ollama qwen3:1.7b 경량 RAG (4개국어)</li></ul></div></div><div class="prow"><div class="pico">🧩</div><div class="plabel">미구현 모델</div><div class="pbul"><ul><li>바구니 인식 모델 (AR-31, 진행 중)</li><li>핑키+사람 모형 모델 — 추종 대상 인식 (AR-58)</li></ul><ul><li>도서 분류 커스텀 YOLO — 데이터셋·fine-tune (예정)</li><li>분류 모델 조사 (AR-26)</li></ul></div></div></div></div>
+    <div class="sbody"><div class="prows cols nav-photo dense anim" style="--d:3"><div class="ncol-photos"><div class="navph filled"><video src="https://asd0821.cdn.prismic.io/asd0821/RbOQODsNcpVxOp72_dl_demo.mp4" autoplay loop muted playsinline></video></div><div class="navrow"><div class="navph filled"><img src="img/dl_img2.png" alt="딥러닝 이미지 2"></div><div class="navph filled"><img src="img/dl_img3.png" alt="딥러닝 이미지 3"></div></div></div><div class="prow"><div class="pico">💡</div><div class="plabel">필요한 이유</div><div class="pbul"><ul><li><b>핑키-프로</b><ul><li>로봇끼리 지나칠 때 인사 → <b>인사 시나리오</b></li></ul></li><li><b>사람</b><ul><li>추종 → <b>짐꾼 시나리오</b></li><li>사람이 잘 따라오는지 확인 → <b>길잡이 시나리오</b></li></ul></li><li><b>바구니</b><ul><li>pick &amp; place → <b>분류 시나리오</b></li></ul></li></ul></div></div><div class="prow"><div class="pico">📊</div><div class="plabel">진행사항</div><div class="pbul"><ul><li><b>완료 · 핑키-프로</b><ul><li>1386장 학습 · <b>YOLO11n</b></li><li><b>mAP50-95 0.900</b></li><li>Track 환경 양호 · 강의장은 <b>검정 물체 오인식</b></li></ul></li><li><b>미완료</b><ul><li>바구니</li><li>사람 — 3D 모형 · 2D 프린트</li></ul></li></ul></div></div></div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 딥러닝 모델</b></span><span class="pg"></span></footer>
-  </section>
-
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
-      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Person Following</span></h2>
-    </header>
-    <div class="sbody"><div class="techgrid">
-      <div class="techcard anim" style="--d:3"><div class="tcat">객체 검출</div><div class="tt">YOLOv8</div><div class="td">사람·핑키 대상을 실시간 검출해 추종 대상 확보</div></div>
-      <div class="techcard anim" style="--d:4"><div class="tcat">다중객체 추적 · MOT</div><div class="tt">ByteTrack</div><div class="td">가림에 강한 track_id 부여로 대상을 끊김 없이 추적</div></div>
-      <div class="techcard anim" style="--d:5"><div class="tcat">얼굴 재식별</div><div class="tt">InsightFace · ArcFace</div><div class="td">512d 얼굴 임베딩으로 추종 대상 잠금(identity lock)</div></div>
-      <div class="techcard anim" style="--d:6"><div class="tcat">몸통 재식별 · ReID</div><div class="tt">OSNet</div><div class="td">얼굴 유실 시 외형 기반 2단 재식별로 대상 복구</div></div>
-      <div class="techcard anim" style="--d:7"><div class="tcat">거리 측정</div><div class="tt">RealSense D435</div><div class="td">mm 단위 실측 거리, 유실 시 방향 외삽(Track Coasting)</div></div>
-      <div class="techcard anim" style="--d:8"><div class="tcat">추종 주행 제어</div><div class="tt">Nav2 follow_point</div><div class="td">원거리 하이브리드(GoalUpdater+TruncatePath) · 근거리 P제어</div></div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
   </section>
 
 
@@ -678,7 +697,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 관제</div>
       <h2 class="stitle anim" style="--d:1">관제 <span class="hl">Fleet Control</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo hasflow anim" style="--d:3"><div class="ncol-photos"><div class="navph"><div class="pl"><b>Photo · 상단</b><span>관제 이미지 1</span></div></div><div class="navph"><div class="pl"><b>Photo · 하단</b><span>관제 이미지 2</span></div></div></div><div class="prow algo1"><div class="pico">🚚</div><div class="plabel">배차 알고리즘</div><div class="pbul"><ul><li>MRTA(ST-SR) 1차 = <b>Greedy + Cost</b> (거리+배터리+task+순찰+혼잡)</li></ul><ul><li>우선순위 — 이송 &gt; 가이드 &gt; returning &gt; 파견 (배차·교통 양보 공유)</li></ul></div></div><div class="prow algo2"><div class="pico">🚦</div><div class="plabel">교통 협상 알고리즘</div><div class="pbul"><ul><li>4종 — CBS / Dijkstra 예약+데드락 DFS / Edge·Node Lock / ORCA</li></ul><ul><li>open-rmf는 우선순위 없음(지연최소) → <b>자체 FMS 선택 근거</b></li></ul></div></div><div class="prow flow"><div class="pico">🔄</div><div class="plabel">관제 워크플로우</div><div class="flowchain"><span class="fstep">태스크 접수</span><span class="farr">→</span><span class="fstep">배차 (Greedy+Cost)</span><span class="farr">→</span><span class="fstep">교통 협상</span><span class="farr">→</span><span class="fstep">경로 실행</span><span class="farr">→</span><span class="fstep">상태 브리지 (WS)</span></div></div></div></div>
+    <div class="sbody"><div class="prows cols nav-photo hasflow anim" style="--d:3"><div class="ncol-photos"><div class="navph"><div class="pl"><b>관제 아키텍처</b><span>시스템 플로우 다이어그램</span></div></div></div><div class="prow algo1"><div class="pico">🚗</div><div class="plabel">배차 · Dispatch<span class="alg-tag">Auction · SSI</span></div><div class="alg"><div class="alg-sh">제약조건</div><ol class="alg-steps"><li><b>IDLE 상태</b>인 로봇만 배정 가능</li><li><b>완주 가능</b>한 로봇만 배정 가능<div class="alg-sub">완주 관문 — 소비% = 거리<code>×1%</code> + 팔동작<code>×0.5%</code> 일 때, <b>배터리% ≥ 소비%+15%</b> 이어야 배정</div></li></ol><div class="alg-sh sec2">Auction 방식</div><p class="alg-p">각 로봇이 <b>비용(Dijkstra 거리)</b>을 중앙에 제출 → <b>최저 비용 낙찰</b> · 없으면 <b>거절</b>.</p></div></div><div class="prow algo2"><div class="pico">🚦</div><div class="plabel">교통관제 · Traffic<span class="alg-tag">Dijkstra + 노드예약 + DFS</span></div><div class="alg"><ol class="alg-steps"><li><b>경로계획</b> Dijkstra</li><li><b>노드예약</b> 가려는 노드 잠금(진입 차단)</li><li><b>데드락</b> 대기 사이클 <b>DFS 감지</b> → 최저 우선순위 <b>우회</b>(재계산), 나머지 대기</li></ol><div class="alg-lad-cap">우선순위 사다리 <span>· 높을수록 안 비킴</span></div><ol class="alg-ladder"><li><span class="lv">완전 막힘</span>(동적) — 막히면 최상위·풀리면 원복</li><li><span class="lv">충전 복귀(CHARGE)</span> — 방전 임박 보호</li><li><span class="lv">작업 수행중</span> — 오래된 task·낮은 배터리 순</li><li><span class="lv">순회 중</span> — 제일 먼저 우회</li></ol></div></div><div class="prow flow"><div class="plabel">관제 워크플로우</div><div class="wf"><div class="wf-step"><div class="wf-ico">📥</div><div class="wf-t">태스크 접수</div><div class="wf-s">submit_task</div></div><div class="wf-arr">→</div><div class="wf-step"><div class="wf-ico">🚗</div><div class="wf-t">배차</div><div class="wf-s">Auction / SSI</div></div><div class="wf-arr">→</div><div class="wf-step"><div class="wf-ico">🚦</div><div class="wf-t">교통 협상</div><div class="wf-s">예약 · 교착 DFS</div></div><div class="wf-arr">→</div><div class="wf-step"><div class="wf-ico">🧭</div><div class="wf-t">경로 실행</div><div class="wf-s">path_request</div></div><div class="wf-arr">→</div><div class="wf-step"><div class="wf-ico">🦾</div><div class="wf-t">팔 동작</div><div class="wf-s">perform_action</div></div></div></div></div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 관제</b></span><span class="pg"></span></footer>
   </section>
 
@@ -784,12 +803,12 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="iss" style="--ac2:var(--gold-deep);--d:3">
         <div class="ihead"><span class="ino">02</span><span class="it">GUIDE 기능 · 카메라 추가</span></div>
         <div class="issimg"><img src="img/guide_mode.png" alt="길잡이 GUIDE MODE"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>길잡이(SR-11) 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div><div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div></div>
+        <div class="iss-txt"><div><div class="ilab">현상</div><p>길잡이 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div><div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div></div>
       </div>
       <div class="iss" style="--ac2:var(--teal);--d:4">
         <div class="ihead"><span class="ino">03</span><span class="it">바구니 모델 선정</span></div>
         <div class="issimg"><img src="img/return_basket.jpg" alt="도서반납함 · 바구니"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (AR-31 Sprint 2부터 진행 중) · grab 방식(AR-49)도 미착수 → 분류·이송 시나리오 블로킹.</p></div><div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div></div>
+        <div class="iss-txt"><div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (Sprint 2부터 진행 중) · grab 방식도 미착수 → 분류·이송 시나리오 블로킹.</p></div><div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div></div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
