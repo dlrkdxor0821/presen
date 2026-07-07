@@ -240,7 +240,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .gcap .role{font-family:var(--mono);font-size:13px;letter-spacing:.12em;text-transform:uppercase;color:var(--gold-deep);font-weight:600}
 .gcap h4{font-size:20px;font-weight:650;color:var(--ink);margin:6px 0 5px}
 .gcap p{font-size:14.5px;line-height:1.5;color:var(--ink-2);max-width:30ch}
-.dev-phone{width:clamp(229px,20.1vw,261px);border-radius:28px;background:#0E1730;padding:9px;box-shadow:var(--sh)}
+.dev-phone{width:clamp(183px,16.1vw,209px);border-radius:28px;background:#0E1730;padding:9px;box-shadow:var(--sh)}
 .dev-phone img{width:100%;height:auto;display:block;border-radius:19px}
 .dev-web{width:100%;max-width:638px;border-radius:12px;overflow:hidden;border:1px solid var(--line);box-shadow:var(--sh);background:#fff}
 .dev-web .bar{height:26px;background:#ECE8DE;display:flex;align-items:center;gap:6px;padding:0 12px;border-bottom:1px solid var(--line)}
@@ -249,13 +249,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .dev-web img{width:100%;height:auto;display:block}
 .dev-tab{width:100%;max-width:638px;border-radius:14px;background:#0E1730;padding:10px;box-shadow:var(--sh)}
 .dev-tab img{width:100%;height:auto;display:block;border-radius:7px}
-/* GUI split — per-UI feature pages */
-.guipage{flex:1;display:grid;grid-template-columns:2.4fr 2.6fr;gap:clamp(22px,2.6vw,44px);align-items:center;min-height:0}
-.guipage .gmock{display:flex;flex-direction:column;align-items:center;gap:12px;min-width:0}
-.guipage .flist{display:grid;grid-template-columns:1fr 1fr;gap:0 clamp(16px,1.8vw,32px);align-content:center;min-height:0;border-top:1.5px solid var(--line)}
-.feat{display:flex;flex-direction:column;padding:6px 6px 6px 2px;border-bottom:1px solid var(--line-soft)}
-.feat b{font-size:20px;font-weight:650;color:var(--ink);line-height:1.3}
-.feat .fd{font-size:19px;line-height:1.35;color:var(--ink-2)}
 
 /* ============================================================
    9 · PROGRESS  /  10 · PLAN
@@ -425,13 +418,10 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .iss:last-child{padding-right:0}
 .ihead{display:flex;flex-direction:column;gap:7px;padding-bottom:13px;border-bottom:2px solid var(--ac2)}
 .ihead .ino{font-family:var(--serif);font-style:italic;font-weight:600;font-size:34px;color:var(--ac2);line-height:.9}
-.ihead .it{font-size:17px;font-weight:650;color:var(--ink);line-height:1.3}
+.ihead .it{font-size:20px;font-weight:650;color:var(--ink);line-height:1.3}
 .iss .ilab{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--ac2);margin-bottom:5px}
-.iss p{font-size:19px;line-height:1.5;color:var(--ink-2)}
+.iss p{font-size:15.5px;line-height:1.58;color:var(--ink-2)}
 .iss p b{color:var(--ink);font-weight:650}
-.iss .issimg{flex:1;min-height:0;display:flex;flex-direction:column;gap:8px}
-.iss .issimg img{width:100%;flex:1;min-height:0;object-fit:contain;border-radius:8px;display:block}
-.iss .iss-txt{flex:1;min-height:0;display:flex;flex-direction:column;gap:11px}
 /* Pi4 CPU issue — evidence layout */
 .issue-evi{flex:1;display:grid;grid-template-columns:0.72fr 1fr;gap:clamp(16px,2vw,32px);min-height:0}
 .evi-text{display:flex;flex-direction:column;gap:clamp(8px,1.3vh,14px);min-height:0}
@@ -468,12 +458,12 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .pmile{font-size:12.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:6px;padding:3px 9px;margin:6px 0 4px;display:inline-block}
 /* roadmap — detailed card body */
 .plan.five .plancard{gap:5px;padding:13px 16px}
-.plan.five .plancard li{font-size:17px;line-height:1.42}
-.plan.five .pgoal{font-size:14px;line-height:1.4}
+.plan.five .plancard li{font-size:18px;line-height:1.42}
+.plan.five .pgoal{font-size:18.5px;line-height:1.4}
 .plan.five .pdeliv{font-size:12px}
-.plancard .plabel{font-family:var(--mono);font-size:13.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin:8px 0 2px}
+.plancard .plabel{font-family:var(--mono);font-size:14.5px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--ac);margin:8px 0 2px}
 .plancard li b{color:var(--ink);font-weight:650}
-.plancard li .pd{display:block;margin-top:1px;font-size:16px;line-height:1.4;color:var(--ink-2)}
+.plancard li .pd{display:block;margin-top:1px;font-size:17px;line-height:1.4;color:var(--ink-2)}
 .plancard li .jira{font-family:var(--mono);font-size:10px;color:var(--ink-3);letter-spacing:.02em}
 .plancard ul.pdod{list-style:none;display:flex;flex-direction:column;gap:5px}
 .plancard .pdod li{padding-left:17px;font-size:12.5px;line-height:1.42;color:var(--ink-2);position:relative}
@@ -512,16 +502,10 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .prows.cols .prow:nth-child(odd){background:var(--paper-2)}
 .prows.cols .pico{position:absolute;top:calc(-1*clamp(20px,2.8vh,30px));left:50%;transform:translateX(-50%);
   width:clamp(40px,3vw,52px);height:clamp(40px,3vw,52px);border-radius:50%;font-size:clamp(20px,1.7vw,26px);border:3px solid var(--paper)}
-.prows.cols .plabel{border-right:none;padding:0 0 8px;text-align:center;font-size:25px;border-bottom:1px solid var(--gold-line)}
+.prows.cols .plabel{border-right:none;padding:0 0 8px;text-align:center;font-size:15px;border-bottom:1px solid var(--gold-line)}
 .prows.cols .pbul{grid-template-columns:1fr;gap:8px}
-.prows.cols .pbul li{font-size:23px;line-height:1.42;padding-left:13px}
+.prows.cols .pbul li{font-size:13px;line-height:1.42;padding-left:13px}
 .prows.cols .pbul li::before{top:8px;width:4px;height:4px}
-.prows.cols.dense .pbul li{font-size:23px;line-height:1.4}
-.prows.cols.dense .pbul li::before{top:13px}
-.prows.cols.dense .pbul li ul{margin-top:5px;gap:4px}
-.prows.cols.dense .pbul li li{font-size:19px;line-height:1.36;padding-left:16px;color:var(--ink-2)}
-.prows.cols.dense .pbul li li::before{width:7px;height:2px;border-radius:1px;top:14px}
-.prows.cols.dense .pbul li li li{font-size:16px}
 .prows.cols.c3{grid-template-columns:repeat(3,1fr)}
 /* 주행 Navigation — 왼쪽 사진 2장(위·아래) + 오른쪽 2섹션 */
 .prows.cols.nav-photo{grid-template-columns:1.5fr 1fr 1fr}
@@ -542,17 +526,15 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .nav-photo .navph .pl b{color:var(--gold-deep);font-size:11px;letter-spacing:.13em;text-transform:uppercase;font-weight:700}
 .nav-photo .navph.filled{border-style:solid;border-color:var(--line);background:#fff;padding:8px;overflow:hidden}
 .nav-photo .navph img{width:100%;height:100%;object-fit:contain;border-radius:8px}
-.nav-photo .navrow{flex:1;min-height:0;display:flex;gap:clamp(11px,1.6vh,20px)}
-.nav-photo .navrow .navph{min-width:0}
 /* 추종 — 기술 카드 6개 */
 .techgrid{flex:1;display:grid;grid-template-columns:repeat(3,1fr);grid-auto-rows:1fr;gap:clamp(12px,1.5vw,22px);min-height:0}
 .techcard{background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--gold-deep);border-radius:13px;
   padding:clamp(15px,2vh,22px) clamp(16px,1.4vw,22px);display:flex;flex-direction:column;gap:6px;box-shadow:var(--sh-sm)}
-.techcard .tcat{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep)}
-.techcard .tt{font-size:26px;font-weight:700;color:var(--ink)}
-.techcard .td{font-size:23px;line-height:1.52;color:var(--ink-2);margin-top:3px}
+.techcard .tcat{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep)}
+.techcard .tt{font-size:18px;font-weight:700;color:var(--ink)}
+.techcard .td{font-size:14px;line-height:1.52;color:var(--ink-2);margin-top:3px}
 /* this-week: Jira board image + summary table */
-.jira2{flex:1;display:grid;grid-template-columns:2.5fr 1fr;gap:clamp(20px,2.4vw,42px);align-content:center;align-items:center;min-height:0}
+.jira2{flex:1;display:grid;grid-template-columns:1.55fr 1fr;gap:clamp(20px,2.4vw,42px);align-content:center;align-items:center;min-height:0}
 .jira-shot2{min-height:0;display:flex;align-items:center;justify-content:center}
 .jira-shot2 img{width:100%;height:auto;max-height:100%;object-fit:contain;border:1px solid var(--line);border-radius:12px;box-shadow:var(--sh-sm);background:#fff}
 .jtbl{display:flex;flex-direction:column;justify-content:center;gap:13px;min-height:0}
@@ -563,7 +545,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jtbl td:first-child{font-weight:650;color:var(--ink);white-space:nowrap}
 .jtbl td b{font-family:var(--mono);font-size:9.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:4px;padding:2px 6px;margin-left:5px;white-space:nowrap}
 .jtbl td b.t{color:#6B7280;background:#ECE9E0}
-.jtbl td b.d{color:var(--teal);background:#E3F0ED}
 .jtbl-foot{font-family:var(--mono);font-size:11.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:10px}
 
 </style>
@@ -631,7 +612,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 주행</div>
       <h2 class="stitle anim" style="--d:1">주행 <span class="hl">Navigation</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo dense anim" style="--d:3"><div class="ncol-photos"><div class="navph filled"><img src="https://images.prismic.io/asd0821/Z6U0TjheaLsGcQA3_libi_library_map_color.png?auto=format,compress" alt="Libi 도서관 배치도"></div><div class="navph filled"><img src="https://images.prismic.io/asd0821/YaJAcSIOM4b3lUYy_juhaeng_slam_costmap.png?auto=format,compress" alt="SLAM costmap · pinky_map"></div></div><div class="prow"><div class="pico">🚗</div><div class="plabel">진행사항</div><div class="pbul"><ul><li>현재 맵 환경에서 <b>Nav2 PKG로 주행 성공</b><ul><li>controller server : RPP</li><li>전반적인 Params 수정</li></ul></li><li><b>ArUco Marker</b> 이용 정밀 제어<ul><li>충전소 복귀 도킹 과정을 ArUco로 정밀제어 목표</li><li>3D Pose(X·Y·Yaw) 전환 / 정면 수직 도킹 시도</li><li>아직 원활히 이루어지지 않음</li></ul></li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">향후 계획</div><div class="pbul"><ul><li><b>Line tracing</b><ul><li>우선 기능 구현을 위해 Line tracing 시도</li><li>향후 ArUco 마커로 대체</li></ul></li><li><b>인원 분배</b><ul><li>로봇팔에 대부분의 인원 투자 → 주행을 혼자 담당</li><li>로봇팔 기술조사를 빠르게 끝내고 주행쪽으로 분배 조치</li></ul></li></ul></div></div></div></div>
+    <div class="sbody"><div class="prows cols nav-photo anim" style="--d:3"><div class="ncol-photos"><div class="navph filled"><img src="https://images.prismic.io/asd0821/Z6U0TjheaLsGcQA3_libi_library_map_color.png?auto=format,compress" alt="Libi 도서관 배치도"></div><div class="navph filled"><img src="https://images.prismic.io/asd0821/YaJAcSIOM4b3lUYy_juhaeng_slam_costmap.png?auto=format,compress" alt="SLAM costmap · pinky_map"></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">다음 계획</div><div class="pbul"><ul><li>카메라 캘리브레이션(체스보드→.npz) → ArUco <b>3D pose 모드</b> 활성화</li><li>제어 픽셀 → 3D pose(x·z·yaw) 전환 · 정면 수직 도킹</li></ul><ul><li>Pose 필터(EMA/칼만) · 멀티마커(ArUco Board) 검토</li><li>Line tracing 실주행 완성</li></ul></div></div><div class="prow"><div class="pico">✅</div><div class="plabel">결과·성과</div><div class="pbul"><ul><li>RPP 튜닝만으로 소형 맵 정밀·안정 주행 (별도 PID 불필요)</li></ul><ul><li>ArUco 마커 검출 성공 (제어 정밀도는 캘리브 후 개선)</li></ul></div></div></div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 주행</b></span><span class="pg"></span></footer>
   </section>
 
@@ -641,7 +622,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
       <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols c3 dense anim" style="--d:3"><div class="prow"><div class="pico">🔬</div><div class="plabel">기술조사</div><div class="pbul"><ul><li><b>Perception</b><ul><li>YOLO — <b>채택 X</b> (책 구분에 어려움)</li><li>OCR — <b>채택 O</b> (향후 신간도서 대응)</li><li>QR — <b>채택 X</b> (인식률 너무 낮음)</li><li>ArUco — <b>채택 O</b></li></ul></li><li><b>Depth CAM 사용 여부</b><ul><li>미사용 → 최소거리 15cm</li><li>더 좋은 방법 채택</li></ul></li><li><b>모션 제어</b><ul><li>move l · move j · jog</li></ul></li><li><b>제어방식</b><ul><li>초기: 화면 중앙 정렬 → 고정 픽셀 오프셋</li></ul></li></ul></div></div><div class="prow"><div class="pico">🦾</div><div class="plabel">현재 채택 기술 · 진행</div><div class="pbul"><ul><li><b>ArUco Marker</b> 방식으로 제어<ul><li>rvec·tvec 기반 위치 좌표 계산</li></ul></li><li>카메라–그리퍼 오프셋<ul><li>Hand-eye Calibration</li></ul></li><li><b>One-shot pose grasp</b><ul><li>지속 갱신·보정 대신 초기 1회 좌표를 찍고 이동</li></ul></li><li><b>도서 grasp 성공</b><ul><li>성능 개선 중 → 파라미터 수정</li></ul></li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">향후 계획</div><div class="pbul"><ul><li><b>압전센서 적용</b><ul><li>파지 성공 여부(Grip Success) 판단</li></ul></li><li><b>반복적 실험을 통한 파라미터 수정</b><ul><li>카메라 Offset</li><li>최종 접근 거리</li><li>후퇴 거리</li></ul></li><li><b>place 수행</b><ul><li>기존 pick 과정은 PBVS 유지</li><li>IBVS(Image-Based Visual Servoing) 기반 제어 적용 검토<ul><li>초기 기술조사되어 채택된 PBVS는 이미지 처리와 로봇 제어를 동기식으로 수행하여, 이미지 갱신 → 제어 → 정지 → 이미지 갱신 과정을 반복</li><li>이로 인해 로봇팔 움직임이 끊기고 자연스럽지 않은 문제 발생</li><li>비동기식(Sleep 기반 제어 Loop)을 적용해 영상 처리와 제어를 병렬 수행하는 방식 검토(IBVS)</li></ul></li><li>ArUco Marker 없이 Vision 기반 Place 수행<ul><li>카메라에서 검출한 책꽂이 빈칸 위치를 실시간으로 추정</li><li>추정된 좌표를 지속적으로 로봇팔 제어기에 전달하여 Place 수행</li></ul></li></ul></li></ul></div></div></div></div>
+    <div class="sbody"><div class="prows cols c3 anim" style="--d:3"><div class="prow"><div class="pico">⚠️</div><div class="plabel">에로사항</div><div class="pbul"><ul><li>로봇팔 제어 코드 <b>전무</b> — 신규 구현 최대 난이도</li><li>Hand-eye calibration 부재 — 현재 오프셋 <b>수동 보정</b> 한계</li></ul><ul><li>근거리 depth 불안정 — depth 대신 <b>tvec.z</b>로 거리 대체</li><li>파지→배치(진열) 실물 검증 미완 (AR-60·61)</li></ul></div></div><div class="prow"><div class="pico">🦾</div><div class="plabel">현재까지 구현</div><div class="pbul"><ul><li><span class='srb'>[완료]</span> perception 후 grab 기술조사 (AR-39)</li><li>JetCobot + RealSense D435 · ArUco rvec/tvec 3D 위치·자세</li></ul><ul><li>채택 = <b>One-Shot Pose Grasp</b> (1회 인식→계산 좌표, 오차누적 최소)</li><li>MoveJ(스캔)·MoveL(이동)·Jog(정렬) 조합 → 인식·파지 파이프라인 확정</li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">앞으로의 계획</div><div class="pbul"><ul><li>Hand-eye calibration 적용 (수동 보정 → 자동)</li><li>파지 성공 센서 확인 + 파지→배치 시퀀스 실물 테스트 (AR-61)</li></ul><ul><li>파지 후 배치(진열) 가능성 검토 (AR-60)</li><li>바구니 grab 조사 (AR-49)</li></ul></div></div></div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
   </section>
 
@@ -651,7 +632,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 딥러닝 모델</div>
       <h2 class="stitle anim" style="--d:1">딥러닝 모델 <span class="hl">Deep-Learning</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo anim" style="--d:3"><div class="ncol-photos"><div class="navph"><div class="pl"><b>Photo · 상단</b><span>딥러닝 이미지 1</span></div></div><div class="navrow"><div class="navph filled"><img src="img/dl_img2.png" alt="딥러닝 이미지 2"></div><div class="navph filled"><img src="img/dl_img3.png" alt="딥러닝 이미지 3"></div></div></div><div class="prow"><div class="pico">📊</div><div class="plabel">구현 모델 · 성능</div><div class="pbul"><ul><li><b>YOLOv8n</b> — 635장 학습·best ep72 (Teachable Machine→전환)</li><li>엣지 Pi4 <b>4.96FPS·CPU85%·67.6℃</b> vs 서버 <b>19FPS·21ms</b> → 서버 오프로드</li></ul><ul><li><b>EasyOCR</b> — 책 분류(한국어·Pi 실시간)</li><li><b>Labi Bot</b> — Ollama qwen3:1.7b 경량 RAG (4개국어)</li></ul></div></div><div class="prow"><div class="pico">🧩</div><div class="plabel">미구현 모델</div><div class="pbul"><ul><li>바구니 인식 모델 (AR-31, 진행 중)</li><li>핑키+사람 모형 모델 — 추종 대상 인식 (AR-58)</li></ul><ul><li>도서 분류 커스텀 YOLO — 데이터셋·fine-tune (예정)</li><li>분류 모델 조사 (AR-26)</li></ul></div></div></div></div>
+    <div class="sbody"><div class="prows cols nav-photo anim" style="--d:3"><div class="ncol-photos"><div class="navph"><div class="pl"><b>Photo · 상단</b><span>딥러닝 이미지 1</span></div></div><div class="navph"><div class="pl"><b>Photo · 하단</b><span>딥러닝 이미지 2</span></div></div></div><div class="prow"><div class="pico">📊</div><div class="plabel">구현 모델 · 성능</div><div class="pbul"><ul><li><b>YOLOv8n</b> — 635장 학습·best ep72 (Teachable Machine→전환)</li><li>엣지 Pi4 <b>4.96FPS·CPU85%·67.6℃</b> vs 서버 <b>19FPS·21ms</b> → 서버 오프로드</li></ul><ul><li><b>EasyOCR</b> — 책 분류(한국어·Pi 실시간)</li><li><b>Labi Bot</b> — Ollama qwen3:1.7b 경량 RAG (4개국어)</li></ul></div></div><div class="prow"><div class="pico">🧩</div><div class="plabel">미구현 모델</div><div class="pbul"><ul><li>바구니 인식 모델 (AR-31, 진행 중)</li><li>핑키+사람 모형 모델 — 추종 대상 인식 (AR-58)</li></ul><ul><li>도서 분류 커스텀 YOLO — 데이터셋·fine-tune (예정)</li><li>분류 모델 조사 (AR-26)</li></ul></div></div></div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 딥러닝 모델</b></span><span class="pg"></span></footer>
   </section>
 
@@ -686,87 +667,23 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
   <section class="slide gui-slide">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">회원 UI</span></h2>
+      <h2 class="stitle anim" style="--d:1">GUI</h2>
     </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
-        <div class="dev-phone"><img src="https://images.prismic.io/asd0821/sWLOCKyR3kNClIBI_gui_member.png?auto=format,compress" alt="회원 모바일 앱"></div>
-        <div class="gcap"><div class="role">library_member</div><h4>도서관 회원 UI</h4></div>
-      </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>로그인</b></div>
-        <div class="feat"><b>요청 인식</b><span class="fd">음성·텍스트·터치 ("책 갖다줘")</span></div>
-        <div class="feat"><b>도서 검색</b><span class="fd">제목·저자·키워드 · 대여 가능/중</span></div>
-        <div class="feat"><b>도서 상세</b><span class="fd">소개·청구기호·서가 위치·상태</span></div>
-        <div class="feat"><b>지도 보기</b><span class="fd">내부 지도 · 내 위치·책 위치</span></div>
-        <div class="feat"><b>도서 미리보기</b><span class="fd">목차·일부 페이지·소개</span></div>
-        <div class="feat"><b>이송·픽업 요청</b><span class="fd">도서 + 받을 위치 지정</span></div>
-        <div class="feat"><b>로봇 실시간 추적</b><span class="fd">현위치 · 도착 예정</span></div>
-        <div class="feat"><b>추천</b><span class="fd">관심분야 · 베스트셀러·신간</span></div>
-        <div class="feat"><b>내 정보·대출 현황</b><span class="fd">대여 중·반납일·이력</span></div>
-        <div class="feat"><b>대여 연장·예약</b><span class="fd">대출 중 도서 예약 대기</span></div>
-        <div class="feat"><b>반납일·연체 알림</b></div>
-        <div class="feat"><b>위시리스트</b><span class="fd">읽고 싶은 책·즐겨찾기</span></div>
-        <div class="feat"><b>작업 알림</b><span class="fd">수락 → 이동 중 → 도착</span></div>
-        <div class="feat"><b>접근성 모드</b><span class="fd">큰 글씨·음성 안내</span></div>
-        <div class="feat"><b>도서관 안내</b><span class="fd">운영시간·층별 · 언어 선택</span></div>
-      </div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 회원 UI</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide gui-slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">사서 UI</span></h2>
-    </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
+    <div class="sbody"><div class="gui">
+      <div class="gcell anim" style="--d:2">
         <div class="dev-web"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><img src="https://images.prismic.io/asd0821/4Uwq9gNBNUc_Wbsd_gui_librarian.png?auto=format,compress" alt="사서 운영 대시보드"></div>
-        <div class="gcap"><div class="role">librarian_browser</div><h4>사서 UI</h4></div>
+        <div class="gcap"><div class="role">librarian_browser</div><h4>사서 UI</h4><p>운영 대시보드 · 모니터링 · 작업 지시 · 도서/서가/회원 관리</p></div>
       </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>로그인</b></div>
-        <div class="feat"><b>운영 대시보드</b><span class="fd">로봇·작업·알림 한눈에</span></div>
-        <div class="feat"><b>실시간 모니터링</b><span class="fd">상태·배터리·작업·에러 + 지도</span></div>
-        <div class="feat"><b>작업 지시</b><span class="fd">이송·분류·정리·짐꾼·파견 · 큐·진행률</span></div>
-        <div class="feat"><b>작업 알림</b><span class="fd">완료 · 실패</span></div>
-        <div class="feat"><b>로그</b><span class="fd">에러·성공/실패·재시도</span></div>
-        <div class="feat"><b>도서 관리</b><span class="fd">등록·수정·삭제·재고·위치</span></div>
-        <div class="feat"><b>서가 관리</b><span class="fd">섹션 변경·배치 지도</span></div>
-        <div class="feat"><b>정리·분류 리포트</b><span class="fd">수행·분류·정리 결과</span></div>
-        <div class="feat"><b>회원 관리</b><span class="fd">정보·대출 이력</span></div>
-        <div class="feat"><b>대여·반납 처리</b></div>
-        <div class="feat"><b>통합 검색</b><span class="fd">도서·위치·회원</span></div>
-        <div class="feat"><b>야간 보안</b><span class="fd">운영모드·침입 알림·영상</span></div>
-        <div class="feat"><b>통계·리포트</b><span class="fd">대출·작업 통계</span></div>
+      <div class="gcell anim" style="--d:3">
+        <div class="dev-phone"><img src="https://images.prismic.io/asd0821/sWLOCKyR3kNClIBI_gui_member.png?auto=format,compress" alt="회원 모바일 앱 홈"></div>
+        <div class="gcap"><div class="role">library_member_browser</div><h4>회원 UI</h4><p>음성·검색 요청 · 내부 지도 · 추천 · 도서 이송 요청</p></div>
+      </div>
+      <div class="gcell anim" style="--d:4">
+        <div class="dev-tab"><img src="https://images.prismic.io/asd0821/gs4WuEJXIS3RhnnW_gui_libi.png?auto=format,compress" alt="로봇 터치패널 Libi GUI"></div>
+        <div class="gcap"><div class="role">libi_gui</div><h4>Libi GUI</h4><p>길잡이 · 검색 · 추천 · 표정 · 비상정지 · 에러 동작</p></div>
       </div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 사서 UI</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide gui-slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">로봇 QT 터치패널</span></h2>
-    </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
-        <div class="dev-tab"><img src="img/gui_libi_home.png" alt="로봇 터치패널 Libi GUI"></div>
-        <div class="gcap"><div class="role">libi_gui</div><h4>로봇 QT 터치패널</h4></div>
-      </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>관리자 모드 로그인</b></div>
-        <div class="feat"><b>대기·홈</b><span class="fd">인사·표정 · 순회 중 표시</span></div>
-        <div class="feat"><b>친밀감 인터랙션</b><span class="fd">손인사·표정</span></div>
-        <div class="feat"><b>길잡이</b><span class="fd">목적지 선택 → 앞장 · 지도·거리·상태</span></div>
-        <div class="feat"><b>검색</b><span class="fd">도서·시설 → 위치 지도</span></div>
-        <div class="feat"><b>추천</b></div>
-        <div class="feat"><b>작업·안내 상태 표시</b></div>
-        <div class="feat"><b>비상정지</b></div>
-      </div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 로봇 터치패널</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · GUI</b></span><span class="pg"></span></footer>
   </section>
 
 
@@ -778,18 +695,18 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <div class="sbody"><div class="issues3">
       <div class="iss" style="--ac2:var(--alert);--d:2">
         <div class="ihead"><span class="ino">01</span><span class="it">CPU 점유율 · 정밀주행 (Pi4)</span></div>
-        <div class="issimg two"><img src="img/cpu_htop_73.png" alt="CPU bringup 73%"><img src="img/cpu_htop_97_aruco.png" alt="CPU 97% · ArUco 검출"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>순수 bringup만 <b>60~80%</b> → ArUco·UDP 영상 송출 시 <b>97%↑</b> (load 15·19.5FPS). nav2 주행 토픽까지 받으면 추가 악화 우려.</p></div><div><div class="ilab">대응</div><p>BT로 프로세스 사용/미사용 구간 구분 · perception AI 서버 오프로딩 · 노드 경량화.</p></div></div>
+        <div><div class="ilab">현상</div><p>순수 bringup만 <b>60~80%</b> → ArUco·UDP 영상 송출 시 <b>97%↑</b> (load 15·19.5FPS). nav2 주행 토픽까지 받으면 추가 악화 우려.</p></div>
+        <div><div class="ilab">대응</div><p>BT로 프로세스 사용/미사용 구간 구분 · perception AI 서버 오프로딩 · 노드 경량화.</p></div>
       </div>
       <div class="iss" style="--ac2:var(--gold-deep);--d:3">
         <div class="ihead"><span class="ino">02</span><span class="it">GUIDE 기능 · 카메라 추가</span></div>
-        <div class="issimg"><img src="img/guide_mode.png" alt="길잡이 GUIDE MODE"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>길잡이(SR-11) 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div><div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div></div>
+        <div><div class="ilab">현상</div><p>길잡이(SR-11) 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div>
+        <div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div>
       </div>
       <div class="iss" style="--ac2:var(--teal);--d:4">
         <div class="ihead"><span class="ino">03</span><span class="it">바구니 모델 선정</span></div>
-        <div class="issimg"><img src="img/return_basket.jpg" alt="도서반납함 · 바구니"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (AR-31 Sprint 2부터 진행 중) · grab 방식(AR-49)도 미착수 → 분류·이송 시나리오 블로킹.</p></div><div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div></div>
+        <div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (AR-31 Sprint 2부터 진행 중) · grab 방식(AR-49)도 미착수 → 분류·이송 시나리오 블로킹.</p></div>
+        <div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
@@ -803,7 +720,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="srtag anim" style="--d:2"><b>Sprint 4</b> · 2026.07.06 – 07.12 · 목표 전체 기능 20% · v0.2 · Jira arte1 · 12건</div>
     </header>
     <div class="sbody"><div class="jira2">
-      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_sprint4_full.png" alt="Jira Sprint 4 보드"></div>
+      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_sprint4.png" alt="Jira Sprint 4 보드"></div>
       <div class="jtbl anim" style="--d:4">
         <div class="jtbl-cap">Sprint 4 · 영역별 요약</div>
         <table>
@@ -811,11 +728,11 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
           <tr><td>정밀주행</td><td>ArUco · Line tracing<b>진행</b></td></tr>
           <tr><td>딥러닝 모델</td><td>바구니 · 핑키+사람<b>진행</b></td></tr>
           <tr><td>로봇팔 파지</td><td>배치 검토<b>진행</b> · 실물<b class="t">예정</b></td></tr>
-          <tr><td>Tracking</td><td>관련 조사<b class="d">완료</b> · 실물<b class="t">예정</b></td></tr>
-          <tr><td>서버 · FMS</td><td>FMS slotcar<b>진행</b> · Server<b class="d">완료</b></td></tr>
+          <tr><td>Tracking</td><td>관련 조사 · 실물<b class="t">예정</b></td></tr>
+          <tr><td>서버 · FMS</td><td>FMS slotcar<b>진행</b> · Server<b class="t">예정</b></td></tr>
           <tr><td>분류 · 바구니</td><td>분류 조사<b>진행</b> · grab<b class="t">예정</b></td></tr>
         </table>
-        <div class="jtbl-foot">완료 2 · 진행 7 · 예정 3 · 총 12건</div>
+        <div class="jtbl-foot">진행 7 · 예정 5 · 총 12건</div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>This Week · Jira</b></span><span class="pg"></span></footer>
@@ -829,8 +746,8 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     </header>
     <div class="sbody"><div class="plan five">
         <div class="plancard anim" style="--d:2"><h4><span class="pi">Sprint 4</span> 7.6 – 7.10</h4><div class="pspr">구현 · 진행 중</div><div class="pgoal">구현 인프라 착수 → 이동(sim)·추종 기본</div><div class="pmile">전체 기능 20% · v0.2</div><div class="pbar"><span style="width:20%"></span></div><div class="plabel">개발 항목</div><ul><li><b>서버 구축</b><span class="pd">태스크 접수·상태 브리지</span></li><li><b>FMS sim 주행</b><span class="pd">slotcar, 배차+교통+PathRequest</span></li><li><b>정밀주행 착수</b><span class="pd">ArUco·Line·Nav2/PID</span></li><li><b>딥러닝 모델 1차</b><span class="pd">바구니·사람 모형 인식</span></li><li><b>추종(tracking) 기본</b><span class="pd">drive→ai_service→주행 제어</span></li><li><b>이동 시나리오 통합</b><span class="pd">접수→배차→주행→도착 통지</span></li></ul></div>
-        <div class="plancard anim" style="--d:3"><h4><span class="pi">Sprint 5</span> 7.13 – 7.17</h4><div class="pspr">구현</div><div class="pgoal">실물주행 전환 · 이송·진열·짐꾼 완성</div><div class="pmile">전체 기능 50% · v0.3</div><div class="pbar"><span style="width:50%"></span></div><div class="plabel">개발 항목</div><ul><li><b>정밀주행 마감</b></li><li><b>로봇팔(Handy) 신규 구현</b><span class="pd">pick/place/align (코드 전무→착수)</span></li><li><b>이송 시나리오</b><span class="pd">서가 도킹→픽업→목적지→배치</span></li><li><b>진열 시나리오</b><span class="pd">바구니 책 인식→해당 서가 배치</span></li><li><b>짐꾼(추종) 완성</b><span class="pd">놓쳤을 때 복구: 10초→좌우30°→180°→순찰전환</span></li><li><b>딥러닝 모델 최종</b><span class="pd">실물 데이터 학습·인식 정확도 마감</span></li></ul></div>
-        <div class="plancard anim" style="--d:4"><h4><span class="pi">Sprint 6</span> 7.20 – 7.24</h4><div class="pspr">구현</div><div class="pgoal">분류·길잡이 · 회원·사서 UI · 실시간 연동</div><div class="pmile">전체 기능 80% · v0.4</div><div class="pbar"><span style="width:80%"></span></div><div class="plabel">개발 항목</div><ul><li><b>분류(arm_sort)</b><span class="pd">수거함→인식→기준 판정→분류 배치</span></li><li><b>길잡이</b><span class="pd">목적지 조회→앞장→동행 검증→도착 통지</span></li><li><b>회원 UI</b><span class="pd">검색·추천(LLM)·음성 요청·로봇 추적</span></li><li><b>사서 UI</b><span class="pd">대출·반납·도서/회원 관리·모니터링</span></li><li><b>GUI 실시간 연동</b><span class="pd">폴링 탈피, 위치·상태·영상 실시간</span></li></ul></div>
+        <div class="plancard anim" style="--d:3"><h4><span class="pi">Sprint 5</span> 7.13 – 7.17</h4><div class="pspr">구현</div><div class="pgoal">실물주행 전환 · 이송·진열·짐꾼 완성</div><div class="pmile">전체 기능 50% · v0.3</div><div class="pbar"><span style="width:50%"></span></div><div class="plabel">개발 항목</div><ul><li><b>정밀주행 마감</b><span class="pd">ArUco 도킹 정렬·Line tracing (실물)</span></li><li><b>로봇팔(Handy) 신규 구현</b><span class="pd">pick/place/align (코드 전무→착수)</span></li><li><b>이송 시나리오</b><span class="pd">서가 도킹→픽업→목적지→배치</span></li><li><b>진열 시나리오</b><span class="pd">바구니 책 인식→해당 서가 배치</span></li><li><b>짐꾼(추종) 완성</b><span class="pd">놓쳤을 때 복구: 10초→좌우30°→180°→순찰전환</span></li><li><b>딥러닝 모델 최종</b><span class="pd">실물 데이터 학습·인식 정확도 마감</span></li></ul></div>
+        <div class="plancard anim" style="--d:4"><h4><span class="pi">Sprint 6</span> 7.20 – 7.24</h4><div class="pspr">구현</div><div class="pgoal">분류·길잡이 · 회원·사서 UI · 실시간 연동</div><div class="pmile">전체 기능 80% · v0.4</div><div class="pbar"><span style="width:80%"></span></div><div class="plabel">개발 항목</div><ul><li><b>분류(arm_sort)</b><span class="pd">수거함→인식→기준 판정→분류 배치</span></li><li><b>길잡이</b><span class="pd">목적지 조회→앞장→동행 검증→도착 통지</span></li><li><b>회원 UI</b><span class="pd">검색·추천(LLM)·음성 요청·로봇 추적</span></li><li><b>사서 UI</b><span class="pd">대출·반납·도서/회원 관리·모니터링</span></li><li><b>실시간 채널</b><span class="pd">WS(robot·task-state)·MJPEG·UDP(Image→AI)</span></li><li><b>GUI 실시간 연동</b><span class="pd">폴링 탈피, 위치·상태·영상 실시간</span></li></ul></div>
         <div class="plancard anim" style="--d:5"><h4><span class="pi">Sprint 7</span> 7.27 – 7.31</h4><div class="pspr">구현</div><div class="pgoal">순찰·보안 + 전체 통합·멀티로봇</div><div class="pmile">전체 기능 100% · v0.5</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>실물주행 전환</b><span class="pd">FMS 주행 sim→실물 로봇 이관</span></li><li><b>순찰</b><span class="pd">경로 7분30초 주행→자동 복귀, 사람감지→추적·녹화</span></li><li><b>야간 보안</b><span class="pd">day/night 전환·침입 알림·현장 영상</span></li><li><b>전체 통합</b><span class="pd">8종 순차/동시 실행, 예외(배터리→충전·비상정지)</span></li><li><b>멀티로봇 검증</b><span class="pd">배차×교통 조합, 교차·병목 충돌 회피</span></li></ul></div>
         <div class="plancard anim" style="--d:6"><h4><span class="pi">Sprint 8</span> 8.3 – 8.7</h4><div class="pspr">안정화</div><div class="pgoal">기능 동결 → 안정화·검증·발표 준비</div><div class="pmile">품질 100% · v1.0</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>버그·성능 안정화</b><span class="pd">결함 수정, 신규 기능 동결</span></li><li><b>CPU 부하 대응</b><span class="pd">WS+비전 동시구동 계측·완화</span></li><li>온디바이스 vs AI 서버 추론 배치 최종 결정</li><li><b>검증 종합</b><span class="pd">v0.3~0.5 → Validation Report, SR 충족 매트릭스</span></li><li><b>발표 준비</b><span class="pd">자료·데모 대본·리허설, 백업 플랜</span></li></ul></div>
       </div></div>
