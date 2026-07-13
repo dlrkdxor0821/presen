@@ -576,7 +576,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .alg-steps li::before{content:counter(st);position:absolute;left:0;top:1px;width:17px;height:17px;border-radius:50%;background:var(--gold-deep);color:#fff;font-family:var(--mono);font-size:10.5px;font-weight:700;display:flex;align-items:center;justify-content:center}
 .alg-steps li b{color:var(--ink);font-weight:700}
 .alg-steps li code{font-family:var(--mono);font-size:.9em;background:var(--paper-2);color:var(--gold-deep);border-radius:3px;padding:0 3px;font-weight:600}
-.alg-sh{font-family:var(--mono);font-size:clamp(12px,1.15vw,15px);font-weight:700;letter-spacing:.05em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:5px}
+.alg-sh{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.05em;color:var(--gold-deep);text-transform:uppercase;margin-bottom:5px}
 .alg-sh.sec2{margin-top:7px;border-top:1px dashed var(--line);padding-top:8px}
 .alg-sub{font-size:clamp(12px,1.12vw,14.5px);line-height:1.34;color:var(--ink-2);margin-top:4px}
 .alg-sub b{color:var(--ink);font-weight:700}
@@ -613,6 +613,462 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .wf.vert .wf-s{font-size:clamp(8px,0.72vw,10.5px);white-space:nowrap}
 .wf.vert .wf-arr{align-self:center;color:var(--gold);font-weight:800;font-size:clamp(11px,1.1vw,15px);flex:none}
 
+/* ============================================================
+   ROADMAP TIMELINE  (템플릿: 타임라인 레이아웃 · 5칸)
+============================================================ */
+.rmtl{flex:1;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(6px,0.7vw,13px);align-content:center;min-height:0}
+.rmtl-step{position:relative;display:flex;flex-direction:column;gap:clamp(9px,1.4vh,15px);min-width:0}
+.rmtl-chev{position:relative;height:clamp(44px,5.8vh,58px);display:flex;align-items:center;
+  padding-left:clamp(38px,3.6vw,56px);color:#F4F1E8;background:linear-gradient(150deg,#27426f,#15223b);
+  clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%, 14px 50%)}
+.rmtl-step:first-child .rmtl-chev{clip-path:polygon(0 0, calc(100% - 15px) 0, 100% 50%, calc(100% - 15px) 100%, 0 100%)}
+.rmtl-chev .rmtl-stage{font-family:var(--mono);font-size:clamp(12px,1.2vw,16px);font-weight:700;letter-spacing:.04em}
+.rmtl-ico{position:absolute;left:calc(-1*clamp(7px,0.7vw,11px));top:calc(clamp(44px,5.8vh,58px)/2);transform:translateY(-50%);
+  width:clamp(40px,3.4vw,50px);height:clamp(40px,3.4vw,50px);border-radius:50%;z-index:5;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;border:3px solid var(--paper);
+  display:flex;align-items:center;justify-content:center;font-family:var(--serif);font-weight:600;
+  font-size:clamp(15px,1.4vw,21px);box-shadow:var(--sh-sm)}
+.rmtl-title{font-size:clamp(17px,1.8vw,23px);font-weight:700;color:var(--ink);line-height:1.25;padding-left:2px}
+.rmtl-period{font-family:var(--mono);font-size:clamp(11.5px,1.1vw,14.5px);font-weight:600;color:var(--gold-deep);padding-left:2px}
+.rmtl-list{list-style:none;display:flex;flex-direction:column;gap:9px;padding-left:2px}
+.rmtl-list li{position:relative;padding-left:15px;font-size:clamp(14px,1.4vw,17.5px);line-height:1.45;color:var(--ink-2)}
+.rmtl-list li::before{content:"";position:absolute;left:0;top:9px;width:6px;height:6px;border-radius:50%;background:var(--gold)}
+.rmtl-list li.sk{padding-left:0;height:9px;border-radius:5px;background:var(--line-soft)}
+.rmtl-list li.sk::before{display:none}
+.rmtl-list li.sk.w80{width:80%}
+
+/* ============================================================
+   TEAM CARDS  (템플릿: 팀원소개-4)
+============================================================ */
+.teamgrid{flex:1;display:grid;grid-template-columns:repeat(5,1fr);gap:clamp(9px,1.1vw,18px);align-content:center;min-height:0}
+.teamcard{background:var(--card);border:1px solid var(--line);border-radius:16px;box-shadow:var(--sh-sm);
+  padding:clamp(15px,2.2vh,24px) clamp(11px,1.1vw,18px);display:flex;flex-direction:column;align-items:center;
+  gap:clamp(8px,1.1vh,13px);min-width:0}
+.teamcard .tphoto{width:clamp(74px,6.1vw,98px);height:clamp(74px,6.1vw,98px);border-radius:50%;
+  border:2px dashed var(--gold-line);background:var(--paper-2);display:flex;flex-direction:column;align-items:center;justify-content:center;
+  font-family:var(--mono);font-size:12px;font-weight:600;color:var(--ink-3);letter-spacing:.04em;line-height:1.3;text-align:center;overflow:hidden}
+.teamcard .tphoto small{font-size:9px;font-weight:500;letter-spacing:.06em;opacity:.85}
+.teamcard .tphoto img{width:100%;height:100%;object-fit:cover;border-radius:50%}
+.teamcard .tphoto.nav{border-color:#8FCFC6;background:var(--teal-soft);color:var(--teal)}
+.teamcard .tphoto.arm{border-color:var(--gold-line);background:var(--gold-soft);color:var(--gold-deep)}
+.teamcard .tphoto.filled{border-style:solid;padding:0}
+.teamcard .tphoto svg{width:100%;height:100%;display:block}
+.teamcard .tname{font-size:clamp(16px,1.5vw,21px);font-weight:700;color:var(--ink)}
+.teamcard .trole{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.04em;color:var(--gold-deep);
+  background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:20px;padding:4px 14px}
+.teamcard .tdiv{width:100%;height:1px;background:var(--line);margin:3px 0}
+.teamcard .tsec{width:100%;display:flex;flex-direction:column;gap:7px}
+.teamcard .tlab{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.05em;color:var(--ink-2)}
+.teamcard .skl{height:8px;border-radius:5px;background:var(--line-soft)}
+.teamcard .skl.w80{width:80%}.teamcard .skl.w60{width:60%}
+.teamcard .tchips{display:flex;gap:7px}
+.teamcard .tchip{flex:1;height:21px;border-radius:11px;background:var(--gold-soft)}
+.teamcard .twork{list-style:none;display:flex;flex-direction:column;gap:5px}
+.teamcard .twork li{position:relative;padding-left:12px;font-size:clamp(11.5px,1.02vw,13px);line-height:1.36;color:var(--ink-2)}
+.teamcard .twork li::before{content:"";position:absolute;left:0;top:6px;width:4px;height:4px;border-radius:50%;background:var(--gold)}
+.teamcard .tchips.f{flex-wrap:wrap;gap:6px}
+.teamcard .tchip.f{flex:none;height:auto;padding:4px 11px;border-radius:11px;background:var(--gold-soft);
+  font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gold-deep);display:flex;align-items:center;white-space:nowrap}
+.teamcard .wgrp{display:flex;flex-direction:column;gap:3px}
+.teamcard .wgrp+.wgrp{margin-top:6px}
+.teamcard .wg-h{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;color:var(--gold-deep)}
+.teamcard .twork.sm li{font-size:clamp(10.5px,0.95vw,12px);line-height:1.3;padding-left:11px}
+.teamcard .twork.sm li::before{top:6px;width:3.5px;height:3.5px}
+.teamcard .wsub{list-style:none;display:flex;flex-direction:column;gap:2px;margin-top:2px}
+.teamcard .wsub li{position:relative;padding-left:12px;font-size:clamp(9.5px,0.85vw,11px);line-height:1.28;color:var(--ink-3)}
+.teamcard .wsub li::before{content:"";position:absolute;left:2px;top:6px;width:5px;height:1.5px;border-radius:1px;background:var(--ink-3)}
+
+/* ============================================================
+   LAYOUT-ONLY FRAME HELPERS (추종/관제 · 템플릿 참고)
+============================================================ */
+.skln{height:10px;border-radius:5px;background:var(--line-soft)}
+.skln.w80{width:80%}.skln.w60{width:60%}.skln.w40{width:40%}
+/* 2-분할 (좌 미디어 / 우 설명) */
+.fx2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,2.4vw,42px);min-height:0;align-items:stretch}
+.fx2.wide-l{grid-template-columns:1.25fr 1fr}
+.fx2.wide-r{grid-template-columns:1fr 1.25fr}
+.mbox{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,1.2vh,12px);text-align:center;
+  border:1.6px dashed var(--gold-line);border-radius:15px;color:var(--ink-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;padding:18px;
+  background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(192,133,42,.05) 11px 22px),var(--paper-2)}
+.mbox b{color:var(--gold-deep);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.mbox .play{width:clamp(46px,3.6vw,58px);height:clamp(46px,3.6vw,58px);border-radius:50%;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-size:18px;box-shadow:var(--sh-sm)}
+.frameside{display:flex;flex-direction:column;justify-content:center;gap:clamp(11px,1.7vh,19px);min-height:0}
+.frameside .fs-h{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gold-deep)}
+/* 번호 리스트 (스켈레톤) */
+.numlist{list-style:none;display:flex;flex-direction:column;gap:clamp(10px,1.6vh,17px)}
+.numlist li{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:center}
+.numlist li .n{width:clamp(26px,2vw,30px);height:clamp(26px,2vw,30px);border-radius:50%;flex-shrink:0;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;font-family:var(--serif);font-weight:600;font-size:15px;
+  display:flex;align-items:center;justify-content:center}
+.numlist li .lines{display:flex;flex-direction:column;gap:7px}
+/* N-카드 그리드 */
+.cardgrid{flex:1;display:grid;grid-template-columns:repeat(var(--n,3),1fr);gap:clamp(14px,1.7vw,26px);min-height:0}
+.fcard{position:relative;display:flex;flex-direction:column;gap:clamp(9px,1.3vh,14px);min-width:0;
+  background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--gold-deep);border-radius:14px;box-shadow:var(--sh-sm);
+  padding:clamp(16px,2.2vh,24px) clamp(15px,1.4vw,22px)}
+.fcard .fc-ico{width:clamp(40px,3vw,50px);height:clamp(40px,3vw,50px);border-radius:13px;
+  background:linear-gradient(150deg,#27426f,#15223b);display:flex;align-items:center;justify-content:center;font-size:clamp(19px,1.6vw,25px)}
+.fcard .fc-t{font-size:clamp(15px,1.45vw,20px);font-weight:650;color:var(--ink)}
+.fcard .fc-body{flex:1;display:flex;flex-direction:column;justify-content:flex-start;gap:9px;margin-top:clamp(6px,1vh,12px)}
+.fcard .numlist{margin-top:3px}
+.fcard .cardvid{flex:1;min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(6px,1vh,10px);text-align:center;
+  border:1.5px dashed var(--gold-line);border-radius:11px;font-family:var(--mono);font-size:11px;color:var(--ink-3);padding:10px;
+  background:repeating-linear-gradient(135deg,transparent 0 10px,rgba(192,133,42,.05) 10px 20px),var(--paper)}
+.fcard .cardvid b{color:var(--gold-deep);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700}
+.fcard .cardvid .play{width:clamp(38px,3vw,46px);height:clamp(38px,3vw,46px);border-radius:50%;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-size:15px;box-shadow:var(--sh-sm)}
+/* 목표 배너 */
+.gbanner{flex:0 0 auto;display:flex;align-items:center;gap:clamp(13px,1.4vw,20px);margin-bottom:clamp(14px,1.9vh,22px);
+  background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:13px;padding:clamp(13px,1.7vh,19px) clamp(16px,1.6vw,24px)}
+.gbanner .gb-l{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);flex:0 0 auto}
+.gbanner .gb-lines{flex:1;display:flex;flex-direction:column;gap:8px}
+
+/* ============================================================
+   PROGRESS CARD BODY — 스켈레톤 자리에 채우는 실제 내용
+============================================================ */
+.clist{list-style:none;display:flex;flex-direction:column;gap:clamp(4px,0.7vh,7px)}
+.clist li{position:relative;padding-left:14px;font-size:clamp(11.5px,0.98vw,13.5px);line-height:1.42;color:var(--ink-2)}
+.clist li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold)}
+.clist li b{color:var(--ink);font-weight:650}
+.clist li ul{list-style:none;margin-top:3px;display:flex;flex-direction:column;gap:3px}
+.clist li ul li{padding-left:12px;font-size:clamp(10.5px,0.9vw,12px);color:var(--ink-3);line-height:1.36}
+.clist li ul li::before{width:6px;height:1.5px;border-radius:1px;top:8px;background:var(--ink-3)}
+.fc-lab{font-family:var(--mono);font-size:13px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--gold-deep);margin:4px 0 0}
+.fc-lab.t{color:var(--teal)}
+.fc-lab.first{margin-top:0}
+.fc-note{font-size:clamp(10.5px,0.9vw,12px);line-height:1.4;color:var(--ink-3)}
+.fc-note b{color:var(--alert);font-weight:700}
+.fc-tech{display:flex;flex-wrap:wrap;gap:5px;margin-top:3px}
+.fc-tech span{font-family:var(--mono);font-size:10.5px;font-weight:600;color:var(--gold-deep);background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:6px;padding:3px 8px}
+.fc-flow{display:flex;flex-direction:column;gap:2px;margin-top:3px}
+.fc-flow span{font-size:clamp(11px,0.95vw,13px);font-weight:600;color:var(--ink);background:var(--paper-2);border:1px solid var(--line);border-left:3px solid var(--gold-deep);border-radius:7px;padding:5px 10px}
+.fc-flow i{align-self:center;color:var(--gold);font-weight:800;font-size:10px;line-height:.9;font-style:normal}
+.fc-flow.tc span{border-left-color:var(--teal)}
+
+/* ============================================================
+   좌측 GIF + 우측 섹션카드  (템플릿: 왼쪽사진오른쪽글)  — 관제·추종
+============================================================ */
+.gifsplit{flex:1;display:grid;grid-template-columns:0.92fr 1.18fr;gap:clamp(18px,2.4vw,40px);min-height:0;align-items:stretch}
+.gifsplit.wide-cards{grid-template-columns:0.8fr 1.3fr}
+.gifbox{min-height:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:clamp(8px,1.2vh,13px);text-align:center;
+  border:1.6px dashed var(--gold-line);border-radius:16px;color:var(--ink-3);font-family:var(--mono);font-size:12.5px;letter-spacing:.02em;padding:18px;
+  background:repeating-linear-gradient(135deg,transparent 0 11px,rgba(192,133,42,.05) 11px 22px),var(--paper-2)}
+.gifbox b{color:var(--gold-deep);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700}
+.gifbox .play{width:clamp(48px,3.8vw,60px);height:clamp(48px,3.8vw,60px);border-radius:50%;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;display:flex;align-items:center;justify-content:center;font-size:19px;box-shadow:var(--sh-sm)}
+.gifbox.filled{border-style:solid;border-color:var(--line);background:#0E1730;padding:9px;overflow:hidden}
+.gifbox.filled img,.gifbox.filled video{width:100%;height:100%;object-fit:contain;border-radius:10px}
+.gifbox .gcap{font-family:var(--mono);font-size:11px;letter-spacing:.03em;color:var(--ink-3)}
+.seccards{display:flex;flex-direction:column;gap:clamp(6px,0.95vh,11px);min-height:0;justify-content:center}
+.seccard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ac,var(--gold-deep));border-radius:12px;
+  padding:clamp(8px,1.15vh,13px) clamp(12px,1.25vw,17px);box-shadow:var(--sh-sm)}
+.seccard .sc-h{display:flex;align-items:center;gap:9px;margin-bottom:4px}
+.seccard .sc-n{font-family:var(--mono);font-size:11px;font-weight:700;color:#fff;background:var(--ac,var(--gold-deep));border-radius:6px;padding:2px 8px;letter-spacing:.03em;flex:0 0 auto}
+.seccard .sc-t{font-size:clamp(14px,1.35vw,17.5px);font-weight:700;color:var(--ink);line-height:1.2}
+.seccard .sc-tech{font-family:var(--mono);font-size:clamp(9.5px,0.88vw,11.5px);color:var(--gold-deep);margin-left:auto;font-weight:600;text-align:right;line-height:1.3}
+.seccard .sc-b{font-size:clamp(11.5px,1.02vw,13.5px);line-height:1.46;color:var(--ink-2)}
+.seccard .sc-b b{color:var(--ink);font-weight:650}
+.seccard .sc-b .sep{color:var(--gold);font-weight:700;margin:0 4px}
+.seccard:nth-of-type(2){--ac:var(--teal)}
+.seccard.fut{--ac:var(--gold-bright);background:var(--gold-soft);border-color:var(--gold-line)}
+.seccard.fut .sc-n{background:var(--gold-deep)}
+/* 통합 슬라이드 — 좌 GIF + 우 2열 카드 그리드 */
+.gifsplit.merged{grid-template-columns:0.58fr 1.62fr}
+.seccards.grid2{display:grid;grid-template-columns:1fr 1fr;grid-auto-rows:1fr;gap:clamp(7px,1vh,12px);align-content:stretch}
+.seccards.grid2 .seccard{display:flex;flex-direction:column;justify-content:center}
+.seccards.grid2 .sc-h{flex-wrap:wrap;gap:3px 8px}
+.seccards.grid2 .sc-tech{margin-left:auto}
+.seccards.grid2 .clist li{font-size:clamp(11px,0.95vw,13px)}
+/* 우측 = 시나리오 + 사용 기술 2섹션 */
+.rightsplit{display:flex;flex-direction:column;gap:clamp(4px,0.7vh,7px);min-height:0;justify-content:center}
+.rsec{display:flex;flex-direction:column;gap:clamp(6px,0.9vh,10px);min-height:0}
+.rsec-h{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);display:flex;align-items:center;gap:9px}
+.rsec-h::before{content:"";width:18px;height:2px;background:var(--gold);flex:0 0 auto}
+.rsec-h .cnt{color:var(--ink-3);font-weight:500;letter-spacing:.02em}
+.scflow{display:flex;flex-wrap:wrap;align-items:center;gap:6px 5px}
+.scflow .st{font-size:clamp(11px,0.98vw,13.5px);font-weight:600;color:var(--ink);background:var(--card);border:1px solid var(--line);border-radius:8px;padding:6px 12px;box-shadow:var(--sh-sm);line-height:1.25}
+.scflow .st b{color:var(--gold-deep);font-weight:700}
+.scflow .st.key{background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));border-color:transparent;color:#fff}
+.scflow .st.key b{color:#fff}
+.scflow .st.alert{background:var(--alert-soft);border-color:#EbC9BF;color:var(--alert)}
+.scflow .ar{color:var(--gold);font-weight:800;font-size:13px;flex:0 0 auto}
+.techmini{display:grid;grid-template-columns:1fr 1fr;gap:clamp(7px,1.1vh,12px) clamp(14px,1.6vw,26px)}
+.techmini.c3{grid-template-columns:1fr 1fr 1fr}
+.techmini .tm{border-left:3px solid var(--ac,var(--gold-deep));padding:1px 0 2px 11px}
+.techmini .tm:nth-child(2){--ac:var(--teal)}
+.techmini .tm .tt{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap}
+.techmini .tm .tt b{font-size:clamp(12.5px,1.1vw,14.5px);color:var(--ink);font-weight:700}
+.techmini .tm .tg{font-family:var(--mono);font-size:clamp(9.5px,0.85vw,11px);color:var(--gold-deep);font-weight:600}
+.techmini .tm p{font-size:clamp(10.5px,0.92vw,12.5px);line-height:1.42;color:var(--ink-2);margin-top:2px}
+.techmini .tm p b{color:var(--ink);font-weight:650}
+/* 관제 통합 — 좌 흐름도 + 우 3등분(배차/교통/향후) */
+.fmsplit{flex:1;display:grid;grid-template-columns:0.82fr 1.65fr;gap:clamp(16px,2vw,32px);min-height:0}
+.fmflow{min-height:0;display:flex;flex-direction:column;align-items:stretch;gap:clamp(8px,1.2vh,14px);
+  border:1px solid var(--line);border-radius:14px;background:#fff;box-shadow:var(--sh-sm);padding:clamp(13px,1.9vh,20px) clamp(11px,1vw,16px)}
+.fmcols{display:flex;flex-direction:column;gap:clamp(9px,1.3vh,15px);min-height:0;justify-content:center}
+.fmcard{background:var(--card);border:1px solid var(--line);border-left:4px solid var(--ac,var(--gold-deep));border-radius:13px;box-shadow:var(--sh-sm);
+  padding:clamp(10px,1.5vh,16px) clamp(15px,1.4vw,22px)}
+.fmcard.tc{--ac:var(--teal)}
+.fmcard.fut{--ac:var(--gold-bright);background:var(--gold-soft);border-color:var(--gold-line)}
+.fmcard-h{display:flex;align-items:center;gap:10px;margin-bottom:5px;flex-wrap:wrap}
+.fmcard-h .t{font-size:clamp(15px,1.4vw,19px);font-weight:700;color:var(--ink)}
+.fmcard-h .tag{font-family:var(--mono);font-size:clamp(9.5px,0.9vw,11.5px);font-weight:700;color:#F4F1E8;background:var(--ac,var(--gold-deep));border-radius:6px;padding:3px 10px;margin-left:auto}
+.fmsplit.hasgif{grid-template-columns:0.62fr 0.72fr 1.5fr}
+/* 사용 기술 — 기술 설명 포함 카드 그리드 */
+.techcards{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(7px,1vh,11px) clamp(9px,1vw,14px)}
+.techcards .tc{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac,var(--gold-deep));border-radius:11px;padding:clamp(8px,1.1vh,12px) clamp(10px,1vw,14px);box-shadow:var(--sh-sm)}
+.techcards .tc:nth-child(3n+2){--ac:var(--teal)}
+.techcards .tc .th{display:flex;align-items:baseline;gap:7px;flex-wrap:wrap;margin-bottom:3px}
+.techcards .tc .th b{font-size:clamp(13.5px,1.2vw,16px);color:var(--ink);font-weight:700}
+.techcards .tc .th .g{font-family:var(--mono);font-size:clamp(9.5px,0.85vw,11px);color:var(--gold-deep);font-weight:600}
+.techcards .tc p{font-size:clamp(12px,1.02vw,14px);line-height:1.46;color:var(--ink-2)}
+.techcards .tc p b{color:var(--ink);font-weight:650}
+.futrow{display:flex;flex-wrap:wrap;gap:5px 8px}
+.futrow span{font-weight:600;color:var(--gold-deep);background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:8px;padding:3px 10px;line-height:1.3 !important}
+.futrow span b{color:var(--gold-deep)}
+/* 로봇팔 통합 — 좌 Pick·Grasp + 우 Place 상세 */
+.robotgrid{flex:1;display:grid;grid-template-columns:0.82fr 1.72fr;gap:clamp(15px,1.8vw,28px);min-height:0}
+.rg-left{display:flex;flex-direction:column;gap:clamp(10px,1.4vh,16px);min-height:0}
+.rg-left .fcard{flex:1;min-height:0}
+.placebig{min-height:0;display:flex;flex-direction:column;gap:clamp(7px,1vh,12px);
+  background:var(--paper-2);border:1px solid var(--line);border-top:3px solid var(--gold-deep);border-radius:14px;box-shadow:var(--sh-sm);
+  padding:clamp(12px,1.7vh,19px) clamp(14px,1.4vw,22px)}
+.placebig .pb-h{display:flex;align-items:baseline;gap:9px;flex-wrap:wrap}
+.placebig .pb-h b{font-size:clamp(15.5px,1.5vw,20px);color:var(--ink);font-weight:700}
+.placebig .pb-h b .hl{color:var(--gold-deep)}
+.placebig .pb-lead{font-size:clamp(11px,0.98vw,13px);line-height:1.42;color:var(--ink-2)}
+.placebig .pb-lead b{color:var(--gold-deep);font-weight:650}
+.placebig .pb-grid{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(10px,1.2vw,20px);min-height:0}
+.placebig .pb-col{display:flex;flex-direction:column;gap:clamp(4px,0.6vh,7px);min-height:0}
+.placebig .alg-steps li{font-size:clamp(11px,0.95vw,12.5px)}
+.placebig .statetbl td{padding:4px 7px;font-size:clamp(10.5px,0.9vw,12px)}
+.placebig .clist li{font-size:clamp(10.5px,0.9vw,12px)}
+.placebig .fc-tech span{font-size:10px;padding:2px 7px}
+
+/* ============================================================
+   도서 Place 상세  (슬롯 인식·추적)
+============================================================ */
+.placegrid{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(16px,2vw,32px);min-height:0;align-items:stretch}
+.placegrid.two{grid-template-columns:1fr 1fr}
+.placegrid.six{grid-auto-rows:1fr;gap:clamp(10px,1.4vh,16px) clamp(14px,1.8vw,28px)}
+.placegrid.six .pcolz{padding:clamp(11px,1.5vh,16px) clamp(13px,1.2vw,18px);gap:clamp(4px,0.7vh,8px)}
+.placegrid.six .clist li{font-size:clamp(11px,0.92vw,12.5px);line-height:1.4}
+.placegrid.six .alg-steps li{font-size:clamp(11.5px,1vw,13px)}
+.placegrid.six .statetbl td{padding:4px 8px;font-size:clamp(11px,0.95vw,13px)}
+.placegrid.six .fc-lab{font-size:12px}
+.pcolz{display:flex;flex-direction:column;gap:clamp(5px,0.9vh,10px);min-height:0;
+  background:var(--paper-2);border:1px solid var(--line-soft);border-radius:14px;box-shadow:var(--sh-sm);
+  padding:clamp(15px,2.2vh,24px) clamp(15px,1.4vw,22px)}
+.pcolz .clist,.pcolz .alg-steps{margin-top:2px}
+.statetbl{width:100%;border-collapse:collapse;margin-top:2px}
+.statetbl td{padding:6px 8px;border-bottom:1px solid var(--line-soft);font-size:clamp(12px,1.02vw,14px);color:var(--ink-2);line-height:1.3}
+.statetbl tr:last-child td{border-bottom:none}
+.statetbl td:first-child{font-family:var(--mono);font-weight:700;color:var(--gold-deep);white-space:nowrap;width:1%}
+.place-hi{flex:0 0 auto;display:flex;align-items:center;gap:clamp(13px,1.4vw,20px);margin-top:clamp(12px,1.7vh,20px);
+  background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:13px;padding:clamp(12px,1.6vh,18px) clamp(16px,1.7vw,24px)}
+.place-hi .ph-l{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--gold-deep);flex:0 0 auto}
+.place-hi p{flex:1;font-size:clamp(13px,1.18vw,16px);line-height:1.5;color:var(--ink)}
+.place-hi p b{color:var(--gold-deep);font-weight:700}
+/* 하단 향후계획 배너 (그리드 개요 슬라이드용) */
+.futbar{flex:0 0 auto;display:flex;align-items:center;gap:clamp(12px,1.4vw,22px);margin-top:clamp(12px,1.7vh,20px);
+  background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:13px;padding:clamp(11px,1.5vh,16px) clamp(16px,1.7vw,26px)}
+.futbar .fb-l{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep);flex:0 0 auto}
+.futbar ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px 26px;flex:1}
+.futbar li{position:relative;padding-left:15px;font-size:clamp(12px,1.05vw,14.5px);line-height:1.42;color:var(--ink)}
+.futbar li::before{content:"";position:absolute;left:0;top:8px;width:5px;height:5px;border-radius:50%;background:var(--gold-deep)}
+.futbar li b{color:var(--gold-deep);font-weight:700}
+/* 밀도 높은 카드 본문 — 카드당 4~6 bullet */
+.cardgrid.rich .fcard .fc-body{margin-top:clamp(8px,1.2vh,14px)}
+.cardgrid.rich .clist{gap:clamp(5px,0.85vh,9px)}
+.cardgrid.rich .clist li{font-size:clamp(12px,1.02vw,14px);line-height:1.48}
+
+/* ============================================================
+   발표용 v2 — 플로우차트 · 기술 위계 · 그룹불릿 · 향후 섹션
+============================================================ */
+/* 가로 번호 플로우차트 (시나리오 / Place 순서도) */
+.fchart{display:flex;align-items:flex-start;flex-wrap:wrap;justify-content:center;gap:clamp(4px,0.6vw,10px);row-gap:clamp(14px,2vh,24px)}
+.fchart .fn{display:flex;flex-direction:column;align-items:center;gap:clamp(8px,1.1vh,13px);width:clamp(118px,10.5vw,168px);text-align:center}
+.fchart .fn .num{width:clamp(46px,4vw,62px);height:clamp(46px,4vw,62px);border-radius:50%;flex:0 0 auto;
+  background:linear-gradient(150deg,var(--gold-bright),var(--gold-deep));color:#fff;font-family:var(--serif);font-weight:600;
+  font-size:clamp(19px,1.8vw,26px);display:flex;align-items:center;justify-content:center;box-shadow:var(--sh-sm)}
+.fchart .fn.alt .num{background:linear-gradient(150deg,#27426f,#15223b)}
+.fchart .fn.warn .num{background:linear-gradient(150deg,#D98A6A,var(--alert))}
+.fchart .fn .lb{font-size:clamp(14px,1.35vw,18px);font-weight:700;color:var(--ink);line-height:1.25}
+.fchart .fn .lb em{display:block;font-style:normal;font-weight:500;font-size:clamp(11px,1vw,13px);font-family:var(--mono);color:var(--ink-3);margin-top:4px;letter-spacing:.01em}
+.fchart .fn .lb small{display:block;font-size:clamp(11.5px,1.05vw,13.5px);color:var(--ink-2);font-weight:500;margin-top:5px;line-height:1.4}
+.fchart .arw{align-self:flex-start;margin-top:clamp(12px,1.4vw,22px);color:var(--gold);font-size:clamp(20px,2vw,30px);font-weight:800;flex:0 0 auto}
+.fchart.big .fn{width:clamp(140px,13vw,200px)}
+.fchart.big .fn .num{width:clamp(54px,4.6vw,72px);height:clamp(54px,4.6vw,72px);font-size:clamp(22px,2vw,30px)}
+.fchart.big .fn .lb{font-size:clamp(16px,1.5vw,21px)}
+
+/* 기술 위계 카드 — 핵심(크게+역할) + 보조(작게), 별점 */
+.capgrid{flex:1;display:grid;grid-template-columns:1fr 1fr 1fr;gap:clamp(11px,1.3vw,20px);min-height:0;align-content:stretch}
+.capcard{background:var(--card);border:1px solid var(--line);border-top:3px solid var(--ac,var(--gold-deep));border-radius:13px;box-shadow:var(--sh-sm);
+  padding:clamp(11px,1.5vh,17px) clamp(13px,1.3vw,19px);display:flex;flex-direction:column;gap:clamp(6px,0.9vh,10px);min-height:0}
+.capcard:nth-child(3n+2){--ac:var(--teal)}
+.capcard:nth-child(3n){--ac:var(--navy)}
+.capcard .cap-h{display:flex;align-items:center;gap:9px}
+.capcard .cap-h .ico{font-size:clamp(17px,1.5vw,21px)}
+.capcard .cap-h .nm{font-size:clamp(14.5px,1.35vw,18px);font-weight:700;color:var(--ink)}
+.capcard .cap-h .en{font-family:var(--mono);font-size:clamp(9.5px,0.85vw,11px);color:var(--ink-3);margin-left:auto}
+.tlead{border-left:3px solid var(--ac,var(--gold-deep));padding-left:11px}
+.tlead .tl-top{display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.tlead .tl-top b{font-size:clamp(14px,1.3vw,17px);color:var(--ink);font-weight:700}
+.stars{font-size:clamp(10px,0.95vw,12px);color:var(--gold);letter-spacing:1px;white-space:nowrap}
+.stars i{color:var(--line);font-style:normal}
+.tlead p{font-size:clamp(11.5px,1.02vw,13.5px);line-height:1.44;color:var(--ink-2);margin-top:3px}
+.tlead p b{color:var(--ink);font-weight:650}
+.tsubs{display:flex;flex-direction:column;gap:5px;margin-top:1px}
+.tsub{display:flex;align-items:baseline;gap:7px;font-size:clamp(11px,0.98vw,13px);color:var(--ink-2);line-height:1.35}
+.tsub .sn{font-weight:700;color:var(--ink);white-space:nowrap}
+.tsub .stars{font-size:9.5px}
+
+/* 그룹 불릿 — ■구현 / ■사용기술 / ■특징 */
+.grp{display:flex;flex-direction:column;gap:clamp(3px,0.5vh,6px)}
+.grp+.grp{margin-top:clamp(6px,0.9vh,11px)}
+.gh{font-size:clamp(12px,1.08vw,14px);font-weight:700;color:var(--navy);display:flex;align-items:center;gap:8px;letter-spacing:.01em}
+.gh::before{content:"";width:9px;height:9px;border-radius:2px;background:var(--ac,var(--gold-deep));flex:0 0 auto}
+.gh.t::before{background:var(--teal)}
+.gh .en{font-family:var(--mono);font-size:10px;color:var(--ink-3);font-weight:600}
+.grp .clist{margin-top:2px}
+
+/* 향후 계획 — 제대로 된 섹션 (얇은 바 금지) */
+.futsec{flex:0 0 auto;margin-top:clamp(12px,1.7vh,20px)}
+.futsec .fs-title{font-family:var(--mono);font-size:12.5px;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:var(--gold-deep);
+  display:flex;align-items:center;gap:10px;margin-bottom:clamp(9px,1.3vh,14px)}
+.futsec .fs-title::before{content:"";width:22px;height:2px;background:var(--gold)}
+.futsec .fs-title .cnt{color:var(--ink-3);font-weight:500;letter-spacing:.02em;text-transform:none}
+.futcards{display:grid;grid-template-columns:repeat(var(--fn,3),1fr);gap:clamp(11px,1.3vw,18px)}
+.futcard{background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:12px;padding:clamp(12px,1.6vh,17px) clamp(14px,1.3vw,19px);
+  display:flex;flex-direction:column;gap:6px}
+.futcard .fc-ic{font-size:clamp(18px,1.6vw,23px)}
+.futcard h5{font-size:clamp(13.5px,1.25vw,16px);font-weight:700;color:var(--gold-deep)}
+.futcard p{font-size:clamp(11.5px,1.02vw,13.5px);line-height:1.46;color:var(--ink-2)}
+.futcard p b{color:var(--ink);font-weight:650}
+/* 개선/한계 2분할 */
+.gaps2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,2.2vw,38px);min-height:0;align-content:center}
+.gapcol{display:flex;flex-direction:column;gap:clamp(9px,1.3vh,15px);min-height:0}
+.gapcol .gc-h{font-size:clamp(16px,1.5vw,20px);font-weight:700;color:var(--ink);display:flex;align-items:center;gap:10px}
+.gapcol .gc-h .badge{font-family:var(--mono);font-size:11px;font-weight:700;border-radius:6px;padding:3px 10px;letter-spacing:.04em}
+.gapcol.lim .gc-h .badge{color:var(--alert);background:var(--alert-soft)}
+.gapcol.fut .gc-h .badge{color:var(--gold-deep);background:var(--gold-soft)}
+.biglist{list-style:none;display:flex;flex-direction:column;gap:clamp(8px,1.2vh,14px)}
+.biglist li{position:relative;padding-left:22px;font-size:clamp(13.5px,1.25vw,16.5px);line-height:1.5;color:var(--ink-2)}
+.biglist li::before{content:"";position:absolute;left:0;top:9px;width:9px;height:9px;border-radius:50%;background:var(--ac,var(--gold))}
+.biglist li b{color:var(--ink);font-weight:700}
+.biglist li .sub{display:block;font-size:clamp(11.5px,1.02vw,13.5px);color:var(--ink-3);line-height:1.44;margin-top:3px;font-weight:500}
+.biglist.lim li::before{background:var(--alert)}
+/* 좌 GIF + 우 본문 (시나리오/기술 슬라이드 공용, 비율 조정) */
+.split6040{flex:1;display:grid;grid-template-columns:1fr 1.15fr;gap:clamp(18px,2.4vw,40px);min-height:0;align-items:stretch}
+.split6040.wide-r{grid-template-columns:0.82fr 1.5fr}
+.split6040 .s-right{display:flex;flex-direction:column;justify-content:center;gap:clamp(10px,1.5vh,18px);min-height:0}
+.split6040 .s-right .wf.vert{flex:1}
+.split6040 .s-right .note{font-size:clamp(11.5px,1.05vw,14px);line-height:1.5;color:var(--ink-2);background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--teal);border-radius:11px;padding:11px 15px}
+.split6040 .s-right .note b{color:var(--teal);font-weight:700}
+.alg2{flex:1;display:grid;grid-template-columns:1fr 1fr;gap:clamp(16px,2vw,32px);min-height:0;align-items:stretch}
+.alg2 .fmcard{display:flex;flex-direction:column}
+/* 관제 통합 슬라이드 — 좌 GIF + 우(상단 배차·교통 / 하단 플로우) */
+.mgr{flex:1;display:grid;grid-template-columns:0.8fr 1.78fr;gap:clamp(14px,1.8vw,28px);min-height:0}
+.mg-right{display:flex;flex-direction:column;justify-content:center;gap:clamp(14px,2vh,22px);min-height:0}
+.mg-top{display:grid;grid-template-columns:1fr 1fr;gap:clamp(12px,1.5vw,22px);align-items:stretch}
+.mg-top .fmcard{display:flex;flex-direction:column;justify-content:center}
+.mgr .gifbox{align-self:stretch}
+.mgr .alg-steps li{font-size:clamp(11px,0.95vw,13px)}
+.mgr .alg-sub{font-size:clamp(10.5px,0.9vw,12.5px)}
+.mgr .alg-p{font-size:clamp(11px,0.98vw,13.5px)}
+.mgr .alg-ladder li{font-size:clamp(11px,0.95vw,13px)}
+.mg-flow{background:var(--paper-2);border:1px solid var(--line-soft);border-left:4px solid var(--gold-deep);border-radius:12px;padding:clamp(5px,0.7vh,8px) clamp(12px,1.2vw,17px)}
+.mg-flow .mf-h{font-family:var(--mono);font-size:14px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep);margin-bottom:clamp(3px,0.5vh,6px)}
+.mg-flow .fchart{row-gap:clamp(8px,1.2vh,14px)}
+.mg-flow .fchart .fn{width:auto;flex:1;gap:5px}
+.mg-flow .fchart .fn .num{width:clamp(28px,2.4vw,36px);height:clamp(28px,2.4vw,36px);font-size:clamp(13px,1.2vw,17px)}
+.mg-flow .fchart .fn .lb{font-size:clamp(11.5px,1.05vw,14px)}
+.mg-flow .fchart .fn .lb em{margin-top:2px}
+.mg-flow .fchart .arw{margin-top:clamp(6px,0.7vw,10px);font-size:clamp(15px,1.5vw,22px)}
+.mg-flow .mf-foot{margin-top:clamp(8px,1.1vh,13px);padding-top:clamp(7px,1vh,11px);border-top:1px dashed var(--line);font-size:clamp(11px,0.98vw,13px);color:var(--ink-2)}
+.mg-flow .mf-foot b{color:var(--gold-deep);font-weight:700}
+/* 로봇팔 4박스 개요 — 좌 Pick·Place(세로) + 우상단 Grasp + 우하단 향후 */
+.armgrid{flex:1;display:grid;grid-template-columns:1fr 1fr 1.15fr;grid-template-rows:1fr auto;gap:clamp(12px,1.5vw,20px);min-height:0;
+  grid-template-areas:"pick place grasp" "pick place fut"}
+.armgrid .a-pick{grid-area:pick}
+.armgrid .a-place{grid-area:place}
+.armgrid .a-grasp{grid-area:grasp}
+.armgrid .a-fut{grid-area:fut}
+.armgrid .fcard{min-height:0}
+.armgrid .a-fut{background:var(--gold-soft);border:1px solid var(--gold-line);border-radius:13px;box-shadow:var(--sh-sm);
+  padding:clamp(11px,1.5vh,16px) clamp(13px,1.3vw,18px);display:flex;flex-direction:column;gap:6px}
+.armgrid .a-fut .fh{font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--gold-deep)}
+.armgrid .a-place .fc-tech span.more{background:var(--navy);color:#fff;border-color:transparent}
+/* 로봇팔 4박스 — 고밀도 (내용 유지) */
+.armgrid .fcard{padding:clamp(9px,1.2vh,14px) clamp(10px,1vw,15px);gap:clamp(4px,0.7vh,7px);overflow:hidden}
+.armgrid .fc-t{font-size:19px;font-weight:700;color:var(--ink)}
+.armgrid .fc-t .sub{font-family:var(--mono);font-size:.55em;color:var(--gold-deep);font-weight:600;margin-left:5px}
+.armgrid .grp{gap:2px}.armgrid .grp+.grp{margin-top:clamp(4px,0.7vh,7px)}
+.armgrid .gh{font-size:14px}
+.armgrid .gh::before{width:7px;height:7px}
+.armgrid .clist li{font-size:clamp(10px,0.86vw,11.8px);line-height:1.32;padding-left:12px}
+.armgrid .clist li::before{top:6px;width:4px;height:4px}
+.armgrid .tsubs{gap:3px}
+.armgrid .tsub{font-size:clamp(9.5px,0.82vw,11px);gap:5px}
+.armgrid .tsub .stars{font-size:8.5px}
+.armgrid .alg-steps{gap:clamp(3px,0.5vh,5px)}
+.armgrid .alg-steps li{font-size:clamp(10px,0.86vw,11.8px);padding-left:20px;line-height:1.3}
+.armgrid .alg-steps li::before{width:15px;height:15px;font-size:9px;top:0}
+.armgrid .fc-tech{gap:4px}
+.armgrid .fc-tech span{font-size:9px;padding:2px 6px}
+.armgrid .a-fut .clist{gap:5px}
+.armgrid .a-fut .clist li{font-size:clamp(10.5px,0.9vw,12.5px);line-height:1.38}
+.armgrid .a-fut .clist li b{color:var(--gold-deep)}
+/* 추종 1페이지 — 사용기술 카드(설명 포함) 컴팩트 그리드 */
+.capgrid.compact{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(5px,0.7vh,8px) clamp(8px,0.9vw,13px)}
+.capgrid.compact .capcard{padding:4px clamp(7px,0.8vw,10px);gap:1px;border-radius:10px;box-shadow:none;border-color:var(--line-soft)}
+.capgrid.compact .cap-h{gap:6px}
+.capgrid.compact .cap-h .ico{font-size:clamp(12px,1.1vw,14px)}
+.capgrid.compact .cap-h .nm{font-size:17px}
+.capgrid.compact .cap-h .en{font-size:8.5px}
+.capgrid.compact .tlead{padding-left:8px}
+.capgrid.compact .tlead .tl-top b{font-size:clamp(10.5px,0.95vw,12px)}
+.capgrid.compact .stars{font-size:8px}
+.capgrid.compact .tlead{padding-left:6px}
+.capgrid.compact .tlead p{margin-top:1px;line-height:1.2 !important}
+.capgrid.compact .tsubs{gap:0;margin-top:0}
+.capgrid.compact .tsub{gap:4px;line-height:1.18 !important}
+.capgrid.compact .tsub span:last-child{font-size:14px !important;line-height:1.18 !important}
+.capgrid.compact .cap-h{gap:5px;margin-bottom:-1px}
+
+/* ============================================================
+   본문 폰트 통일 — 22px (라벨/태그/기호 제외한 실제 본문 텍스트)
+============================================================ */
+.clist li,
+.tlead p,
+.tsub span:last-child,
+.alg-p,
+.alg-sub,
+.alg-steps li,
+.alg-ladder li,
+.biglist li,
+.futcard p,
+.futrow span,
+.grp .clist li,
+.seccard .sc-b,
+.wf-tx .wf-s,
+.wf-tx .wf-t,
+.statetbl td,
+.jtbl td,
+.sr-row .ds,
+.slead,
+.topic-desc,
+.tcard p,
+.feat .fd,
+.pbul li,
+.tgrp li,
+.techcards .tc p,
+.techmini .tm p {
+  font-size: 16px !important;
+  line-height: 1.4 !important;
+}
+
 </style>
 </head>
 <body>
@@ -621,7 +1077,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 
   <section class="slide cover dark">
     <div class="cv-text">
-      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 주간 진행 보고 · 2026.07.06</div>
+      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 주간 진행 보고 · 2026.07.14</div>
       <div class="cv-mark anim" style="--d:1">
         <span class="cv-aba">ABA</span>
         <span class="cv-full">Arte&nbsp;Book&nbsp;Assistance</span>
@@ -633,7 +1089,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <img src="libi.png" alt="리비(Libi) — 도서관에서 책을 집는 협동로봇">
     </div>
   </section>
-
 
   <section class="slide topic">
     <header class="shead">
@@ -672,198 +1127,388 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>도서관 사서 협동로봇</b></span><span class="pg"></span></footer>
   </section>
 
+  <!-- ===== 로봇팔 · 통합 (Pick/Place/Grasp/향후) ===== -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span> · Pick · Place · Grasp</h2>
+    </header>
+    <div class="sbody"><div class="armgrid anim" style="--d:3">
+      <div class="fcard a-pick">
+        <div class="fc-t">① 도서 파지 · Pick</div>
+        <div class="grp"><div class="gh">구현</div><ul class="clist">
+          <li><b>ArUco Marker</b>로 책의 3D Pose(위치·자세) 추정</li>
+          <li>추정 Pose 기준 접근 → <b>One-shot</b> 파지</li>
+        </ul></div>
+        <div class="grp"><div class="gh t">사용 기술 · 역할</div><div class="tsubs">
+          <div class="tsub"><span class="sn">ArUco</span><span>표지 마커로 3D 위치·자세 인식</span></div>
+          <div class="tsub"><span class="sn">PBVS</span><span>영상 기반 실시간 Visual Servoing</span></div>
+          <div class="tsub"><span class="sn">MoveL</span><span>직선 이동으로 안정 접근</span></div>
+        </div></div>
+        <div class="grp"><div class="gh">특징</div><ul class="clist">
+          <li>재시도 없이 한 번에 파지(One-shot)</li>
+          <li>조명·배경 변화에 강인 · 별도 센서 불필요</li>
+        </ul></div>
+      </div>
+      <div class="fcard a-place">
+        <div class="fc-t">② 도서 배치 · Place<span class="sub">슬롯 인식·추적</span></div>
+        <div class="grp"><div class="gh">동작 순서 · 딥러닝 없이</div>
+          <ol class="alg-steps">
+            <li><b>Slot Detection</b> — OpenCV로 2×3 슬롯 검출·ID(1~6)</li>
+            <li><b>ID Lock</b> — 목표 슬롯 ID 고정</li>
+            <li><b>Optical Flow</b> — 재인식 없이 위치만 추적</li>
+            <li><b>IBVS 정렬</b> — 슬롯 중심에 시각 서보</li>
+            <li><b>Place</b> — 배치 · 압전센서 유실 확인</li>
+          </ol>
+        </div>
+        <div class="grp"><div class="gh t">사용 기술 · 역할</div><div class="tsubs">
+          <div class="tsub"><span class="sn">OpenCV</span><span>LAB·Threshold·Morphology·Contour 검출</span></div>
+          <div class="tsub"><span class="sn">LK Flow</span><span>특징점 프레임 간 추적</span></div>
+          <div class="tsub"><span class="sn">RANSAC</span><span>이상치 제거 폴리곤 보정</span></div>
+          <div class="tsub"><span class="sn">IBVS</span><span>영상 서보로 슬롯 중심 정렬</span></div>
+        </div></div>
+        <div class="grp"><div class="gh">상태 · 특징</div>
+          <div class="fc-tech"><span>TRACK</span><span>EDGE</span><span>OUT</span><span>FLOW_LOST</span></div>
+          <ul class="clist"><li>화면 밖에도 <b>ID 유지</b> · RPi 실시간 · GPU/NPU 불필요</li></ul>
+        </div>
+      </div>
+      <div class="fcard a-grasp">
+        <div class="fc-t">③ 바구니 파지 · Grasp</div>
+        <div class="grp"><div class="gh">구현</div><ul class="clist">
+          <li><b>YOLO</b>로 반납 바구니를 실시간 인식</li>
+          <li>손잡이(끈) 파지점 선정 후 <b>Gripper</b> 파지</li>
+          <li>실패 시 <b>Miniature</b>(축소 환경) 대체 수행</li>
+        </ul></div>
+        <div class="grp"><div class="gh t">사용 기술 · 역할</div><div class="tsubs">
+          <div class="tsub"><span class="sn">YOLO</span><span>다양한 바구니 실시간 인식(딥러닝)</span></div>
+          <div class="tsub"><span class="sn">Gripper</span><span>파지점 선정·안정 파지</span></div>
+        </div></div>
+      </div>
+      <div class="a-fut">
+        <div class="fh">④ 향후 계획</div>
+        <ul class="clist">
+          <li>Pick <b>성공률</b> 향상 · 다양한 크기·형태 대응</li>
+          <li><b>Vision 보정</b>으로 위치 오차 감소</li>
+          <li>슬롯 인식 안정성 · ID Lock 자동 검증 · Recovery</li>
+        </ul>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
+  </section>
 
   <section class="slide">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 주행</div>
       <h2 class="stitle anim" style="--d:1">주행 <span class="hl">Navigation</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo dense anim" style="--d:3"><div class="ncol-photos"><div class="navph filled"><img src="https://images.prismic.io/asd0821/Z6U0TjheaLsGcQA3_libi_library_map_color.png?auto=format,compress" alt="Libi 도서관 배치도"></div><div class="navph filled"><img src="https://images.prismic.io/asd0821/YaJAcSIOM4b3lUYy_juhaeng_slam_costmap.png?auto=format,compress" alt="SLAM costmap · pinky_map"></div></div><div class="prow"><div class="pico">🚗</div><div class="plabel">진행사항</div><div class="pbul"><ul><li>현재 맵 환경에서 <b>Nav2 PKG로 주행 성공</b><ul><li>controller server : RPP</li><li>전반적인 Params 수정</li></ul></li><li><b>ArUco Marker</b> 이용 정밀 제어<ul><li>충전소 복귀 도킹 과정을 ArUco로 정밀제어 목표</li><li>3D Pose(X·Y·Yaw) 전환 / 정면 수직 도킹 시도</li><li>아직 원활히 이루어지지 않음</li></ul></li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">향후 계획</div><div class="pbul"><ul><li><b>Line tracing</b><ul><li>우선 기능 구현을 위해 Line tracing 시도</li><li>향후 ArUco 마커로 대체</li></ul></li><li><b>인원 분배</b><ul><li>로봇팔에 대부분의 인원 투자 → 주행을 혼자 담당</li><li>로봇팔 기술조사를 빠르게 끝내고 주행쪽으로 분배 조치</li></ul></li></ul></div></div></div></div>
+    <div class="sbody">
+      <div class="cardgrid rich anim" style="--d:3;--n:2">
+      <div class="fcard"><div class="fc-ico">🧭</div><div class="fc-t">전반적인 주행 · Navigation</div><div class="fc-body">
+        <ul class="clist">
+          <li><b>ROS2 Nav2</b> 기반 자율주행 — 전역·지역 경로를 생성해 목적지 도달</li>
+          <li><b>Waypoint 이동</b>으로 서가·데스크 등 지정 지점을 순차 방문</li>
+          <li>동적 장애물 감지 시 <b>감속·우회</b>로 안전 주행</li>
+          <li><b>GUI 원격 제어</b>로 관리자가 위치·경로를 모니터링·조작</li>
+          <li>사서 편의를 위한 <b>LLM</b> 기반 명령·도서 안내 기능 제공</li>
+        </ul>
+        <div class="fc-tech"><span>ROS2 Nav2</span><span>Waypoint</span><span>LLM UI</span></div>
+      </div></div>
+      <div class="fcard"><div class="fc-ico">🎯</div><div class="fc-t">정밀주행 · Precision</div><div class="fc-body">
+        <ul class="clist">
+          <li><b>Line Tracing</b>으로 바닥 라인을 따라 정밀 직진 주행</li>
+          <li><b>ArUco Marker</b> 인식으로 도킹·주차 위치를 정확히 정렬</li>
+          <li>마커 기준 상대 위치 보정으로 <b>정지 오차 최소화</b></li>
+          <li>충전 스테이션·작업대 진입 시 정밀 접근에 활용</li>
+          <li>Nav2 주행 → 정밀 구간 전환으로 <b>끝단 정확도</b> 확보</li>
+        </ul>
+        <div class="fc-tech"><span>Line Tracing</span><span>ArUco Marker</span><span>PID</span></div>
+      </div></div>
+      </div>
+      <div class="futbar anim" style="--d:4">
+        <span class="fb-l">향후 계획</span>
+        <ul>
+          <li><b>FSM</b> 기반 시나리오 설계</li>
+          <li><b>Behavior Tree(BT)</b> 적용</li>
+          <li>주행 성능 개선 (속도·정확도)</li>
+        </ul>
+      </div>
+    </div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 주행</b></span><span class="pg"></span></footer>
   </section>
 
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
-      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span></h2>
-    </header>
-    <div class="sbody"><div class="prows cols c3 dense anim" style="--d:3"><div class="prow"><div class="pico">🔬</div><div class="plabel">기술조사</div><div class="pbul"><ul><li><b>Perception</b><ul><li>YOLO — <b>채택 X</b> (책 구분에 어려움)</li><li>OCR — <b>채택 O</b> (향후 신간도서 대응)</li><li>QR — <b>채택 X</b> (인식률 너무 낮음)</li><li>ArUco — <b>채택 O</b></li></ul></li><li><b>Depth CAM 사용 여부</b><ul><li>미사용 → 최소거리 15cm</li><li>더 좋은 방법 채택</li></ul></li><li><b>모션 제어</b><ul><li>move l · move j · jog</li></ul></li><li><b>제어방식</b><ul><li>초기: 화면 중앙 정렬 → 고정 픽셀 오프셋</li></ul></li></ul></div></div><div class="prow"><div class="pico">🦾</div><div class="plabel">현재 채택 기술 · 진행</div><div class="pbul"><ul><li><b>ArUco Marker</b> 방식으로 제어<ul><li>rvec·tvec 기반 위치 좌표 계산</li></ul></li><li>카메라–그리퍼 오프셋<ul><li>Hand-eye Calibration</li></ul></li><li><b>One-shot pose grasp</b><ul><li>지속 갱신·보정 대신 초기 1회 좌표를 찍고 이동</li></ul></li><li><b>도서 grasp 성공</b><ul><li>성능 개선 중 → 파라미터 수정</li></ul></li></ul></div></div><div class="prow"><div class="pico">🎯</div><div class="plabel">향후 계획</div><div class="pbul"><ul><li><b>압전센서 적용</b><ul><li>파지 성공 여부(Grip Success) 판단</li></ul></li><li><b>반복적 실험을 통한 파라미터 수정</b><ul><li>카메라 Offset</li><li>최종 접근 거리</li><li>후퇴 거리</li></ul></li><li><b>Place 수행</b><ul><li>Pick 과정은 기존 PBVS 방식 유지</li><li>Place 과정은 IBVS(Image-Based Visual Servoing) 기반 제어 적용 검토<ul><li>기존 구현은 영상 처리와 로봇 제어를 동기식으로 수행하여, 이미지 갱신 → 제어 → 정지 → 이미지 갱신 과정을 반복</li><li>이로 인해 로봇팔의 움직임이 끊기고 자연스럽지 않은 문제가 발생</li><li>영상 처리와 제어를 비동기적으로 수행하여,<ul><li>영상은 지속적으로 갱신하고</li><li>제어기는 최신 비전 정보를 이용해 연속적으로 제어하는 구조 검토</li></ul></li></ul></li><li>ArUco Marker 없이 Vision 기반 Place 수행<ul><li>카메라에서 책꽂이 빈칸을 실시간 검출</li><li>검출된 위치(이미지 특징)를 지속적으로 제어기에 전달하여 Place 수행</li></ul></li></ul></li></ul></div></div></div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
-  </section>
-
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 딥러닝 모델</div>
-      <h2 class="stitle anim" style="--d:1">딥러닝 모델 <span class="hl">Deep-Learning</span></h2>
-    </header>
-    <div class="sbody"><div class="prows cols nav-photo dense anim" style="--d:3"><div class="ncol-photos"><div class="navph filled"><video src="https://asd0821.cdn.prismic.io/asd0821/RbOQODsNcpVxOp72_dl_demo.mp4" autoplay loop muted playsinline></video></div><div class="navrow"><div class="navph filled"><img src="img/dl_img2.png" alt="딥러닝 이미지 2"></div><div class="navph filled"><img src="img/dl_img3.png" alt="딥러닝 이미지 3"></div></div></div><div class="prow"><div class="pico">💡</div><div class="plabel">필요한 이유</div><div class="pbul"><ul><li><b>핑키-프로</b><ul><li>로봇끼리 지나칠 때 인사 → <b>인사 시나리오</b></li></ul></li><li><b>사람</b><ul><li>추종 → <b>짐꾼 시나리오</b></li><li>사람이 잘 따라오는지 확인 → <b>길잡이 시나리오</b></li></ul></li><li><b>바구니</b><ul><li>pick &amp; place → <b>분류 시나리오</b></li></ul></li></ul></div></div><div class="prow"><div class="pico">📊</div><div class="plabel">진행사항</div><div class="pbul"><ul><li><b>완료 · 핑키-프로</b><ul><li>1386장 학습 · <b>YOLO11n</b></li><li><b>mAP50-95 0.900</b></li><li>Track 환경 양호 · 강의장은 <b>검정 물체 오인식</b></li></ul></li><li><b>미완료</b><ul><li>바구니</li><li>사람 — 3D 모형 · 2D 프린트</li></ul></li></ul></div></div></div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 딥러닝 모델</b></span><span class="pg"></span></footer>
-  </section>
-
-
+  <!-- ===== 관제 · 통합 (GIF + 배차·교통 + 플로우) ===== -->
   <section class="slide">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 관제</div>
-      <h2 class="stitle anim" style="--d:1">관제 <span class="hl">Fleet Control</span></h2>
+      <h2 class="stitle anim" style="--d:1">관제 <span class="hl">Fleet Management</span></h2>
     </header>
-    <div class="sbody"><div class="prows cols nav-photo hasflow anim" style="--d:3"><div class="ncol-photos"><div class="navph filled archbox"><div class="archtitle"><b>관제 아키텍처</b><span>시스템 워크플로우</span></div><div class="wf vert"><div class="wf-step"><div class="wf-ico">📥</div><div class="wf-tx"><div class="wf-t">태스크 접수</div><div class="wf-s">submit_task</div></div></div><div class="wf-arr">↓</div><div class="wf-step"><div class="wf-ico">🚗</div><div class="wf-tx"><div class="wf-t">배차</div><div class="wf-s">Auction / SSI</div></div></div><div class="wf-arr">↓</div><div class="wf-step"><div class="wf-ico">🚦</div><div class="wf-tx"><div class="wf-t">교통 협상</div><div class="wf-s">예약 · 교착 DFS</div></div></div><div class="wf-arr">↓</div><div class="wf-step"><div class="wf-ico">🧭</div><div class="wf-tx"><div class="wf-t">경로 실행</div><div class="wf-s">path_request</div></div></div><div class="wf-arr">↓</div><div class="wf-step"><div class="wf-ico">🦾</div><div class="wf-tx"><div class="wf-t">팔 동작</div><div class="wf-s">perform_action</div></div></div></div></div></div><div class="prow algo1"><div class="pico">🚗</div><div class="plabel">배차 · Dispatch<span class="alg-tag">Auction · SSI</span></div><div class="alg"><div class="alg-sh">제약조건</div><ol class="alg-steps"><li><b>IDLE 상태</b>인 로봇만 배정 가능</li><li><b>완주 가능</b>한 로봇만 배정 가능<div class="alg-sub">완주 관문 — 소비% = 거리<code>×1%</code> + 팔동작<code>×0.5%</code> 일 때, <b>배터리% ≥ 소비%+15%</b> 이어야 배정</div></li></ol><div class="alg-sh sec2">Auction 방식</div><p class="alg-p">각 로봇이 <b>비용(Dijkstra 거리)</b>을 중앙에 제출 → <b>최저 비용 낙찰</b> · 없으면 <b>거절</b>.</p></div></div><div class="prow algo2"><div class="pico">🚦</div><div class="plabel">교통관제 · Traffic<span class="alg-tag">Dijkstra + 노드예약 + DFS</span></div><div class="alg"><ol class="alg-steps"><li><b>경로계획</b> Dijkstra</li><li><b>노드예약</b> 가려는 노드 잠금(진입 차단)</li><li><b>데드락</b> 대기 사이클 <b>DFS 감지</b> → 최저 우선순위 <b>우회</b>(재계산), 나머지 대기</li></ol><div class="alg-lad-cap">우선순위 사다리 <span>· 높을수록 안 비킴</span></div><ol class="alg-ladder"><li><span class="lv">완전 막힘</span>(동적) — 막히면 최상위·풀리면 원복</li><li><span class="lv">충전 복귀(CHARGE)</span> — 방전 임박 보호</li><li><span class="lv">작업 수행중</span> — 오래된 task·낮은 배터리 순</li><li><span class="lv">순회 중</span> — 제일 먼저 우회</li></ol></div></div></div></div>
+    <div class="sbody"><div class="mgr anim" style="--d:3">
+      <div class="gifbox">
+        <span class="play">▶</span><b>Demo GIF</b>
+        <div class="gcap">관제 Sim 시연 자리<br>(다중 로봇 배차·교통)</div>
+      </div>
+      <div class="mg-right">
+        <div class="mg-flow">
+          <div class="mf-h">① 관제 흐름 · UI에서 Task 생성 → Robot 수행</div>
+          <div class="fchart">
+            <div class="fn"><div class="num">1</div><div class="lb">UI 태스크 생성<em>submit_task</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">2</div><div class="lb">Task Manager<em>순차 관리</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">3</div><div class="lb">Dispatcher<em>배차 Auction/SSI</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">4</div><div class="lb">Adapter<em>세부 동작 분리</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">5</div><div class="lb">Robot 수행<em>교통 시 Traffic Ctrl</em></div></div>
+          </div>
+          <div class="mf-foot">향후 — 실제 환경(<b>Real Robot</b>) 적용 · <b>충전(Task Charging)</b> 기능 구현</div>
+        </div>
+        <div class="mg-top">
+          <div class="fmcard">
+            <div class="fmcard-h"><span class="t">② 배차 · Dispatch</span><span class="tag">Auction·SSI</span></div>
+            <div class="alg">
+              <div class="alg-sh">제약조건 — 배정 가능 조건</div>
+              <ol class="alg-steps">
+                <li><b>IDLE 상태</b>인 로봇만 배정 가능</li>
+                <li><b>완주 가능</b>한 로봇만 배정<div class="alg-sub">소비% = 거리<code>×1%</code> + 팔동작<code>×0.5%</code>, <b>배터리% ≥ 소비%+15%</b></div></li>
+              </ol>
+              <div class="alg-sh sec2">Auction 방식</div>
+              <p class="alg-p">각 로봇이 <b>Dijkstra 거리(비용)</b> 제출 → <b>최저 비용 낙찰</b> · 없으면 거절.</p>
+            </div>
+          </div>
+          <div class="fmcard tc">
+            <div class="fmcard-h"><span class="t">③ 교통관제 · Traffic</span><span class="tag">Dijkstra·Node Lock·DFS</span></div>
+            <div class="alg">
+              <ol class="alg-steps">
+                <li><b>경로계획</b> — Dijkstra 최단 경로</li>
+                <li><b>Node Lock</b> — 진입 노드 잠금(진입 차단)</li>
+                <li><b>Deadlock</b> — 대기 사이클 DFS 감지 → 최저 우선순위 우회</li>
+              </ol>
+              <div class="alg-lad-cap">우선순위 사다리 <span>· 높을수록 안 비킴</span></div>
+              <ol class="alg-ladder">
+                <li><span class="lv">완전 막힘</span> — 최상위, 풀리면 원복</li>
+                <li><span class="lv">충전 복귀</span> — 방전 임박 보호</li>
+                <li><span class="lv">작업 수행중</span> — 오래된 task·낮은 배터리</li>
+                <li><span class="lv">순회 중</span> — 제일 먼저 우회</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 관제</b></span><span class="pg"></span></footer>
   </section>
 
-
-  <section class="slide gui-slide">
+  <!-- ===== 추종 · 통합 (시나리오 + 기술 + 향후) ===== -->
+  <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">회원 UI</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
+      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Tracking</span> · 인지·제어 파이프라인</h2>
     </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
-        <div class="dev-phone"><img src="https://images.prismic.io/asd0821/sWLOCKyR3kNClIBI_gui_member.png?auto=format,compress" alt="회원 모바일 앱"></div>
-        <div class="gcap"><div class="role">library_member</div><h4>도서관 회원 UI</h4></div>
+    <div class="sbody"><div class="gifsplit merged anim" style="--d:3">
+      <div class="gifbox">
+        <span class="play">▶</span><b>Demo GIF</b>
+        <div class="gcap">추종 시연 자리<br>(등록 → 추종 → 복구)</div>
       </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>로그인</b></div>
-        <div class="feat"><b>요청 인식</b><span class="fd">음성·텍스트·터치 ("책 갖다줘")</span></div>
-        <div class="feat"><b>도서 검색</b><span class="fd">제목·저자·키워드 · 대여 가능/중</span></div>
-        <div class="feat"><b>도서 상세</b><span class="fd">소개·청구기호·서가 위치·상태</span></div>
-        <div class="feat"><b>지도 보기</b><span class="fd">내부 지도 · 내 위치·책 위치</span></div>
-        <div class="feat"><b>도서 미리보기</b><span class="fd">목차·일부 페이지·소개</span></div>
-        <div class="feat"><b>이송·픽업 요청</b><span class="fd">도서 + 받을 위치 지정</span></div>
-        <div class="feat"><b>로봇 실시간 추적</b><span class="fd">현위치 · 도착 예정</span></div>
-        <div class="feat"><b>추천</b><span class="fd">관심분야 · 베스트셀러·신간</span></div>
-        <div class="feat"><b>내 정보·대출 현황</b><span class="fd">대여 중·반납일·이력</span></div>
-        <div class="feat"><b>대여 연장·예약</b><span class="fd">대출 중 도서 예약 대기</span></div>
-        <div class="feat"><b>반납일·연체 알림</b></div>
-        <div class="feat"><b>위시리스트</b><span class="fd">읽고 싶은 책·즐겨찾기</span></div>
-        <div class="feat"><b>작업 알림</b><span class="fd">수락 → 이동 중 → 도착</span></div>
-        <div class="feat"><b>접근성 모드</b><span class="fd">큰 글씨·음성 안내</span></div>
-        <div class="feat"><b>도서관 안내</b><span class="fd">운영시간·층별 · 언어 선택</span></div>
+      <div class="rightsplit">
+        <div class="mg-flow">
+          <div class="mf-h">시나리오 · 관리자 등록부터 순회까지</div>
+          <div class="fchart">
+            <div class="fn"><div class="num">1</div><div class="lb">관리자 등록<em>libi GUI 최초 1회</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">2</div><div class="lb">추종 시작<em>검출·식별·측위</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn warn"><div class="num">3</div><div class="lb">관리자 분실<em>시야 이탈</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">4</div><div class="lb">90° 회전<em>사라진 방향(LKD)</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">5</div><div class="lb">Recovery BT<em>좌우 45°+180°</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn alt"><div class="num">6</div><div class="lb">순회 전환<em>Patrol 모드</em></div></div>
+          </div>
+        </div>
+        <div class="rsec">
+          <div class="rsec-h">사용 기술 <span class="cnt">· 핵심 기술과 역할 설명</span></div>
+          <div class="capgrid compact">
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">🔍</span><span class="nm">검출</span><span class="en">Detection</span></div>
+              <div class="tlead"><div class="tl-top"><b>YOLO11n</b></div>
+                <p>실시간 1-stage 객체 검출 모델. <b>프레임에서 사람 BBox를 추출</b>해 이후 모든 추종 단계의 입력을 만든다.</p></div>
+            </div>
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">🪪</span><span class="nm">식별</span><span class="en">Identification</span></div>
+              <div class="tlead"><div class="tl-top"><b>ReID</b></div>
+                <p>외형 임베딩으로 <b>잠시 사라졌다 나타나도 동일 인물 재식별</b> — 장기 추종의 핵심.</p></div>
+              <div class="tsubs">
+                <div class="tsub"><span class="sn">ByteTrack</span><span>프레임 간 Track ID 유지(단기 추적)</span></div>
+                <div class="tsub"><span class="sn">HSV Histogram</span><span>의상 색상 기반 보조 식별</span></div>
+              </div>
+            </div>
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">📐</span><span class="nm">측위</span><span class="en">Localization</span></div>
+              <div class="tlead"><div class="tl-top"><b>BBox Size · Center</b></div>
+                <p>BBox <b>크기로 거리</b>를, 중심 x와 화면 중심 차이로 <b>방위각</b>을 산출해 회전 입력을 만든다.</p></div>
+            </div>
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">🔗</span><span class="nm">유지</span><span class="en">Keeping</span></div>
+              <div class="tlead"><div class="tl-top"><b>Alpha-Beta Filter</b></div>
+                <p>검출이 끊겨도 <b>위치를 예측(Track Coasting)</b>해 짧은 Occlusion(가림)에 대응.</p></div>
+              <div class="tsubs">
+                <div class="tsub"><span class="sn">Online Gallery</span><span>다시점 ReID 특징 축적 → 각도 변화에 강인</span></div>
+              </div>
+            </div>
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">🧭</span><span class="nm">복구</span><span class="en">Recovery</span></div>
+              <div class="tlead"><div class="tl-top"><b>Recovery BT</b></div>
+                <p>탐색 행동트리 — <b>좌·우 회전으로 대상 재탐색</b>, 실패 시 Patrol(순회) 모드로 전환.</p></div>
+              <div class="tsubs">
+                <div class="tsub"><span class="sn">LKD</span><span>마지막 관측 방향으로 회전해 우선 재획득</span></div>
+              </div>
+            </div>
+            <div class="capcard">
+              <div class="cap-h"><span class="ico">🎮</span><span class="nm">제어</span><span class="en">Control</span></div>
+              <div class="tlead"><div class="tl-top"><b>Visual Servoing</b></div>
+                <p>BBox 중심을 <b>화면 중앙에 유지</b>하도록 Base를 회전 — 영상 기반 실시간 추종 제어.</p></div>
+              <div class="tsubs">
+                <div class="tsub"><span class="sn">PID</span><span>목표 거리 유지 · 전/후진 속도 제어</span></div>
+                <div class="tsub"><span class="sn">LiDAR</span><span>10cm 이하 접근 시 8방향 안전 회피</span></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="rsec">
+          <div class="rsec-h">향후 계획</div>
+          <div class="futrow">
+            <span>빠른 회전 시 <b>인식률 개선</b></span>
+            <span><b>다중 사람</b> 환경 테스트</span>
+            <span><b>BBox 기반 추종</b> 개선(쓰러진 사람)</span>
+            <span>GUI 연동 강화</span>
+          </div>
+        </div>
       </div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 회원 UI</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
   </section>
-
-  <section class="slide gui-slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">사서 UI</span></h2>
-    </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
-        <div class="dev-web"><div class="bar"><i></i><i></i><i></i><span class="url"></span></div><img src="https://images.prismic.io/asd0821/4Uwq9gNBNUc_Wbsd_gui_librarian.png?auto=format,compress" alt="사서 운영 대시보드"></div>
-        <div class="gcap"><div class="role">librarian_browser</div><h4>사서 UI</h4></div>
-      </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>로그인</b></div>
-        <div class="feat"><b>운영 대시보드</b><span class="fd">로봇·작업·알림 한눈에</span></div>
-        <div class="feat"><b>실시간 모니터링</b><span class="fd">상태·배터리·작업·에러 + 지도</span></div>
-        <div class="feat"><b>작업 지시</b><span class="fd">이송·분류·정리·짐꾼·파견 · 큐·진행률</span></div>
-        <div class="feat"><b>작업 알림</b><span class="fd">완료 · 실패</span></div>
-        <div class="feat"><b>로그</b><span class="fd">에러·성공/실패·재시도</span></div>
-        <div class="feat"><b>도서 관리</b><span class="fd">등록·수정·삭제·재고·위치</span></div>
-        <div class="feat"><b>서가 관리</b><span class="fd">섹션 변경·배치 지도</span></div>
-        <div class="feat"><b>정리·분류 리포트</b><span class="fd">수행·분류·정리 결과</span></div>
-        <div class="feat"><b>회원 관리</b><span class="fd">정보·대출 이력</span></div>
-        <div class="feat"><b>대여·반납 처리</b></div>
-        <div class="feat"><b>통합 검색</b><span class="fd">도서·위치·회원</span></div>
-        <div class="feat"><b>야간 보안</b><span class="fd">운영모드·침입 알림·영상</span></div>
-        <div class="feat"><b>통계·리포트</b><span class="fd">대출·작업 통계</span></div>
-      </div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 사서 UI</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide gui-slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · GUI</div>
-      <h2 class="stitle anim" style="--d:1">GUI · <span class="hl">로봇 QT 터치패널</span></h2>
-    </header>
-    <div class="sbody"><div class="guipage">
-      <div class="gmock anim" style="--d:2">
-        <div class="dev-tab"><img src="img/gui_libi_home.png" alt="로봇 터치패널 Libi GUI"></div>
-        <div class="gcap"><div class="role">libi_gui</div><h4>로봇 QT 터치패널</h4></div>
-      </div>
-      <div class="flist anim" style="--d:3">
-        <div class="feat"><b>관리자 모드 로그인</b></div>
-        <div class="feat"><b>대기·홈</b><span class="fd">인사·표정 · 순회 중 표시</span></div>
-        <div class="feat"><b>친밀감 인터랙션</b><span class="fd">손인사·표정</span></div>
-        <div class="feat"><b>길잡이</b><span class="fd">목적지 선택 → 앞장 · 지도·거리·상태</span></div>
-        <div class="feat"><b>검색</b><span class="fd">도서·시설 → 위치 지도</span></div>
-        <div class="feat"><b>추천</b></div>
-        <div class="feat"><b>작업·안내 상태 표시</b></div>
-        <div class="feat"><b>비상정지</b></div>
-      </div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>GUI · 로봇 터치패널</b></span><span class="pg"></span></footer>
-  </section>
-
 
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Issues · 애로사항</div>
-      <h2 class="stitle anim" style="--d:1">애로사항 <span class="hl">3건</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Integration</div>
+      <h2 class="stitle anim" style="--d:1">UI 연동테스트 <span class="hl">Integration Test</span></h2>
     </header>
-    <div class="sbody"><div class="issues3">
-      <div class="iss" style="--ac2:var(--alert);--d:2">
-        <div class="ihead"><span class="ino">01</span><span class="it">CPU 점유율 · 정밀주행 (Pi4)</span></div>
-        <div class="issimg two"><img src="img/cpu_htop_73.png" alt="CPU bringup 73%"><img src="img/cpu_htop_97_aruco.png" alt="CPU 97% · ArUco 검출"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>순수 bringup만 <b>60~80%</b> → ArUco·UDP 영상 송출 시 <b>97%↑</b> (load 15·19.5FPS). nav2 주행 토픽까지 받으면 추가 악화 우려.</p></div><div><div class="ilab">대응</div><p>BT로 프로세스 사용/미사용 구간 구분 · perception AI 서버 오프로딩 · 노드 경량화.</p></div></div>
-      </div>
-      <div class="iss" style="--ac2:var(--gold-deep);--d:3">
-        <div class="ihead"><span class="ino">02</span><span class="it">GUIDE 기능 · 카메라 추가</span></div>
-        <div class="issimg"><img src="img/guide_mode.png" alt="길잡이 GUIDE MODE"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>길잡이 수행 시 현재 센서(RPLIDAR 2D + 파지용 D435)로는 <b>전방 사용자·경로 인식 화각 부족</b>.</p></div><div><div class="ilab">대응</div><p>전방/사용자 인식용 카메라 추가 장착 · GUIDE 화각·장착 위치 설계 · 추종(re-ID) 모델과 연동.</p></div></div>
-      </div>
-      <div class="iss" style="--ac2:var(--teal);--d:4">
-        <div class="ihead"><span class="ino">03</span><span class="it">바구니 모델 선정</span></div>
-        <div class="issimg"><img src="img/return_basket.jpg" alt="도서반납함 · 바구니"></div>
-        <div class="iss-txt"><div><div class="ilab">현상</div><p>바구니 인식용 딥러닝 모델 방식 <b>미확정</b> (Sprint 2부터 진행 중) · grab 방식도 미착수 → 분류·이송 시나리오 블로킹.</p></div><div><div class="ilab">대응</div><p>인식 모델 후보 비교·선정 → 학습데이터 보강 → 모델 구축·grab 방식 확정.</p></div></div>
-      </div>
+    <div class="sbody"><div class="gifbox anim" style="--d:3;flex:1">
+      <span class="play">▶</span>
+      <b>이미지 · 연동 테스트</b>
+      <div class="gcap">UI ↔ 로봇 연동 테스트 화면 · 시연 자리</div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Issues · 애로사항</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Integration · UI 연동테스트</b></span><span class="pg"></span></footer>
   </section>
-
 
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">04</span> This Week · 이번주 계획</div>
-      <h2 class="stitle anim" style="--d:1">이번 주 계획 <span class="hl">Jira · Sprint 4</span></h2>
-      <div class="srtag anim" style="--d:2"><b>Sprint 4</b> · 2026.07.06 – 07.12 · 목표 전체 기능 20% · v0.2 · Jira arte1 · 12건</div>
+      <div class="kicker anim" style="--d:0"><span class="kn">04</span> Our Team · 팀원 소개</div>
+      <h2 class="stitle anim" style="--d:1">팀원 소개 <span class="hl">역할 분담</span></h2>
+    </header>
+    <div class="sbody"><div class="teamgrid anim" style="--d:2">
+      <div class="teamcard">
+        <div class="tphoto nav filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="nga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF6F3"/><stop offset="1" stop-color="#BFE3DC"/></linearGradient></defs><rect width="100" height="100" fill="url(#nga)"/><g stroke="#1E8C80" stroke-width="2" fill="none" opacity=".55"><path d="M50 40 A26 26 0 0 1 76 66"/><path d="M50 47 A18 18 0 0 1 68 65"/><path d="M50 54 A10 10 0 0 1 60 64"/></g><rect x="33" y="47" width="34" height="25" rx="7" fill="#27426f"/><rect x="39" y="53" width="22" height="9" rx="3" fill="#8FD3C9"/><circle cx="44" cy="57.5" r="1.6" fill="#12324a"/><circle cx="56" cy="57.5" r="1.6" fill="#12324a"/><circle cx="39" cy="76" r="5.5" fill="#15223b"/><circle cx="61" cy="76" r="5.5" fill="#15223b"/><rect x="46.5" y="36" width="7" height="12" fill="#27426f"/><circle cx="50" cy="32" r="7" fill="#1E8C80"/><line x1="50" y1="25" x2="50" y2="18" stroke="#1E8C80" stroke-width="2"/><circle cx="50" cy="16.5" r="2.6" fill="#C0852A"/></svg></div>
+        <div class="tname">이강택</div>
+        <div class="trole">주행</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>FMS</li><li>추종</li><li>Libi_GUI(QT)</li><li>딥러닝 모델 구축 (pinky_pro + person)</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">FMS 개선</span><span class="tchip f">추종 개선</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto nav filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ngb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF6F3"/><stop offset="1" stop-color="#BFE3DC"/></linearGradient></defs><rect width="100" height="100" fill="url(#ngb)"/><g stroke="#1E8C80" stroke-width="2" fill="none" opacity=".55"><path d="M50 40 A26 26 0 0 1 76 66"/><path d="M50 47 A18 18 0 0 1 68 65"/><path d="M50 54 A10 10 0 0 1 60 64"/></g><rect x="33" y="47" width="34" height="25" rx="7" fill="#27426f"/><rect x="39" y="53" width="22" height="9" rx="3" fill="#8FD3C9"/><circle cx="44" cy="57.5" r="1.6" fill="#12324a"/><circle cx="56" cy="57.5" r="1.6" fill="#12324a"/><circle cx="39" cy="76" r="5.5" fill="#15223b"/><circle cx="61" cy="76" r="5.5" fill="#15223b"/><rect x="46.5" y="36" width="7" height="12" fill="#27426f"/><circle cx="50" cy="32" r="7" fill="#1E8C80"/><line x1="50" y1="25" x2="50" y2="18" stroke="#1E8C80" stroke-width="2"/><circle cx="50" cy="16.5" r="2.6" fill="#C0852A"/></svg></div>
+        <div class="tname">인경일</div>
+        <div class="trole">주행</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><div class="wgrp"><div class="wg-h">UI</div><ul class="twork sm"><li>server 구축</li><li>Librarian Browser</li><li>Library Member Browser</li><li>LLM 도서 추천 기능</li></ul></div><div class="wgrp"><div class="wg-h">자율 주행</div><ul class="twork sm"><li>전반적인 자율 주행</li><li>정밀주행<ul class="wsub"><li>ArUco Marker</li><li>Line Tracing</li></ul></li><li>도킹 기능</li></ul></div></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">성능 개선</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag1)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">이세형</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>인지 (진열 위치 트래킹·서가)</li><li>책 grab</li><li>책 파지 후 특정 위치에 진열</li><li>소품 3D 모델 제작</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">진열 진행중</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag2)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">이형주</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>바구니 인식 및 grab</li><li>딥러닝 모델 구축 (바구니)</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">바구니 grab</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag3)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">정호재</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>책 인식 및 grab</li><li>자율주행 기능개선</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">주행</span></div></div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Team · 팀원 소개</b></span><span class="pg"></span></footer>
+  </section>
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">05</span> This Week · Jira</div>
+      <h2 class="stitle anim" style="--d:1">Jira 보고 <span class="hl">Sprint Report</span></h2>
+      <div class="srtag anim" style="--d:2"><b>Sprint 5</b> · 2026.07.13 – 07.20 · 목표 전체 기능 50% · v0.3 · Jira arte1 · 8건</div>
     </header>
     <div class="sbody"><div class="jira2">
-      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_sprint4_full.png" alt="Jira Sprint 4 보드"></div>
+      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_board_0714b.png" alt="Jira Sprint 5 보드"></div>
       <div class="jtbl anim" style="--d:4">
-        <div class="jtbl-cap">Sprint 4 · 영역별 요약</div>
+        <div class="jtbl-cap">Sprint 5 · 영역별 요약</div>
         <table>
           <tr><th>영역</th><th>태스크 · 상태</th></tr>
-          <tr><td>정밀주행</td><td>ArUco · Line tracing<b>진행</b></td></tr>
-          <tr><td>딥러닝 모델</td><td>바구니 · 핑키+사람<b>진행</b></td></tr>
-          <tr><td>로봇팔 파지</td><td>배치 검토<b>진행</b> · 실물<b class="t">예정</b></td></tr>
-          <tr><td>Tracking</td><td>관련 조사<b class="d">완료</b> · 실물<b class="t">예정</b></td></tr>
-          <tr><td>서버 · FMS</td><td>FMS slotcar<b>진행</b> · Server<b class="d">완료</b></td></tr>
-          <tr><td>분류 · 바구니</td><td>분류 조사<b>진행</b> · 바구니 grab<b class="t">예정</b></td></tr>
+          <tr><td>자율주행</td><td>자율주행 성능 개선<b>진행</b></td></tr>
+          <tr><td>정밀 · FMS</td><td>배차·교통 sim 검증<b class="t">예정</b></td></tr>
+          <tr><td>추종</td><td>추종 기술 개선<b>진행</b></td></tr>
+          <tr><td>진열 · 로봇팔</td><td>위치추적<b class="d">완료</b> · 실물테스트<b>진행</b></td></tr>
+          <tr><td>바구니</td><td>끈 바구니 Grab<b>진행</b></td></tr>
+          <tr><td>복귀 · UI</td><td>복귀 성능<b class="t">예정</b> · UI↔로봇<b>진행</b></td></tr>
         </table>
-        <div class="jtbl-foot">완료 2 · 진행 7 · 예정 3 · 총 12건</div>
+        <div class="jtbl-foot">완료 1 · 진행 5 · 예정 2 · 총 8건</div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>This Week · Jira</b></span><span class="pg"></span></footer>
   </section>
 
-
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">05</span> Roadmap · 향후 계획</div>
-      <h2 class="stitle anim" style="--d:1">향후 <span class="hl">Roadmap</span> · Sprint 4 – 8</h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">06</span> Roadmap · 향후 계획</div>
+      <h2 class="stitle anim" style="--d:1">향후 <span class="hl">Roadmap</span> · Sprint 5 – 8</h2>
     </header>
-    <div class="sbody"><div class="plan five">
-        <div class="plancard anim" style="--d:2"><h4><span class="pi">Sprint 4</span> 7.6 – 7.10</h4><div class="pspr">구현 · 진행 중</div><div class="pgoal">구현 인프라 착수 → 이동(sim)·추종 기본</div><div class="pmile">전체 기능 20% · v0.2</div><div class="pbar"><span style="width:20%"></span></div><div class="plabel">개발 항목</div><ul><li><b>서버 구축</b><span class="pd">태스크 접수·상태 브리지</span></li><li><b>FMS sim 주행</b><span class="pd">slotcar, 배차+교통+PathRequest</span></li><li><b>정밀주행 착수</b><span class="pd">ArUco·Line·Nav2/PID</span></li><li><b>딥러닝 모델 1차</b><span class="pd">바구니·사람 모형 인식</span></li><li><b>추종(tracking) 기본</b><span class="pd">drive→ai_service→주행 제어</span></li><li><b>이동 시나리오 통합</b><span class="pd">접수→배차→주행→도착 통지</span></li></ul></div>
-        <div class="plancard anim" style="--d:3"><h4><span class="pi">Sprint 5</span> 7.13 – 7.17</h4><div class="pspr">구현</div><div class="pgoal">실물주행 전환 · 이송·진열·짐꾼 완성</div><div class="pmile">전체 기능 50% · v0.3</div><div class="pbar"><span style="width:50%"></span></div><div class="plabel">개발 항목</div><ul><li><b>정밀주행 마감</b></li><li><b>로봇팔(Handy) 신규 구현</b><span class="pd">pick/place/align (코드 전무→착수)</span></li><li><b>이송 시나리오</b><span class="pd">서가 도킹→픽업→목적지→배치</span></li><li><b>진열 시나리오</b><span class="pd">바구니 책 인식→해당 서가 배치</span></li><li><b>짐꾼(추종) 완성</b><span class="pd">놓쳤을 때 복구: 10초→좌우30°→180°→순찰전환</span></li><li><b>딥러닝 모델 최종</b><span class="pd">실물 데이터 학습·인식 정확도 마감</span></li></ul></div>
-        <div class="plancard anim" style="--d:4"><h4><span class="pi">Sprint 6</span> 7.20 – 7.24</h4><div class="pspr">구현</div><div class="pgoal">분류·길잡이 · 회원·사서 UI · 실시간 연동</div><div class="pmile">전체 기능 80% · v0.4</div><div class="pbar"><span style="width:80%"></span></div><div class="plabel">개발 항목</div><ul><li><b>분류(arm_sort)</b><span class="pd">수거함→인식→기준 판정→분류 배치</span></li><li><b>길잡이</b><span class="pd">목적지 조회→앞장→동행 검증→도착 통지</span></li><li><b>회원 UI</b><span class="pd">검색·추천(LLM)·음성 요청·로봇 추적</span></li><li><b>사서 UI</b><span class="pd">대출·반납·도서/회원 관리·모니터링</span></li><li><b>GUI 실시간 연동</b><span class="pd">폴링 탈피, 위치·상태·영상 실시간</span></li></ul></div>
-        <div class="plancard anim" style="--d:5"><h4><span class="pi">Sprint 7</span> 7.27 – 7.31</h4><div class="pspr">구현</div><div class="pgoal">순찰·보안 + 전체 통합·멀티로봇</div><div class="pmile">전체 기능 100% · v0.5</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>실물주행 전환</b><span class="pd">FMS 주행 sim→실물 로봇 이관</span></li><li><b>순찰</b><span class="pd">경로 7분30초 주행→자동 복귀, 사람감지→추적·녹화</span></li><li><b>야간 보안</b><span class="pd">day/night 전환·침입 알림·현장 영상</span></li><li><b>전체 통합</b><span class="pd">8종 순차/동시 실행, 예외(배터리→충전·비상정지)</span></li><li><b>멀티로봇 검증</b><span class="pd">배차×교통 조합, 교차·병목 충돌 회피</span></li></ul></div>
-        <div class="plancard anim" style="--d:6"><h4><span class="pi">Sprint 8</span> 8.3 – 8.7</h4><div class="pspr">안정화</div><div class="pgoal">기능 동결 → 안정화·검증·발표 준비</div><div class="pmile">품질 100% · v1.0</div><div class="pbar"><span style="width:100%"></span></div><div class="plabel">개발 항목</div><ul><li><b>버그·성능 안정화</b><span class="pd">결함 수정, 신규 기능 동결</span></li><li><b>CPU 부하 대응</b><span class="pd">WS+비전 동시구동 계측·완화</span></li><li>온디바이스 vs AI 서버 추론 배치 최종 결정</li><li><b>검증 종합</b><span class="pd">v0.3~0.5 → Validation Report, SR 충족 매트릭스</span></li><li><b>발표 준비</b><span class="pd">자료·데모 대본·리허설, 백업 플랜</span></li></ul></div>
-      </div></div>
+    <div class="sbody"><div class="rmtl anim" style="--d:2">
+      <div class="rmtl-step">
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 5</span></div><span class="rmtl-ico">1</span>
+        <div class="rmtl-title">개별 동작 구현</div>
+        <div class="rmtl-period">7.13 – 7.17</div>
+        <ul class="rmtl-list"><li>로봇팔 진열대 진열 동작</li><li>바구니 인식·파지 동작</li><li>전반적 주행 성능 개선</li><li>복귀 시나리오</li><li>FMS 알고리즘 sim 검증</li><li>추종 구현 마무리</li></ul>
+      </div>
+      <div class="rmtl-step">
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 6</span></div><span class="rmtl-ico">2</span>
+        <div class="rmtl-title">시나리오 수행</div>
+        <div class="rmtl-period">7.20 – 7.24</div>
+        <ul class="rmtl-list"><li>이송 시나리오</li><li>진열 시나리오</li><li>복귀 시나리오</li><li>짐꾼 시나리오</li><li>길잡이 시나리오</li><li>파견 시나리오</li><li>LLM 제어 (도서 추천·관리자 명령)</li><li>FSM · BT 구현</li></ul>
+      </div>
+      <div class="rmtl-step">
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 7</span></div><span class="rmtl-ico">3</span>
+        <div class="rmtl-title">시나리오 수행 및 기능 개선</div>
+        <div class="rmtl-period">7.27 – 7.31</div>
+        <ul class="rmtl-list"><li>분류 시나리오</li><li>순찰 시나리오</li><li>FMS 실물 주행 (순회 시나리오)</li><li>로봇 상호작용 시나리오</li><li>Sprint 6 잔여 시나리오 마무리</li></ul>
+      </div>
+      <div class="rmtl-step">
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 8</span></div><span class="rmtl-ico">4</span>
+        <div class="rmtl-title">안정화</div>
+        <div class="rmtl-period">8.3 – 8.7</div>
+        <ul class="rmtl-list"><li>전체 시스템 안정화</li><li>기능 개선</li></ul>
+      </div>
+    </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Roadmap · 향후 계획</b></span><span class="pg"></span></footer>
   </section>
 
