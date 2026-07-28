@@ -563,6 +563,15 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jtbl td b{font-family:var(--mono);font-size:13.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:4px;padding:2px 6px;margin-left:5px;white-space:nowrap}
 .jtbl td b.t{color:#6B7280;background:#ECE9E0}
 .jtbl td b.d{color:var(--teal);background:#E3F0ED}
+/* 관제 어드민 배지 — 실제 화면 색(tailwind) 그대로. LED 와 같은 색 축임을 보이는 게 목적 */
+.jtbl td .bdg{display:inline-block;font-family:var(--mono);font-size:13.5px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap}
+.jtbl td .bdg.bl{background:#DBEAFE;color:#1D4ED8}
+.jtbl td .bdg.bl-d{background:#EFF6FF;color:#2563EB}
+.jtbl td .bdg.gr{background:#D1FAE5;color:#047857}
+.jtbl td .bdg.gr-d{background:#ECFDF5;color:#059669}
+.jtbl td .bdg.rd{background:#FEE2E2;color:#B91C1C}
+.jtbl td .bdg.r1{box-shadow:0 0 0 1px #10B981}   /* LED blink 1.5s */
+.jtbl td .bdg.r2{box-shadow:0 0 0 2px #EF4444}   /* LED blink 0.5s */
 .jtbl-foot{font-family:var(--mono);font-size:15.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:10px}
 
 .pbul li code{font-family:var(--mono);font-size:.84em;background:var(--gold-soft);color:var(--gold-deep);border-radius:4px;padding:1px 5px;font-weight:600}
@@ -1455,19 +1464,19 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     </header>
     <div class="sbody"><div class="navsplit anim" style="--d:3">
       <div class="jtbl">
-        <div class="jtbl-cap">상태별 색 · 패턴 · 휘도</div>
+        <div class="jtbl-cap">상태별 색 · 패턴 · 휘도 · 관제 배지</div>
         <table>
-          <tr><th>상태</th><th>색 · 패턴 · 휘도</th><th>읽는 법</th></tr>
-          <tr><td>PATROL</td><td>🔵 청색 solid 100%</td><td><b class="d">지금 쓸 수 있다</b></td></tr>
-          <tr><td>SECURITY_PATROL</td><td>🔵 청색 solid 35%</td><td>가용 · 야간</td></tr>
-          <tr><td>IDLE</td><td>🟢 초록 solid <b>15%</b></td><td>쉬는 중 · 가장 어둡다</td></tr>
-          <tr><td>INTERACTING</td><td>🟢 초록 solid 100%</td><td>응대 중 · 기다린다</td></tr>
-          <tr><td>WORKING</td><td>🟢 초록 solid 100%</td><td>작업 중</td></tr>
-          <tr><td>RETURNING</td><td>🟢 초록 <b>blink 1.5s</b></td><td>복귀 중 · 비켜 주세요</td></tr>
-          <tr><td>CHARGING</td><td>🔴 빨강 solid 100%</td><td>충전 중 · 접근 주의</td></tr>
-          <tr><td>ERROR</td><td>🔴 빨강 <b>blink 0.5s</b></td><td>고장 · 사람이 가야 한다</td></tr>
+          <tr><th>상태</th><th>LED 색 · 패턴 · 휘도</th><th>관제 배지</th><th>읽는 법</th></tr>
+          <tr><td>PATROL</td><td>🔵 청색 solid 100%</td><td><span class="bdg bl">PATROL</span></td><td><b class="d">지금 쓸 수 있다</b></td></tr>
+          <tr><td>SECURITY_PATROL</td><td>🔵 청색 solid 35%</td><td><span class="bdg bl-d">SEC_PATROL</span></td><td>가용 · 야간</td></tr>
+          <tr><td>IDLE</td><td>🟢 초록 solid <b>15%</b></td><td><span class="bdg gr-d">IDLE</span></td><td>쉬는 중 · 가장 어둡다</td></tr>
+          <tr><td>INTERACTING</td><td>🟢 초록 solid 100%</td><td><span class="bdg gr">INTERACTING</span></td><td>응대 중 · 기다린다</td></tr>
+          <tr><td>WORKING</td><td>🟢 초록 solid 100%</td><td><span class="bdg gr">WORKING</span></td><td>작업 중</td></tr>
+          <tr><td>RETURNING</td><td>🟢 초록 <b>blink 1.5s</b></td><td><span class="bdg gr r1">RETURNING</span></td><td>복귀 중 · 비켜 주세요</td></tr>
+          <tr><td>CHARGING</td><td>🔴 빨강 solid 100%</td><td><span class="bdg rd">CHARGING</span></td><td>충전 중 · 접근 주의</td></tr>
+          <tr><td>ERROR</td><td>🔴 빨강 <b>blink 0.5s</b></td><td><span class="bdg rd r2">ERROR</span></td><td>고장 · 사람이 가야 한다</td></tr>
         </table>
-        <div class="jtbl-foot">상태 토픽이 5초 끊기면 <b>NO_SIGNAL</b> — ERROR 와 같은 그림을 쓴다</div>
+        <div class="jtbl-foot">관제 배지도 <b>같은 색 축</b> — 깜빡임은 배지 테두리로 (RETURNING 얇게 · ERROR 굵게). 상태 토픽이 5초 끊기면 <b>NO_SIGNAL</b> — ERROR 와 같은 그림</div>
       </div>
       <div class="gifbox">
         <b>시연 영상</b>
