@@ -1494,17 +1494,17 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         <div class="mg-flow">
           <div class="mf-h">① 회복 BT · 탐색 순서가 곧 트리 구조</div>
           <div class="fchart">
-            <div class="fn"><div class="num">1</div><div class="lb">Hold 10s<em>먼저 가만히 선다</em></div></div>
+            <div class="fn"><div class="num">1</div><div class="lb">HoldFront 5s<em>앞캠 · 서서 기다린다</em></div></div>
             <span class="arw">→</span>
-            <div class="fn alt"><div class="num">2</div><div class="lb">PeekBack 2s<em>뒷캠으로 본다</em></div></div>
+            <div class="fn alt"><div class="num">2</div><div class="lb">HoldBack 5s<em>뒷캠 · 서서 본다</em></div></div>
             <span class="arw">→</span>
-            <div class="fn"><div class="num">3</div><div class="lb">Scan 4s<em>마지막 방향</em></div></div>
+            <div class="fn"><div class="num">3</div><div class="lb">SweepFront ≈11s<em>±90° 훑고 원위치</em></div></div>
             <span class="arw">→</span>
-            <div class="fn warn"><div class="num">4</div><div class="lb">Turn180 ≈9s<em>사각 보루</em></div></div>
+            <div class="fn alt"><div class="num">4</div><div class="lb">SweepBack ≈11s<em>뒷캠으로 같은 왕복</em></div></div>
             <span class="arw">→</span>
-            <div class="fn"><div class="num">5</div><div class="lb">GiveUp<em>0 발행 후 종료</em></div></div>
+            <div class="fn warn"><div class="num">5</div><div class="lb">GiveUp<em>0 발행 후 종료</em></div></div>
           </div>
-          <div class="mf-foot">상위 3노드는 <b>매 tick</b> 먼저 평가 — 어느 구간에서든 다시 보이면 즉시 추종 복귀</div>
+          <div class="mf-foot"><b>매 tick</b> 위에서부터 다시 본다 — <b>AlignHeading</b>(뒷캠에 딱 한 명 → 180° ≈9s, 탐색당 1회) &gt; <b>PeekReacquired</b>(길잡이는 안 돌고 캠만 고정) &gt; <b>CheckReacquired</b>(앞캠에 다시 보이면 즉시 복귀) &gt; 탐색 계속</div>
         </div>
         <div class="mg-top" style="grid-template-columns:1.55fr 1fr">
           <div class="fmcard">
@@ -1512,9 +1512,9 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
             <div class="alg">
               <div class="tsubs">
                 <div class="tsub"><span class="sn">검출</span><span><b>YOLO</b> + <b>ByteTrack</b> + <b>ReID·HSV</b> → TCP 로 로봇에 보낸다</span></div>
-                <div class="tsub"><span class="sn">제어</span><span><b>bang-bang 제어</b> — 화면상 오차 구간에 따라 전/후진·좌/우 회전을 이산적으로 낸다</span></div>
-                <div class="tsub"><span class="sn">전환</span><span>뒤를 보려고 <b>9초 돌던 것을 2초 카메라 전환</b>으로 — 전환은 공짜</span></div>
-                <div class="tsub"><span class="sn">자세</span><span><b>YOLO pose</b> 2차 추론 — <b>서 있는 상태</b>일 때만 따라간다</span></div>
+                <div class="tsub"><span class="sn">제어</span><span><b>거리 PID</b>(bbox √면적) + <b>방위 PID</b>(중심 x) → LiDAR 감속·하드스톱이 위에서 자른다</span></div>
+                <div class="tsub"><span class="sn">전환</span><span>뒤를 보려고 <b>9초 돌던 것을 캠 전환</b>으로 — 회전은 뒷캠에 실제로 한 명이 잡혔을 때만</span></div>
+                <div class="tsub"><span class="sn">자세</span><span><b>YOLO pose</b> 2차 추론 — <b>Standing</b> 만 주행 허용, Lying·보정중은 즉시 정지</span></div>
               </div>
             </div>
           </div>
