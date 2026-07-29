@@ -1512,27 +1512,16 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
           </div>
           <div class="mf-foot"><b>매 tick</b> 위에서부터 다시 본다 — <b>AlignHeading</b>(뒷캠에 딱 한 명 → 180° ≈9s, 탐색당 1회) &gt; <b>PeekReacquired</b>(길잡이는 안 돌고 캠만 고정) &gt; <b>CheckReacquired</b>(앞캠에 다시 보이면 즉시 복귀) &gt; 탐색 계속</div>
         </div>
-        <div class="mg-top" style="grid-template-columns:1.55fr 1fr">
+        <div class="mg-top" style="grid-template-columns:1fr">
           <div class="fmcard">
             <div class="fmcard-h"><span class="t">② 구현</span><span class="tag">인식=서버 · 제어=로봇</span></div>
             <div class="alg">
               <div class="tsubs">
                 <div class="tsub"><span class="sn">검출</span><span><b>YOLO</b> + <b>ByteTrack</b> + <b>ReID·HSV</b> → TCP 로 로봇에 보낸다</span></div>
-                <div class="tsub"><span class="sn">제어</span><span><b>거리 PID</b>(bbox √면적) + <b>방위 PID</b>(중심 x) → LiDAR 감속·하드스톱이 위에서 자른다</span></div>
+                <div class="tsub"><span class="sn">제어</span><span><b>bang-bang 제어</b> — 화면 3분할로 좌/우 회전, bbox √면적 데드밴드로 전/후진 → LiDAR 감속·하드스톱이 위에서 자른다</span></div>
                 <div class="tsub"><span class="sn">전환</span><span>뒤를 보려고 <b>9초 돌던 것을 캠 전환</b>으로 — 회전은 뒷캠에 실제로 한 명이 잡혔을 때만</span></div>
                 <div class="tsub"><span class="sn">자세</span><span><b>YOLO pose</b> 2차 추론 — <b>Standing</b> 만 주행 허용, Lying·보정중은 즉시 정지</span></div>
               </div>
-            </div>
-          </div>
-          <div class="fmcard tc">
-            <div class="fmcard-h"><span class="t">③ 향후</span><span class="tag">자세 기반 게이트</span></div>
-            <div class="alg">
-              <p class="alg-p"><b>YOLO pose 로 자세를 추종</b>해서, 대상이 <b>정면 또는 후면</b>을 바라보고 있을 때만 따라가도록 할 예정.</p>
-              <ol class="alg-steps">
-                <li>옆모습·돌아선 상태에서는 <b>대기</b></li>
-                <li>오인식으로 엉뚱한 사람을 쫓는 것을 줄인다</li>
-                <li>지금은 <b>서 있는 상태</b>만 게이트한다</li>
-              </ol>
             </div>
           </div>
         </div>
