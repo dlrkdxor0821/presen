@@ -1557,11 +1557,9 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
         <div class="wip-sub">상태별로 제어해야 했는데, 통합에서 안 됐다</div>
         <ul class="clist">
           <li>우리는 <b>여러 곳에서 <code>/cmd_vel</code> 을 발행</b>한다<ul>
-            <li>패널 수동 조작 · 관제 직접 명령</li>
             <li>사람 추종 PID</li>
             <li>nav2 본선 · nav2 회복 동작</li>
           </ul></li>
-          <li>이걸 <b>로봇 상태별로 제어</b>해야 했다<ul><li>대기·응대·에러·충전에서는 자율주행이 나가면 안 된다</li></ul></li>
           <li>그런데 <b>통합하는 과정에서 원활히 되지 않았다</b><ul>
             <li>"대기 상태인데 바퀴가 움직인다"가 반복해서 나왔다</li>
             <li>각 코드가 종료할 때 <b>빠짐없이 취소하기</b>에 의존했기 때문</li>
