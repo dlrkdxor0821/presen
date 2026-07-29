@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>ABA · Libi — 최종 발표</title>
+<title>ABA · Libi — 주간 진행 보고 &amp; 향후 계획</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..600;1,9..144,400..600&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -563,15 +563,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .jtbl td b{font-family:var(--mono);font-size:13.5px;font-weight:700;color:var(--gold-deep);background:var(--gold-soft);border-radius:4px;padding:2px 6px;margin-left:5px;white-space:nowrap}
 .jtbl td b.t{color:#6B7280;background:#ECE9E0}
 .jtbl td b.d{color:var(--teal);background:#E3F0ED}
-/* 관제 어드민 배지 — 실제 화면 색(tailwind) 그대로. LED 와 같은 색 축임을 보이는 게 목적 */
-.jtbl td .bdg{display:inline-block;font-family:var(--mono);font-size:13.5px;font-weight:700;padding:2px 8px;border-radius:5px;white-space:nowrap}
-.jtbl td .bdg.bl{background:#DBEAFE;color:#1D4ED8}
-.jtbl td .bdg.bl-d{background:#EFF6FF;color:#2563EB}
-.jtbl td .bdg.gr{background:#D1FAE5;color:#047857}
-.jtbl td .bdg.gr-d{background:#ECFDF5;color:#059669}
-.jtbl td .bdg.rd{background:#FEE2E2;color:#B91C1C}
-.jtbl td .bdg.r1{box-shadow:0 0 0 1px #10B981}   /* LED blink 1.5s */
-.jtbl td .bdg.r2{box-shadow:0 0 0 2px #EF4444}   /* LED blink 0.5s */
 .jtbl-foot{font-family:var(--mono);font-size:15.5px;color:var(--ink-3);border-top:1px dashed var(--line);padding-top:10px}
 
 .pbul li code{font-family:var(--mono);font-size:.84em;background:var(--gold-soft);color:var(--gold-deep);border-radius:4px;padding:1px 5px;font-weight:600}
@@ -1104,54 +1095,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 .navsplit .nav-wip{border-top-color:var(--teal)}
 .navsplit .nav-wip .wip-sub{font-size:clamp(17px,1.42vw,19.5px);font-weight:700;color:var(--ink);margin-top:3px}
 .navsplit .nav-wip .wip-sub::before{content:"● ";color:var(--teal);font-size:.7em;vertical-align:2px}
-
-/* ============================================================
-   최종 발표본 · 저해상도(세로 820px 이하) 밀도 보정
-   레이아웃은 그대로 두고 촘촘한 슬라이드만 살짝 줄여 잘림을 막는다.
-============================================================ */
-@media (max-height:820px){
-  .mg-top .fmcard{padding:clamp(10px,1.4vh,16px) clamp(11px,1.1vw,16px)}
-  .mg-top .alg{gap:5px}
-  .mgr .alg-steps li,.mgr .alg-p,.mgr .alg-ladder li{font-size:14.5px;line-height:1.34}
-  .mgr .alg-sub{font-size:13.5px;line-height:1.3}
-  .mgr .tsub{font-size:14px;line-height:1.32;gap:4px}
-  .mgr .tsubs{gap:3px}
-  .mgr .fmcard-h{margin-bottom:5px}
-  .mgr .alg-lad-cap{margin-top:5px}
-  .mgr .fc-flow span{font-size:14.5px;padding:4px 9px}
-  .jtbl{gap:9px}
-  .jtbl table{font-size:17px}
-  .jtbl th{padding:8px 10px}
-  .jtbl td{padding:9px 10px}
-  .jtbl-foot{font-size:14px;padding-top:8px}
-  .armgrid .clist li{font-size:14.2px;line-height:1.28}
-  .navsplit .clist li{font-size:15px;line-height:1.34}
-  .navsplit .fc-note{font-size:14px;line-height:1.34}
-}
-@media (max-height:790px){
-  .slide{padding-top:clamp(24px,3.6vh,40px);padding-bottom:clamp(18px,2.6vh,30px)}
-  .shead{margin-bottom:clamp(10px,1.6vh,18px)}
-  .mgr .alg-steps li,.mgr .alg-p,.mgr .alg-ladder li{font-size:13.4px;line-height:1.3}
-  .mgr .alg-sub{font-size:12.6px}
-  .mgr .tsub{font-size:13px;line-height:1.28}
-  .mg-flow{padding:4px clamp(10px,1vw,14px)}
-  .mg-flow .fchart .fn .lb{font-size:14.5px}
-  .mg-flow .mf-foot{font-size:13.4px;margin-top:6px;padding-top:6px}
-  .mg-right{gap:clamp(9px,1.3vh,14px)}
-  .armgrid .clist li{font-size:13.2px;line-height:1.25}
-  .armgrid .clist li ul li{font-size:12.6px;line-height:1.25}
-  .armgrid .fc-t{font-size:20px}
-  .navsplit .clist li{font-size:14px;line-height:1.3}
-  .navsplit .clist li ul li{font-size:13.2px}
-  .navsplit .fc-note{font-size:13.2px;line-height:1.3}
-  .navsplit .fcard{padding:clamp(11px,1.5vh,17px) clamp(12px,1.1vw,17px)}
-  .jtbl table{font-size:15.5px}
-  .jtbl td{padding:7px 9px}
-  .jtbl th{padding:7px 9px}
-  .jtbl-foot{font-size:13px}
-  .fcard .cardvid{min-height:74px!important;padding:6px;gap:4px}
-  .fcard .cardvid .play{width:34px;height:34px;font-size:16px}
-}
 /* 추종 — 좌 구현방안 / 우 향후계획 */
 .impfut{flex:1;display:grid;grid-template-columns:2.55fr 1fr;gap:clamp(18px,2.2vw,38px);min-height:0}
 .impfut .rsec{min-height:0}
@@ -1172,7 +1115,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
 
   <section class="slide cover dark">
     <div class="cv-text">
-      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 최종 발표 · 2026.07.29</div>
+      <div class="cv-team anim" style="--d:0">TEAM <b>ARTE</b> · 주간 진행 보고 · 2026.07.14</div>
       <div class="cv-mark anim" style="--d:1">
         <span class="cv-aba">ABA</span>
         <span class="cv-full">Arte&nbsp;Book&nbsp;Assistance</span>
@@ -1222,291 +1165,290 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>도서관 사서 협동로봇</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 02 · 공간 · 지도 (이전 → 현재) ===== -->
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">02</span> System · 공간</div>
-      <h2 class="stitle anim" style="--d:1"><span class="hl">Map</span> 변경</h2>
-    </header>
-    <div class="sbody">
-      <div class="fx2 anim" style="--d:2;grid-template-columns:1fr auto 1fr;align-items:center">
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><img src="https://images.prismic.io/asd0821/xEcjMAbrtQHXAmfp_image-2-.png?auto=format,compress&w=1100" alt="이전 맵 배치도"></div>
-          <figcaption class="gcap" style="font-family:var(--mono);font-size:15px;color:var(--ink-3);text-align:center">BEFORE · 초기 배치도</figcaption>
-        </figure>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold);font-size:34px;font-weight:800">
-          <span>➜</span>
-          <span style="font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--gold-deep);font-weight:700">개편</span>
-        </div>
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><img src="https://images.prismic.io/asd0821/B8Wz7X4Inw2Cqx9c_arte-map-no-bunryu.png?auto=format,compress&w=1400" alt="현재 맵"></div>
-          <figcaption class="gcap" style="font-family:var(--mono);font-size:15px;color:var(--gold-deep);text-align:center;font-weight:700">AFTER · 현재 운영 맵</figcaption>
-        </figure>
-      </div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(12px,2vh,20px);justify-content:center">
-        <span class="trig">유아 서가 → <b>제거</b></span>
-        <span>서가 4종으로 정리 — 문학 · 예술 · 과학 · 인문학</span>
-        <span>수거함 · 충전소 · 안내데스크 · 출입구 <b>재배치</b></span>
-        <span>1·2번 테이블 = 열람 배달 도착지</span>
-      </div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>System · 공간</b></span><span class="pg"></span></footer>
-  </section>
-
-  <!-- ===== 03 · Waypoint 변경 ===== -->
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">03</span> System · Waypoint</div>
-      <h2 class="stitle anim" style="--d:1"><span class="hl">Waypoint</span> 변경</h2>
-    </header>
-    <div class="sbody">
-      <div class="fx2 anim" style="--d:2;grid-template-columns:1fr auto 1fr;align-items:center">
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><img src="https://images.prismic.io/asd0821/bYAeLfTo3Qr_thsU_waypoint-before.png?auto=format,compress&w=1200" alt="이전 waypoint 배치"></div>
-          <figcaption style="font-family:var(--mono);font-size:15px;color:var(--ink-3);text-align:center">BEFORE · 정점 나열</figcaption>
-        </figure>
-        <div style="display:flex;flex-direction:column;align-items:center;gap:7px;color:var(--gold);font-size:34px;font-weight:800">
-          <span>➜</span>
-          <span style="font-family:var(--mono);font-size:14px;letter-spacing:.1em;color:var(--gold-deep);font-weight:700">개편</span>
-        </div>
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><img src="https://images.prismic.io/asd0821/BoXja8yuT3zzgWfR_waypoint-after.png?auto=format,compress&w=1200" alt="현재 waypoint · 순회 경로"></div>
-          <figcaption style="font-family:var(--mono);font-size:15px;color:var(--gold-deep);text-align:center;font-weight:700">AFTER · 순회 경로 명시</figcaption>
-        </figure>
-      </div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(12px,2vh,20px);justify-content:center">
-        <span class="trig">정점 <b>이름을 의미 단위로</b> — 순회경로 1~8 · 서가 · 테이블</span>
-        <span>순회 루프를 <b>빨간 간선</b>으로 명시</span>
-        <span>불필요한 중간 정점 정리</span>
-        <span>주차장 · 분류함 · 수거함 진입점 정비</span>
-      </div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>System · Waypoint</b></span><span class="pg"></span></footer>
-  </section>
-
-  <!-- ===== 04 · 순회 합류 알고리즘 ===== -->
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">04</span> Algorithm · 순회 합류</div>
-      <h2 class="stitle anim" style="--d:1">어디에 있든 <span class="hl">순회 경로에 붙는다</span></h2>
-      <p class="slead anim" style="--d:2">로봇은 배달을 마친 자리, 충전소, 서가 사이 <b>어디에나</b> 있을 수 있다.</p>
-    </header>
-    <div class="sbody"><div class="flow-wrap anim" style="--d:3">
-      <div class="fchart">
-        <div class="fn"><div class="num">1</div><div class="lb">현재 위치<em>어디든</em><small>배달 끝난 자리 · 충전소</small></div></div>
-        <span class="arw">→</span>
-        <div class="fn"><div class="num">2</div><div class="lb">노드 스냅<em>graph.nearest</em><small>가장 가까운 그래프 노드로</small></div></div>
-        <span class="arw">→</span>
-        <div class="fn alt"><div class="num">3</div><div class="lb">진입점 선정<em>Dijkstra</em><small>순회 정점마다 <b>경로비용</b>을 재<br>가장 싼 정점을 고른다</small></div></div>
-        <span class="arw">→</span>
-        <div class="fn"><div class="num">4</div><div class="lb">한 바퀴 경로 생성<em>방향 유지</em><small>진입점부터 루프를 한 바퀴</small></div></div>
-        <span class="arw">→</span>
-        <div class="fn"><div class="num">5</div><div class="lb">진입점 점유<em>request_move</em><small>교통 예약 후 출발</small></div></div>
-      </div>
-      <div class="fx2" style="align-items:stretch">
-        <div class="fcard"><div class="fc-ico">📐</div><div class="fc-t">왜 직선거리가 아닌가</div>
-          <ul class="clist">
-            <li>직선으로 가장 가까운 정점이 <b>벽 너머</b>일 수 있다</li>
-            <li>그러면 지도를 크게 돌아가 사람 눈엔 "왜 저기로 가지"로 보인다</li>
-            <li><b>그래프거리가 실제 이동거리다</b> — 그래서 Dijkstra 경로비용으로 고른다</li>
-            <li>도달불가 후보는 <b>건너뛴다</b> — 비용 0 이 "가장 가까움"으로 뽑히는 것을 막는다</li>
-          </ul>
-          <div class="fc-tech"><span>graph.nearest</span><span>Dijkstra</span><span>path_cost</span></div>
-        </div>
-        <div class="fcard"><div class="fc-ico">🔁</div><div class="fc-t">순회 루프 자체는 자동 생성</div>
-          <ul class="clist">
-            <li><b>우수법 경계 순회</b>로 외곽 루프를 지도에서 자동으로 뽑는다</li>
-            <li>방향은 항상 <b>반시계</b>로 고정 — 지도가 바뀌어도 도는 방향이 일정하다</li>
-            <li>막힌 노드는 <b>루프상의 다음 노드</b>로 우회 — 방향을 유지한다</li>
-            <li>교통 우선순위에서 <b>순회가 가장 약하다</b> — 배달·충전복귀에 먼저 양보</li>
-          </ul>
-          <div class="fc-tech"><span>CCW 고정</span><span>한 바퀴 경로</span><span>tier 0</span></div>
-        </div>
-      </div>
-    </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Algorithm · 순회 합류</b></span><span class="pg"></span></footer>
-  </section>
-
-  <!-- ===== 02 · 로봇팔 도서 파지 ===== -->
+  <!-- ===== 로봇팔 · 복제본 (영상 교체) ===== -->
   <section class="slide">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
-      <h2 class="stitle anim" style="--d:1">도서 파지 <span class="hl">Pick &amp; Place</span> · PICK은 PBVS, PLACE는 IBVS</h2>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span> · Pick · Place · Grasp</h2>
     </header>
-    <div class="sbody"><div class="armgrid anim" style="--d:3;grid-template-areas:&quot;pick place vid&quot; &quot;pick place vid&quot;">
+    <div class="sbody"><div class="armgrid anim" style="--d:3">
       <div class="fcard a-pick">
-        <div class="fc-t">① 도서 파지 · Pick<span class="sub">PBVS</span><span class="stt ok">완료</span></div>
+        <div class="fc-t">① 도서 파지 · Pick<span class="stt ok">완료</span></div>
         <ul class="clist">
           <li><b>ArUco Marker</b> 방식으로 제어<ul><li>PnP 연산으로 tvec·rvec 기반 3D Pose 추정</li></ul></li>
-          <li>카메라–그리퍼 오프셋 <b>Hand-eye Calibration</b></li>
-          <li><b>One-shot pose grasp</b> · Move L</li>
-          <li>책꽂이의 책은 <b>마커가 잘 보인다</b> → PBVS 가 더 정확하고 이미 검증됐다</li>
+          <li>카메라–그리퍼 오프셋<ul><li>Hand-eye Calibration</li></ul></li>
+          <li><b>One-shot pose grasp</b><ul><li>지속 갱신·보정 대신 초기 1회 좌표를 찍고 이동</li><li>Move L 명령 · PBVS 방식 제어</li></ul></li>
         </ul>
       </div>
       <div class="fcard a-place">
-        <div class="fc-t">② 도서 배치 · Place<span class="sub">IBVS</span><span class="stt wip">시도 중</span></div>
+        <div class="fc-t">② 도서 배치 · Place<span class="sub">슬롯 인식</span><span class="stt wip">진행 중</span></div>
         <ul class="clist">
-          <li><b>왜 바꿨나</b> — 흐트러진 책은 마커가 가려져 <b>3D pose 추정이 흔들린다</b></li>
-          <li><b>IBVS</b> — 3D 복원 없이 화면 오차만으로<ul><li><code>ex</code>→Y · <code>ey</code>→Z · <code>ew</code>(<b>크기</b>)→X — 크기가 거리를 대신한다</li><li>세 축을 <b>동시에</b> 낸다 (순차면 왕복한다)</li></ul></li>
-          <li><b>lookahead + 비동기 send_coords</b><ul><li>도착을 기다리면 가속·감속 반복으로 뚝뚝 끊긴다</li></ul></li>
-          <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
-          <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
-          <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
+          <li><b>IBVS</b> 기반 책 배치 시도<ul><li>빈 슬롯 인식 → 빈 슬롯에 책 삽입</li></ul></li>
+          <li><b>OpenCV</b>로 슬롯 검출</li>
+          <li>슬롯 정상 인식 시 <b>ID 배정</b></li>
+          <li><b>Optical Flow</b> 기반 슬롯 위치 추정<ul>
+            <li>ID 할당 슬롯의 feature point 지속 추출</li>
+            <li>이전·현재 feature 대응으로 affine transform 추정 (RANSAC 알고리즘으로 이상치에 강건)</li>
+            <li>추정된 transform을 각 슬롯에 부여 → 위치 추정</li>
+            <li>화면을 벗어났다 돌아와도 최초 ID 유지</li></ul></li>
+          <li>한계점<ul>
+            <li>급격한 움직임·블러·조명 변화에 취약</li>
+            <li>장시간 완전 소실 후 재진입 시 재식별 한계</li></ul></li>
+        </ul>
+      </div>
+      <div class="fcard a-grasp">
+        <div class="fc-t">③ 바구니 파지 · Grasp<span class="stt wip">진행 중</span></div>
+        <ul class="clist">
+          <li><b>YOLO</b>로 반납 바구니 실시간 인식</li>
+          <li>손잡이(끈) 파지점 선정 → <b>Gripper</b> 파지</li>
+          <li>어렵다고 판단되면 <b>미니어처</b>로 대체 예정</li>
         </ul>
       </div>
       <div class="a-vid">
-        <div class="fh">시연 영상 · 도서 파지</div>
+        <div class="fh">시연 영상</div>
         <div class="vidbox"><video src="https://asd0821.cdn.prismic.io/asd0821/PlubBtRjU8PP8_qR_IMG_0457.mp4" autoplay loop muted playsinline></video></div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 02 · 로봇팔 도서 파지 (영상 2) ===== -->
+  <!-- ===== 로봇팔 · 통합 (Pick/Place/Grasp/향후) ===== -->
   <section class="slide">
     <header class="shead">
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
-      <h2 class="stitle anim" style="--d:1">도서 파지 <span class="hl">Pick &amp; Place</span> · PICK은 PBVS, PLACE는 IBVS</h2>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span> · Pick · Place · Grasp</h2>
     </header>
-    <div class="sbody"><div class="armgrid anim" style="--d:3;grid-template-areas:&quot;pick place vid&quot; &quot;pick place vid&quot;">
+    <div class="sbody"><div class="armgrid anim" style="--d:3">
       <div class="fcard a-pick">
-        <div class="fc-t">① 도서 파지 · Pick<span class="sub">PBVS</span><span class="stt ok">완료</span></div>
+        <div class="fc-t">① 도서 파지 · Pick<span class="stt ok">완료</span></div>
         <ul class="clist">
           <li><b>ArUco Marker</b> 방식으로 제어<ul><li>PnP 연산으로 tvec·rvec 기반 3D Pose 추정</li></ul></li>
-          <li>카메라–그리퍼 오프셋 <b>Hand-eye Calibration</b></li>
-          <li><b>One-shot pose grasp</b> · Move L</li>
-          <li>책꽂이의 책은 <b>마커가 잘 보인다</b> → PBVS 가 더 정확하고 이미 검증됐다</li>
+          <li>카메라–그리퍼 오프셋<ul><li>Hand-eye Calibration</li></ul></li>
+          <li><b>One-shot pose grasp</b><ul><li>지속 갱신·보정 대신 초기 1회 좌표를 찍고 이동</li><li>Move L 명령 · PBVS 방식 제어</li></ul></li>
         </ul>
       </div>
       <div class="fcard a-place">
-        <div class="fc-t">② 도서 배치 · Place<span class="sub">IBVS</span><span class="stt wip">시도 중</span></div>
+        <div class="fc-t">② 도서 배치 · Place<span class="sub">슬롯 인식</span><span class="stt wip">진행 중</span></div>
         <ul class="clist">
-          <li><b>왜 바꿨나</b> — 흐트러진 책은 마커가 가려져 <b>3D pose 추정이 흔들린다</b></li>
-          <li><b>IBVS</b> — 3D 복원 없이 화면 오차만으로<ul><li><code>ex</code>→Y · <code>ey</code>→Z · <code>ew</code>(<b>크기</b>)→X — 크기가 거리를 대신한다</li><li>세 축을 <b>동시에</b> 낸다 (순차면 왕복한다)</li></ul></li>
-          <li><b>lookahead + 비동기 send_coords</b><ul><li>도착을 기다리면 가속·감속 반복으로 뚝뚝 끊긴다</li></ul></li>
-          <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
-          <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
-          <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
+          <li><b>IBVS</b> 기반 책 배치 시도<ul><li>빈 슬롯 인식 → 빈 슬롯에 책 삽입</li></ul></li>
+          <li><b>OpenCV</b>로 슬롯 검출</li>
+          <li>슬롯 정상 인식 시 <b>ID 배정</b></li>
+          <li><b>Optical Flow</b> 기반 슬롯 위치 추정<ul>
+            <li>ID 할당 슬롯의 feature point 지속 추출</li>
+            <li>이전·현재 feature 대응으로 affine transform 추정 (RANSAC 알고리즘으로 이상치에 강건)</li>
+            <li>추정된 transform을 각 슬롯에 부여 → 위치 추정</li>
+            <li>화면을 벗어났다 돌아와도 최초 ID 유지</li></ul></li>
+          <li>한계점<ul>
+            <li>급격한 움직임·블러·조명 변화에 취약</li>
+            <li>장시간 완전 소실 후 재진입 시 재식별 한계</li></ul></li>
+        </ul>
+      </div>
+      <div class="fcard a-grasp">
+        <div class="fc-t">③ 바구니 파지 · Grasp<span class="stt wip">진행 중</span></div>
+        <ul class="clist">
+          <li><b>YOLO</b>로 반납 바구니 실시간 인식</li>
+          <li>손잡이(끈) 파지점 선정 → <b>Gripper</b> 파지</li>
+          <li>어렵다고 판단되면 <b>미니어처</b>로 대체 예정</li>
         </ul>
       </div>
       <div class="a-vid">
-        <div class="fh">시연 영상 · 도서 파지 ②</div>
-        <div class="vidbox"><video src="https://asd0821.cdn.prismic.io/asd0821/XswScuHb4LRNOUF5_IMG_0525.mov" autoplay loop muted playsinline></video></div>
+        <div class="fh">시연 영상</div>
+        <div class="vidbox"><video src="https://asd0821.cdn.prismic.io/asd0821/6T_Ho_U7SzglV-yO_Screencast_30seconds.mp4" autoplay loop muted playsinline></video></div>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 03 · 바구니 파지 ===== -->
+  <!-- ===== 로봇팔 · 복제본2 (이미지 · 도서반납함) ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Progress · 바구니</div>
-      <h2 class="stitle anim" style="--d:1">바구니 파지 <span class="hl">YOLO 그리드 추적</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
+      <h2 class="stitle anim" style="--d:1">로봇팔 <span class="hl">Robot Arm</span> · Pick · Place · Grasp</h2>
     </header>
     <div class="sbody"><div class="armgrid anim" style="--d:3">
       <div class="fcard a-pick">
-        <div class="fc-t">① 통신<span class="sub">채널 분리</span><span class="stt ok">완료</span></div>
+        <div class="fc-t">① 도서 파지 · Pick<span class="stt ok">완료</span></div>
         <ul class="clist">
-          <li><b>영상은 UDP</b> 단방향 — 지연 최소화, 한 프레임 잃어도 다음이 온다<ul><li>RealSense color+depth 를 <b>60KB 청크</b>로 분할</li></ul></li>
-          <li><b>명령은 TCP</b> — 좌표 하나가 유실되면 엉뚱한 데로 간다<ul><li>검출 결과 JSON + 완료 ACK</li></ul></li>
+          <li><b>ArUco Marker</b> 방식으로 제어<ul><li>PnP 연산으로 tvec·rvec 기반 3D Pose 추정</li></ul></li>
+          <li>카메라–그리퍼 오프셋<ul><li>Hand-eye Calibration</li></ul></li>
+          <li><b>One-shot pose grasp</b><ul><li>지속 갱신·보정 대신 초기 1회 좌표를 찍고 이동</li><li>Move L 명령 · PBVS 방식 제어</li></ul></li>
         </ul>
-        <div class="fc-tech"><span>UDP :5005</span><span>TCP :5006</span></div>
       </div>
       <div class="fcard a-place">
-        <div class="fc-t">② 인식 · 제어<span class="sub">15분할</span><span class="stt wip">진행 중</span></div>
+        <div class="fc-t">② 도서 배치 · Place<span class="sub">슬롯 인식</span><span class="stt wip">진행 중</span></div>
         <ul class="clist">
-          <li><b>커스텀 2클래스</b> — 빈 바구니 / 비어 있지 않은 바구니<ul>
-            <li><b>700장</b> 학습 · conf <b>0.78</b> · 두 클래스 동시 검출 시 <b>신뢰도 높은 쪽만</b></li>
-            </ul></li>
-          <li><b>화면 15분할 그리드</b> — 중심이 <b>제8구역(Center)</b>에 들어오면 트리거<ul>
-            <li><b>640 / 15 = 42.6px</b> — 적으면 엉성하고 많으면 노이즈에 떤다</li>
-            <li>탐색은 <b>5°</b>, 정렬은 <b>2°</b> — 찾을 땐 빠르게, 맞출 땐 정밀하게</li>
-            <li>Center 진입 후 <b>4° 오프셋</b>으로 카메라–그리퍼 차 보정 → 파지</li>
-          </ul></li>
+          <li><b>IBVS</b> 기반 책 배치 시도<ul><li>빈 슬롯 인식 → 빈 슬롯에 책 삽입</li></ul></li>
+          <li><b>OpenCV</b>로 슬롯 검출</li>
+          <li>슬롯 정상 인식 시 <b>ID 배정</b></li>
+          <li><b>Optical Flow</b> 기반 슬롯 위치 추정<ul>
+            <li>ID 할당 슬롯의 feature point 지속 추출</li>
+            <li>이전·현재 feature 대응으로 affine transform 추정 (RANSAC 알고리즘으로 이상치에 강건)</li>
+            <li>추정된 transform을 각 슬롯에 부여 → 위치 추정</li>
+            <li>화면을 벗어났다 돌아와도 최초 ID 유지</li></ul></li>
+          <li>한계점<ul>
+            <li>급격한 움직임·블러·조명 변화에 취약</li>
+            <li>장시간 완전 소실 후 재진입 시 재식별 한계</li></ul></li>
         </ul>
       </div>
       <div class="fcard a-grasp">
-        <div class="fc-t">③ 탐색 FSM<span class="stt wip">진행 중</span></div>
-        <div class="fc-flow"><span>INIT → SCAN_LEFT (5°×14)</span><i>▼</i><span>RETURN_INIT → SCAN_RIGHT</span><i>▼</i><span><b>높이를 바꿔</b> 다시 시도</span></div>
+        <div class="fc-t">③ 바구니 파지 · Grasp<span class="stt wip">진행 중</span></div>
         <ul class="clist">
-          <li>한 스텝마다 <b>1초 정지</b> — 돌면서 찍으면 모션 블러로 검출이 떨어진다</li>
-          <li>좌우를 다 훑고도 못 찾으면 <b>높이가 안 맞은 것</b>이다</li>
+          <li><b>YOLO</b>로 반납 바구니 실시간 인식</li>
+          <li>손잡이(끈) 파지점 선정 → <b>Gripper</b> 파지</li>
+          <li>어렵다고 판단되면 <b>미니어처</b>로 대체 예정</li>
         </ul>
       </div>
       <div class="a-vid">
-        <div class="fh">시연 영상 · 바구니 파지</div>
-        <div class="vidbox"><video src="https://asd0821.cdn.prismic.io/asd0821/gnJJ3eyinbgGrTax_basket-grab.mp4" autoplay loop muted playsinline></video></div>
+        <div class="fh">현재 바구니 사진</div>
+        <div class="vidbox"><img src="https://images.prismic.io/asd0821/d10bn7uu65XnAvfV_20260707_112416.jpg?auto=format,compress" alt="도서반납함 바구니"></div>
       </div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 바구니</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 로봇팔</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 04 · 로봇 상태 LED ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">04</span> Robot · 상태 표시</div>
-      <h2 class="stitle anim" style="--d:1">로봇 색상 <span class="hl">Status LED</span></h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 주행</div>
+      <h2 class="stitle anim" style="--d:1">주행 <span class="hl">Navigation</span></h2>
     </header>
     <div class="sbody"><div class="navsplit anim" style="--d:3">
-      <div class="jtbl">
-        <div class="jtbl-cap">상태별 색 · 패턴 · 휘도 · 관제 배지</div>
-        <table>
-          <tr><th>상태</th><th>LED 색 · 패턴 · 휘도</th><th>관제 배지</th><th>읽는 법</th></tr>
-          <tr><td>PATROL</td><td>🔵 청색 solid 100%</td><td><span class="bdg bl">PATROL</span></td><td><b class="d">지금 쓸 수 있다</b></td></tr>
-          <tr><td>SECURITY_PATROL</td><td>🔵 청색 solid 35%</td><td><span class="bdg bl-d">SEC_PATROL</span></td><td>가용 · 야간</td></tr>
-          <tr><td>IDLE</td><td>🟢 초록 solid <b>15%</b></td><td><span class="bdg gr-d">IDLE</span></td><td>쉬는 중 · 가장 어둡다</td></tr>
-          <tr><td>INTERACTING</td><td>🟢 초록 solid 100%</td><td><span class="bdg gr">INTERACTING</span></td><td>응대 중 · 기다린다</td></tr>
-          <tr><td>WORKING</td><td>🟢 초록 solid 100%</td><td><span class="bdg gr">WORKING</span></td><td>작업 중</td></tr>
-          <tr><td>RETURNING</td><td>🟢 초록 <b>blink 1.5s</b></td><td><span class="bdg gr r1">RETURNING</span></td><td>복귀 중 · 비켜 주세요</td></tr>
-          <tr><td>CHARGING</td><td>🔴 빨강 solid 100%</td><td><span class="bdg rd">CHARGING</span></td><td>충전 중 · 접근 주의</td></tr>
-          <tr><td>ERROR</td><td>🔴 빨강 <b>blink 0.5s</b></td><td><span class="bdg rd r2">ERROR</span></td><td>고장 · 사람이 가야 한다</td></tr>
-        </table>
-        <div class="jtbl-foot">관제 배지도 <b>같은 색 축</b> — 깜빡임은 배지 테두리로 (RETURNING 얇게 · ERROR 굵게). 상태 토픽이 5초 끊기면 <b>NO_SIGNAL</b> — ERROR 와 같은 그림</div>
+      <div class="navcol">
+        <div class="fcard"><div class="fc-ico">🧭</div><div class="fc-t">전반적인 주행 · Navigation</div>
+          <ul class="clist">
+            <li>현재 맵 환경에서 <b>Nav2 Pkg</b>로 주행 성공</li>
+            <li><b>Waypoint</b> 기반으로 특정 노드좌표 이동명령에 대한 주행</li>
+            <li><b>GUI 원격 제어</b>로 관리자가 위치·경로를 모니터링·조작</li>
+          </ul>
+          <div class="fc-tech"><span>ROS2 Nav2</span><span>Waypoint</span><span>GUI 원격</span></div>
+        </div>
+        <div class="fcard"><div class="fc-ico">🎯</div><div class="fc-t">정밀 주행 · Precision</div>
+          <ul class="clist">
+            <li><b>Line Tracing</b>으로 바닥 라인을 따라 정밀 직진 주행</li>
+            <li><b>ArUco Marker</b> 인식으로 도킹·주차 위치를 정확히 정렬</li>
+          </ul>
+          <div class="fc-tech"><span>Line Tracing</span><span>ArUco Marker</span></div>
+        </div>
       </div>
-      <div class="gifbox filled">
-        <video src="https://asd0821.cdn.prismic.io/asd0821/luO-WLmFPHkKg1C1_20260729_095214.mp4" autoplay loop muted playsinline></video>
+      <div class="fcard nav-wip"><div class="fc-ico">🔍</div><div class="fc-t">진행 중인 사항</div>
+        <div class="wip-sub">정밀 주행 검토</div>
+        <ul class="clist">
+          <li>주차 시 특정 지점으로 이동 → 라인·ArUco 마커 인식으로 주차 수행. 특정 지점으로의 주행에서 <b>미세 오차</b>로 간헐적 실패 → 해결방안 탐색 중</li>
+          <li>또는 다른 방식이 있는지 조사 중</li>
+        </ul>
       </div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Robot · 상태 LED</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 주행</b></span><span class="pg"></span></footer>
   </section>
 
-  <!-- ===== 05 · 추종 ===== -->
+  <!-- ===== 관제 · 통합 (GIF + 배차·교통 + 플로우) ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">05</span> Progress · 추종</div>
-      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Tracking</span> · 앞/뒤 카메라 활용</h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 관제</div>
+      <h2 class="stitle anim" style="--d:1">관제 <span class="hl">FMS</span></h2>
     </header>
-    <div class="sbody"><div class="mgr gifwide anim" style="--d:3;grid-template-columns:2.4fr 1.78fr">
-      <div class="gifbox filled">
-        <!-- 1.2배속 — HTML 속성이 없어서 JS 로만 된다. loop 마다 재적용할 필요는 없다(src 가 안 바뀌면 유지) -->
-        <video src="https://asd0821.cdn.prismic.io/asd0821/dbaahZfszdTgIVtY_%EC%B6%94%EC%A2%85.mp4" autoplay loop muted playsinline onloadedmetadata="this.playbackRate=1.2"></video>
+    <div class="sbody"><div class="mgr gifwide anim" style="--d:3">
+      <div class="gifsplit2">
+        <div class="gifbox filled"><video src="https://asd0821.cdn.prismic.io/asd0821/M8nUMRLwzjQ2QsHp_gj_patrol.mp4" autoplay loop muted playsinline></video></div>
+        <div class="gifbox filled"><video src="https://asd0821.cdn.prismic.io/asd0821/7DgmlwBh7eSqkK_X_gj_negotiation2.mp4" autoplay loop muted playsinline></video></div>
       </div>
       <div class="mg-right">
         <div class="mg-flow">
-          <div class="mf-h">① 회복 BT · 탐색 순서가 곧 트리 구조</div>
+          <div class="mf-h">① 관제 흐름 · UI에서 Task 생성 → Robot 수행</div>
           <div class="fchart">
-            <div class="fn"><div class="num">1</div><div class="lb">HoldFront 5s<em>앞캠 · 서서 기다린다</em></div></div>
+            <div class="fn"><div class="num">1</div><div class="lb">UI 태스크 생성<em>submit_task</em></div></div>
             <span class="arw">→</span>
-            <div class="fn alt"><div class="num">2</div><div class="lb">HoldBack 5s<em>뒷캠 · 서서 본다</em></div></div>
+            <div class="fn"><div class="num">2</div><div class="lb">Task Manager<em>순차 관리</em></div></div>
             <span class="arw">→</span>
-            <div class="fn"><div class="num">3</div><div class="lb">SweepFront ≈11s<em>±90° 훑고 원위치</em></div></div>
+            <div class="fn"><div class="num">3</div><div class="lb">Dispatcher<em>배차 Auction/SSI</em></div></div>
             <span class="arw">→</span>
-            <div class="fn alt"><div class="num">4</div><div class="lb">SweepBack ≈11s<em>뒷캠으로 같은 왕복</em></div></div>
+            <div class="fn"><div class="num">4</div><div class="lb">Adapter<em>세부 동작 분리</em></div></div>
             <span class="arw">→</span>
-            <div class="fn warn"><div class="num">5</div><div class="lb">GiveUp<em>0 발행 후 종료</em></div></div>
+            <div class="fn"><div class="num">5</div><div class="lb">Robot 수행<em>교통 시 Traffic Ctrl</em></div></div>
           </div>
-          <div class="mf-foot"><b>매 tick</b> 위에서부터 다시 본다 — <b>AlignHeading</b>(뒷캠에 딱 한 명 → 180° ≈9s, 탐색당 1회) &gt; <b>PeekReacquired</b>(길잡이는 안 돌고 캠만 고정) &gt; <b>CheckReacquired</b>(앞캠에 다시 보이면 즉시 복귀) &gt; 탐색 계속</div>
         </div>
-        <div class="mg-top" style="grid-template-columns:1fr">
+        <div class="mg-top">
           <div class="fmcard">
-            <div class="fmcard-h"><span class="t">② 구현</span><span class="tag">인식=서버 · 제어=로봇</span></div>
+            <div class="fmcard-h"><span class="t">② 배차 · Dispatch</span><span class="tag">Auction·SSI</span></div>
+            <div class="alg">
+              <div class="alg-sh">제약조건 — 배정 가능 조건</div>
+              <ol class="alg-steps">
+                <li><b>Patrol 상태</b>인 로봇만 배정 가능</li>
+                <li><b>완주 가능</b>한 로봇만 배정<div class="alg-sub">소비% = 거리<code>×1%</code> + 팔동작<code>×0.5%</code>, <b>배터리% - 소비% ≥ 15%</b></div></li>
+              </ol>
+              <div class="alg-sh sec2">Auction 방식</div>
+              <p class="alg-p">각 로봇이 <b>Dijkstra 거리(비용)</b> 제출 → <b>최저 비용 낙찰</b> · 없으면 거절.</p>
+            </div>
+          </div>
+          <div class="fmcard tc">
+            <div class="fmcard-h"><span class="t">③ 교통관제 · Traffic</span><span class="tag">Dijkstra·Node Lock·DFS</span></div>
+            <div class="alg">
+              <ol class="alg-steps">
+                <li><b>경로계획</b> — Dijkstra 최단 경로</li>
+                <li><b>Node Lock</b> — 진입 노드 잠금(진입 차단)</li>
+                <li><b>Deadlock</b> — 대기 사이클 DFS 감지 → 최저 우선순위 우회</li>
+              </ol>
+              <div class="alg-lad-cap">우선순위 사다리 <span>· 높을수록 안 비킴</span></div>
+              <ol class="alg-ladder">
+                <li><span class="lv">완전 막힘</span> — 최상위, 풀리면 원복</li>
+                <li><span class="lv">충전 복귀</span> — 방전 임박 보호</li>
+                <li><span class="lv">작업 수행중</span> — 오래된 task·낮은 배터리</li>
+                <li><span class="lv">순회 중</span> — 제일 먼저 우회</li>
+              </ol>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 관제</b></span><span class="pg"></span></footer>
+  </section>
+
+  <!-- ===== 추종 · 통합 (시나리오 + 기술 + 향후) ===== -->
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
+      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Tracking</span> · 인지·제어 파이프라인</h2>
+    </header>
+    <div class="sbody"><div class="mgr anim" style="--d:3">
+      <div class="gifbox filled">
+        <video src="https://asd0821.cdn.prismic.io/asd0821/KoaOiMF64mM2j8el_tracking_nobg.mp4" autoplay loop muted playsinline></video>
+      </div>
+      <div class="mg-right">
+        <div class="mg-flow">
+          <div class="mf-h">① 시나리오 · 관리자 등록부터 순회까지</div>
+          <div class="fchart">
+            <div class="fn"><div class="num">1</div><div class="lb">관리자 등록<em>libi GUI 최초 1회</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">2</div><div class="lb">추종 시작<em>검출·식별·유지</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn warn"><div class="num">3</div><div class="lb">관리자 분실<em>시야 이탈</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">4</div><div class="lb">복구 탐색<em>LKD·Recovery BT</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn alt"><div class="num">5</div><div class="lb">순회 전환<em>Patrol 모드</em></div></div>
+          </div>
+        </div>
+        <div class="mg-top" style="grid-template-columns:1.75fr 1fr">
+          <div class="fmcard">
+            <div class="fmcard-h"><span class="t">② 구현 방안</span><span class="tag">인지·제어 파이프라인</span></div>
             <div class="alg">
               <div class="tsubs">
-                <div class="tsub"><span class="sn">검출</span><span><b>YOLO</b> + <b>ByteTrack</b> + <b>ReID·HSV</b> → TCP 로 로봇에 보낸다</span></div>
-                <div class="tsub"><span class="sn">제어</span><span><b>bang-bang 제어</b> — 화면 3분할로 좌/우 회전, bbox √면적 데드밴드로 전/후진 → LiDAR 감속·하드스톱이 위에서 자른다</span></div>
-                <div class="tsub"><span class="sn">전환</span><span>뒤를 보려고 <b>9초 돌던 것을 캠 전환</b>으로 — 회전은 뒷캠에 실제로 한 명이 잡혔을 때만</span></div>
-                <div class="tsub"><span class="sn">자세</span><span><b>YOLO pose</b> 2차 추론 — <b>Standing</b> 만 주행 허용, Lying·보정중은 즉시 정지</span></div>
+                <div class="tsub"><span class="sn">검출</span><span><b>YOLO11N</b> — 프레임에서 사람 BBox 추출</span></div>
+                <div class="tsub"><span class="sn">식별</span><span><b>ByteTracker</b>(프레임 간 ID) · <b>ReID</b>(재등장 재식별) · <b>HSV</b>(의상 색상 보조)</span></div>
+                <div class="tsub"><span class="sn">유지</span><span><b>Track Coasting</b> α-β 필터(끊김·가림 대응) · <b>Online Gallery</b>(ReID 0.85↓ 특징 재축적)</span></div>
+                <div class="tsub"><span class="sn">복구</span><span><b>Recovery BT</b>(45° 좌우↔180° 회전↔순회모드) · <b>LKD</b>(마지막 BBox 90° 회전)</span></div>
+                <div class="tsub"><span class="sn">제어</span><span>BBox 화면 중앙 yaw · 전/후진 270·330px · <b>P제어</b> 거리 유지 · <b>LiDAR</b> 10cm↓ 회피</span></div>
               </div>
+            </div>
+          </div>
+          <div class="fmcard tc">
+            <div class="fmcard-h"><span class="t">③ 향후 계획</span></div>
+            <div class="alg">
+              <ol class="alg-steps">
+                <li>Yaw 회전 빠를 시 <b>인식률 개선</b></li>
+                <li><b>다중 사람</b> 환경 테스트</li>
+                <li><b>BBox 추종</b> 개선</li>
+                <li><b>GUI 연동</b></li>
+              </ol>
             </div>
           </div>
         </div>
@@ -1515,169 +1457,174 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
   </section>
 
-
-
-
-
-  <!-- ===== 08 · UI (껍데기) ===== -->
+  <!-- ===== 추종 · 복제본 (영상 교체) ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> UI · 도서관 회원</div>
-      <h2 class="stitle anim" style="--d:1">도서관 회원 <span class="hl">Member Web</span> · 모바일에서 책을 부른다</h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 추종</div>
+      <h2 class="stitle anim" style="--d:1">추종 <span class="hl">Tracking</span> · 인지·제어 파이프라인</h2>
     </header>
-    <div class="sbody">
-      <div class="fx2 anim" style="--d:2;align-items:stretch">
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><video src="https://asd0821.cdn.prismic.io/asd0821/_3gdoIpnfrXf8Cr3_Screencastfrom2026-07-2910-04-07.mp4" autoplay loop muted playsinline></video></div>
-          <figcaption class="gcap" style="font-family:var(--mono);font-size:15px;color:var(--gold-deep);text-align:center;font-weight:700">① 도서 요청 · 책 고르기 → 받는 방법 (3단계)</figcaption>
-        </figure>
-        <figure style="display:flex;flex-direction:column;gap:9px;min-height:0">
-          <div class="gifbox filled" style="min-height:0;flex:1"><video src="https://asd0821.cdn.prismic.io/asd0821/HkVI6RJ0g_oQm1gg_Screencastfrom2026-07-2910-05-02.mp4" autoplay loop muted playsinline></video></div>
-          <figcaption class="gcap" style="font-family:var(--mono);font-size:15px;color:var(--gold-deep);text-align:center;font-weight:700">② LiBi AI · 도서 추천 · 시설 위치 질의</figcaption>
-        </figure>
+    <div class="sbody"><div class="mgr anim" style="--d:3">
+      <div class="gifbox filled">
+        <video src="https://asd0821.cdn.prismic.io/asd0821/Q9H0e9Td4c6v2jnb_tracking2.mp4" autoplay loop muted playsinline></video>
       </div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(10px,1.6vh,18px);justify-content:center">
-        <span class="trig">책을 고르면 <b>로봇이 움직인다</b></span>
-        <span>서가·줄 위치까지 카드에 표시 — <b>배치중</b> 상태도 같이</span>
-        <span>하단 탭 — 홈 · 도서 검색 · 공간 안내 · LiBi AI</span>
-      </div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>UI · 도서관 회원</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> UI · 사서 ①</div>
-      <h2 class="stitle anim" style="--d:1">사서 <span class="hl">Admin</span> · 대시보드 한 장으로 하루를 본다</h2>
-    </header>
-    <div class="sbody">
-      <div class="gifbox filled anim" style="--d:2;flex:1;min-height:0"><img src="https://images.prismic.io/asd0821/h93ok644LVtkLIrL_Screenshotfrom2026-07-2910-14-05.png?auto=format,compress&w=1800" alt="사서 어드민 대시보드"></div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(10px,1.6vh,18px);justify-content:center"><span>도서 분포·대출 현황 도넛 · 인기 도서 TOP</span><span>회원 선택 → <b>대여/반납</b> · 반납 임박(1일 이내)</span><span>실시간 모니터링 — 로봇 상태 · 작업 이력 · 침입감지</span><span>운영 — 대여 승인 대기 · 최근 7일 작업 성공/실패</span></div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>UI · 사서 ①</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> UI · 사서 ②</div>
-      <h2 class="stitle anim" style="--d:1">사서 <span class="hl">Admin</span> · 도서 관리 · 서가가 곧 로봇 정점</h2>
-    </header>
-    <div class="sbody">
-      <div class="gifbox filled anim" style="--d:2;flex:1;min-height:0"><img src="https://images.prismic.io/asd0821/0WXlmzyM3FiWfWlV_Screenshotfrom2026-07-2910-14-58.png?auto=format,compress&w=1800" alt="사서 어드민 도서관리 화면"></div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(10px,1.6vh,18px);justify-content:center"><span>전체 재고 현황 — 대출가능 / 대출중 / 대출불가능</span><span>도서 검색·등록·수정 — 분야 · 서가 · 청구기호(줄) · 훼손·분실</span><span><b>서가 이름 = 로봇 내비 정점</b> — 등록이 곧 배달 목적지 설정</span></div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>UI · 사서 ②</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> UI · 사서 ③</div>
-      <h2 class="stitle anim" style="--d:1">사서 <span class="hl">Admin</span> · 실시간 모니터링 · 지도 위 로봇</h2>
-    </header>
-    <div class="sbody">
-      <div class="gifbox filled anim" style="--d:2;flex:1;min-height:0"><img src="https://images.prismic.io/asd0821/VHtkGajMQzLvMSwJ_Pastedimage-2-.png?auto=format,compress&w=1800" alt="사서 어드민 실시간 모니터링"></div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(10px,1.6vh,18px);justify-content:center"><span>지도 위 로봇 위치 + <b>순회 경로</b></span><span>libi1·libi2·libi3 상태 카드 — 배터리 · 목표 정점 · 진행률</span><span>로봇 상태 도넛 — 가용 · 작업중 · 충전중 · 오류 · 끊김</span></div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>UI · 사서 ③</b></span><span class="pg"></span></footer>
-  </section>
-
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">08</span> UI · 로봇 패널</div>
-      <h2 class="stitle anim" style="--d:1">로봇 패널 <span class="hl">libi_gui</span> · 로봇 앞에서 바로 누른다</h2>
-    </header>
-    <div class="sbody">
-      <div class="gifbox filled anim" style="--d:2;flex:1;min-height:0"><video src="https://asd0821.cdn.prismic.io/asd0821/5SH2DonME59ui0dY_Screencastfrom2026-07-2910-36-39.mp4" autoplay loop muted playsinline></video></div>
-      <div class="lanes anim" style="--d:3;margin-top:clamp(10px,1.6vh,18px);justify-content:center">
-        <span class="trig">길잡이 — 지도 구역을 <b>눌러서</b> 목적지 선택</span>
-        <span>앞 카메라로 <b>안내받을 사람 등록</b> → 추종 시작</span>
-        <span>상단 — 비상정지 · 배터리 · 현재 상태 배지</span>
-      </div>
-    </div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>UI · 로봇 패널</b></span><span class="pg"></span></footer>
-  </section>
-
-
-
-  <!-- ===== 10 · 트러블슈팅 ===== -->
-  <section class="slide">
-    <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">10</span> Troubleshooting</div>
-      <h2 class="stitle anim" style="--d:1">DDS 실측 <span class="hl">CycloneDDS</span> · cmd_vel <span class="hl">권한 제어</span></h2>
-    </header>
-    <div class="sbody"><div class="navsplit anim" style="--d:3">
-      <div class="fcard"><div class="fc-ico">📊</div><div class="fc-t">① CycloneDDS vs FastDDS</div>
-          <ul class="clist">
-            <li>Pinky-3(Pi 4코어)에서 <b>숫자로</b> RMW 확정<ul>
-              <li>nav2 컨테이너 CPU <b>28.4% → 21.2%</b></li>
-              <li>ROS 합계 <b>54.1% → 46.4%</b> (여유 45.9 → 53.6)</li>
-              <li>DDS 전송 스레드 <b>16.1 → 4.0</b> · nav2 RES <b>154 → 86MB</b></li>
-              <li>포화 시 <code>/tf</code> <b>56.14(−15%) → 67.17(정격)</b></li>
-            </ul></li>
-          </ul>
-          <div class="fc-tech"><span>CycloneDDS 채택</span><span>정적 피어</span></div>
-      </div>
-      <div class="fcard nav-wip"><div class="fc-ico">🚦</div><div class="fc-t">② cmd_vel 권한 제어</div>
-        <div class="wip-sub">상태별로 제어해야 했는데, 통합에서 안 됐다</div>
-        <ul class="clist">
-          <li>우리는 <b>여러 곳에서 <code>/cmd_vel</code> 을 발행</b>한다<ul>
-            <li>사람 추종 PID</li>
-            <li>nav2 본선 · nav2 회복 동작</li>
-          </ul></li>
-          <li>그런데 <b>통합하는 과정에서 원활히 되지 않았다</b><ul>
-            <li>"대기 상태인데 바퀴가 움직인다"가 반복해서 나왔다</li>
-            <li>각 코드가 종료할 때 <b>빠짐없이 취소하기</b>에 의존했기 때문</li>
-          </ul></li>
-          <li><b><code>twist_mux</code> 를 이용해 쉽게 해결했다</b><ul>
-            <li>ROS2 표준 패키지 — 여러 Twist 입력을 <b>우선순위로 중재</b></li>
-            <li>바퀴로 가는 <b>문을 하나로</b> 만들고, 누가 이기는지는 <b>설정 파일에</b> 적었다</li>
-            <li><code>locks</code> 로 특정 우선순위 이하를 <b>상태에 따라 통째로 차단</b></li>
-          </ul></li>
-        </ul>
-        <p class="fc-note">결과적으로 <b>"대기 상태인데 움직인다"가 구조적으로 불가능</b>해졌다. 어떤 코드가 취소를 잊더라도 문이 닫혀 있다.</p>
+      <div class="mg-right">
+        <div class="mg-flow">
+          <div class="mf-h">① 시나리오 · 관리자 등록부터 순회까지</div>
+          <div class="fchart">
+            <div class="fn"><div class="num">1</div><div class="lb">관리자 등록<em>libi GUI 최초 1회</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">2</div><div class="lb">추종 시작<em>검출·식별·유지</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn warn"><div class="num">3</div><div class="lb">관리자 분실<em>시야 이탈</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn"><div class="num">4</div><div class="lb">복구 탐색<em>LKD·Recovery BT</em></div></div>
+            <span class="arw">→</span>
+            <div class="fn alt"><div class="num">5</div><div class="lb">순회 전환<em>Patrol 모드</em></div></div>
+          </div>
+        </div>
+        <div class="mg-top" style="grid-template-columns:1.75fr 1fr">
+          <div class="fmcard">
+            <div class="fmcard-h"><span class="t">② 구현 방안</span><span class="tag">인지·제어 파이프라인</span></div>
+            <div class="alg">
+              <div class="tsubs">
+                <div class="tsub"><span class="sn">검출</span><span><b>YOLO11N</b> — 프레임에서 사람 BBox 추출</span></div>
+                <div class="tsub"><span class="sn">식별</span><span><b>ByteTracker</b>(프레임 간 ID) · <b>ReID</b>(재등장 재식별) · <b>HSV</b>(의상 색상 보조)</span></div>
+                <div class="tsub"><span class="sn">유지</span><span><b>Track Coasting</b> α-β 필터(끊김·가림 대응) · <b>Online Gallery</b>(ReID 0.85↓ 특징 재축적)</span></div>
+                <div class="tsub"><span class="sn">복구</span><span><b>Recovery BT</b>(45° 좌우↔180° 회전↔순회모드) · <b>LKD</b>(마지막 BBox 90° 회전)</span></div>
+                <div class="tsub"><span class="sn">제어</span><span>BBox 화면 중앙 yaw · 전/후진 270·330px · <b>P제어</b> 거리 유지 · <b>LiDAR</b> 10cm↓ 회피</span></div>
+              </div>
+            </div>
+          </div>
+          <div class="fmcard tc">
+            <div class="fmcard-h"><span class="t">③ 향후 계획</span></div>
+            <div class="alg">
+              <ol class="alg-steps">
+                <li>Yaw 회전 빠를 시 <b>인식률 개선</b></li>
+                <li><b>다중 사람</b> 환경 테스트</li>
+                <li><b>BBox 추종</b> 개선</li>
+                <li><b>GUI 연동</b></li>
+              </ol>
+            </div>
+          </div>
+        </div>
       </div>
     </div></div>
-    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Troubleshooting</b></span><span class="pg"></span></footer>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Progress · 추종</b></span><span class="pg"></span></footer>
   </section>
 
-
-
-  <!-- ===== 12 · 향후 계획 ===== -->
   <section class="slide">
     <header class="shead">
-      <div class="kicker anim" style="--d:0"><span class="kn">12</span> Roadmap · 향후 계획</div>
-      <h2 class="stitle anim" style="--d:1">향후 <span class="hl">Roadmap</span> · 통합 먼저, 확장은 그다음</h2>
+      <div class="kicker anim" style="--d:0"><span class="kn">03</span> Integration</div>
+      <h2 class="stitle anim" style="--d:1">연동테스트 <span class="hl">Integration Test</span></h2>
     </header>
-    <div class="sbody"><div class="rmtl anim" style="--d:2;grid-template-columns:repeat(3,1fr)">
+    <div class="sbody"><div class="shot-wrap anim" style="--d:3"><img src="https://images.prismic.io/asd0821/vqcecK_E3E1ljSjB_ui_integration2.png?auto=format,compress" alt="UI · 서비스 연동 통합 다이어그램"></div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Integration · 연동테스트</b></span><span class="pg"></span></footer>
+  </section>
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">04</span> Our Team · 팀원 소개</div>
+      <h2 class="stitle anim" style="--d:1">팀원 소개 <span class="hl">역할 분담</span></h2>
+    </header>
+    <div class="sbody"><div class="teamgrid anim" style="--d:2">
+      <div class="teamcard">
+        <div class="tphoto nav filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="nga" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF6F3"/><stop offset="1" stop-color="#BFE3DC"/></linearGradient></defs><rect width="100" height="100" fill="url(#nga)"/><g stroke="#1E8C80" stroke-width="2" fill="none" opacity=".55"><path d="M50 40 A26 26 0 0 1 76 66"/><path d="M50 47 A18 18 0 0 1 68 65"/><path d="M50 54 A10 10 0 0 1 60 64"/></g><rect x="33" y="47" width="34" height="25" rx="7" fill="#27426f"/><rect x="39" y="53" width="22" height="9" rx="3" fill="#8FD3C9"/><circle cx="44" cy="57.5" r="1.6" fill="#12324a"/><circle cx="56" cy="57.5" r="1.6" fill="#12324a"/><circle cx="39" cy="76" r="5.5" fill="#15223b"/><circle cx="61" cy="76" r="5.5" fill="#15223b"/><rect x="46.5" y="36" width="7" height="12" fill="#27426f"/><circle cx="50" cy="32" r="7" fill="#1E8C80"/><line x1="50" y1="25" x2="50" y2="18" stroke="#1E8C80" stroke-width="2"/><circle cx="50" cy="16.5" r="2.6" fill="#C0852A"/></svg></div>
+        <div class="tname">이강택</div>
+        <div class="trole">주행</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>FMS</li><li>추종</li><li>Libi_GUI(QT)</li><li>딥러닝 모델 구축 (pinky_pro + person)</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">FMS 개선</span><span class="tchip f">추종 개선</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto nav filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ngb" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#EAF6F3"/><stop offset="1" stop-color="#BFE3DC"/></linearGradient></defs><rect width="100" height="100" fill="url(#ngb)"/><g stroke="#1E8C80" stroke-width="2" fill="none" opacity=".55"><path d="M50 40 A26 26 0 0 1 76 66"/><path d="M50 47 A18 18 0 0 1 68 65"/><path d="M50 54 A10 10 0 0 1 60 64"/></g><rect x="33" y="47" width="34" height="25" rx="7" fill="#27426f"/><rect x="39" y="53" width="22" height="9" rx="3" fill="#8FD3C9"/><circle cx="44" cy="57.5" r="1.6" fill="#12324a"/><circle cx="56" cy="57.5" r="1.6" fill="#12324a"/><circle cx="39" cy="76" r="5.5" fill="#15223b"/><circle cx="61" cy="76" r="5.5" fill="#15223b"/><rect x="46.5" y="36" width="7" height="12" fill="#27426f"/><circle cx="50" cy="32" r="7" fill="#1E8C80"/><line x1="50" y1="25" x2="50" y2="18" stroke="#1E8C80" stroke-width="2"/><circle cx="50" cy="16.5" r="2.6" fill="#C0852A"/></svg></div>
+        <div class="tname">인경일</div>
+        <div class="trole">주행</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><div class="wgrp"><div class="wg-h">UI</div><ul class="twork sm"><li>server 구축</li><li>Librarian Browser</li><li>Library Member Browser</li><li>LLM 도서 추천 기능</li></ul></div><div class="wgrp"><div class="wg-h">자율 주행</div><ul class="twork sm"><li>전반적인 자율 주행</li><li>정밀주행<ul class="wsub"><li>ArUco Marker</li><li>Line Tracing</li></ul></li><li>자동 충전 기능</li></ul></div></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">성능 개선</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag1" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag1)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">이세형</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>인지 (진열 위치 트래킹·서가)</li><li>책 grab</li><li>책 파지 후 특정 위치에 진열</li><li>소품 3D 모델 제작</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">진열 진행중</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag2" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag2)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">이형주</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>바구니 인식 및 grab</li><li>딥러닝 모델 구축 (바구니)</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">바구니 grab</span></div></div>
+      </div>
+      <div class="teamcard">
+        <div class="tphoto arm filled"><svg viewBox="0 0 100 100" width="100%" height="100%" preserveAspectRatio="xMidYMid slice"><defs><linearGradient id="ag3" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#FBF2DD"/><stop offset="1" stop-color="#EBD5A2"/></linearGradient></defs><rect width="100" height="100" fill="url(#ag3)"/><g stroke="#9A6A1C" stroke-width="6.5" stroke-linecap="round" fill="none"><path d="M24 84 L40 60 L58 48"/></g><rect x="16" y="84" width="16" height="6" rx="2" fill="#27426f"/><circle cx="24" cy="84" r="4.5" fill="#27426f"/><circle cx="40" cy="60" r="4.5" fill="#C0852A"/><g stroke="#27426f" stroke-width="3.6" fill="none" stroke-linecap="round"><path d="M58 48 l9 -6"/><path d="M58 48 l9 3"/></g><g transform="translate(70 30) rotate(12)"><rect x="0" y="0" width="15" height="20" rx="1.5" fill="#1E8C80"/><rect x="0" y="0" width="4" height="20" fill="#15645b"/><line x1="8" y1="4" x2="12" y2="4" stroke="#EAF6F3" stroke-width="1.3"/><line x1="8" y1="8" x2="12" y2="8" stroke="#EAF6F3" stroke-width="1.3"/></g></svg></div>
+        <div class="tname">정호재</div>
+        <div class="trole">로봇팔</div>
+        <div class="tdiv"></div>
+        <div class="tsec"><div class="tlab">담당 업무</div><ul class="twork"><li>책 인식 및 grab</li><li>자율주행 기능개선</li></ul></div>
+        <div class="tsec"><div class="tlab">현재 진행</div><div class="tchips f"><span class="tchip f">주행</span></div></div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Team · 팀원 소개</b></span><span class="pg"></span></footer>
+  </section>
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">05</span> This Week · Jira</div>
+      <h2 class="stitle anim" style="--d:1">Jira 보고 <span class="hl">Sprint Report</span></h2>
+      <div class="srtag anim" style="--d:2"><b>Sprint 5</b> · 2026.07.13 – 07.20 · 목표 전체 기능 50% · v0.3 · Jira arte1 · 8건</div>
+    </header>
+    <div class="sbody"><div class="jira2">
+      <div class="jira-shot2 anim" style="--d:3"><img src="img/jira_board2.png" alt="Jira Sprint 5 보드"></div>
+      <div class="jtbl anim" style="--d:4">
+        <div class="jtbl-cap">Sprint 5 · 영역별 요약</div>
+        <table>
+          <tr><th>영역</th><th>태스크 · 상태</th></tr>
+          <tr><td>자율주행</td><td>자율주행 성능 개선<b>진행</b></td></tr>
+          <tr><td>정밀 · FMS</td><td>배차·교통 sim 검증<b>진행</b></td></tr>
+          <tr><td>추종</td><td>추종 기술 개선<b class="t">예정</b></td></tr>
+          <tr><td>진열 · 로봇팔</td><td>위치추적<b class="d">완료</b> · 실물테스트<b>진행</b></td></tr>
+          <tr><td>바구니</td><td>끈 바구니 Grab<b>진행</b></td></tr>
+          <tr><td>복귀 · UI</td><td>복귀 성능<b class="t">예정</b> · UI↔로봇<b>진행</b></td></tr>
+        </table>
+        <div class="jtbl-foot">완료 1 · 진행 5 · 예정 2 · 총 8건</div>
+      </div>
+    </div></div>
+    <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>This Week · Jira</b></span><span class="pg"></span></footer>
+  </section>
+
+  <section class="slide">
+    <header class="shead">
+      <div class="kicker anim" style="--d:0"><span class="kn">06</span> Roadmap · 향후 계획</div>
+      <h2 class="stitle anim" style="--d:1">향후 <span class="hl">Roadmap</span> · Sprint 5 – 8</h2>
+    </header>
+    <div class="sbody"><div class="rmtl anim" style="--d:2">
       <div class="rmtl-step">
-        <div class="rmtl-chev"><span class="rmtl-stage">STEP 1</span></div><span class="rmtl-ico">1</span>
-        <div class="rmtl-title">복귀 · 추종 · 가이드<br>기능 통합</div>
-        <div class="rmtl-period">세 기능을 하나로</div>
-        <ul class="rmtl-list">
-          <li>지금은 각각은 돌지만 <b>서로 넘겨주는 경로</b>가 없다</li>
-          <li>안내를 마치면 바로 순회로</li>
-          <li>추종 중 배터리가 떨어지면 복귀로</li>
-          <li>전이와 세션 수명을 하나로 정리</li>
-        </ul>
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 5</span></div><span class="rmtl-ico">1</span>
+        <div class="rmtl-title">개별 동작 구현</div>
+        <div class="rmtl-period">7.13 – 7.17</div>
+        <ul class="rmtl-list"><li>로봇팔 진열대 진열 동작</li><li>바구니 인식·파지 동작</li><li>전반적 주행 성능 개선</li><li>FMS 알고리즘 sim 검증</li><li>추종 구현 마무리</li></ul>
       </div>
       <div class="rmtl-step">
-        <div class="rmtl-chev"><span class="rmtl-stage">STEP 2</span></div><span class="rmtl-ico">2</span>
-        <div class="rmtl-title">로봇팔 통합</div>
-        <div class="rmtl-period">집기 · 놓기 다리 결합</div>
-        <ul class="rmtl-list">
-          <li>단독 검증된 팔을 <b>배달 시퀀스</b>에 결합</li>
-          <li>주행 → 집기 → 주행 → 놓기가 <b>한 주문 안에서</b> 끊기지 않게</li>
-        </ul>
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 6</span></div><span class="rmtl-ico">2</span>
+        <div class="rmtl-title">시나리오 수행</div>
+        <div class="rmtl-period">7.20 – 7.24</div>
+        <ul class="rmtl-list"><li>이송 시나리오</li><li>진열 시나리오</li><li>복귀 시나리오</li><li>짐꾼 시나리오</li><li>길잡이 시나리오</li><li>파견 시나리오</li><li>LLM 제어 (도서 추천·관리자 명령)</li><li>FSM · BT 구현</li></ul>
       </div>
       <div class="rmtl-step">
-        <div class="rmtl-chev"><span class="rmtl-stage">STEP 3</span></div><span class="rmtl-ico">3</span>
-        <div class="rmtl-title">동적 장애물 대응<br>서가 정밀 제어</div>
-        <ul class="rmtl-list">
-          <li><b>동적 장애물</b> — 지금은 사람이 막으면 멈춘다. 다음은 <b>비켜 갈지 기다릴지 선택</b>하는 것</li>
-          <li>통행 금지 마스크와 교통 재계획을 <b>움직이는 장애물</b>까지 확장</li>
-          <li><b>서가 정밀 제어</b> — 지금은 서가 앞 waypoint 까지만 간다</li>
-          <li>책을 빼고 꽂으려면 <b>수 cm · 수 도 단위</b> 정렬이 필요</li>
-        </ul>
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 7</span></div><span class="rmtl-ico">3</span>
+        <div class="rmtl-title">시나리오 수행 및 기능 개선</div>
+        <div class="rmtl-period">7.27 – 7.31</div>
+        <ul class="rmtl-list"><li>분류 시나리오</li><li>순찰 시나리오</li><li>FMS 실물 주행 (순회 시나리오)</li><li>로봇 상호작용 시나리오</li><li>Sprint 6 잔여 시나리오 마무리</li></ul>
+      </div>
+      <div class="rmtl-step">
+        <div class="rmtl-chev"><span class="rmtl-stage">Sprint 8</span></div><span class="rmtl-ico">4</span>
+        <div class="rmtl-title">안정화</div>
+        <div class="rmtl-period">8.3 – 8.7</div>
+        <ul class="rmtl-list"><li>전체 시스템 안정화</li><li>기능 개선</li></ul>
       </div>
     </div></div>
     <footer class="sfoot"><span class="bd"><span class="dotg"></span>ABA · Libi <b>Roadmap · 향후 계획</b></span><span class="pg"></span></footer>
