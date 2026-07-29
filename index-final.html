@@ -1333,7 +1333,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
       <h2 class="stitle anim" style="--d:1">도서 파지 <span class="hl">Pick &amp; Place</span> · PICK은 PBVS, PLACE는 IBVS</h2>
     </header>
-    <div class="sbody"><div class="armgrid anim" style="--d:3">
+    <div class="sbody"><div class="armgrid anim" style="--d:3;grid-template-areas:&quot;pick place vid&quot; &quot;pick place vid&quot;">
       <div class="fcard a-pick">
         <div class="fc-t">① 도서 파지 · Pick<span class="sub">PBVS</span><span class="stt ok">완료</span></div>
         <ul class="clist">
@@ -1352,13 +1352,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
           <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
           <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
           <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
-        </ul>
-      </div>
-      <div class="fcard a-grasp">
-        <div class="fc-t">③ 확장 방향<span class="stt wip">예정</span></div>
-        <ul class="clist">
-          <li>입력을 <b>책 표지·책등·객체 검출 모델</b>로 교체 가능</li>
-          <li>바뀌는 건 "화면 어디에 목표가 있는가"뿐 — <b>제어 구조는 그대로</b></li>
         </ul>
       </div>
       <div class="a-vid">
@@ -1375,7 +1368,7 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="kicker anim" style="--d:0"><span class="kn">02</span> Progress · 로봇팔</div>
       <h2 class="stitle anim" style="--d:1">도서 파지 <span class="hl">Pick &amp; Place</span> · PICK은 PBVS, PLACE는 IBVS</h2>
     </header>
-    <div class="sbody"><div class="armgrid anim" style="--d:3">
+    <div class="sbody"><div class="armgrid anim" style="--d:3;grid-template-areas:&quot;pick place vid&quot; &quot;pick place vid&quot;">
       <div class="fcard a-pick">
         <div class="fc-t">① 도서 파지 · Pick<span class="sub">PBVS</span><span class="stt ok">완료</span></div>
         <ul class="clist">
@@ -1394,13 +1387,6 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
           <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
           <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
           <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
-        </ul>
-      </div>
-      <div class="fcard a-grasp">
-        <div class="fc-t">③ 확장 방향<span class="stt wip">예정</span></div>
-        <ul class="clist">
-          <li>입력을 <b>책 표지·책등·객체 검출 모델</b>로 교체 가능</li>
-          <li>바뀌는 건 "화면 어디에 목표가 있는가"뿐 — <b>제어 구조는 그대로</b></li>
         </ul>
       </div>
       <div class="a-vid">
