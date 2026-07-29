@@ -1478,7 +1478,8 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
     </header>
     <div class="sbody"><div class="mgr gifwide anim" style="--d:3;grid-template-columns:2.4fr 1.78fr">
       <div class="gifbox filled">
-        <video src="https://asd0821.cdn.prismic.io/asd0821/dbaahZfszdTgIVtY_%EC%B6%94%EC%A2%85.mp4" autoplay loop muted playsinline></video>
+        <!-- 1.2배속 — HTML 속성이 없어서 JS 로만 된다. loop 마다 재적용할 필요는 없다(src 가 안 바뀌면 유지) -->
+        <video src="https://asd0821.cdn.prismic.io/asd0821/dbaahZfszdTgIVtY_%EC%B6%94%EC%A2%85.mp4" autoplay loop muted playsinline onloadedmetadata="this.playbackRate=1.2"></video>
       </div>
       <div class="mg-right">
         <div class="mg-flow">
