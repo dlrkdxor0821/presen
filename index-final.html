@@ -1346,12 +1346,10 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="fcard a-place">
         <div class="fc-t">② 도서 배치 · Place<span class="sub">IBVS</span><span class="stt wip">시도 중</span></div>
         <ul class="clist">
-          <li><b>왜 바꿨나</b> — 흐트러진 책은 마커가 가려져 <b>3D pose 추정이 흔들린다</b></li>
           <li><b>IBVS</b> — 3D 복원 없이 화면 오차만으로<ul><li><code>ex</code>→Y · <code>ey</code>→Z · <code>ew</code>(<b>크기</b>)→X — 크기가 거리를 대신한다</li><li>세 축을 <b>동시에</b> 낸다 (순차면 왕복한다)</li></ul></li>
           <li><b>lookahead + 비동기 send_coords</b><ul><li>도착을 기다리면 가속·감속 반복으로 뚝뚝 끊긴다</li></ul></li>
           <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
           <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
-          <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
         </ul>
       </div>
       <div class="a-vid">
@@ -1381,12 +1379,10 @@ body{font-family:var(--sans);background:var(--navy-2);color:var(--ink);overflow:
       <div class="fcard a-place">
         <div class="fc-t">② 도서 배치 · Place<span class="sub">IBVS</span><span class="stt wip">시도 중</span></div>
         <ul class="clist">
-          <li><b>왜 바꿨나</b> — 흐트러진 책은 마커가 가려져 <b>3D pose 추정이 흔들린다</b></li>
           <li><b>IBVS</b> — 3D 복원 없이 화면 오차만으로<ul><li><code>ex</code>→Y · <code>ey</code>→Z · <code>ew</code>(<b>크기</b>)→X — 크기가 거리를 대신한다</li><li>세 축을 <b>동시에</b> 낸다 (순차면 왕복한다)</li></ul></li>
           <li><b>lookahead + 비동기 send_coords</b><ul><li>도착을 기다리면 가속·감속 반복으로 뚝뚝 끊긴다</li></ul></li>
           <li><b>MoveJ mode</b> — MoveL 은 직선을 지키려다 해를 잃는다</li>
           <li><b>rx·ry·rz 고정</b> — 카메라 자세가 바뀌면 IBVS <b>제어 법칙이 깨진다</b></li>
-          <li>안정화 — EMA · 속도 LPF · 거리별 감속 · 최종 XZ 정밀제어</li>
         </ul>
       </div>
       <div class="a-vid">
